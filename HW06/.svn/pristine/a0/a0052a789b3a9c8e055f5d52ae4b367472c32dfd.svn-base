@@ -1,0 +1,35 @@
+package model.visitor;
+
+import provided.music.APhraseVisitor;
+import provided.music.IPhrase;
+import provided.music.IPhraseVisitorCmd;
+import provided.music.MTSeqList;
+import provided.music.NESeqList;
+
+public class ToStringVisitor extends APhraseVisitor{
+
+	/**
+	 * toString visitor constructor: add visitor cases for nonempty and empty SeqLists
+	 */
+	public ToStringVisitor() {
+		
+		this.addCmd(NESeqList.ID, new IPhraseVisitorCmd() {
+
+			@Override
+			public Object apply(String id, IPhrase host, Object... params) {
+				NESeqList list = (NESeqList) host;
+				return list.getRest().execute(ToStringVisitor.this, params[0] + ", " + list.getFirst());
+			}			
+		});
+		
+		this.addCmd(MTSeqList.ID, new IPhraseVisitorCmd() {
+
+			@Override
+			public Object apply(String id, IPhrase host, Object... params) {
+				return params[0] + "}";
+			}
+			
+		});
+	}
+
+}

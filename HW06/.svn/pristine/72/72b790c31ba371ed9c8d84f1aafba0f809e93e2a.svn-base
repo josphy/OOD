@@ -1,0 +1,30 @@
+package view; 
+/** 
+* @author : 
+* @version :{date:} {time:} 
+* @Description: 
+*/
+public interface IModelAdapter<TInstrument> {
+	void Load(String filename);
+	void Parse();
+//	void Play(TInstrument instrument);
+//	void Stop();
+	public static final IModelAdapter<?> NULL_OBJECT = new IModelAdapter<Object>() {
+
+		@Override
+		public void Load(String filename) {
+		}
+
+		@Override
+		public void Parse() {
+		}
+
+//		@Override
+//		public void Play(Object instrument) {
+//		}
+//
+////		@Override
+//		public void Stop() {
+//		}
+	};
+}

@@ -1,0 +1,11 @@
+package model.visitor;
+
+import provided.music.APhraseVisitor;
+
+public class PlayMusicVisitor extends APhraseVisitor{
+
+	public PlayMusicVisitor() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

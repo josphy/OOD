@@ -1,0 +1,75 @@
+package control;
+
+import java.awt.EventQueue;
+import model.*;
+import view.*;
+import provided.util.*;
+
+public class Controller {
+	private PlayerModel model;
+	private PlayerGUI<ABCInstrument> view;
+	public Controller() {
+		model = new PlayerModel(new IViewAdapter() {
+			@Override
+			//getTextFile->take out content in the JTextPane, which store file content
+			//setText->set text view's text area
+			public void setTxtArea(String content) {
+				view.getTextFile().setText(content);
+			}
+
+			//add instrument into JComboBox
+			@Override
+			public void addInstrument(ABCInstrument instrument) {
+				view.addInstrument(instrument);
+			}
+
+		});
+		view = new PlayerGUI<ABCInstrument>(new IModelAdapter<ABCInstrument>() {
+			//load abc file using full path ("/songs/" + txtInput.getText() + ".abc")
+			@Override
+			public void Load(String filename) {
+				model.LoadFile(filename);
+			}
+			
+			//transfer host to String(using tostring visitor!  
+			@Override
+			public void Parse() {
+				view.getTextParsed().setText(model.parseToString());
+			}
+
+//			@Override
+//			public void Play(ABCInstrument instrument) {
+//				model.Play(instrument);
+//			}
+//
+//			@Override
+//			public void Stop() {
+//				model.stop();
+//			}
+		});
+	}
+	public void start() {
+		ABCInstrument[] instruments = ABCUtil.Singleton.getInstruments();
+		for (ABCInstrument instrument : instruments) {
+			view.addInstrument(instrument);
+		}
+		model.start();
+		view.start();
+	}
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() { 
+			public void run() {
+				try {
+					Controller controller = new Controller(); // instantiate the system
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

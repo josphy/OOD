@@ -1,0 +1,97 @@
+package view;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+
+import java.awt.Color;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JSplitPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class PlayerGUI extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6011572294054817374L;
+
+	private JPanel contentPane;
+	
+	private final JPanel pnlControl = new JPanel();
+	private final JTextPane txtTip = new JTextPane();
+	private final JTextField txtInput = new JTextField();
+	private final JButton btnLoad = new JButton("Load");
+	private final JButton btnParse = new JButton("Parse");
+	private final JComboBox boxInstrument = new JComboBox();
+	private final JButton btnPlay = new JButton("Play");
+	
+	private final JPanel pnlDisplay = new JPanel();
+	private final JSplitPane pnlSplit = new JSplitPane();
+	private final JScrollPane pnlFile = new JScrollPane();
+	private final JTextArea textFile = new JTextArea();
+	private final JScrollPane pnlParsed = new JScrollPane();
+	private final JTextArea textParsed = new JTextArea();
+
+	/**
+	 * Create the frame.
+	 */
+	public PlayerGUI() {
+		initGUI();
+	}
+	
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		//display panel setting
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		
+		pnlSplit.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		pnlDisplay.add(pnlSplit);
+		
+		pnlSplit.setLeftComponent(pnlFile);
+		textFile.setLineWrap(true);
+		textFile.setRows(7);
+		pnlFile.setViewportView(textFile);
+		pnlFile.setBorder(new TitledBorder("File Content"));
+		
+		pnlSplit.setRightComponent(pnlParsed);
+		textParsed.setLineWrap(true);
+		pnlParsed.setViewportView(textParsed);
+		pnlParsed.setBorder(new TitledBorder("Parsed IPhrase Structure"));
+		
+		//control panel setting
+		pnlControl.setBackground(Color.PINK);
+		contentPane.add(pnlControl, BorderLayout.NORTH);
+		
+		txtTip.setBackground(Color.PINK);
+		txtTip.setText("File:");
+		pnlControl.add(txtTip);
+		
+		txtInput.setText("scale");
+		txtInput.setColumns(5);
+		pnlControl.add(txtInput);
+		
+		pnlControl.add(btnLoad);
+		
+		pnlControl.add(btnParse);
+		
+		pnlControl.add(boxInstrument);
+		
+		pnlControl.add(btnPlay);
+	}
+
+}

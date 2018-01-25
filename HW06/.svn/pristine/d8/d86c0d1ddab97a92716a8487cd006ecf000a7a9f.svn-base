@@ -1,0 +1,29 @@
+package control;
+
+import java.awt.EventQueue;
+
+import view.PlayerGUI;
+
+public class Controller {
+
+	public Controller() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PlayerGUI frame = new PlayerGUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+}

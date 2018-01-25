@@ -1,0 +1,9 @@
+package model;
+
+public class PlayerModel {
+
+	public PlayerModel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

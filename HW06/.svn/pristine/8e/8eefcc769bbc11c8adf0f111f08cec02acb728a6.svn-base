@@ -1,0 +1,32 @@
+package model;
+import provided.util.ABCInstrument;
+
+/** 
+* @author : 
+* @version :{date:} {time:} 
+* @Description: 
+*/
+public interface IViewAdapter {
+	/**
+	 * set text view's text area
+	 */
+	void setTxtArea(String content);
+	/**
+	 * add instrument into JComboBox
+	 */
+	void addInstrument(ABCInstrument instrument);
+
+	
+	public static final IViewAdapter NULL_OBJECT = new IViewAdapter() {
+		@Override
+		public void setTxtArea(String content) {
+			//no-op
+		}
+
+		@Override
+		public void addInstrument(ABCInstrument instrument) {
+			//no-op
+		}
+	};
+}
+
