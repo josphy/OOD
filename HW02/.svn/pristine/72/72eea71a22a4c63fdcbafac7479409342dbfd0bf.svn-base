@@ -1,0 +1,129 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+/**
+ * This is a GUI to run  Ball World
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+public class BallFrame extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8987134431120800637L;
+	private JPanel contentPane;
+	private final JPanel pnlControl = new JPanel();
+	private final JButton btnMakeBall = new JButton("Make Ball");
+	private final JButton btnClearAll = new JButton("Clear All");
+	private final JTextField tfBallType = new JTextField();
+	
+	// The model adapter is initialized to a no-op to insure that system always has well-defined behavior
+	private IView2ModelAdapter _view2ModelAdpt = IView2ModelAdapter.NULL_OBJECT; 
+	
+	/*
+	 * Create a Ball World Panel
+	 */
+	private final JPanel pnlBall = new JPanel() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 4048578419360286049L;
+
+		/**
+		* Overridden paintComponent method to paint a shape in the panel.
+		* @param g The Graphics object to paint on.
+		**/
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g); // Do everything normally done first, e.g. clear the screen.
+			_view2ModelAdpt.paint(g);  // call back to the model to paint the sprites
+
+		}
+	};
+
+	
+	
+	
+	/**
+	 *  start method to start the GUI, used by controller
+	 */
+	public void start(BallFrame view) {
+		view.setVisible(true);
+	}
+	
+	/**
+	 * Updates the view by repainting the canvas
+	 */
+	public void update() {
+		pnlBall.repaint();
+	}
+	
+
+	/**
+	 * Constructor Create the frame.
+	 */
+	public BallFrame(IView2ModelAdapter _view2ModelAdpt) {
+		this._view2ModelAdpt = _view2ModelAdpt ;  
+		tfBallType.setColumns(20);
+		tfBallType.setText("model.StraightBall");
+		initGUI();
+	}
+	
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 664, 427);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		//Control panel settings
+		//pnlControl.setBackground(Color.PINK);
+		
+		contentPane.add(pnlControl, BorderLayout.NORTH);
+		
+		pnlControl.add(tfBallType);
+		tfBallType.setToolTipText("Enter the type of the ball whith the format model.ballType");
+		
+		btnMakeBall.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				_view2ModelAdpt.addBall(tfBallType.getText());
+				//_view2ModelAdpt.addBall("model.StraightBall");
+			}
+		});
+		btnMakeBall.setToolTipText("Create a ball with the type in the text field");
+		
+		pnlControl.add(btnMakeBall);
+		btnClearAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_view2ModelAdpt.clearBalls();
+			}
+		});
+		btnClearAll.setToolTipText("Remove all the balls in the ball panel");
+		
+		pnlControl.add(btnClearAll);
+		
+		//Ball panel settings
+		//pnlBall.setBackground(Color.LIGHT_GRAY);
+		//set the bound of the ball panel
+		pnlBall.setSize(600, 800);	
+		
+		_view2ModelAdpt.setPanel(pnlBall);
+		contentPane.add(pnlBall, BorderLayout.CENTER);
+		
+	}
+
+}

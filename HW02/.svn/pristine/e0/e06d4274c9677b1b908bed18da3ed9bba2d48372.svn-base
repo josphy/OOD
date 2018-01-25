@@ -1,0 +1,26 @@
+Instructions to run this project:
+
+This project is a simple GUI application which will automatically paint a predetermined red oval and circle in
+the center canvas.
+
+To run this project, open it in the Eclipse IDE, and click the Run.
+
+There are several buttons in the frame:
+
+1) click button in the north panel: when you click this button, set the left label's text to whatever text has been
+typed into the right text field.
+ 
+2) Circle button: click it then a magenta circle will appear in the center pick canvas. The red oval remains. The 
+green rectangle and the orange arc will disappear if they exist before.
+ 
+3) Rectangle button: click it then a green rectangle will appear in the center pick canvas. The red oval remains. The 
+magenta circle and the orange arc will disappear if they exist before.
+ 
+4) Arc button: click it then a orange arc will appear in the center pick canvas. The red oval remains. The 
+magenta circle and the green rectangle will disappear if they exist before.
+ 
+5) Composite Shape button: click it then a composite shape contains a blue circle and a cyan arc will appear together.
+
+Yining Bao & Haoshan Zou
+
+ 

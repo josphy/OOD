@@ -1,0 +1,71 @@
+package view;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+/**
+ * This is a view to model adapter
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+
+public interface IView2ModelAdapter {
+	
+	/*
+	 * Use graphic g to paint balls
+	 */
+	public void paint(Graphics g);
+	
+	/*
+	 * Add a ball to the panel
+	 */
+	public void addBall(String s);
+	
+	
+	/*
+	 * Clear all balls on the panel
+	 */
+	public void clearBalls();
+	
+	/*
+	 *Provide panel to the model 
+	 */
+	
+	public void setPanel(JPanel ballPanel);
+	
+	
+    
+	// other methods elided...
+
+
+	/**
+	 * No-op singleton implementation of IView2ModelAdapter 
+	 * See the web page on the Null Object Design Pattern at http://cnx.org/content/m17227/latest/
+	 */
+	public static final IView2ModelAdapter NULL_OBJECT = new IView2ModelAdapter () {	  
+	    public void paint(Graphics g) {
+	    }
+
+		@Override
+		public void addBall(String s) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void clearBalls() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setPanel(JPanel ballPanel) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+	
+
+}

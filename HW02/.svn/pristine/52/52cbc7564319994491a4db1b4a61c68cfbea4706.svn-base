@@ -1,0 +1,39 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.util.Random;
+
+import javax.swing.JPanel;
+
+import util.Randomizer;
+import util.SineMaker;
+
+/**
+ * This is a BreathingBall which is a concrete of the abstract ball class. Balls change radius while moving.
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+
+public class BreathingBall extends ABall{
+	
+	//radius should not be negtive
+	int v1 = Randomizer.Singleton.randomInt(1, 40);
+	int v2 = Randomizer.Singleton.randomInt(1, 40);
+	
+	int max = v1>v2?v1:v2;
+	int min = v1>v2?v2:v1;
+	
+	SineMaker sine = new SineMaker(min, max, 20);
+	
+	public BreathingBall(Point loc, int radius, Point vel, Color color, JPanel canvas) {
+		super(loc, radius, vel, color, canvas);
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void updateFormate() {
+		this.radius = sine.getIntVal();
+	}
+
+}

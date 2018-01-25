@@ -1,0 +1,28 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Point;
+
+import javax.swing.JPanel;
+
+import util.Randomizer;
+
+/**
+ * This is a GostBall which is a concrete of the abstract ball class. Balls show up in different location while moving.
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+public class GostBall extends ABall{
+
+	public GostBall(Point loc, int radius, Point vel, Color color, JPanel canvas) {
+		super(loc, radius, vel, color, canvas);
+		// TODO Auto-generated constructor stub
+	}
+	
+	protected void updateFormate() {
+		this.loc.x = Randomizer.Singleton.randomInt(this.radius, this.canvas.getWidth() - this.radius);
+		this.loc.y = Randomizer.Singleton.randomInt(this.radius, this.canvas.getHeight() - this.radius);
+	}
+
+}

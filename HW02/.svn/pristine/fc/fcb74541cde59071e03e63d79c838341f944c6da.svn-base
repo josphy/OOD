@@ -1,0 +1,91 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JPanel;
+
+/**
+ * This is a abstract ball class
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+
+public abstract class ABall  implements Observer  {
+	protected Point loc;
+	protected int radius;
+	protected Point vel;
+	protected Color color;
+	protected JPanel canvas;
+	
+	public ABall(Point loc, int radius, Point vel, Color color, JPanel canvas) {
+		this.loc = loc;
+		this.radius = radius;
+		this.vel = vel;
+		this.color = color;
+		this.canvas = canvas;
+	}
+	
+	
+	
+	
+	/**
+	 * Actually drawing the ball on the Graphics object
+	 */
+	public void paint(Graphics g) {
+		g.setColor(color);
+		g.fillOval(loc.x-radius, loc.y-radius, 2*radius, 2*radius);
+		
+	}
+	
+	/**
+	 * Bound the ball at the panel
+	 */
+	private void bounce() {
+		if(loc.x+radius >= canvas.getWidth()) {
+			vel.x = -vel.x;
+			loc.x = canvas.getWidth() - radius;
+		}
+		
+		if(loc.x-radius <= 0) {
+			vel.x = -vel.x;
+			loc.x = radius;
+		}
+		
+		if(loc.y+radius >= canvas.getHeight()) {
+			vel.y = -vel.y;
+			loc.y = canvas.getHeight()-radius;
+		}
+		
+		if(loc.y-radius <= 0) {
+			vel.y = -vel.y;
+			loc.y =radius;
+		}
+	}
+	
+	/**
+	 *  Changing the color or radius or velocity in some manner
+	 */
+	protected void updateFormate() {
+		//override in subclass for different changes
+	}
+	
+	
+	
+	
+	/**
+	 * Override of update() of Observer
+	 */
+	public void update(Observable o, Object g) {
+		loc.translate(vel.x, vel.y);	
+		bounce();
+		updateFormate();
+		paint((Graphics) g);
+	}
+	
+
+}

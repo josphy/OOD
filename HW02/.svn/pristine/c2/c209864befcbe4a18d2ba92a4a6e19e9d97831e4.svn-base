@@ -1,0 +1,21 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Point;
+
+import javax.swing.JPanel;
+
+/**
+ * This is a StraightBall which is a concrete of the abstract ball class. Balls goes in a straight line.
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+public class StraightBall extends ABall {
+
+	public StraightBall(Point loc, int radius, Point vel, Color color, JPanel canvas) {
+		super(loc, radius, vel, color, canvas);
+		// TODO Auto-generated constructor stub
+	}
+
+}

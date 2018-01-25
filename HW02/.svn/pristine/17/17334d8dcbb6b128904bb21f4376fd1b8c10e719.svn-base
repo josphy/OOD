@@ -1,0 +1,117 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JPanel;
+
+/**
+ * This is a abstract ball class
+ * @author Qingyue Liu, Haoshan Zou
+ * @version 1.0
+ * @since 2017-09-07
+ */
+
+public abstract class ABall implements Observer {
+	/**
+	 * loc is the center point of a ball.
+	 */
+	protected Point loc;
+
+	/**
+	 * radius is the radius of a ball.
+	 */
+	protected int radius;
+
+	/**
+	 * vel is the velocity of a ball which include the x-axis velocity and y-axis velocity.
+	 */
+	protected Point vel;
+
+	/**
+	 * color is the color of a ball.
+	 */
+	protected Color color;
+
+	/**
+	 * canvas is the panel for the ball word.
+	 */
+	protected JPanel canvas;
+
+	/**
+	 * Constructor of ABall.
+	 * @param loc The center point of a ball.
+	 * @param radius The radius of a ball.
+	 * @param vel The velocity of a ball
+	 * @param color The color of a ball
+	 * @param canvas The panel for the ball word
+	 */
+	public ABall(Point loc, int radius, Point vel, Color color, JPanel canvas) {
+		this.loc = loc;
+		this.radius = radius;
+		this.vel = vel;
+		this.color = color;
+		this.canvas = canvas;
+	}
+
+	/**
+	 * paint to paint a ball in the panel.
+	 * @param g The Graphics object to paint on.
+	 */
+	public void paint(Graphics g) {
+		g.setColor(color);
+		g.fillOval(loc.x - radius, loc.y - radius, 2 * radius, 2 * radius);
+
+	}
+
+	/**
+	 * Bound method sets the location and the velocity of the ball when it tough the bound of the ball panel.
+	 */
+	private void bounce() {
+		if (loc.x + radius >= canvas.getWidth()) {
+			vel.x = -vel.x;
+			loc.x = canvas.getWidth() - radius;
+		}
+
+		if (loc.x - radius <= 0) {
+			vel.x = -vel.x;
+			loc.x = radius;
+		}
+
+		if (loc.y + radius >= canvas.getHeight()) {
+			vel.y = -vel.y;
+			loc.y = canvas.getHeight() - radius;
+		}
+
+		if (loc.y - radius <= 0) {
+			vel.y = -vel.y;
+			loc.y = radius;
+		}
+	}
+
+	/**
+	 * move method moves ball's location under velocity.
+	 */
+	private void move() {
+		loc.translate(vel.x, vel.y);
+	}
+
+	/**
+	 * updateFormate method change the color or radius or velocity in some manner. This method will override in subclass for different ball types.
+	 */
+	abstract void updateFormate();
+
+	/**
+	 * update method overrides of update() of Observer.
+	 */
+	public void update(Observable o, Object g) {
+		move();
+		bounce();
+		updateFormate();
+		paint((Graphics) g);
+	}
+
+}

@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_LnFtsJSwEeeRzMppzdiVIQ" name="BallWorld">
+    <eAnnotations xmi:id="_LrWioJSwEeeRzMppzdiVIQ" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_LrWioZSwEeeRzMppzdiVIQ" source="codegen">
+        <details xmi:id="_LrWiopSwEeeRzMppzdiVIQ" key="codegenDirectory" value="/HW02/src"/>
+        <details xmi:id="_MHDAIJSwEeeRzMppzdiVIQ" key="AssociatedSourceCode" value="/HW02/src/control/Controller.java;929454036/1;/HW02/src/model/ABall.java;3200208235/1;/HW02/src/model/BallModel.java;2762147203/1;/HW02/src/model/BreathingBall.java;903417756/1;/HW02/src/model/ColorChangingBall.java;1541172146/1;/HW02/src/model/CurveBall.java;1837445085/1;/HW02/src/model/DirectChangingBall.java;1813485326/1;/HW02/src/model/GostBall.java;3894381327/1;/HW02/src/model/IModel2ViewAdapter.java;3896142824/1;/HW02/src/model/StraightBall.java;2881233718/1;/HW02/src/model/WanderBall.java;782404656/1;/HW02/src/util/Dispatcher.java;774909249/1;/HW02/src/util/IRandomizer.java;2455674643/1;/HW02/src/util/Randomizer.java;2200526122/1;/HW02/src/util/SineMaker.java;1992172092/1;/HW02/src/view/BallFrame.java;53716474/1;/HW02/src/view/IView2ModelAdapter.java;1529764249/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_L8nRwJSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRwZSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRwpSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRw5SwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRxJSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRxZSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRxpSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRx5SwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_L8nRyJSwEeeRzMppzdiVIQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8nRyZSwEeeRzMppzdiVIQ" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_L8nRypSwEeeRzMppzdiVIQ" name="awt">
+        <packagedElement xmi:type="uml:Package" xmi:id="_L9D9sZSwEeeRzMppzdiVIQ" name="event">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_MAo2K5SwEeeRzMppzdiVIQ" name="ActionListener"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_MAo2LZSwEeeRzMppzdiVIQ" name="ActionEvent"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7MJSwEeeRzMppzdiVIQ" name="EventQueue"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7MpSwEeeRzMppzdiVIQ" name="Graphics"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7NpSwEeeRzMppzdiVIQ" name="Color"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7OJSwEeeRzMppzdiVIQ" name="Point"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7PpSwEeeRzMppzdiVIQ" name="Rectangle"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAo2IZSwEeeRzMppzdiVIQ" name="BorderLayout"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MBrYEZSwEeeRzMppzdiVIQ" name="Dimension"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_L8nR0JSwEeeRzMppzdiVIQ" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7OpSwEeeRzMppzdiVIQ" name="Observable"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_MAV7PJSwEeeRzMppzdiVIQ" name="Observer"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_MAynLJSwEeeRzMppzdiVIQ" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAynLZSwEeeRzMppzdiVIQ" name="Object"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8nRy5SwEeeRzMppzdiVIQ" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_L8nRzJSwEeeRzMppzdiVIQ" name="swing">
+        <packagedElement xmi:type="uml:Package" xmi:id="_L9D9sJSwEeeRzMppzdiVIQ" name="border">
+          <packagedElement xmi:type="uml:Class" xmi:id="_MAo2JZSwEeeRzMppzdiVIQ" name="EmptyBorder"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7NJSwEeeRzMppzdiVIQ" name="JPanel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAV7QJSwEeeRzMppzdiVIQ" name="Timer"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAo2I5SwEeeRzMppzdiVIQ" name="JFrame"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAo2J5SwEeeRzMppzdiVIQ" name="JButton"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MAo2KZSwEeeRzMppzdiVIQ" name="JTextField"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8nRzZSwEeeRzMppzdiVIQ" name="view">
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-aBjJSwEeeRzMppzdiVIQ" name="BallFrame">
+        <ownedComment xmi:id="_MCIER5SwEeeRzMppzdiVIQ">
+          <body>This is a GUI to run  Ball World&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MB1I8JSwEeeRzMppzdiVIQ" general="_MAo2I5SwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB-5_JSwEeeRzMppzdiVIQ" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-5_ZSwEeeRzMppzdiVIQ" value="-8987134431120800637L"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-5_pSwEeeRzMppzdiVIQ" name="contentPane" visibility="private" type="_MAV7NJSwEeeRzMppzdiVIQ" association="_MCR1CJSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB-6AJSwEeeRzMppzdiVIQ" name="pnlControl" visibility="private" isLeaf="true" type="_MAV7NJSwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR1C5SwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6AZSwEeeRzMppzdiVIQ" value="new JPanel()"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-6A5SwEeeRzMppzdiVIQ" name="btnMakeBall" visibility="private" isLeaf="true" type="_MAo2J5SwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR1DpSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6BJSwEeeRzMppzdiVIQ" value="new JButton(&quot;Make Ball&quot;)"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-6BpSwEeeRzMppzdiVIQ" name="btnClearAll" visibility="private" isLeaf="true" type="_MAo2J5SwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR1EZSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6B5SwEeeRzMppzdiVIQ" value="new JButton(&quot;Clear All&quot;)"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-6CZSwEeeRzMppzdiVIQ" name="tfBallType" visibility="private" isLeaf="true" type="_MAo2KZSwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR1FJSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6CpSwEeeRzMppzdiVIQ" value="new JTextField()"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-6DJSwEeeRzMppzdiVIQ" name="_view2ModelAdpt" visibility="private" type="_L-jLcJSwEeeRzMppzdiVIQ" association="_MCR1F5SwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6DZSwEeeRzMppzdiVIQ" value="IView2ModelAdapter.NULL_OBJECT"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-6D5SwEeeRzMppzdiVIQ" name="pnlBall" visibility="private" isLeaf="true" type="_MAV7NJSwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR1GpSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-6EJSwEeeRzMppzdiVIQ" value="new JPanel() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9; * serialVersionUID is the serial version UID.&#xD;&#xA;&#x9;&#x9; */&#xD;&#xA;&#x9;&#x9;private static final long serialVersionUID = 4048578419360286049L;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9;* Overridden paintComponent method to paint a shape in the panel.&#xD;&#xA;&#x9;&#x9;* @param g The Graphics object to paint on.&#xD;&#xA;&#x9;&#x9;**/&#xD;&#xA;&#x9;&#x9;public void paintComponent(Graphics g) {&#xD;&#xA;&#x9;&#x9;&#x9;super.paintComponent(g); // Do everything normally done first, e.g. clear the screen.&#xD;&#xA;&#x9;&#x9;&#x9;_view2ModelAdpt.paint(g); // call back to the model to paint the sprites&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEGZSwEeeRzMppzdiVIQ" name="start" specification="_MAo2L5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEGpSwEeeRzMppzdiVIQ" name="view" type="_L-aBjJSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>view.setVisible(true);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEG5SwEeeRzMppzdiVIQ" name="update" specification="_L-aBjZSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>pnlBall.repaint();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEHJSwEeeRzMppzdiVIQ" name="BallFrame" specification="_MAo2MZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEHZSwEeeRzMppzdiVIQ" name="_view2ModelAdpt" type="_L-jLcJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEHpSwEeeRzMppzdiVIQ" type="_L-aBjJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>this._view2ModelAdpt = _view2ModelAdpt;&#xD;
+		tfBallType.setColumns(20);&#xD;
+		tfBallType.setText(&quot;model.StraightBall&quot;);&#xD;
+		initGUI();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEH5SwEeeRzMppzdiVIQ" name="initGUI" specification="_L-aBjpSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>//Frame settings&#xD;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#xD;
+		setBounds(100, 100, 664, 427);&#xD;
+&#xD;
+		//Container panel settings&#xD;
+		contentPane = new JPanel();&#xD;
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#xD;
+		contentPane.setLayout(new BorderLayout(0, 0));&#xD;
+		setContentPane(contentPane);&#xD;
+&#xD;
+		//Control panel settings&#xD;
+		contentPane.add(pnlControl, BorderLayout.NORTH);&#xD;
+&#xD;
+		pnlControl.add(tfBallType);&#xD;
+		tfBallType.setToolTipText(&quot;Enter the type of the ball whith the format model.ballType&quot;);&#xD;
+&#xD;
+		btnMakeBall.addActionListener(new ActionListener() {&#xD;
+			public void actionPerformed(ActionEvent arg0) {&#xD;
+				_view2ModelAdpt.addBall(tfBallType.getText());&#xD;
+			}&#xD;
+		});&#xD;
+		btnMakeBall.setToolTipText(&quot;Create a ball with the type in the text field&quot;);&#xD;
+&#xD;
+		pnlControl.add(btnMakeBall);&#xD;
+		btnClearAll.addActionListener(new ActionListener() {&#xD;
+			public void actionPerformed(ActionEvent e) {&#xD;
+				_view2ModelAdpt.clearBalls();&#xD;
+			}&#xD;
+		});&#xD;
+		btnClearAll.setToolTipText(&quot;Remove all the balls in the ball panel&quot;);&#xD;
+&#xD;
+		pnlControl.add(btnClearAll);&#xD;
+&#xD;
+		//Ball panel settings&#xD;
+		pnlBall.setSize(600, 800);&#xD;
+		contentPane.add(pnlBall, BorderLayout.CENTER);&#xD;
+&#xD;
+		//Set the panel for ball word&#xD;
+		_view2ModelAdpt.setPanel(pnlBall);&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L-aBjZSwEeeRzMppzdiVIQ" name="update" method="_MCIEG5SwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIESZSwEeeRzMppzdiVIQ">
+            <body>Update function to updates the view by repainting the canvas.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-aBjpSwEeeRzMppzdiVIQ" name="initGUI" visibility="private" method="_MCIEH5SwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIES5SwEeeRzMppzdiVIQ">
+            <body>initGUI initialize all the components on the frame.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MAo2L5SwEeeRzMppzdiVIQ" name="start" method="_MCIEGZSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIESJSwEeeRzMppzdiVIQ">
+            <body>Start method to start the GUI. This method is called by controller.&#xD;
+	 * @param view The main frame of ball word GUI.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MAo2MJSwEeeRzMppzdiVIQ" name="view" type="_L-aBjJSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MAo2MZSwEeeRzMppzdiVIQ" name="BallFrame" method="_MCIEHJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MAo2M5SwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MAo2NJSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIESpSwEeeRzMppzdiVIQ">
+            <body>Constructor of BallFrame.&#xD;
+	 * @param _view2ModelAdpt An instance of view to model adaptor.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MAo2MpSwEeeRzMppzdiVIQ" name="_view2ModelAdpt" type="_L-jLcJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAo2NZSwEeeRzMppzdiVIQ" type="_L-aBjJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_L-jLcJSwEeeRzMppzdiVIQ" name="IView2ModelAdapter">
+        <ownedComment xmi:id="_MCIETJSwEeeRzMppzdiVIQ">
+          <body>This is an interface of view to model adapter&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_L-jLdJSwEeeRzMppzdiVIQ" name="NULL_OBJECT" isLeaf="true" isStatic="true" type="_L-jLcJSwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCR04ZSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_L-jLdZSwEeeRzMppzdiVIQ" value="new IView2ModelAdapter() {&#xD;&#xA;&#x9;&#x9;public void paint(Graphics g) {&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void addBall(String s) {&#xD;&#xA;&#x9;&#x9;&#x9;// TODO Auto-generated method stub&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void clearBalls() {&#xD;&#xA;&#x9;&#x9;&#x9;// TODO Auto-generated method stub&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void setPanel(JPanel ballPanel) {&#xD;&#xA;&#x9;&#x9;&#x9;// TODO Auto-generated method stub&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_L-jLcZSwEeeRzMppzdiVIQ" name="addBall">
+          <ownedComment xmi:id="_MCIETpSwEeeRzMppzdiVIQ">
+            <body>addBall method adds a ball to the panel.&#xD;
+	 * @param s The type of the ball.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-jLcpSwEeeRzMppzdiVIQ" name="s">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-jLc5SwEeeRzMppzdiVIQ" name="clearBalls">
+          <ownedComment xmi:id="_MCIET5SwEeeRzMppzdiVIQ">
+            <body> clearBalls method clears all balls on the panel.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MB1I8ZSwEeeRzMppzdiVIQ" name="paint">
+          <ownedComment xmi:id="_MCIETZSwEeeRzMppzdiVIQ">
+            <body>paint method uses graphic g to paint balls.&#xD;
+	 * @param g The Graphics object to paint on.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MB1I8pSwEeeRzMppzdiVIQ" name="g" type="_MAV7MpSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MB1I85SwEeeRzMppzdiVIQ" name="setPanel">
+          <ownedComment xmi:id="_MCIEUJSwEeeRzMppzdiVIQ">
+            <body>setPanel method provides the ball panel to the model.&#xD;
+	 * @param ballPanel The panel to show the animation of balls.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MB1I9JSwEeeRzMppzdiVIQ" name="ballPanel" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR04ZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR04pSwEeeRzMppzdiVIQ _L-jLdJSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR04pSwEeeRzMppzdiVIQ" name="" type="_L-jLcJSwEeeRzMppzdiVIQ" association="_MCR04ZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1CJSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1CZSwEeeRzMppzdiVIQ _MB-5_pSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1CZSwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1CJSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1C5SwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1DJSwEeeRzMppzdiVIQ _MB-6AJSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1DJSwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1C5SwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1DpSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1D5SwEeeRzMppzdiVIQ _MB-6A5SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1D5SwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1DpSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1EZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1EpSwEeeRzMppzdiVIQ _MB-6BpSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1EpSwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1EZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1FJSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1FZSwEeeRzMppzdiVIQ _MB-6CZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1FZSwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1FJSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1F5SwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1GJSwEeeRzMppzdiVIQ _MB-6DJSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1GJSwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1F5SwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1GpSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1G5SwEeeRzMppzdiVIQ _MB-6D5SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1G5SwEeeRzMppzdiVIQ" name="" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR1GpSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8nRzpSwEeeRzMppzdiVIQ" name="model">
+      <packagedElement xmi:type="uml:Class" xmi:id="_L9gpqZSwEeeRzMppzdiVIQ" name="ABall" isAbstract="true">
+        <ownedComment xmi:id="_MCIEJJSwEeeRzMppzdiVIQ">
+          <body>This is a abstract ball class&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MB1I-ZSwEeeRzMppzdiVIQ" name="loc" visibility="protected" type="_MAV7OJSwEeeRzMppzdiVIQ" association="_MCR06pSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1I-5SwEeeRzMppzdiVIQ" name="radius" visibility="protected">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1I_ZSwEeeRzMppzdiVIQ" name="vel" visibility="protected" type="_MAV7OJSwEeeRzMppzdiVIQ" association="_MCR07ZSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1I_5SwEeeRzMppzdiVIQ" name="color" visibility="protected" type="_MAV7NpSwEeeRzMppzdiVIQ" association="_MCR08JSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1JAZSwEeeRzMppzdiVIQ" name="canvas" visibility="protected" type="_MAV7NJSwEeeRzMppzdiVIQ" association="_MCR085SwEeeRzMppzdiVIQ"/>
+        <interfaceRealization xmi:id="_MAynIJSwEeeRzMppzdiVIQ" client="_L9gpqZSwEeeRzMppzdiVIQ" supplier="_MAV7PJSwEeeRzMppzdiVIQ" contract="_MAV7PJSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6GJSwEeeRzMppzdiVIQ" name="ABall" specification="_MAynIZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6GZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6GpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6G5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6HJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6HZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6HpSwEeeRzMppzdiVIQ" type="_L9gpqZSwEeeRzMppzdiVIQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>this.loc = loc;&#xD;
+		this.radius = radius;&#xD;
+		this.vel = vel;&#xD;
+		this.color = color;&#xD;
+		this.canvas = canvas;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6H5SwEeeRzMppzdiVIQ" name="paint" specification="_MAynKpSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6IJSwEeeRzMppzdiVIQ" name="g" type="_MAV7MpSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>g.setColor(color);&#xD;
+		g.fillOval(loc.x - radius, loc.y - radius, 2 * radius, 2 * radius);&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6IZSwEeeRzMppzdiVIQ" name="bounce" specification="_L9qaoJSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>if (loc.x + radius >= canvas.getWidth()) {&#xD;
+			vel.x = -vel.x;&#xD;
+			loc.x = canvas.getWidth() - radius;&#xD;
+		}&#xD;
+&#xD;
+		if (loc.x - radius &lt;= 0) {&#xD;
+			vel.x = -vel.x;&#xD;
+			loc.x = radius;&#xD;
+		}&#xD;
+&#xD;
+		if (loc.y + radius >= canvas.getHeight()) {&#xD;
+			vel.y = -vel.y;&#xD;
+			loc.y = canvas.getHeight() - radius;&#xD;
+		}&#xD;
+&#xD;
+		if (loc.y - radius &lt;= 0) {&#xD;
+			vel.y = -vel.y;&#xD;
+			loc.y = radius;&#xD;
+		}&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6IpSwEeeRzMppzdiVIQ" name="move" specification="_L9qaoZSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>loc.translate(vel.x, vel.y);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6I5SwEeeRzMppzdiVIQ" name="update" specification="_MAynL5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6JJSwEeeRzMppzdiVIQ" name="o" type="_MAV7OpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6JZSwEeeRzMppzdiVIQ" name="g" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>move();&#xD;
+		bounce();&#xD;
+		updateFormate();&#xD;
+		paint((Graphics) g);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L9qaoJSwEeeRzMppzdiVIQ" name="bounce" visibility="private" method="_MB-6IZSwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_L9qaoZSwEeeRzMppzdiVIQ" name="move" visibility="private" method="_MB-6IpSwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_L9qaopSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" isAbstract="true"/>
+        <ownedOperation xmi:id="_MAynIZSwEeeRzMppzdiVIQ" name="ABall" method="_MB-6GJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MAynJ5SwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MAynKJSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MAynIpSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAynI5SwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MAynJJSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAynJZSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAynJpSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAynKZSwEeeRzMppzdiVIQ" type="_L9gpqZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MAynKpSwEeeRzMppzdiVIQ" name="paint" method="_MB-6H5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MAynK5SwEeeRzMppzdiVIQ" name="g" type="_MAV7MpSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MAynL5SwEeeRzMppzdiVIQ" name="update" method="_MB-6I5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MAynMJSwEeeRzMppzdiVIQ" name="o" type="_MAV7OpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAynMZSwEeeRzMppzdiVIQ" name="g" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L9qao5SwEeeRzMppzdiVIQ" name="BallModel">
+        <ownedComment xmi:id="_MCIEJZSwEeeRzMppzdiVIQ">
+          <body>This is a Ball Model class&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MB1JA5SwEeeRzMppzdiVIQ" name="_model2ViewAdpt" visibility="private" type="_L-GfgJSwEeeRzMppzdiVIQ" association="_MCR09pSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JBJSwEeeRzMppzdiVIQ" value="IModel2ViewAdapter.NULL_OBJECT"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JBpSwEeeRzMppzdiVIQ" name="_timeSlice" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JB5SwEeeRzMppzdiVIQ" value="50"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JCZSwEeeRzMppzdiVIQ" name="_timer" visibility="private" type="_MAV7QJSwEeeRzMppzdiVIQ" association="_MCR0-ZSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JCpSwEeeRzMppzdiVIQ" value="new Timer(_timeSlice, (e) -> _model2ViewAdpt.update())"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JDJSwEeeRzMppzdiVIQ" name="myDispatcher" visibility="private" type="_L-GfjpSwEeeRzMppzdiVIQ" association="_MCR0_JSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JDZSwEeeRzMppzdiVIQ" value="new Dispatcher()"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JD5SwEeeRzMppzdiVIQ" name="ballPanel" visibility="private" type="_MAV7NJSwEeeRzMppzdiVIQ" association="_MCR0_5SwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6JpSwEeeRzMppzdiVIQ" name="BallModel" specification="_MAfFIZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6J5SwEeeRzMppzdiVIQ" name="model2ViewAdpt" type="_L-GfgJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6KJSwEeeRzMppzdiVIQ" type="_L9qao5SwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>_model2ViewAdpt = model2ViewAdpt;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6KZSwEeeRzMppzdiVIQ" name="start" specification="_L9qapJSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>_timer.start();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6KpSwEeeRzMppzdiVIQ" name="update" specification="_MBiOAJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6K5SwEeeRzMppzdiVIQ" name="g" type="_MAV7MpSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>myDispatcher.notifyAll(g); // The Graphics object is being given to all the sprites (Observers)&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6LJSwEeeRzMppzdiVIQ" name="loadBall" specification="_L9qapZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6LZSwEeeRzMppzdiVIQ" name="className">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6LpSwEeeRzMppzdiVIQ" type="_L9gpqZSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>// YOUR CODE MAY HAVE MORE/DIFFERENT INPUT PARAMETERS!&#xD;
+&#xD;
+		try {&#xD;
+			//random velocity&#xD;
+			Rectangle velRec = new Rectangle(0, 0, 10, 10);&#xD;
+			//random location&#xD;
+			Rectangle locRec = new Rectangle(0, 0, ballPanel.getWidth(), ballPanel.getHeight());&#xD;
+			Object[] args = new Object[] { Randomizer.Singleton.randomLoc(locRec),&#xD;
+					Randomizer.Singleton.randomInt(10, 20), Randomizer.Singleton.randomVel(velRec),&#xD;
+					Randomizer.Singleton.randomColor(), ballPanel }; // YOUR CONSTRUCTOR MAY BE DIFFERENT!!   The supplied values here may be fields, input parameters, random values, etc.&#xD;
+			java.lang.reflect.Constructor&lt;?> cs[] = Class.forName(className).getConstructors(); // get all the constructors&#xD;
+			java.lang.reflect.Constructor&lt;?> c = null;&#xD;
+			for (int i = 0; i &lt; cs.length; i++) { // find the first constructor with the right number of input parameters&#xD;
+				if (args.length == (cs[i]).getParameterTypes().length) {&#xD;
+					c = cs[i];&#xD;
+					break;&#xD;
+				}&#xD;
+			}&#xD;
+			return (ABall) c.newInstance(args); // Call the constructor.   Will throw a null ptr exception if no constructor with the right number of input parameters was found.&#xD;
+		} catch (Exception ex) {&#xD;
+			System.err.println(&quot;Class &quot; + className + &quot; failed to load. \nException = \n&quot; + ex);&#xD;
+			ex.printStackTrace(); // print the stack trace to help in debugging.&#xD;
+			return null; // Is this really a useful thing to return here?  Is there something better that could be returned? &#xD;
+		}&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6L5SwEeeRzMppzdiVIQ" name="setPanel" specification="_MBiOApSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6MJSwEeeRzMppzdiVIQ" name="ballPanel" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>// TODO Auto-generated method stub&#xD;
+		this.ballPanel = ballPanel;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6MZSwEeeRzMppzdiVIQ" name="addBall" specification="_L9zkkJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6MpSwEeeRzMppzdiVIQ" name="s">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>myDispatcher.addObserver(loadBall(s));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6M5SwEeeRzMppzdiVIQ" name="clearBalls" specification="_L9zkkpSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>myDispatcher.deleteObservers();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L9qapJSwEeeRzMppzdiVIQ" name="start" method="_MB-6KZSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEJ5SwEeeRzMppzdiVIQ">
+            <body>start method starts the timer.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9qapZSwEeeRzMppzdiVIQ" name="loadBall" visibility="private" method="_MB-6LJSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEKZSwEeeRzMppzdiVIQ">
+            <body>The following method returns an instance of an ABall, given a fully qualified class name (package.classname) of&#xD;
+	* a subclass of ABall.&#xD;
+	* The method assumes that there is only one constructor for the supplied class that has the same *number* of&#xD;
+	* input parameters as specified in the args array and that it conforms to a specific&#xD;
+	* signature, i.e. specific order and types of input parameters in the args array.&#xD;
+	* @param className A string that is the fully qualified class name of the desired object&#xD;
+	* @return An instance of the supplied class.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9qappSwEeeRzMppzdiVIQ" name="className">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MAfFJpSwEeeRzMppzdiVIQ" type="_L9gpqZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9zkkJSwEeeRzMppzdiVIQ" name="addBall" method="_MB-6MZSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEK5SwEeeRzMppzdiVIQ">
+            <body>addBall method adds a ball to the panel.&#xD;
+	 * @param s The type of the ball.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9zkkZSwEeeRzMppzdiVIQ" name="s">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9zkkpSwEeeRzMppzdiVIQ" name="clearBalls" method="_MB-6M5SwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIELJSwEeeRzMppzdiVIQ">
+            <body> clearBalls method clears all balls on the panel.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MAfFIZSwEeeRzMppzdiVIQ" name="BallModel" method="_MB-6JpSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MAfFI5SwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MAfFJJSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIEJpSwEeeRzMppzdiVIQ">
+            <body>Constructor of BallModel.&#xD;
+	 * @param model2ViewAdpt An instance of model to view adaptor.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MAfFIpSwEeeRzMppzdiVIQ" name="model2ViewAdpt" type="_L-GfgJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MAfFJZSwEeeRzMppzdiVIQ" type="_L9qao5SwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBiOAJSwEeeRzMppzdiVIQ" name="update" method="_MB-6KpSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEKJSwEeeRzMppzdiVIQ">
+            <body>This is the method that is called by the view's adapter to the model, i.e. is called by IView2ModelAdapter.paint().&#xD;
+	 * This method will update the sprites's painted locations by painting all the sprites&#xD;
+	 * onto the given Graphics object.&#xD;
+	 * @param g The Graphics object from the view's paintComponent() call.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBiOAZSwEeeRzMppzdiVIQ" name="g" type="_MAV7MpSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBiOApSwEeeRzMppzdiVIQ" name="setPanel" method="_MB-6L5SwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEKpSwEeeRzMppzdiVIQ">
+            <body>setPanel method sets the ball panel.&#xD;
+	 * @param ballPanel The panel to show the animation of balls.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBiOA5SwEeeRzMppzdiVIQ" name="ballPanel" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L9zkk5SwEeeRzMppzdiVIQ" name="BreathingBall">
+        <ownedComment xmi:id="_MCIELZSwEeeRzMppzdiVIQ">
+          <body>This is a BreathingBall which is a concrete of the abstract ball class. Balls change radius while moving.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFJ5SwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1JEZSwEeeRzMppzdiVIQ" name="v1" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JEpSwEeeRzMppzdiVIQ" value="Randomizer.Singleton.randomInt(1, 40)"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JFJSwEeeRzMppzdiVIQ" name="v2" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JFZSwEeeRzMppzdiVIQ" value="Randomizer.Singleton.randomInt(1, 40)"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JF5SwEeeRzMppzdiVIQ" name="max" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JGJSwEeeRzMppzdiVIQ" value="v1 > v2 ? v1 : v2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JGpSwEeeRzMppzdiVIQ" name="min" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JG5SwEeeRzMppzdiVIQ" value="v1 > v2 ? v2 : v1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB1JHZSwEeeRzMppzdiVIQ" name="sine" visibility="private" type="_L-aBgJSwEeeRzMppzdiVIQ" association="_MCR1ApSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JHpSwEeeRzMppzdiVIQ" value="new SineMaker(min, max, 20)"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6NJSwEeeRzMppzdiVIQ" name="BreathingBall" specification="_MBiOBJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6NZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6NpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6N5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6OJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6OZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6OpSwEeeRzMppzdiVIQ" type="_L9zkk5SwEeeRzMppzdiVIQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6O5SwEeeRzMppzdiVIQ" name="updateFormate" specification="_L9zklJSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>this.radius = sine.getIntVal();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L9zklJSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MB-6O5SwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBiOBJSwEeeRzMppzdiVIQ" name="BreathingBall" method="_MB-6NJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBiOCpSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBiOC5SwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIELpSwEeeRzMppzdiVIQ">
+            <body>Constructor of BreathingBall.&#xD;
+	 * @param loc The center point of a ball.&#xD;
+	 * @param radius The radius of a ball.&#xD;
+	 * @param vel The velocity of a ball.&#xD;
+	 * @param color The color of a ball.&#xD;
+	 * @param canvas The panel for the ball word.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBiOBZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOBpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBiOB5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOCJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOCZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiODJSwEeeRzMppzdiVIQ" type="_L9zkk5SwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L9zkmJSwEeeRzMppzdiVIQ" name="ColorChangingBall">
+        <ownedComment xmi:id="_MCIEL5SwEeeRzMppzdiVIQ">
+          <body>This is a BreathingBall which is a concrete of the abstract ball class. Balls change color while moving.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFKJSwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6PJSwEeeRzMppzdiVIQ" name="ColorChangingBall" specification="_MBiODZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6PZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6PpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6P5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6QJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6QZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6QpSwEeeRzMppzdiVIQ" type="_L9zkmJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6Q5SwEeeRzMppzdiVIQ" name="updateFormate" specification="_L9zkmZSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>this.color = Randomizer.Singleton.randomColor();&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L9zkmZSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MB-6Q5SwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBiODZSwEeeRzMppzdiVIQ" name="ColorChangingBall" method="_MB-6PJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBiOE5SwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBiOFJSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MBiODpSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOD5SwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBiOEJSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOEZSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOEpSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOFZSwEeeRzMppzdiVIQ" type="_L9zkmJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L99Vk5SwEeeRzMppzdiVIQ" name="CurveBall">
+        <ownedComment xmi:id="_MCIEMJSwEeeRzMppzdiVIQ">
+          <body>This is a GostBall which is a concrete of the abstract ball class. Balls move follows a curve.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFKZSwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1JIJSwEeeRzMppzdiVIQ" name="v1" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB1JIZSwEeeRzMppzdiVIQ" value="Randomizer.Singleton.randomInt(10, 20)"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6RJSwEeeRzMppzdiVIQ" name="CurveBall" specification="_MBiOFpSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6RZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6RpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6R5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6SJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6SZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6SpSwEeeRzMppzdiVIQ" type="_L99Vk5SwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6S5SwEeeRzMppzdiVIQ" name="updateFormate" specification="_L99VlJSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>int Vx = vel.x;&#xD;
+		int Vy = vel.y;&#xD;
+		vel.x = (int) Math.round((Math.cos(Math.PI / v1) * Vx - Math.sin(Math.PI / v1) * Vy));&#xD;
+		vel.y = (int) Math.round(Math.cos(Math.PI / v1) * Vy + Math.sin(Math.PI / v1) * Vx);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L99VlJSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MB-6S5SwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBiOFpSwEeeRzMppzdiVIQ" name="CurveBall" method="_MB-6RJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBiOHJSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBiOHZSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIEMZSwEeeRzMppzdiVIQ">
+            <body>Constructor of CurveBall.&#xD;
+	 * @param loc The center point of a ball.&#xD;
+	 * @param radius The radius of a ball.&#xD;
+	 * @param vel The velocity of a ball.&#xD;
+	 * @param color The color of a ball.&#xD;
+	 * @param canvas The panel for the ball word.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBiOF5SwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOGJSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBiOGZSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOGpSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOG5SwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOHpSwEeeRzMppzdiVIQ" type="_L99Vk5SwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L99VmJSwEeeRzMppzdiVIQ" name="DirectChangingBall">
+        <ownedComment xmi:id="_MCIEMpSwEeeRzMppzdiVIQ">
+          <body>This is a GostBall which is a concrete of the abstract ball class. Balls change direction in every movement.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFKpSwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6TJSwEeeRzMppzdiVIQ" name="DirectChangingBall" specification="_MBiOH5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6TZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6TpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6T5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6UJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6UZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6UpSwEeeRzMppzdiVIQ" type="_L99VmJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6U5SwEeeRzMppzdiVIQ" name="updateFormate" specification="_L99VmZSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>this.vel.x = Randomizer.Singleton.randomInt(-20, 20);&#xD;
+		this.vel.y = Randomizer.Singleton.randomInt(-20, 20);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L99VmZSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MB-6U5SwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBiOH5SwEeeRzMppzdiVIQ" name="DirectChangingBall" method="_MB-6TJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBiOJZSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBiOJpSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MBiOIJSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOIZSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBiOIpSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOI5SwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOJJSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBiOJ5SwEeeRzMppzdiVIQ" type="_L99VmJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L99VnZSwEeeRzMppzdiVIQ" name="GostBall">
+        <ownedComment xmi:id="_MCIEM5SwEeeRzMppzdiVIQ">
+          <body>This is a GostBall which is a concrete of the abstract ball class. Balls show up in different location while moving.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFK5SwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6VJSwEeeRzMppzdiVIQ" name="GostBall" specification="_MBrX8JSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6VZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6VpSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MB-6V5SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6WJSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6WZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MB-6WpSwEeeRzMppzdiVIQ" type="_L99VnZSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6W5SwEeeRzMppzdiVIQ" name="updateFormate" specification="_L99VnpSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>this.loc.x = Randomizer.Singleton.randomInt(this.radius, this.canvas.getWidth() - this.radius);&#xD;
+		this.loc.y = Randomizer.Singleton.randomInt(this.radius, this.canvas.getHeight() - this.radius);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L99VnpSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MB-6W5SwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBrX8JSwEeeRzMppzdiVIQ" name="GostBall" method="_MB-6VJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBrX9pSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBrX95SwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MBrX8ZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX8pSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBrX85SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX9JSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX9ZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX-JSwEeeRzMppzdiVIQ" type="_L99VnZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_L-GfgJSwEeeRzMppzdiVIQ" name="IModel2ViewAdapter">
+        <ownedComment xmi:id="_MCIENJSwEeeRzMppzdiVIQ">
+          <body>This is a model to view adapter&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_L-GfgpSwEeeRzMppzdiVIQ" name="NULL_OBJECT" isLeaf="true" isStatic="true" type="_L-GfgJSwEeeRzMppzdiVIQ" isReadOnly="true" association="_MCIEUZSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_L-Gfg5SwEeeRzMppzdiVIQ" value="new IModel2ViewAdapter() {&#xD;&#xA;&#x9;&#x9;public void update() {&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_L-GfgZSwEeeRzMppzdiVIQ" name="update">
+          <ownedComment xmi:id="_MCIENZSwEeeRzMppzdiVIQ">
+            <body>The method that tells the view to update.</body>
+          </ownedComment>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-GfhJSwEeeRzMppzdiVIQ" name="StraightBall">
+        <ownedComment xmi:id="_MCIENpSwEeeRzMppzdiVIQ">
+          <body>This is a StraightBall which is a concrete of the abstract ball class. Balls goes in a straight line.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFLJSwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID4JSwEeeRzMppzdiVIQ" name="StraightBall" specification="_MBrX-ZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID4ZSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID4pSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID45SwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID5JSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID5ZSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID5pSwEeeRzMppzdiVIQ" type="_L-GfhJSwEeeRzMppzdiVIQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L-GfhZSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package"/>
+        <ownedOperation xmi:id="_MBrX-ZSwEeeRzMppzdiVIQ" name="StraightBall" method="_MCID4JSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBrX_5SwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBrYAJSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MBrX-pSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX-5SwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBrX_JSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX_ZSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrX_pSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYAZSwEeeRzMppzdiVIQ" type="_L-GfhJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-GfiZSwEeeRzMppzdiVIQ" name="WanderBall">
+        <ownedComment xmi:id="_MCIEN5SwEeeRzMppzdiVIQ">
+          <body>This is a GostBall which is a concrete of the abstract ball class. Balls change to random velocity after touching the wall.&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <generalization xmi:id="_MAfFLZSwEeeRzMppzdiVIQ" general="_L9gpqZSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID55SwEeeRzMppzdiVIQ" name="WanderBall" specification="_MBrYApSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID6JSwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID6ZSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID6pSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID65SwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID7JSwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID7ZSwEeeRzMppzdiVIQ" type="_L-GfiZSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>super(loc, radius, vel, color, canvas);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID7pSwEeeRzMppzdiVIQ" name="updateFormate" specification="_L-GfipSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>if (loc.x + radius >= canvas.getWidth() || loc.x - radius &lt;= 0) {&#xD;
+			if (vel.x > 0) {&#xD;
+				vel.x = Randomizer.Singleton.randomInt(1, 40);&#xD;
+			} else {&#xD;
+				vel.x = -1 * Randomizer.Singleton.randomInt(1, 40);&#xD;
+			}&#xD;
+		}&#xD;
+&#xD;
+		if (loc.y + radius >= canvas.getHeight() || loc.y - radius &lt;= 0) {&#xD;
+			if (vel.x > 0) {&#xD;
+				vel.x = Randomizer.Singleton.randomInt(1, 40);&#xD;
+			} else {&#xD;
+				vel.x = -1 * Randomizer.Singleton.randomInt(1, 40);&#xD;
+			}&#xD;
+		}&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L-GfipSwEeeRzMppzdiVIQ" name="updateFormate" visibility="package" method="_MCID7pSwEeeRzMppzdiVIQ"/>
+        <ownedOperation xmi:id="_MBrYApSwEeeRzMppzdiVIQ" name="WanderBall" method="_MCID55SwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_MBrYCJSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_MBrYCZSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_MBrYA5SwEeeRzMppzdiVIQ" name="loc" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYBJSwEeeRzMppzdiVIQ" name="radius">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBrYBZSwEeeRzMppzdiVIQ" name="vel" type="_MAV7OJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYBpSwEeeRzMppzdiVIQ" name="color" type="_MAV7NpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYB5SwEeeRzMppzdiVIQ" name="canvas" type="_MAV7NJSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYCpSwEeeRzMppzdiVIQ" type="_L-GfiZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCIEUZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCIEUpSwEeeRzMppzdiVIQ _L-GfgpSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCIEUpSwEeeRzMppzdiVIQ" name="" type="_L-GfgJSwEeeRzMppzdiVIQ" association="_MCIEUZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR06pSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR065SwEeeRzMppzdiVIQ _MB1I-ZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR065SwEeeRzMppzdiVIQ" name="" type="_L9gpqZSwEeeRzMppzdiVIQ" association="_MCR06pSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR07ZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR07pSwEeeRzMppzdiVIQ _MB1I_ZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR07pSwEeeRzMppzdiVIQ" name="" type="_L9gpqZSwEeeRzMppzdiVIQ" association="_MCR07ZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR08JSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR08ZSwEeeRzMppzdiVIQ _MB1I_5SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR08ZSwEeeRzMppzdiVIQ" name="" type="_L9gpqZSwEeeRzMppzdiVIQ" association="_MCR08JSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR085SwEeeRzMppzdiVIQ" name="" memberEnd="_MCR09JSwEeeRzMppzdiVIQ _MB1JAZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR09JSwEeeRzMppzdiVIQ" name="" type="_L9gpqZSwEeeRzMppzdiVIQ" association="_MCR085SwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR09pSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR095SwEeeRzMppzdiVIQ _MB1JA5SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR095SwEeeRzMppzdiVIQ" name="" type="_L9qao5SwEeeRzMppzdiVIQ" association="_MCR09pSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR0-ZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR0-pSwEeeRzMppzdiVIQ _MB1JCZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR0-pSwEeeRzMppzdiVIQ" name="" type="_L9qao5SwEeeRzMppzdiVIQ" association="_MCR0-ZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR0_JSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR0_ZSwEeeRzMppzdiVIQ _MB1JDJSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR0_ZSwEeeRzMppzdiVIQ" name="" type="_L9qao5SwEeeRzMppzdiVIQ" association="_MCR0_JSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR0_5SwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1AJSwEeeRzMppzdiVIQ _MB1JD5SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1AJSwEeeRzMppzdiVIQ" name="" type="_L9qao5SwEeeRzMppzdiVIQ" association="_MCR0_5SwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1ApSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1A5SwEeeRzMppzdiVIQ _MB1JHZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1A5SwEeeRzMppzdiVIQ" name="" type="_L9zkk5SwEeeRzMppzdiVIQ" association="_MCR1ApSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8nRz5SwEeeRzMppzdiVIQ" name="control">
+      <packagedElement xmi:type="uml:Class" xmi:id="_L9gpoJSwEeeRzMppzdiVIQ" name="Controller">
+        <ownedComment xmi:id="_MCIEIJSwEeeRzMppzdiVIQ">
+          <body>MVC Controller for the system&#xD;
+@author Qingyue Liu, Haoshan Zou&#xD;
+@version 1.0&#xD;
+@since 2017-09-07</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MB1I9ZSwEeeRzMppzdiVIQ" name="model" visibility="private" type="_L9qao5SwEeeRzMppzdiVIQ" association="_MCR05JSwEeeRzMppzdiVIQ"/>
+        <ownedAttribute xmi:id="_MB1I95SwEeeRzMppzdiVIQ" name="view" visibility="private" type="_L-aBjJSwEeeRzMppzdiVIQ" association="_MCR055SwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6EpSwEeeRzMppzdiVIQ" name="Controller" specification="_L9gpoZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6E5SwEeeRzMppzdiVIQ" type="_L9gpoJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>/**&#xD;
+		 * Use model to view adapter to repaint the ball panel.&#xD;
+		 */&#xD;
+		model = new BallModel(new IModel2ViewAdapter() {&#xD;
+&#xD;
+			/**&#xD;
+			 * update method is the implementation of update method in IModel2ViewAdapter interface. This method repaints the ball panel.&#xD;
+			 */&#xD;
+			@Override&#xD;
+			public void update() {&#xD;
+				// TODO Auto-generated method stub&#xD;
+				view.update();&#xD;
+			}&#xD;
+&#xD;
+		});&#xD;
+&#xD;
+		/**&#xD;
+		 * Use view to draw the ball on the view side.&#xD;
+		 */&#xD;
+		view = new BallFrame(new IView2ModelAdapter() {&#xD;
+&#xD;
+			/**&#xD;
+			 * paint method is the implementation of paint method in IView2ModelAdapter. It paints all the balls on the ball panel.&#xD;
+			 */&#xD;
+			@Override&#xD;
+			public void paint(Graphics g) {&#xD;
+				// TODO Auto-generated method stub&#xD;
+				model.update(g);&#xD;
+&#xD;
+			}&#xD;
+&#xD;
+			/**&#xD;
+			 * addBall method is the implementation of addBall method in IView2ModelAdapter. It adds a ball whose type is s on the ball panel.&#xD;
+			 */&#xD;
+			@Override&#xD;
+			public void addBall(String s) {&#xD;
+				// TODO Auto-generated method stub&#xD;
+				model.addBall(s);&#xD;
+			}&#xD;
+&#xD;
+			/**&#xD;
+			 * clearBalls method is the implementation of clearBalls method in IView2ModelAdapter. It removes all balls on the ball panel.&#xD;
+			 */&#xD;
+			@Override&#xD;
+			public void clearBalls() {&#xD;
+				// TODO Auto-generated method stub&#xD;
+				model.clearBalls();&#xD;
+			}&#xD;
+&#xD;
+			/**&#xD;
+			 * setPanel method is the implementation of setPanel method in IView2ModelAdapter. It sets the ball panel.&#xD;
+			 */&#xD;
+			@Override&#xD;
+			public void setPanel(JPanel ballPanel) {&#xD;
+				// TODO Auto-generated method stub&#xD;
+				model.setPanel(ballPanel);&#xD;
+			}&#xD;
+&#xD;
+		});&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6FJSwEeeRzMppzdiVIQ" name="start" specification="_L9gppZSwEeeRzMppzdiVIQ">
+          <language>java</language>
+          <body>model.start();&#xD;
+		view.start(view);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MB-6FZSwEeeRzMppzdiVIQ" name="main" specification="_L9gpppSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MB-6FpSwEeeRzMppzdiVIQ" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MB-6F5SwEeeRzMppzdiVIQ" value="*"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>EventQueue.invokeLater(new Runnable() {&#xD;
+			public void run() {&#xD;
+				try {&#xD;
+					Controller controller = new Controller();&#xD;
+					controller.start();&#xD;
+				} catch (Exception e) {&#xD;
+					e.printStackTrace();&#xD;
+				}&#xD;
+			}&#xD;
+		});&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L9gpoZSwEeeRzMppzdiVIQ" name="Controller" method="_MB-6EpSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_L9gpopSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_L9gpo5SwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIEIZSwEeeRzMppzdiVIQ">
+            <body>Controller constructor builds the system.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9gppJSwEeeRzMppzdiVIQ" type="_L9gpoJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9gppZSwEeeRzMppzdiVIQ" name="start" method="_MB-6FJSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEIpSwEeeRzMppzdiVIQ">
+            <body>Start the system by starting model and view.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9gpppSwEeeRzMppzdiVIQ" name="main" isStatic="true" method="_MB-6FZSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIEI5SwEeeRzMppzdiVIQ">
+            <body>Launch the application.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9gpp5SwEeeRzMppzdiVIQ" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L9gpqJSwEeeRzMppzdiVIQ" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR05JSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR05ZSwEeeRzMppzdiVIQ _MB1I9ZSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR05ZSwEeeRzMppzdiVIQ" name="" type="_L9gpoJSwEeeRzMppzdiVIQ" association="_MCR05JSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR055SwEeeRzMppzdiVIQ" name="" memberEnd="_MCR06JSwEeeRzMppzdiVIQ _MB1I95SwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR06JSwEeeRzMppzdiVIQ" name="" type="_L9gpoJSwEeeRzMppzdiVIQ" association="_MCR055SwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_L8xCwJSwEeeRzMppzdiVIQ" name="util">
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-GfjpSwEeeRzMppzdiVIQ" name="Dispatcher">
+        <ownedComment xmi:id="_MCIEOJSwEeeRzMppzdiVIQ">
+          <body>A simplified Observable class that immediately notifies its Observers when its notifyAll() method is called.   The changed state of the Dispatcher does not need to be separately set.</body>
+        </ownedComment>
+        <generalization xmi:id="_MBrYDZSwEeeRzMppzdiVIQ" general="_MAV7OpSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID75SwEeeRzMppzdiVIQ" name="notifyAll" specification="_MBrYC5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID8JSwEeeRzMppzdiVIQ" name="param" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <language>java</language>
+          <body>setChanged();&#xD;
+		notifyObservers(param);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_MBrYC5SwEeeRzMppzdiVIQ" name="notifyAll" method="_MCID75SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYDJSwEeeRzMppzdiVIQ" name="param" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_L-QQgJSwEeeRzMppzdiVIQ" name="IRandomizer">
+        <ownedOperation xmi:id="_L-QQgZSwEeeRzMppzdiVIQ" name="randomInt">
+          <ownedComment xmi:id="_MCIEO5SwEeeRzMppzdiVIQ">
+            <body>Returns a random integer greater than or equal to min and less than or equal to max.&#xD;
+	 * @param min The minimum allowed value&#xD;
+	 * @param max The maximum allowed value&#xD;
+	 * @return an int subject to the given bounds</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-QQgpSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQg5SwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQhJSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-QQhZSwEeeRzMppzdiVIQ" name="randomDouble">
+          <ownedComment xmi:id="_MCIEPJSwEeeRzMppzdiVIQ">
+            <body>Returns a random double greater than or equal to min and less than max.&#xD;
+	 * @param min The minimum allowed value&#xD;
+	 * @param max The maximum allowed value&#xD;
+	 * @return a double subject to the given bounds</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-QQhpSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQh5SwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQiJSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-QQiZSwEeeRzMppzdiVIQ" name="randomColor">
+          <ownedComment xmi:id="_MCIEQJSwEeeRzMppzdiVIQ">
+            <body>Generates a random color&#xD;
+	 * @return a random Color object</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYIJSwEeeRzMppzdiVIQ" type="_MAV7NpSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYDpSwEeeRzMppzdiVIQ" name="randomLoc">
+          <ownedComment xmi:id="_MCIEOZSwEeeRzMppzdiVIQ">
+            <body>Generates a random location point subject to the constraint that 0&lt;=X&lt;=rect.width and 0&lt;=Y&lt;=rect.height.&#xD;
+	 * @param rect The bounds for the x and y values of the created Point&#xD;
+	 * @return A Point object whose x and y are subject to the given bounds</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYD5SwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYEJSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYE5SwEeeRzMppzdiVIQ" name="randomLoc">
+          <ownedComment xmi:id="_MCIEOpSwEeeRzMppzdiVIQ">
+            <body>Generates a random location point subject to the constraint that 0&lt;=X&lt;=dim.width and 0&lt;=Y&lt;=dim.height.&#xD;
+	 * @param dim The bounds for the x and y values of the created Point&#xD;
+	 * @return A Point object whose x and y are subject to the given bounds</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYFJSwEeeRzMppzdiVIQ" name="dim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYFZSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYFpSwEeeRzMppzdiVIQ" name="randomVel">
+          <ownedComment xmi:id="_MCIEPZSwEeeRzMppzdiVIQ">
+            <body>Returns a random velocity (as a Point) subject to the constraint that the absolute value of the velocity (speed) &#xD;
+	 * within the bound (inclusive) defined by rect.   Thus the resultant velocity may be negative.   The given Rectangle&#xD;
+	 * should use all positive values.&#xD;
+	 * @param rect The bounds for the absolute value of the velocity in the x and y directions.  &#xD;
+	 * @return a Point object with x and y subject to the given bounds.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYF5SwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYGJSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYGZSwEeeRzMppzdiVIQ" name="randomDim">
+          <ownedComment xmi:id="_MCIEPpSwEeeRzMppzdiVIQ">
+            <body>Returns a random square Dimension, whose width is maxDim.width/2&lt;=width&lt;=maxDim.width&#xD;
+	 * @param maxDim  The bounds on the side of the created Dimension.&#xD;
+	 * @return A random square Dimension subject to the given bound</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYGpSwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYG5SwEeeRzMppzdiVIQ" type="_MBrYEZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYHJSwEeeRzMppzdiVIQ" name="randomBounds">
+          <ownedComment xmi:id="_MCIEP5SwEeeRzMppzdiVIQ">
+            <body>Generates a randomly located and sized rectangle&#xD;
+	 * @param rect  The bounds for the location of the created rectangle&#xD;
+	 * @param maxDim  The bounds for the dimensions of the create rectangle&#xD;
+	 * @return A Rectangle with location and dimensions subject to the given bounds.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYHZSwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYHpSwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYH5SwEeeRzMppzdiVIQ" type="_MAV7PpSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYIZSwEeeRzMppzdiVIQ" name="randomChoice">
+          <ownedComment xmi:id="_MCIEQZSwEeeRzMppzdiVIQ">
+            <body>Returns a random choice of one of two objects, x and y, where probX is the probability &#xD;
+	 * that x will be picked (0&lt;=x&lt;=1).&#xD;
+	 * @param x The first of two choices&#xD;
+	 * @param y The second of two choices&#xD;
+	 * @param probX  The probability of the first choice&#xD;
+	 * @return Either x or y as per the probability of choosing them.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_MBrYIpSwEeeRzMppzdiVIQ" name="x" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYI5SwEeeRzMppzdiVIQ" name="y" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYJJSwEeeRzMppzdiVIQ" name="probX">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBrYJZSwEeeRzMppzdiVIQ" type="_MAynLZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-QQipSwEeeRzMppzdiVIQ" name="Randomizer">
+        <ownedComment xmi:id="_MCIEQpSwEeeRzMppzdiVIQ">
+          <body>Utility class that supplies  class routines for generating various random values</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MB-58JSwEeeRzMppzdiVIQ" name="Singleton" isStatic="true" type="_L-QQipSwEeeRzMppzdiVIQ" association="_MCR1BZSwEeeRzMppzdiVIQ">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-58ZSwEeeRzMppzdiVIQ" value="new Randomizer()"/>
+        </ownedAttribute>
+        <interfaceRealization xmi:id="_MAo2IJSwEeeRzMppzdiVIQ" client="_L-QQipSwEeeRzMppzdiVIQ" supplier="_L-QQgJSwEeeRzMppzdiVIQ" contract="_L-QQgJSwEeeRzMppzdiVIQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID8ZSwEeeRzMppzdiVIQ" name="randomLoc" specification="_MBrYJpSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID8pSwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID85SwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return (new Point(randomInt(0, rect.width), randomInt(0, rect.height)));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID9JSwEeeRzMppzdiVIQ" name="randomLoc" specification="_MBrYKZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID9ZSwEeeRzMppzdiVIQ" name="dim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCID9pSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return (new Point(randomInt(0, dim.width), randomInt(0, dim.height)));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID95SwEeeRzMppzdiVIQ" name="randomInt" specification="_L-QQkJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID-JSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID-ZSwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID-pSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (int) Math.floor((Math.random() * (1 + max - min)) + min);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID-5SwEeeRzMppzdiVIQ" name="randomDouble" specification="_L-QQlJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCID_JSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID_ZSwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCID_pSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (Math.random() * (max - min)) + min;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCID_5SwEeeRzMppzdiVIQ" name="randomVel" specification="_MBrYLJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEAJSwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEAZSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return (new Point(randomInt(-rect.width, rect.width), randomInt(-rect.height, rect.height)));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEApSwEeeRzMppzdiVIQ" name="randomDim" specification="_MBrYL5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEA5SwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEBJSwEeeRzMppzdiVIQ" type="_MBrYEZSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>int x = randomInt(maxDim.width / 2, maxDim.width);&#xD;
+		return new Dimension(x, x);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEBZSwEeeRzMppzdiVIQ" name="randomBounds" specification="_MBrYMpSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEBpSwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEB5SwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIECJSwEeeRzMppzdiVIQ" type="_MAV7PpSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return new Rectangle(randomLoc(rect), randomDim(maxDim));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIECZSwEeeRzMppzdiVIQ" name="randomColor" specification="_L-QQmJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIECpSwEeeRzMppzdiVIQ" type="_MAV7NpSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return new Color(randomInt(0, 255), randomInt(0, 255), randomInt(0, 255));&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEC5SwEeeRzMppzdiVIQ" name="randomChoice" specification="_MBrYN5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEDJSwEeeRzMppzdiVIQ" name="x" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEDZSwEeeRzMppzdiVIQ" name="y" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MCIEDpSwEeeRzMppzdiVIQ" name="probX">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCIED5SwEeeRzMppzdiVIQ" type="_MAynLZSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>return (Math.random() &lt; probX) ? x : y;&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L-QQi5SwEeeRzMppzdiVIQ" name="Randomizer" visibility="private">
+          <eAnnotations xmi:id="_L-QQjJSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_L-QQjZSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_L-QQj5SwEeeRzMppzdiVIQ" type="_L-QQipSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-QQkJSwEeeRzMppzdiVIQ" name="randomInt" method="_MCID95SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_L-QQkZSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQkpSwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQk5SwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-QQlJSwEeeRzMppzdiVIQ" name="randomDouble" method="_MCID-5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_L-QQlZSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQlpSwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-QQl5SwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-QQmJSwEeeRzMppzdiVIQ" name="randomColor" method="_MCIECZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYNpSwEeeRzMppzdiVIQ" type="_MAV7NpSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYJpSwEeeRzMppzdiVIQ" name="randomLoc" method="_MCID8ZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYJ5SwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYKJSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYKZSwEeeRzMppzdiVIQ" name="randomLoc" method="_MCID9JSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYKpSwEeeRzMppzdiVIQ" name="dim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYK5SwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYLJSwEeeRzMppzdiVIQ" name="randomVel" method="_MCID_5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYLZSwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYLpSwEeeRzMppzdiVIQ" type="_MAV7OJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYL5SwEeeRzMppzdiVIQ" name="randomDim" method="_MCIEApSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYMJSwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYMZSwEeeRzMppzdiVIQ" type="_MBrYEZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYMpSwEeeRzMppzdiVIQ" name="randomBounds" method="_MCIEBZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYM5SwEeeRzMppzdiVIQ" name="rect" type="_MAV7PpSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYNJSwEeeRzMppzdiVIQ" name="maxDim" type="_MBrYEZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYNZSwEeeRzMppzdiVIQ" type="_MAV7PpSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBrYN5SwEeeRzMppzdiVIQ" name="randomChoice" method="_MCIEC5SwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MBrYOJSwEeeRzMppzdiVIQ" name="x" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYOZSwEeeRzMppzdiVIQ" name="y" type="_MAynLZSwEeeRzMppzdiVIQ"/>
+          <ownedParameter xmi:id="_MBrYOpSwEeeRzMppzdiVIQ" name="probX">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MBrYO5SwEeeRzMppzdiVIQ" type="_MAynLZSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_L-aBgJSwEeeRzMppzdiVIQ" name="SineMaker">
+        <ownedComment xmi:id="_MCIEQ5SwEeeRzMppzdiVIQ">
+          <body>A utility class that can be used to create smoothly varying sinusoidal&#xD;
+numerical data.&#xD;
+Note that this is not a singleton class nor does it have static methods as&#xD;
+its behavior depends on the minimum, maximum and delta values given to &#xD;
+its constructor.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MB-585SwEeeRzMppzdiVIQ" name="_mid" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-59ZSwEeeRzMppzdiVIQ" name="_ampl" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-595SwEeeRzMppzdiVIQ" name="_delta" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MB-5-ZSwEeeRzMppzdiVIQ" name="_theta" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_MB-5-pSwEeeRzMppzdiVIQ" value="-Math.PI / 2.0"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEEJSwEeeRzMppzdiVIQ" name="SineMaker" specification="_L-aBgZSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEEZSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCIEEpSwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCIEE5SwEeeRzMppzdiVIQ" name="delta">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MCIEFJSwEeeRzMppzdiVIQ" type="_L-aBgJSwEeeRzMppzdiVIQ" direction="return"/>
+          <language>java</language>
+          <body>_mid = (max + min) / 2.0;&#xD;
+		_ampl = (max - min) / 2.0;&#xD;
+		_delta = delta;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEFZSwEeeRzMppzdiVIQ" name="getDblVal" specification="_L-aBiJSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEFpSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>double result = _mid + _ampl * Math.sin(_theta);&#xD;
+		_theta += _delta; // shorthand for _theta = _theta + _delta&#xD;
+		return result;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MCIEF5SwEeeRzMppzdiVIQ" name="getIntVal" specification="_L-aBipSwEeeRzMppzdiVIQ">
+          <ownedParameter xmi:id="_MCIEGJSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (int) Math.round(getDblVal());&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_L-aBgZSwEeeRzMppzdiVIQ" name="SineMaker" method="_MCIEEJSwEeeRzMppzdiVIQ">
+          <eAnnotations xmi:id="_L-aBhZSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_L-aBhpSwEeeRzMppzdiVIQ" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MCIERJSwEeeRzMppzdiVIQ">
+            <body>The constructor takes several values to control the object's behavior.&#xD;
+	 * @param min The minimum and initial value to produce.&#xD;
+	 * @param max The maximum value to produce.&#xD;
+	 * @param delta The amount in radians that the generating angle is incremented each time&#xD;
+	 *</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-aBgpSwEeeRzMppzdiVIQ" name="min">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-aBg5SwEeeRzMppzdiVIQ" name="max">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-aBhJSwEeeRzMppzdiVIQ" name="delta">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L-aBh5SwEeeRzMppzdiVIQ" type="_L-aBgJSwEeeRzMppzdiVIQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-aBiJSwEeeRzMppzdiVIQ" name="getDblVal" method="_MCIEFZSwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIERZSwEeeRzMppzdiVIQ">
+            <body>Returns a different value each time it is called.  The value varies smoothly in a &#xD;
+	 * sinusoidal fashion, incrementing each time as per the above specified delta &#xD;
+	 * angle increase.&#xD;
+	 * @return the next value as a double</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-aBiZSwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L-aBipSwEeeRzMppzdiVIQ" name="getIntVal" method="_MCIEF5SwEeeRzMppzdiVIQ">
+          <ownedComment xmi:id="_MCIERpSwEeeRzMppzdiVIQ">
+            <body>Same as getDblVal, but returns the result rounded to the nearest integer.&#xD;
+	 * Note that getDblVal and getIntVal are not independent as getIntVal merely calls&#xD;
+	 * getDblVal.&#xD;
+	 * @return the next value as an int</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L-aBi5SwEeeRzMppzdiVIQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MCR1BZSwEeeRzMppzdiVIQ" name="" memberEnd="_MCR1BpSwEeeRzMppzdiVIQ _MB-58JSwEeeRzMppzdiVIQ">
+        <ownedEnd xmi:id="_MCR1BpSwEeeRzMppzdiVIQ" name="" type="_L-QQipSwEeeRzMppzdiVIQ" association="_MCR1BZSwEeeRzMppzdiVIQ"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_LrWio5SwEeeRzMppzdiVIQ">
+      <eAnnotations xmi:id="_LrWipJSwEeeRzMppzdiVIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_LrWipZSwEeeRzMppzdiVIQ" base_Package="_LnFtsJSwEeeRzMppzdiVIQ">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L9zklZSwEeeRzMppzdiVIQ" base_Element="_L9zklJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L9zklpSwEeeRzMppzdiVIQ" base_Element="_L9zklJSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L9zkl5SwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L99VkJSwEeeRzMppzdiVIQ" base_Element="_L9zkmZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L99VkZSwEeeRzMppzdiVIQ" base_Element="_L9zkmZSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L99VkpSwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L99VlZSwEeeRzMppzdiVIQ" base_Element="_L99VlJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L99VlpSwEeeRzMppzdiVIQ" base_Element="_L99VlJSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L99Vl5SwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L99VmpSwEeeRzMppzdiVIQ" base_Element="_L99VmZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L99Vm5SwEeeRzMppzdiVIQ" base_Element="_L99VmZSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L99VnJSwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L99Vn5SwEeeRzMppzdiVIQ" base_Element="_L99VnpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L99VoJSwEeeRzMppzdiVIQ" base_Element="_L99VnpSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L99VoZSwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L-GfhpSwEeeRzMppzdiVIQ" base_Element="_L-GfhZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L-Gfh5SwEeeRzMppzdiVIQ" base_Element="_L-GfhZSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L-GfiJSwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L-Gfi5SwEeeRzMppzdiVIQ" base_Element="_L-GfipSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Annotations xmi:id="_L-GfjJSwEeeRzMppzdiVIQ" base_Element="_L-GfipSwEeeRzMppzdiVIQ">
+    <annotations xmi:id="_L-GfjZSwEeeRzMppzdiVIQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L-QQjpSwEeeRzMppzdiVIQ" base_Element="_L-QQi5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7MZSwEeeRzMppzdiVIQ" base_Element="_MAV7MJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7M5SwEeeRzMppzdiVIQ" base_Element="_MAV7MpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7NZSwEeeRzMppzdiVIQ" base_Element="_MAV7NJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7N5SwEeeRzMppzdiVIQ" base_Element="_MAV7NpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7OZSwEeeRzMppzdiVIQ" base_Element="_MAV7OJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7O5SwEeeRzMppzdiVIQ" base_Element="_MAV7OpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7PZSwEeeRzMppzdiVIQ" base_Element="_MAV7PJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAV7P5SwEeeRzMppzdiVIQ" base_Element="_MAV7PpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAfFIJSwEeeRzMppzdiVIQ" base_Element="_MAV7QJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2IpSwEeeRzMppzdiVIQ" base_Element="_MAo2IZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2JJSwEeeRzMppzdiVIQ" base_Element="_MAo2I5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2JpSwEeeRzMppzdiVIQ" base_Element="_MAo2JZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2KJSwEeeRzMppzdiVIQ" base_Element="_MAo2J5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2KpSwEeeRzMppzdiVIQ" base_Element="_MAo2KZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2LJSwEeeRzMppzdiVIQ" base_Element="_MAo2K5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAo2LpSwEeeRzMppzdiVIQ" base_Element="_MAo2LZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MAynLpSwEeeRzMppzdiVIQ" base_Element="_MAynLZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MBrYEpSwEeeRzMppzdiVIQ" base_Element="_MBrYEZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1I9pSwEeeRzMppzdiVIQ" base_Element="_MB1I9ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1I-JSwEeeRzMppzdiVIQ" base_Element="_MB1I95SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1I-pSwEeeRzMppzdiVIQ" base_Element="_MB1I-ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1I_JSwEeeRzMppzdiVIQ" base_Element="_MB1I-5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1I_pSwEeeRzMppzdiVIQ" base_Element="_MB1I_ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JAJSwEeeRzMppzdiVIQ" base_Element="_MB1I_5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JApSwEeeRzMppzdiVIQ" base_Element="_MB1JAZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JBZSwEeeRzMppzdiVIQ" base_Element="_MB1JA5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JCJSwEeeRzMppzdiVIQ" base_Element="_MB1JBpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JC5SwEeeRzMppzdiVIQ" base_Element="_MB1JCZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JDpSwEeeRzMppzdiVIQ" base_Element="_MB1JDJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JEJSwEeeRzMppzdiVIQ" base_Element="_MB1JD5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JE5SwEeeRzMppzdiVIQ" base_Element="_MB1JEZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JFpSwEeeRzMppzdiVIQ" base_Element="_MB1JFJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JGZSwEeeRzMppzdiVIQ" base_Element="_MB1JF5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JHJSwEeeRzMppzdiVIQ" base_Element="_MB1JGpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JH5SwEeeRzMppzdiVIQ" base_Element="_MB1JHZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB1JIpSwEeeRzMppzdiVIQ" base_Element="_MB1JIJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-58pSwEeeRzMppzdiVIQ" base_Element="_MB-58JSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-59JSwEeeRzMppzdiVIQ" base_Element="_MB-585SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-59pSwEeeRzMppzdiVIQ" base_Element="_MB-59ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-5-JSwEeeRzMppzdiVIQ" base_Element="_MB-595SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-5-5SwEeeRzMppzdiVIQ" base_Element="_MB-5-ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-5_5SwEeeRzMppzdiVIQ" base_Element="_MB-5_pSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6ApSwEeeRzMppzdiVIQ" base_Element="_MB-6AJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6BZSwEeeRzMppzdiVIQ" base_Element="_MB-6A5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6CJSwEeeRzMppzdiVIQ" base_Element="_MB-6BpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6C5SwEeeRzMppzdiVIQ" base_Element="_MB-6CZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6DpSwEeeRzMppzdiVIQ" base_Element="_MB-6DJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MB-6EZSwEeeRzMppzdiVIQ" base_Element="_MB-6D5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR04JSwEeeRzMppzdiVIQ" base_Element="_MCIEUZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR045SwEeeRzMppzdiVIQ" base_Element="_MCR04ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR05pSwEeeRzMppzdiVIQ" base_Element="_MCR05JSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR06ZSwEeeRzMppzdiVIQ" base_Element="_MCR055SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR07JSwEeeRzMppzdiVIQ" base_Element="_MCR06pSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR075SwEeeRzMppzdiVIQ" base_Element="_MCR07ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR08pSwEeeRzMppzdiVIQ" base_Element="_MCR08JSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR09ZSwEeeRzMppzdiVIQ" base_Element="_MCR085SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR0-JSwEeeRzMppzdiVIQ" base_Element="_MCR09pSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR0-5SwEeeRzMppzdiVIQ" base_Element="_MCR0-ZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR0_pSwEeeRzMppzdiVIQ" base_Element="_MCR0_JSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1AZSwEeeRzMppzdiVIQ" base_Element="_MCR0_5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1BJSwEeeRzMppzdiVIQ" base_Element="_MCR1ApSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1B5SwEeeRzMppzdiVIQ" base_Element="_MCR1BZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1CpSwEeeRzMppzdiVIQ" base_Element="_MCR1CJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1DZSwEeeRzMppzdiVIQ" base_Element="_MCR1C5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1EJSwEeeRzMppzdiVIQ" base_Element="_MCR1DpSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1E5SwEeeRzMppzdiVIQ" base_Element="_MCR1EZSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1FpSwEeeRzMppzdiVIQ" base_Element="_MCR1FJSwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1GZSwEeeRzMppzdiVIQ" base_Element="_MCR1F5SwEeeRzMppzdiVIQ"/>
+  <UMLLabProfile:Reference xmi:id="_MCR1HJSwEeeRzMppzdiVIQ" base_Element="_MCR1GpSwEeeRzMppzdiVIQ"/>
+</xmi:XMI>
