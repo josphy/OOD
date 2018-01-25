@@ -1,0 +1,98 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+
+public class mainFrame extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4598911483220383004L;
+	private JPanel contentPane;
+	private final JPanel pnlCenter = new JPanel(){
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 6075435243978421033L;
+		/**
+		* Overridden paintComponent method to paint a shape in the panel.
+		* @param g The Graphics object to paint on.
+		**/
+		public void paintComponent(Graphics g) {
+		    super.paintComponent(g);   // Do everything normally done first, e.g. clear the screen.
+		    g.setColor(Color.RED);  // Set the color to use when drawing
+		    g.fillOval(75, 100, 20, 40);  // paint a filled 20x40 red ellipse whose upper left corner is at (75, 100)
+		}
+	};
+	private final JPanel pnlNorth = new JPanel();
+	private final JLabel lblWhat = new JLabel("What");
+	private final JButton btnButt = new JButton("Submit");
+	private final JTextField txtInput = new JTextField();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainFrame frame = new mainFrame();
+					frame.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	public void start() {
+		setVisible(true);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public mainFrame() {
+		txtInput.setText("Input");
+		txtInput.setColumns(10);
+		initGUI();
+	}
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		pnlCenter.setBackground(Color.PINK);
+		
+		contentPane.add(pnlCenter, BorderLayout.CENTER);
+		pnlNorth.setBackground(Color.YELLOW);
+		
+		contentPane.add(pnlNorth, BorderLayout.NORTH);
+		
+		pnlNorth.add(lblWhat);
+		btnButt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblWhat.setText(txtInput.getText());
+			}
+		});
+		
+		pnlNorth.add(btnButt);
+		
+		pnlNorth.add(txtInput);
+	}
+
+}
