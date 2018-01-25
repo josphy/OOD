@@ -1,0 +1,48 @@
+package client.model.task;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ITask;
+
+/**
+ * MultiTaskFactory: holds MultiTask item maker
+ */
+public class MultiTaskFactory<Q,R,T> implements ITaskFactory<T> {
+	
+	/**
+	 * task factory 1
+	 */
+	private ITaskFactory<Q> taskFac1;
+	
+	/**
+	 * task factory 2
+	 */
+	private ITaskFactory<R> taskFac2;
+
+	/**
+	 * constructor to set composite data field
+	 * @param fac1 selected task factory 1
+	 * @param fac2 selected task factory 2
+	 */
+	public MultiTaskFactory(ITaskFactory<Q> fac1, ITaskFactory<R> fac2) {
+		this.taskFac1 = fac1;
+		this.taskFac2 = fac2;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	/**
+	 * maker of MultiTask object
+	 */
+	public ITask<T> make(String param) {
+		return (ITask<T>) new MultiTask<Q,R>(taskFac1.make(param), taskFac2.make(param));
+	}
+	
+	@Override
+	/**
+	 * defines display name of combined task
+	 */
+	public String toString() {
+		return taskFac1.toString() + " - " + taskFac2.toString();
+	}
+
+}

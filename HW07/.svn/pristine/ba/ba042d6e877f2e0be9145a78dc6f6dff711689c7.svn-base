@@ -1,0 +1,52 @@
+package rmiServer.controller;
+
+import java.awt.EventQueue;
+
+import rmiServer.view.*;
+import rmiServer.model.*;
+import provided.compute.ILocalTaskViewAdapter;
+
+public class RMIServerController {
+	private IRMIServerEngineModel RMIServerEngineModel;
+	
+	private RMIServerFrame RMIServerMainFrame;
+	
+	public RMIServerController() {
+		RMIServerEngineModel = new RMIServerModel(new ILocalTaskViewAdapter() {
+			@Override
+			public void append(String s) {
+				RMIServerMainFrame.addText(s);
+			}
+		});
+		
+		RMIServerMainFrame = new RMIServerFrame(new IRMIServerView2ModelAdapter() {
+			@Override
+			public void msgToClientView(String msg) {
+				RMIServerEngineModel.sendMsgToClient(msg);
+			} 
+			
+			@Override
+			public void quit() {
+				RMIServerEngineModel.stop();
+			}
+		});
+	}
+	
+	public void start() {
+		RMIServerMainFrame.start();
+		RMIServerEngineModel.start();
+	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RMIServerController controller = new RMIServerController();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

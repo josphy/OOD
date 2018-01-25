@@ -1,0 +1,92 @@
+package client.control;
+
+import java.awt.EventQueue;
+
+import client.model.ClientModel;
+import client.model.ILocalTaskViewAdapter;
+import client.view.ClientGUI;
+import client.view.IModelAdapter;
+import provided.client.model.taskUtils.ITaskFactory;
+
+public class ClientController {
+
+	private ClientGUI<ITaskFactory<?>> view;
+	private ClientModel model;
+	
+	public ClientController() {
+		
+		view = new ClientGUI<ITaskFactory<?>>(new IModelAdapter<ITaskFactory<?>>() {
+
+			@Override
+			public ITaskFactory<?> addTask(String taskname) {
+				return model.makeITaskFac(taskname);	
+			}
+
+			@Override
+			public String runTask(ITaskFactory<?> selectedTask, String param) {
+				return model.runTask(selectedTask.make(param));
+			}
+
+			@Override
+			public ITaskFactory<?> combineTask(ITaskFactory<?> selectedTask1, ITaskFactory<?> selectedTask2) {
+				return null;
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void connect(String ip) {
+				model.connectTo(ip);
+				
+			}
+
+			@Override
+			public void sendMsg(String text) {
+				model.sendMsgToComputeEngine(text);
+				
+			}
+
+			@Override
+			public void quit() {
+				model.stop();
+			}
+		});
+		
+		model = new ClientModel(new ILocalTaskViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.append(s);		
+			}
+
+			@Override
+			public void setRemoteHost(String host) {
+				view.setRemoteHost(host);
+			}
+			
+		});
+	}
+
+	public void start() {
+		view.start();
+		model.start();
+		view.addTask("provided.client.model.task.Pi2");
+		view.addTask("provided.client.model.task.GetInfo");
+	}
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ClientController controller = new ClientController();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

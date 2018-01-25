@@ -1,0 +1,135 @@
+package rmiServer.model;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+import provided.rmiUtils.*;
+// import provided.engine.model.IEngineModel;
+// import provided.client.model.task.*;
+import provided.compute.ICompute;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.IRemoteTaskViewAdapter;
+
+/**
+ * Following defines the model of a RMI server system.
+ * 
+ * @author Xiaojun Wu
+ * @author Haoshan Zou
+ */
+public class RMIServerModel implements IRMIServerEngineModel {
+	/**
+	 * The RMI system utility that help model to start and stop RMI system more easily.
+	 */
+	private IRMIUtils rmiUtils;
+
+	/**
+	 * The registry that receive that registration from server object stub.
+	 */
+	private Registry registry;
+
+	/**
+	 * The adapter that model uses to communicate with view.
+	 */
+	private ILocalTaskViewAdapter model2ViewAdapter = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+
+	/**
+	 * The adapter that allows client to communicate with RMI server system view.
+	 */
+	private IRemoteTaskViewAdapter serverViewAdapter;
+
+	/**
+	 * The adapter that allows the RMI server model to communicate with client view. 
+	 */
+	private IRemoteTaskViewAdapter clientTVAStub = IRemoteTaskViewAdapter.NULL_ADAPTER;
+
+	/**
+	 * The server object used in this RMI server system.
+	 */
+	private ICompute computeServer;
+
+	/**
+	 * constructor of server model
+	 * @param model2ViewAdapter externally provided server view adapter
+	 */
+	public RMIServerModel(ILocalTaskViewAdapter model2ViewAdapter) {
+		this.model2ViewAdapter = model2ViewAdapter;
+		this.serverViewAdapter = new IRemoteTaskViewAdapter() {
+			@Override
+			public void append(String s) throws RemoteException {
+				model2ViewAdapter.append("[Client] " + s);
+			}
+		};
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.model2ViewAdapter.append(s);
+		});
+	}
+
+	@Override
+	/**
+	 * Start the server by setting the necessary RMI system parameters, 
+	 * locating the local Registry and binding an instance of the ComputeEngine to it. 
+	 */
+	public void start() {
+		try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_SERVER);
+			registry = rmiUtils.getLocalRegistry();
+		} catch (Exception e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		try {
+			IRemoteTaskViewAdapter serverTVAStub = (IRemoteTaskViewAdapter) UnicastRemoteObject
+					.exportObject(serverViewAdapter, IRemoteTaskViewAdapter.BOUND_PORT_SERVER);
+			computeServer = new RMIComputeServer(model2ViewAdapter, serverTVAStub, this);
+			ICompute computeStub = (ICompute) UnicastRemoteObject.exportObject(computeServer, ICompute.BOUND_PORT);
+			registry.rebind(ICompute.BOUND_NAME, computeStub);
+		} catch (Exception e) {
+			System.err.println("Server Exception: " + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
+	@Override
+	/**
+	 * Stops the EngineModel and stopping the server.
+	 */
+	public void stop() {
+		rmiUtils.stopRMI();
+		System.exit(-1);
+	}
+
+	@Override
+	/**
+	 * send message to remote client view
+	 */
+	public void sendMsgToClient(String text) {
+		try {
+			if (clientTVAStub == IRemoteTaskViewAdapter.NULL_ADAPTER) {
+				model2ViewAdapter.append(
+						"[ERROR!!] [ComputeEngine.sendMsgToClient()] Error sending msg to connected remote client: IRemoteTaskViewAdapter stub from client is null! (msg = \""
+								+ text + "\")");
+				return;
+			}
+			model2ViewAdapter
+					.append("[ComputeEngine.sendMsgToClient()] Sending msg to connected remote client. (msg= \"" + text
+							+ "\")");
+			clientTVAStub.append(text + "\n");
+		} catch (Exception e) {
+			System.out.println("Client Exception: " + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
+	@Override
+	/**
+	 * setter of client view stub
+	 */
+	public void setClientTVAStub(IRemoteTaskViewAdapter newClientTVAStub) {
+		this.clientTVAStub = newClientTVAStub;
+	}
+}

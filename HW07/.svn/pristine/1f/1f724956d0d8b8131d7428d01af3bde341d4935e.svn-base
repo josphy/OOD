@@ -1,0 +1,40 @@
+package client.model.task;
+
+import java.rmi.RemoteException;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+public class MultiTask<Q,R,T> implements ITask<T> {
+	
+	private static final long serialVersionUID = -2062204862714215781L;
+	
+	private ITask<Q> task1;
+	
+	private ITask<R> task2;
+
+	public MultiTask(ITask<Q> task1, ITask<R> task2) {
+		this.task1 = task1;
+		this.task2 = task2;
+	}
+
+	@Override
+	public T execute() throws RemoteException {
+		return this.task1.execute() + this.task2.execute();
+	}
+
+	@Override
+	public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+		task1.setTaskViewAdapter(viewAdapter);
+		task2.setTaskViewAdapter(viewAdapter);
+	}
+
+	@Override
+	public ITaskResultFormatter<T> getFormatter() {
+		// TODO Auto-generated method stub
+		return this.task1.getFormatter() + this.task2.getFormatter();
+	}
+
+}

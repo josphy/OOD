@@ -1,0 +1,23 @@
+package client.model;
+
+public interface ILocalTaskViewAdapter {
+	public void append(String s);
+	
+	public void setRemoteHost(String host);
+
+	public static final ILocalTaskViewAdapter NULL_OBJECT = new ILocalTaskViewAdapter() {
+
+		@Override
+		public void append(String s) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setRemoteHost(String host) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+}

@@ -1,0 +1,79 @@
+package client.view;
+
+/**
+ * adapter for client's view to communicate to model
+ * @author Haoshan Zou, Xiaojun Wu
+ * @param <TaskItem> type of drop list task item
+ */
+public interface IModelAdapter<TaskItem> {
+	
+	/**
+	 * Quits the application and gracefully shuts down the RMI-related resources.
+	 */
+	public void quit();
+	
+	/**
+	 * Request that model connect to the RMI Registry at the given remote host.
+	 * @param ip the remote host ip to connect to
+	 * @return a status string regarding the connection result
+	 */
+	public String connect(String ip);
+	
+	/**
+	 * send a message to remote server's view
+	 * @param input text message
+	 */
+	public void sendMsg(String text);
+	
+	/**
+	 * Request the model to generate task item from string input
+	 * @param taskname input full task name
+	 * @return a TaskItem to be saved in the drop list
+	 */
+	public TaskItem addTask(String taskname);
+	
+	/**
+	 * Request the remote server to run the task and return result
+	 * @param selectedTask user selected task to be executed
+	 * @param param input task parameter
+	 * @return string output of execution result
+	 */
+	public String runTask(TaskItem selectedTask, String param);
+	
+	/**
+	 * combine two tasks
+	 * @param selectedTask1 user selected task in drop list 1
+	 * @param selectedTask2 user selected task in drop list 2
+	 * @return TaskItem of the combined task
+	 */
+	public TaskItem combineTask(TaskItem selectedTask1, TaskItem selectedTask2);
+	
+	/**
+	 * null object for initialization
+	 */
+	public static final IModelAdapter<?> NULL_OBJECT = new IModelAdapter<Object>() {
+		
+		public void quit() {
+		}
+		
+		public String connect(String ip) {
+			return null;
+		}
+		
+		public void sendMsg(String text) {
+		}
+		
+		public Object addTask(String taskname) {
+			return null;
+		}
+		
+		public String runTask(Object selectedTask, String param) {
+			return null;
+		}
+		
+		public Object combineTask(Object selectedTask1, Object selectedTask2) {
+			return null;
+		}		
+	};
+
+}

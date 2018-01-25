@@ -1,0 +1,1946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_QLiT0LbfEeeCIdRqtlieYw" name="Client">
+    <eAnnotations xmi:id="_QR72wLbfEeeCIdRqtlieYw" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_QR8d0LbfEeeCIdRqtlieYw" source="codegen">
+        <details xmi:id="_QR8d0bbfEeeCIdRqtlieYw" key="codegenDirectory" value="/HW07/src"/>
+        <details xmi:id="_Q4x0ULbfEeeCIdRqtlieYw" key="AssociatedSourceCode" value="/HW07/src/client/control/ClientController.java;1775288343/1;/HW07/src/client/model/ClientModel.java;2898857395/1;/HW07/src/client/model/ILocalTaskViewAdapter.java;2729861140/1;/HW07/src/client/model/task/Fibo.java;1496092519/1;/HW07/src/client/model/task/MultiTask.java;3886503144/1;/HW07/src/client/model/task/MultiTaskFactory.java;3366913622/1;/HW07/src/client/model/task/Pow2.java;72694888/1;/HW07/src/client/model/task/RandomArray.java;1648677443/1;/HW07/src/provided/compute/ITaskResultFormatter.java;509179952/1;/HW07/src/client/view/IModelAdapter.java;2105007369/1;/HW07/src/provided/client/model/taskUtils/ITaskFactory.java;3686840627/1;/HW07/src/provided/client/model/taskUtils/ITaskFactoryLoader.java;2797517408/1;/HW07/src/provided/compute/ITask.java;3570879653/1;/HW07/src/provided/compute/ILocalTaskViewAdapter.java;3238674127/1;/HW07/src/provided/compute/IRemoteTaskViewAdapter.java;322814863/1;/HW07/src/provided/client/model/taskUtils/SingletonTaskFactoryLoader.java;2183004093/1;/HW07/src/client/view/ClientGUI.java;3481112884/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_QvQE4LbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQE4bbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQE4rbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQE47bfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQE5LbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQr8LbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQr8bbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQr8rbfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_QvQr87bfEeeCIdRqtlieYw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Qt8dULbfEeeCIdRqtlieYw" name="client">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rcrbfEeeCIdRqtlieYw" name="model">
+        <packagedElement xmi:type="uml:Package" xmi:id="_Qt_gpLbfEeeCIdRqtlieYw" name="task">
+          <packagedElement xmi:type="uml:Class" xmi:id="_QveuYLbfEeeCIdRqtlieYw" name="Fibo">
+            <ownedComment xmi:id="_QyuPqbbfEeeCIdRqtlieYw">
+              <body>Task to generate Fibonacci sequence to a given number of digits
+@author Haoshan Zou, Xiaojun Wu
+ *</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_QySx0bbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QySx0rbfEeeCIdRqtlieYw" value="-7662490749049293871L"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QySx07bfEeeCIdRqtlieYw" name="taskView" visibility="private" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy5OwbbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QyTY4LbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QyTY4bbfEeeCIdRqtlieYw" key="transient"/>
+              </eAnnotations>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyTY4rbfEeeCIdRqtlieYw" value="ILocalTaskViewAdapter.DEFAULT_ADAPTER"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyTY5LbfEeeCIdRqtlieYw" name="digits" visibility="private" isLeaf="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyTY5rbfEeeCIdRqtlieYw" name="FACTORY" isLeaf="true" isStatic="true" type="_Qv7aULbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy5OxLbfEeeCIdRqtlieYw">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyT_8bbfEeeCIdRqtlieYw" value="new ITaskFactory&lt;String>() {&#xA;&#x9;&#x9;public ITask&lt;String> make(String param) {&#xA;&#x9;&#x9;&#x9;return new Fibo(Integer.parseInt(param));&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public String toString() {&#xA;&#x9;&#x9;&#x9;return Fibo.class.getName();&#xA;&#x9;&#x9;}&#xA;&#x9;}"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_QxdEULbfEeeCIdRqtlieYw" client="_QveuYLbfEeeCIdRqtlieYw" supplier="_Qv-doLbfEeeCIdRqtlieYw" contract="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QypXKrbfEeeCIdRqtlieYw" name="Fibo" specification="_QvfVcLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QypXK7bfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QypXLLbfEeeCIdRqtlieYw" type="_QveuYLbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>this.digits = digits;
+		taskView.append(&quot;Fibonacci constructing...&quot;);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QypXLbbfEeeCIdRqtlieYw" name="execute" specification="_QvfVdbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QypXLrbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>taskView.append(&quot;Executing Fibo task with &quot; + digits + &quot; digits.&quot;);
+		return computeFibo(digits);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-MLbfEeeCIdRqtlieYw" name="computeFibo" specification="_QvhKoLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-MbbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_Qyp-MrbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>StringBuilder fiboSequence = new StringBuilder();
+		fiboSequence.append(&quot;1&quot;);
+		int length = 1;
+		int pre = 1;
+		int now = 1;
+		int sum = 0;
+		for (length = 1; length &lt; digits; length++) {
+			fiboSequence.append(&quot;, &quot;);
+			fiboSequence.append(now);
+			sum = pre + now;
+			pre = now;
+			now = sum;
+		}
+		return fiboSequence.toString();
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-M7bfEeeCIdRqtlieYw" name="setTaskViewAdapter" specification="_QxeScLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-NLbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+              <language>java</language>
+              <body>taskView = viewAdapter;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-NbbfEeeCIdRqtlieYw" name="getFormatter" specification="_QvhKo7bfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-NrbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>return new ITaskResultFormatter&lt;String>() {
+
+			public String format(String result) {
+				return &quot;Fibonacci Sequence : &quot; + result + &quot; (&quot; + digits + &quot; places)&quot;;
+			}
+		};
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_QvfVcLbfEeeCIdRqtlieYw" name="Fibo" method="_QypXKrbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QvfVcrbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QvfVc7bfEeeCIdRqtlieYw" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_QyuPqrbfEeeCIdRqtlieYw">
+                <body>Construct the task.
+	 * @param digits the number of digits to generate to</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_QvfVcbbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QvfVdLbfEeeCIdRqtlieYw" type="_QveuYLbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvfVdbbfEeeCIdRqtlieYw" name="execute" method="_QypXLbbfEeeCIdRqtlieYw" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qvf8gLbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvhKoLbfEeeCIdRqtlieYw" name="computeFibo" visibility="private" method="_Qyp-MLbfEeeCIdRqtlieYw">
+              <ownedComment xmi:id="_QyuPq7bfEeeCIdRqtlieYw">
+                <body>compute fibonacci sequence
+	 * @param digits length of desired sequence
+	 * @return string output of generated sequence</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_QvhKobbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QvhKorbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvhKo7bfEeeCIdRqtlieYw" name="getFormatter" method="_Qyp-NbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qxe5gLbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QxeScLbfEeeCIdRqtlieYw" name="setTaskViewAdapter" method="_Qyp-M7bfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QxeScbbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qvjm4LbfEeeCIdRqtlieYw" name="MultiTask">
+            <ownedComment xmi:id="_QyuPrLbfEeeCIdRqtlieYw">
+              <body>MultiTask: enable dynamically combined task</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_QyUnALbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyUnAbbfEeeCIdRqtlieYw" value="-2062204862714215781L"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyUnArbfEeeCIdRqtlieYw" name="task1" visibility="private" type="_Qv-doLbfEeeCIdRqtlieYw" association="_Qy510bbfEeeCIdRqtlieYw"/>
+            <ownedAttribute xmi:id="_QyVOEbbfEeeCIdRqtlieYw" name="task2" visibility="private" type="_Qv-doLbfEeeCIdRqtlieYw" association="_Qy6c4bbfEeeCIdRqtlieYw"/>
+            <ownedAttribute xmi:id="_QyV1IbbfEeeCIdRqtlieYw" name="taskView" visibility="private" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy6c5LbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QyV1IrbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QyV1I7bfEeeCIdRqtlieYw" key="transient"/>
+              </eAnnotations>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyV1JLbfEeeCIdRqtlieYw" value="ILocalTaskViewAdapter.DEFAULT_ADAPTER"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_QxfgkLbfEeeCIdRqtlieYw" client="_Qvjm4LbfEeeCIdRqtlieYw" supplier="_Qv-doLbfEeeCIdRqtlieYw" contract="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-N7bfEeeCIdRqtlieYw" name="MultiTask" specification="_QxgHobbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-OLbfEeeCIdRqtlieYw" name="task1" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_Qyp-ObbfEeeCIdRqtlieYw" name="task2" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_Qyp-OrbfEeeCIdRqtlieYw" type="_Qvjm4LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>this.task1 = task1;
+		this.task2 = task2;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-O7bfEeeCIdRqtlieYw" name="execute" specification="_Qvk1ALbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-PLbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>taskView.append(&quot;MultiTask executing: \n&quot;);
+		String output = &quot;&quot;;
+		taskView.append(&quot;(Executing Task #1)&quot;);
+		output += &quot;(1) &quot; + task1.getFormatter().format(this.task1.execute()) + '\n';
+		taskView.append(&quot;(Executing Task #2)&quot;);
+		output += &quot;(2) &quot; + task2.getFormatter().format(this.task2.execute());
+		return output;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Qyp-PbbfEeeCIdRqtlieYw" name="setTaskViewAdapter" specification="_QxhVwbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qyp-PrbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+              <language>java</language>
+              <body>taskView = viewAdapter;
+		task1.setTaskViewAdapter(viewAdapter);
+		task2.setTaskViewAdapter(viewAdapter);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlQLbfEeeCIdRqtlieYw" name="getFormatter" specification="_QvlcE7bfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlQbbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>return new ITaskResultFormatter&lt;String>() {
+			public String format(String result) {
+				return &quot;MultiTask results:\n&quot; + result;
+			}
+		};
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_Qvk1ALbfEeeCIdRqtlieYw" name="execute" method="_Qyp-O7bfEeeCIdRqtlieYw" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qvk1AbbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvlcE7bfEeeCIdRqtlieYw" name="getFormatter" method="_QyqlQLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qxh81LbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QxgHobbfEeeCIdRqtlieYw" name="MultiTask" method="_Qyp-N7bfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QxgusbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QxgusrbfEeeCIdRqtlieYw" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_Qyu2sLbfEeeCIdRqtlieYw">
+                <body>constructor to save tasks
+	 * @param task1 selected task 1
+	 * @param task2 selected task 2</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_QxgHorbfEeeCIdRqtlieYw" name="task1" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_QxgusLbfEeeCIdRqtlieYw" name="task2" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_Qxgus7bfEeeCIdRqtlieYw" type="_Qvjm4LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QxhVwbbfEeeCIdRqtlieYw" name="setTaskViewAdapter" method="_Qyp-PbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qxh80LbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_QvpGcLbfEeeCIdRqtlieYw" name="MultiTaskFactory">
+            <ownedComment xmi:id="_Qyu2sbbfEeeCIdRqtlieYw">
+              <body>MultiTaskFactory: holds MultiTask item maker</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_QyWcMLbfEeeCIdRqtlieYw" name="taskFac1" visibility="private" type="_Qv7aULbfEeeCIdRqtlieYw" association="_Qy7D8bbfEeeCIdRqtlieYw"/>
+            <ownedAttribute xmi:id="_QyXDQrbfEeeCIdRqtlieYw" name="taskFac2" visibility="private" type="_Qv7aULbfEeeCIdRqtlieYw" association="_Qy7rAbbfEeeCIdRqtlieYw"/>
+            <interfaceRealization xmi:id="_QxjK8LbfEeeCIdRqtlieYw" client="_QvpGcLbfEeeCIdRqtlieYw" supplier="_Qv7aULbfEeeCIdRqtlieYw" contract="_Qv7aULbfEeeCIdRqtlieYw"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlQrbfEeeCIdRqtlieYw" name="MultiTaskFactory" specification="_QxkZELbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlQ7bfEeeCIdRqtlieYw" name="fac1" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_QyqlRLbfEeeCIdRqtlieYw" name="fac2" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_QyqlRbbfEeeCIdRqtlieYw" type="_QvpGcLbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>this.taskFac1 = fac1;
+		this.taskFac2 = fac2;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlRrbfEeeCIdRqtlieYw" name="make" specification="_Qvq7oLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlR7bfEeeCIdRqtlieYw" name="param">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QyqlSLbfEeeCIdRqtlieYw" type="_Qv-doLbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>return (ITask&lt;T>) new MultiTask&lt;Q, R>(taskFac1.make(param), taskFac2.make(param));
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlSbbfEeeCIdRqtlieYw" name="toString" specification="_QvsJwbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlSrbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>return taskFac1.toString() + &quot; - &quot; + taskFac2.toString();
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_Qvq7oLbfEeeCIdRqtlieYw" name="make" method="_QyqlRrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qvq7obbfEeeCIdRqtlieYw" name="param">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QxlAIrbfEeeCIdRqtlieYw" type="_Qv-doLbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvsJwbbfEeeCIdRqtlieYw" name="toString" method="_QyqlSbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QvsJwrbfEeeCIdRqtlieYw" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QxkZELbfEeeCIdRqtlieYw" name="MultiTaskFactory" method="_QyqlQrbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QxkZE7bfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QxkZFLbfEeeCIdRqtlieYw" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_Qyu2srbfEeeCIdRqtlieYw">
+                <body>constructor to set composite data field
+	 * @param fac1 selected task factory 1
+	 * @param fac2 selected task factory 2</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_QxkZEbbfEeeCIdRqtlieYw" name="fac1" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_QxkZErbfEeeCIdRqtlieYw" name="fac2" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+              <ownedParameter xmi:id="_QxkZFbbfEeeCIdRqtlieYw" type="_QvpGcLbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_QvtX4LbfEeeCIdRqtlieYw" name="Pow2">
+            <ownedComment xmi:id="_Qyu2tLbfEeeCIdRqtlieYw">
+              <body>Task to generate 2's power to a given number of power
+@author Haoshan Zou, Xiaojun Wu
+ *</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_QyYRYLbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyYRYbbfEeeCIdRqtlieYw" value="4108385259824474093L"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyYRYrbfEeeCIdRqtlieYw" name="taskView" visibility="private" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy8SEbbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QyYRY7bfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QyYRZLbfEeeCIdRqtlieYw" key="transient"/>
+              </eAnnotations>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyYRZbbfEeeCIdRqtlieYw" value="ILocalTaskViewAdapter.DEFAULT_ADAPTER"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyY4cLbfEeeCIdRqtlieYw" name="digits" visibility="private" isLeaf="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyY4crbfEeeCIdRqtlieYw" name="FACTORY" isLeaf="true" isStatic="true" type="_Qv7aULbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy8SFLbfEeeCIdRqtlieYw">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyZfgbbfEeeCIdRqtlieYw" value="new ITaskFactory&lt;Double>() {&#xA;&#x9;&#x9;public ITask&lt;Double> make(String param) {&#xA;&#x9;&#x9;&#x9;return new Pow2(Double.parseDouble(param));&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public String toString() {&#xA;&#x9;&#x9;&#x9;return Pow2.class.getName();&#xA;&#x9;&#x9;}&#xA;&#x9;}"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_QxoDcLbfEeeCIdRqtlieYw" client="_QvtX4LbfEeeCIdRqtlieYw" supplier="_Qv-doLbfEeeCIdRqtlieYw" contract="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlS7bfEeeCIdRqtlieYw" name="Pow2" specification="_Qvt-8LbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlTLbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QyqlTbbfEeeCIdRqtlieYw" type="_QvtX4LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>this.digits = digits;
+		taskView.append(&quot;Power of 2 constructing...&quot;);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyqlTrbfEeeCIdRqtlieYw" name="execute" specification="_QvumBLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyqlT7bfEeeCIdRqtlieYw" type="_QyEvYbbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>taskView.append(&quot;Executing Pow2 task with &quot; + digits + &quot; digits.&quot;);
+		return Math.pow(2.0, digits);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMULbfEeeCIdRqtlieYw" name="setTaskViewAdapter" specification="_QxpRkLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMUbbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+              <language>java</language>
+              <body>taskView = viewAdapter;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMUrbfEeeCIdRqtlieYw" name="getFormatter" specification="_QvvNErbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMU7bfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>return new ITaskResultFormatter&lt;Double>() {
+
+			public String format(Double result) {
+				return &quot;2 to the &quot; + digits + &quot; power : &quot; + result + &quot; (&quot; + digits + &quot; places)&quot;;
+			}
+		};
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_Qvt-8LbfEeeCIdRqtlieYw" name="Pow2" method="_QyqlS7bfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QvumAbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QvumArbfEeeCIdRqtlieYw" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_Qyu2tbbfEeeCIdRqtlieYw">
+                <body>Construct the task.
+	 * @param digits the power to generate</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_QvumALbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QvumA7bfEeeCIdRqtlieYw" type="_QvtX4LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvumBLbfEeeCIdRqtlieYw" name="execute" method="_QyqlTrbfEeeCIdRqtlieYw" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyFWcLbfEeeCIdRqtlieYw" type="_QyEvYbbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QvvNErbfEeeCIdRqtlieYw" name="getFormatter" method="_QyrMUrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QxqfsbbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_QxpRkLbfEeeCIdRqtlieYw" name="setTaskViewAdapter" method="_QyrMULbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QxpRkbbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_QvxpULbfEeeCIdRqtlieYw" name="RandomArray">
+            <ownedComment xmi:id="_Qyu2trbfEeeCIdRqtlieYw">
+              <body>Task to generate a random array of integers in [1, 100] to a given number of length
+@author Haoshan Zou, Xiaojun Wu
+ *</body>
+            </ownedComment>
+            <ownedAttribute xmi:id="_QyZfgrbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyZfg7bfEeeCIdRqtlieYw" value="-4015769738438562392L"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyaGkLbfEeeCIdRqtlieYw" name="taskView" visibility="private" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy85IbbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_QyaGkbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_QyaGkrbfEeeCIdRqtlieYw" key="transient"/>
+              </eAnnotations>
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyaGk7bfEeeCIdRqtlieYw" value="ILocalTaskViewAdapter.DEFAULT_ADAPTER"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyaGlbbfEeeCIdRqtlieYw" name="digits" visibility="private" isLeaf="true" isReadOnly="true">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_QyatoLbfEeeCIdRqtlieYw" name="FACTORY" isLeaf="true" isStatic="true" type="_Qv7aULbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy9gMbbfEeeCIdRqtlieYw">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_QybUsLbfEeeCIdRqtlieYw" value="new ITaskFactory&lt;ArrayList&lt;Integer>>() {&#xA;&#x9;&#x9;public ITask&lt;ArrayList&lt;Integer>> make(String param) {&#xA;&#x9;&#x9;&#x9;return new RandomArray(Integer.parseInt(param));&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public String toString() {&#xA;&#x9;&#x9;&#x9;return RandomArray.class.getName();&#xA;&#x9;&#x9;}&#xA;&#x9;}"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_Qxrt0bbfEeeCIdRqtlieYw" client="_QvxpULbfEeeCIdRqtlieYw" supplier="_Qv-doLbfEeeCIdRqtlieYw" contract="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMVLbfEeeCIdRqtlieYw" name="RandomArray" specification="_QvyQYLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMVbbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_QyrMVrbfEeeCIdRqtlieYw" type="_QvxpULbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>this.digits = digits;
+		taskView.append(&quot;Random array constructing...&quot;);
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMV7bfEeeCIdRqtlieYw" name="execute" specification="_Qvy3dLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMWLbfEeeCIdRqtlieYw" type="_QxrGwLbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>taskView.append(&quot;Executing RandomArray task with &quot; + digits + &quot; digits.&quot;);
+		ArrayList&lt;Integer> result = new ArrayList&lt;Integer>();
+		for (int i = 1; i &lt;= digits; i++) {
+			result.add((int) Math.ceil(Math.random() * 100));
+		}
+		return result;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMWbbfEeeCIdRqtlieYw" name="setTaskViewAdapter" specification="_Qxs78LbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMWrbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+              <language>java</language>
+              <body>taskView = viewAdapter;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrMW7bfEeeCIdRqtlieYw" name="getFormatter" specification="_Qv0FkLbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyrMXLbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+              <language>java</language>
+              <body>return new ITaskResultFormatter&lt;ArrayList&lt;Integer>>() {
+
+			public String format(ArrayList&lt;Integer> result) {
+				return &quot;Generated random array : &quot; + result.toString() + &quot; (&quot; + digits + &quot; places)&quot;;
+			}
+		};
+
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_QvyQYLbfEeeCIdRqtlieYw" name="RandomArray" method="_QyrMVLbfEeeCIdRqtlieYw">
+              <eAnnotations xmi:id="_Qvy3cbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_Qvy3crbfEeeCIdRqtlieYw" key="create"/>
+              </eAnnotations>
+              <ownedComment xmi:id="_Qyu2t7bfEeeCIdRqtlieYw">
+                <body>Construct the task.
+	 * @param digits the length of random number array to generate</body>
+              </ownedComment>
+              <ownedParameter xmi:id="_Qvy3cLbfEeeCIdRqtlieYw" name="digits">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_Qvy3c7bfEeeCIdRqtlieYw" type="_QvxpULbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_Qvy3dLbfEeeCIdRqtlieYw" name="execute" method="_QyrMV7bfEeeCIdRqtlieYw" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QyF9gLbfEeeCIdRqtlieYw" type="_QxrGwLbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_Qv0FkLbfEeeCIdRqtlieYw" name="getFormatter" method="_QyrMW7bfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_QxuKErbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_Qxs78LbfEeeCIdRqtlieYw" name="setTaskViewAdapter" method="_QyrMWbbfEeeCIdRqtlieYw">
+              <ownedParameter xmi:id="_Qxs78bbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy5OwbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy5OwrbfEeeCIdRqtlieYw _QySx07bfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy5OwrbfEeeCIdRqtlieYw" name="" type="_QveuYLbfEeeCIdRqtlieYw" association="_Qy5OwbbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy5OxLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy5OxbbfEeeCIdRqtlieYw _QyTY5rbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy5OxbbfEeeCIdRqtlieYw" name="" type="_QveuYLbfEeeCIdRqtlieYw" association="_Qy5OxLbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy510bbfEeeCIdRqtlieYw" name="" memberEnd="_Qy510rbfEeeCIdRqtlieYw _QyUnArbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy510rbfEeeCIdRqtlieYw" name="" type="_Qvjm4LbfEeeCIdRqtlieYw" association="_Qy510bbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy6c4bbfEeeCIdRqtlieYw" name="" memberEnd="_Qy6c4rbfEeeCIdRqtlieYw _QyVOEbbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy6c4rbfEeeCIdRqtlieYw" name="" type="_Qvjm4LbfEeeCIdRqtlieYw" association="_Qy6c4bbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy6c5LbfEeeCIdRqtlieYw" name="" memberEnd="_Qy6c5bbfEeeCIdRqtlieYw _QyV1IbbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy6c5bbfEeeCIdRqtlieYw" name="" type="_Qvjm4LbfEeeCIdRqtlieYw" association="_Qy6c5LbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy7D8bbfEeeCIdRqtlieYw" name="" memberEnd="_Qy7D8rbfEeeCIdRqtlieYw _QyWcMLbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy7D8rbfEeeCIdRqtlieYw" name="" type="_QvpGcLbfEeeCIdRqtlieYw" association="_Qy7D8bbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy7rAbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy7rArbfEeeCIdRqtlieYw _QyXDQrbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy7rArbfEeeCIdRqtlieYw" name="" type="_QvpGcLbfEeeCIdRqtlieYw" association="_Qy7rAbbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy8SEbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy8SErbfEeeCIdRqtlieYw _QyYRYrbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy8SErbfEeeCIdRqtlieYw" name="" type="_QvtX4LbfEeeCIdRqtlieYw" association="_Qy8SEbbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy8SFLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy8SFbbfEeeCIdRqtlieYw _QyY4crbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy8SFbbfEeeCIdRqtlieYw" name="" type="_QvtX4LbfEeeCIdRqtlieYw" association="_Qy8SFLbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy85IbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy85IrbfEeeCIdRqtlieYw _QyaGkLbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy85IrbfEeeCIdRqtlieYw" name="" type="_QvxpULbfEeeCIdRqtlieYw" association="_Qy85IbbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_Qy9gMbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy9gMrbfEeeCIdRqtlieYw _QyatoLbfEeeCIdRqtlieYw">
+            <ownedEnd xmi:id="_Qy9gMrbfEeeCIdRqtlieYw" name="" type="_QvxpULbfEeeCIdRqtlieYw" association="_Qy9gMbbfEeeCIdRqtlieYw"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QvShILbfEeeCIdRqtlieYw" name="ClientModel">
+          <ownedComment xmi:id="_QytolLbfEeeCIdRqtlieYw">
+            <body>Model of the client MVC
+
+@author Haoshan Zou, Xiaojun Wu</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_QyQ8oLbfEeeCIdRqtlieYw" name="_viewAdapter" visibility="private" type="_Qvc5MLbfEeeCIdRqtlieYw" association="_Qy2LcbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyQ8obbfEeeCIdRqtlieYw" value="ILocalTaskViewAdapter.NULL_OBJECT"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyQ8o7bfEeeCIdRqtlieYw" name="serverViewStub" visibility="private" type="_QwBg8rbfEeeCIdRqtlieYw" association="_Qy2ygbbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QyQ8pbbfEeeCIdRqtlieYw" name="clientView" visibility="private" type="_QwBg8rbfEeeCIdRqtlieYw" association="_Qy2yhLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyRjsLbfEeeCIdRqtlieYw" value="new IRemoteTaskViewAdapter() {&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public void append(String s) throws RemoteException {&#xA;&#x9;&#x9;&#x9;_viewAdapter.append(&quot;[SERVER]&quot; + s);&#xA;&#x9;&#x9;}&#xA;&#x9;}"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyRjsrbfEeeCIdRqtlieYw" name="clientViewStub" visibility="private" type="_QwBg8rbfEeeCIdRqtlieYw" association="_Qy3ZkbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyRjs7bfEeeCIdRqtlieYw" value="null"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyRjtbbfEeeCIdRqtlieYw" name="registry" visibility="private" type="_QxVIgbbfEeeCIdRqtlieYw" association="_Qy4AobbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QySKwbbfEeeCIdRqtlieYw" name="compStub" visibility="private" type="_QxVvk7bfEeeCIdRqtlieYw" association="_Qy4nsLbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QySKw7bfEeeCIdRqtlieYw" name="rmiUtils" visibility="private" type="_QxWWobbfEeeCIdRqtlieYw" association="_Qy4ns7bfEeeCIdRqtlieYw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyowELbfEeeCIdRqtlieYw" name="ClientModel" specification="_QxYL0LbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QyowEbbfEeeCIdRqtlieYw" name="adapter" type="_Qvc5MLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QyowErbfEeeCIdRqtlieYw" type="_QvShILbfEeeCIdRqtlieYw" direction="return"/>
+            <language>java</language>
+            <body>this._viewAdapter = adapter;
+		this.rmiUtils = new RMIUtils((s) -> {
+			this._viewAdapter.append(s);
+		});
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyowE7bfEeeCIdRqtlieYw" name="start" specification="_QvYAsLbfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_CLIENT);
+			_viewAdapter.setRemoteHost(rmiUtils.getLocalAddress());
+			_viewAdapter.append(&quot;[ClientModel.start()] Ready...\n&quot;);
+
+		} catch (SocketException | UnknownHostException e) {
+			System.err.println(&quot;Exception while intializing RMI: \n&quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		try {
+			clientViewStub = (IRemoteTaskViewAdapter) UnicastRemoteObject.exportObject(clientView,
+					IRemoteTaskViewAdapter.BOUND_PORT_CLIENT);
+		} catch (RemoteException e) {
+			System.err.println(&quot;Exception while creating remote view adapter stub: \n&quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyowFLbfEeeCIdRqtlieYw" name="stop" specification="_QvYAsbbfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>rmiUtils.stopRMI();
+		System.exit(0);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyowFbbfEeeCIdRqtlieYw" name="connectTo" specification="_QvYnwLbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QyowFrbfEeeCIdRqtlieYw" name="remoteHost">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QyowF7bfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>_viewAdapter.append(&quot;Locating registry at &quot; + remoteHost + &quot;...&quot;);
+		registry = rmiUtils.getRemoteRegistry(remoteHost);
+		_viewAdapter.append(&quot;[ClientModel.connectTo()] Found registry: &quot; + registry);
+
+		try {
+			compStub = (ICompute) registry.lookup(ICompute.BOUND_NAME);
+		} catch (RemoteException | NotBoundException e) {
+			System.err.println(&quot;Exception while retrieving ICompute stub: \n&quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		_viewAdapter.append(&quot;[ClientModel.connectTo()] Found remote Compute object: &quot; + compStub + &quot;\n&quot;);
+
+		try {
+			serverViewStub = compStub.setTextAdapter(clientViewStub);
+			serverViewStub.append(&quot;Hello from hz56's client!\n&quot;);
+		} catch (RemoteException e) {
+			System.err.println(&quot;Exception while setting up remote view connection: \n&quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		_viewAdapter.append(&quot;Got text adapter: &quot; + serverViewStub + &quot;\n&quot;);
+
+		return &quot;Connection to &quot; + remoteHost + &quot; established!\n&quot;;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyowGLbfEeeCIdRqtlieYw" name="sendMsgToComputeEngine" specification="_QvYnw7bfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QyowGbbfEeeCIdRqtlieYw" name="text">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>try {
+			serverViewStub.append(text);
+		} catch (RemoteException e) {
+			System.out.println(&quot;Server Exception: &quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		_viewAdapter
+				.append(&quot;[ClientModel.sendMsgToComputeEngine] Sending msg to connected remote host = \&quot;&quot; + text + &quot;\&quot;&quot;);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QypXILbfEeeCIdRqtlieYw" name="runTask" specification="_QxYy4bbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QypXIbbfEeeCIdRqtlieYw" name="task" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QypXIrbfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>T result = null;
+		try {
+			result = compStub.executeTask(task);
+		} catch (RemoteException e) {
+			System.err.println(&quot;Task execute exception: \n&quot; + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		return task.getFormatter().format(result);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QypXI7bfEeeCIdRqtlieYw" name="makeITaskFac" specification="_QvZO0LbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QypXJLbfEeeCIdRqtlieYw" name="taskname">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QypXJbbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+            <language>java</language>
+            <body>return SingletonTaskFactoryLoader.SINGLETON.load(taskname);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QypXJrbfEeeCIdRqtlieYw" name="combineTaskFacs" specification="_QxaBArbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QypXJ7bfEeeCIdRqtlieYw" name="selectedTask1" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QypXKLbfEeeCIdRqtlieYw" name="selectedTask2" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QypXKbbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+            <language>java</language>
+            <body>return new MultiTaskFactory(selectedTask1, selectedTask2);
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_QvYAsLbfEeeCIdRqtlieYw" name="start" method="_QyowE7bfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QytolrbfEeeCIdRqtlieYw">
+              <body>Starts the client model by initializing the RMI system and 
+	 * creating a remote view adapter stub for use by an engine server.</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvYAsbbfEeeCIdRqtlieYw" name="stop" method="_QyowFLbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QyuPoLbfEeeCIdRqtlieYw">
+              <body>Stops the client model by using the IRMIUtils to stop the RMI system. This
+	 * automatically stops class file server. This MUST be called before exiting the
+	 * system!</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvYnwLbfEeeCIdRqtlieYw" name="connectTo" method="_QyowFbbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QyuPobbfEeeCIdRqtlieYw">
+              <body>Connects to the given remote host's Registry and retrieves the stub to the
+	 * ICompute object bound to the ICompute.BOUND_NAME name in the remote Registry
+	 * on port IRMI_Defs.REGISTRY_PORT.
+	 * @param remoteHost
+	 *            The IP address or host name of the remote server.
+	 * @return A status string on the connection.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvYnwbbfEeeCIdRqtlieYw" name="remoteHost">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QvYnwrbfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvYnw7bfEeeCIdRqtlieYw" name="sendMsgToComputeEngine" method="_QyowGLbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QyuPorbfEeeCIdRqtlieYw">
+              <body>Sends a string message to the connected compute engine using the
+	 * IRemoteTaskViewAdapter STUB received from the engine server. This message
+	 * should also be echoed to the local user interface.
+	 * 
+	 * @param text
+	 *            The message to be sent</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvYnxLbfEeeCIdRqtlieYw" name="text">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvZO0LbfEeeCIdRqtlieYw" name="makeITaskFac" method="_QypXI7bfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QyuPo7bfEeeCIdRqtlieYw">
+              <body>make a ITaskFactory item for the drop list by user input
+	 * @param taskname user input task full name
+	 * @return ITaskFactory item for the GUI drop list</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvZO0bbfEeeCIdRqtlieYw" name="taskname">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QxaBAbbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QxYL0LbfEeeCIdRqtlieYw" name="ClientModel" method="_QyowELbfEeeCIdRqtlieYw">
+            <eAnnotations xmi:id="_QxYL0rbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_QxYL07bfEeeCIdRqtlieYw" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_QytolbbfEeeCIdRqtlieYw">
+              <body>Constructor of the model class
+	 * 
+	 * @param adapter
+	 *            externally provided local view adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QxYL0bbfEeeCIdRqtlieYw" name="adapter" type="_Qvc5MLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QxYy4LbfEeeCIdRqtlieYw" type="_QvShILbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QxYy4bbfEeeCIdRqtlieYw" name="runTask" method="_QypXILbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QxYy4rbfEeeCIdRqtlieYw" name="task" type="_Qv-doLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QxZZ8LbfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QxaBArbfEeeCIdRqtlieYw" name="combineTaskFacs" method="_QypXJrbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QxaBA7bfEeeCIdRqtlieYw" name="selectedTask1" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QxaBBLbfEeeCIdRqtlieYw" name="selectedTask2" type="_Qv7aULbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QxaoEbbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Qvc5MLbfEeeCIdRqtlieYw" name="ILocalTaskViewAdapter">
+          <ownedComment xmi:id="_QyuPprbfEeeCIdRqtlieYw">
+            <body>client's local view adapter for the model
+@author Haoshan Zou, Xiaojun Wu</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_QveHULbfEeeCIdRqtlieYw" name="NULL_OBJECT" isLeaf="true" isStatic="true" type="_Qvc5MLbfEeeCIdRqtlieYw" isReadOnly="true" association="_QyzIILbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QveHUbbfEeeCIdRqtlieYw" value="new ILocalTaskViewAdapter() {&#xA;&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public void append(String s) {&#xA;&#x9;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;@Override&#xA;&#x9;&#x9;public void setRemoteHost(String host) {&#xA;&#x9;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;}"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_QvdgQLbfEeeCIdRqtlieYw" name="append">
+            <ownedComment xmi:id="_QyuPp7bfEeeCIdRqtlieYw">
+              <body>Append the given string to the view's display
+	 * @param s the string to display</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvdgQbbfEeeCIdRqtlieYw" name="s">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvdgQrbfEeeCIdRqtlieYw" name="setRemoteHost">
+            <ownedComment xmi:id="_QyuPqLbfEeeCIdRqtlieYw">
+              <body>set the view's remote host address
+	 * @param host the ip address to display</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvdgQ7bfEeeCIdRqtlieYw" name="host">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QyzIILbfEeeCIdRqtlieYw" name="" memberEnd="_QyzIIbbfEeeCIdRqtlieYw _QveHULbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QyzIIbbfEeeCIdRqtlieYw" name="" type="_Qvc5MLbfEeeCIdRqtlieYw" association="_QyzIILbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy2LcbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy2LcrbfEeeCIdRqtlieYw _QyQ8oLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy2LcrbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy2LcbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy2ygbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy2ygrbfEeeCIdRqtlieYw _QyQ8o7bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy2ygrbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy2ygbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy2yhLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy2yhbbfEeeCIdRqtlieYw _QyQ8pbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy2yhbbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy2yhLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy3ZkbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy3ZkrbfEeeCIdRqtlieYw _QyRjsrbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy3ZkrbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy3ZkbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy4AobbfEeeCIdRqtlieYw" name="" memberEnd="_Qy4AorbfEeeCIdRqtlieYw _QyRjtbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy4AorbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy4AobbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy4nsLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy4nsbbfEeeCIdRqtlieYw _QySKwbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy4nsbbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy4nsLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy4ns7bfEeeCIdRqtlieYw" name="" memberEnd="_Qy4ntLbfEeeCIdRqtlieYw _QySKw7bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy4ntLbfEeeCIdRqtlieYw" name="" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy4ns7bfEeeCIdRqtlieYw"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rc7bfEeeCIdRqtlieYw" name="view">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Qv3v8LbfEeeCIdRqtlieYw" name="IModelAdapter">
+          <ownedComment xmi:id="_Qyu2ubbfEeeCIdRqtlieYw">
+            <body>adapter for client's view to communicate to model
+@author Haoshan Zou, Xiaojun Wu
+@param &lt;TaskItem> type of drop list task item</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_Qv5lILbfEeeCIdRqtlieYw" name="NULL_OBJECT" isLeaf="true" isStatic="true" type="_Qv3v8LbfEeeCIdRqtlieYw" isReadOnly="true" association="_QyzvMbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qv6MMbbfEeeCIdRqtlieYw" value="new IModelAdapter&lt;Object>() {&#xA;&#xA;&#x9;&#x9;public void quit() {&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;public String connect(String ip) {&#xA;&#x9;&#x9;&#x9;return null;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;public void sendMsg(String text) {&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;public Object addTask(String taskname) {&#xA;&#x9;&#x9;&#x9;return null;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;public String runTask(Object selectedTask, String param) {&#xA;&#x9;&#x9;&#x9;return null;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;public Object combineTask(Object selectedTask1, Object selectedTask2) {&#xA;&#x9;&#x9;&#x9;return null;&#xA;&#x9;&#x9;}&#xA;&#x9;}"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_Qv4XALbfEeeCIdRqtlieYw" name="quit">
+            <ownedComment xmi:id="_Qyu2urbfEeeCIdRqtlieYw">
+              <body>Quits the application and gracefully shuts down the RMI-related resources.</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Qv4XAbbfEeeCIdRqtlieYw" name="connect">
+            <ownedComment xmi:id="_Qyu2u7bfEeeCIdRqtlieYw">
+              <body>Request that model connect to the RMI Registry at the given remote host.
+	 * @param ip the remote host ip to connect to
+	 * @return a status string regarding the connection result</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_Qv4XArbfEeeCIdRqtlieYw" name="ip">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_Qv4XA7bfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Qv4-ELbfEeeCIdRqtlieYw" name="sendMsg">
+            <ownedComment xmi:id="_Qyu2vLbfEeeCIdRqtlieYw">
+              <body>send a message to remote server's view
+	 * @param text input text message</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_Qv4-EbbfEeeCIdRqtlieYw" name="text">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Qv4-ErbfEeeCIdRqtlieYw" name="addTask">
+            <ownedComment xmi:id="_Qyu2vbbfEeeCIdRqtlieYw">
+              <body>Request the model to generate task item from string input
+	 * @param taskname input full task name
+	 * @return a TaskItem to be saved in the drop list</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_Qv4-E7bfEeeCIdRqtlieYw" name="taskname">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QyHysLbfEeeCIdRqtlieYw" type="_QyHLoLbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QyHysbbfEeeCIdRqtlieYw" name="runTask">
+            <ownedComment xmi:id="_Qyu2vrbfEeeCIdRqtlieYw">
+              <body>Request the remote server to run the task and return result
+	 * @param selectedTask user selected task to be executed
+	 * @param param input task parameter
+	 * @return string output of execution result</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QyHysrbfEeeCIdRqtlieYw" name="selectedTask" type="_QyHLoLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QyHys7bfEeeCIdRqtlieYw" name="param">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_QyHytLbfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QyIZwLbfEeeCIdRqtlieYw" name="combineTask">
+            <ownedComment xmi:id="_QyvdwLbfEeeCIdRqtlieYw">
+              <body>combine two tasks
+	 * @param selectedTask1 user selected task in drop list 1
+	 * @param selectedTask2 user selected task in drop list 2
+	 * @return TaskItem of the combined task</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QyIZwbbfEeeCIdRqtlieYw" name="selectedTask1" type="_QyHLoLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QyIZwrbfEeeCIdRqtlieYw" name="selectedTask2" type="_QyHLoLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QyIZw7bfEeeCIdRqtlieYw" type="_QyHLoLbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QwMgELbfEeeCIdRqtlieYw" name="ClientGUI">
+          <generalization xmi:id="_QyMEILbfEeeCIdRqtlieYw" general="_Qx0QsrbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_Qyci0rbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QydJ4LbfEeeCIdRqtlieYw" value="-5936004102932928468L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QydJ4bbfEeeCIdRqtlieYw" name="contentPane" visibility="private" type="_Qx03wbbfEeeCIdRqtlieYw" association="_Qy-uUbbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QydJ47bfEeeCIdRqtlieYw" name="pnlControl" visibility="private" isLeaf="true" type="_Qx03wbbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy_VYLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QydJ5LbfEeeCIdRqtlieYw" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qydw8bbfEeeCIdRqtlieYw" name="btnQuit" visibility="private" isLeaf="true" type="_Qx2F4bbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy_VY7bfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qydw8rbfEeeCIdRqtlieYw" value="new JButton(&quot;Quit&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qydw9LbfEeeCIdRqtlieYw" name="pnlConnect" visibility="private" isLeaf="true" type="_Qx03wbbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy_8cbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyeYALbfEeeCIdRqtlieYw" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyeYArbfEeeCIdRqtlieYw" name="txtIp" visibility="private" isLeaf="true" type="_Qx3UALbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzAjgLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyeYA7bfEeeCIdRqtlieYw" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyeYBbbfEeeCIdRqtlieYw" name="btnConnect" visibility="private" isLeaf="true" type="_Qx2F4bbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzAjg7bfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qye_ELbfEeeCIdRqtlieYw" value="new JButton(&quot;Connect&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qye_ErbfEeeCIdRqtlieYw" name="txtMsg" visibility="private" isLeaf="true" type="_Qx3UALbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzBKkbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qye_E7bfEeeCIdRqtlieYw" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyfmILbfEeeCIdRqtlieYw" name="pnlAdd" visibility="private" isLeaf="true" type="_Qx03wbbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzBKlLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyfmIbbfEeeCIdRqtlieYw" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyfmI7bfEeeCIdRqtlieYw" name="txtTask" visibility="private" isLeaf="true" type="_Qx3UALbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzBxobbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyfmJLbfEeeCIdRqtlieYw" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QygNMbbfEeeCIdRqtlieYw" name="btnAdd" visibility="private" isLeaf="true" type="_Qx2F4bbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzCYsbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QygNMrbfEeeCIdRqtlieYw" value="new JButton(&quot;Add to Lists&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QygNNLbfEeeCIdRqtlieYw" name="pnlRun" visibility="private" isLeaf="true" type="_Qx03wbbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzCYtLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QygNNbbfEeeCIdRqtlieYw" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qyg0QbbfEeeCIdRqtlieYw" name="btnRun" visibility="private" isLeaf="true" type="_Qx2F4bbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzC_wbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qyg0QrbfEeeCIdRqtlieYw" value="new JButton(&quot;Run Task&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qyg0RLbfEeeCIdRqtlieYw" name="boxTask1" visibility="private" isLeaf="true" type="_Qx4iILbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzDm0bbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyhbUbbfEeeCIdRqtlieYw" value="new JComboBox&lt;TaskItem>()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyiCYbbfEeeCIdRqtlieYw" name="boxTask2" visibility="private" isLeaf="true" type="_Qx4iILbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzEN4bbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyiCY7bfEeeCIdRqtlieYw" value="new JComboBox&lt;TaskItem>()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyipcbbfEeeCIdRqtlieYw" name="btnCombine" visibility="private" isLeaf="true" type="_Qx2F4bbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzEN5LbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyipcrbfEeeCIdRqtlieYw" value="new JButton(&quot;Combine Tasks&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyjQgLbfEeeCIdRqtlieYw" name="pnlParameter" visibility="private" isLeaf="true" type="_Qx03wbbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzE08bbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyjQgbbfEeeCIdRqtlieYw" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QyjQg7bfEeeCIdRqtlieYw" name="txtParameter" visibility="private" isLeaf="true" type="_Qx3UALbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzFcAbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QyjQhLbfEeeCIdRqtlieYw" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qyj3kLbfEeeCIdRqtlieYw" name="pnlDisplay" visibility="private" isLeaf="true" type="_Qx03w7bfEeeCIdRqtlieYw" isReadOnly="true" association="_QzGDEbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qyj3kbbfEeeCIdRqtlieYw" value="new JScrollPane()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Qyj3k7bfEeeCIdRqtlieYw" name="txtDisplay" visibility="private" isLeaf="true" type="_Qx4iIrbfEeeCIdRqtlieYw" isReadOnly="true" association="_QzGDFLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qyj3lLbfEeeCIdRqtlieYw" value="new JTextArea()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QykeobbfEeeCIdRqtlieYw" name="_modelAdapter" visibility="private" type="_Qv3v8LbfEeeCIdRqtlieYw" association="_QzGqIbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qykeo7bfEeeCIdRqtlieYw" value="(IModelAdapter&lt;TaskItem>) IModelAdapter.NULL_OBJECT"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysacLbfEeeCIdRqtlieYw" name="start" specification="_QwOVQLbfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>setVisible(true);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysacbbfEeeCIdRqtlieYw" name="ClientGUI" specification="_Qx7lcLbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QysacrbfEeeCIdRqtlieYw" name="adapter" type="_Qv3v8LbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_Qysac7bfEeeCIdRqtlieYw" type="_QwMgELbfEeeCIdRqtlieYw" direction="return"/>
+            <language>java</language>
+            <body>this._modelAdapter = adapter;
+		initGUI();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysadLbfEeeCIdRqtlieYw" name="initGUI" specification="_QwOVQbbfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1250, 400);
+		this.setTitle(&quot;RMI Client&quot;);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+
+		//control panel setting:
+		contentPane.add(pnlControl, BorderLayout.NORTH);
+		pnlControl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		//quit
+		pnlControl.add(btnQuit);
+		btnQuit.setToolTipText(&quot;Shut down RMI system and quit&quot;);
+		btnQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_modelAdapter.quit();
+			}
+		});
+
+		//connect
+		pnlControl.add(pnlConnect);
+		pnlConnect.setBorder(new TitledBorder(&quot;Remote Host:&quot;));
+		pnlConnect.setLayout(new GridLayout(0, 1, 0, 0));
+		txtIp.setText(&quot;ip&quot;);
+		txtIp.setToolTipText(&quot;IP address of remote compute engine&quot;);
+		pnlConnect.add(txtIp);
+
+		pnlConnect.add(btnConnect);
+		btnConnect.setToolTipText(&quot;Click to connect to remote compute engine&quot;);
+		btnConnect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connect();
+			}
+		});
+
+		//message
+		pnlControl.add(txtMsg);
+		txtMsg.setBorder(new TitledBorder(&quot;Send msg to remote host's view&quot;));
+		txtMsg.setText(&quot;Hello from client! Press Enter to send.&quot;);
+		txtMsg.setToolTipText(&quot;Hit Enter to send the string to remote view&quot;);
+		txtMsg.setColumns(20);
+		txtMsg.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					String msg = txtMsg.getText();
+					if (msg.length() == 0) {
+						return;
+					}
+					_modelAdapter.sendMsg(msg);
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					txtMsg.setText(&quot;&quot;);
+				}
+			}
+		});
+
+		//add
+		pnlControl.add(pnlAdd);
+		pnlAdd.setLayout(new GridLayout(0, 1, 0, 0));
+		pnlAdd.add(txtTask);
+		txtTask.setText(&quot;Task&quot;);
+		txtTask.setToolTipText(&quot;Fully qualified classname of an ITask implementation with FACTORY field defined&quot;);
+
+		pnlAdd.add(btnAdd);
+		btnAdd.setToolTipText(&quot;Add the factory of the specified ITask to the drop lists&quot;);
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addTask(txtTask.getText());
+			}
+		});
+
+		//run
+		pnlControl.add(pnlRun);
+		pnlRun.setLayout(new GridLayout(0, 1, 0, 0));
+		pnlRun.add(btnRun);
+		btnRun.setToolTipText(&quot;Instantiate selected task with given parameter and run it on remote server&quot;);
+		btnRun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				append(&quot;[Task execution returned result] &quot;
+						+ _modelAdapter.runTask(boxTask1.getItemAt(boxTask1.getSelectedIndex()), txtParameter.getText())
+						+ '\n');
+			}
+		});
+		pnlRun.add(boxTask1);
+		boxTask1.setToolTipText(&quot;Select desired task factory to run or combine&quot;);
+		pnlRun.add(boxTask2);
+		boxTask2.setToolTipText(&quot;Select desired task factory to combine&quot;);
+		pnlRun.add(btnCombine);
+		btnCombine.setToolTipText(&quot;Add a task factory for a composite of selected tasks&quot;);
+		btnCombine.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TaskItem o = _modelAdapter.combineTask(boxTask1.getItemAt(boxTask1.getSelectedIndex()),
+						boxTask2.getItemAt(boxTask2.getSelectedIndex()));
+				if (null == o)
+					return; // just in case
+				boxTask1.addItem(o);
+				boxTask2.addItem(o);
+			}
+		});
+
+		//parameter
+		pnlControl.add(pnlParameter);
+		pnlParameter.setBorder(new TitledBorder(&quot;Run Parameter:&quot;));
+		pnlParameter.add(txtParameter);
+		txtParameter.setToolTipText(&quot;A parameter value used to instantiate the class&quot;);
+		txtParameter.setText(&quot;5&quot;);
+		txtParameter.setColumns(8);
+
+		//display panel setting:
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setViewportView(txtDisplay);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysadbbfEeeCIdRqtlieYw" name="connect" specification="_QwO8ULbfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>append(&quot;Attempting to connect to &quot; + txtIp.getText() + &quot;...&quot;);
+		append(_modelAdapter.connect(txtIp.getText()));
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysadrbfEeeCIdRqtlieYw" name="append" specification="_QwO8UbbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_Qysad7bfEeeCIdRqtlieYw" name="s">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>txtDisplay.append(s + '\n');
+		txtDisplay.setCaretPosition(txtDisplay.getDocument().getLength());
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysaeLbfEeeCIdRqtlieYw" name="setRemoteHost" specification="_QwO8U7bfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QysaebbfEeeCIdRqtlieYw" name="host">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>txtIp.setText(host);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QysaerbfEeeCIdRqtlieYw" name="addTask" specification="_QwPjYLbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_Qysae7bfEeeCIdRqtlieYw" name="taskname">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>TaskItem o = _modelAdapter.addTask(taskname);
+		if (null == o)
+			return; // just in case
+		boxTask1.addItem(o);
+		boxTask2.addItem(o);
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_QwOVQLbfEeeCIdRqtlieYw" name="start" method="_QysacLbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_Qyvdy7bfEeeCIdRqtlieYw">
+              <body>start the view by making it visible</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QwOVQbbfEeeCIdRqtlieYw" name="initGUI" visibility="private" method="_QysadLbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QywE0LbfEeeCIdRqtlieYw">
+              <body>initialize the view and its components</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QwO8ULbfEeeCIdRqtlieYw" name="connect" visibility="private" method="_QysadbbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QywE0bbfEeeCIdRqtlieYw">
+              <body>let client model connect to remote server</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QwO8UbbfEeeCIdRqtlieYw" name="append" method="_QysadrbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QywE0rbfEeeCIdRqtlieYw">
+              <body>append given string to view's output display
+	 * @param s given display content</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QwO8UrbfEeeCIdRqtlieYw" name="s">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QwO8U7bfEeeCIdRqtlieYw" name="setRemoteHost" method="_QysaeLbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QywE07bfEeeCIdRqtlieYw">
+              <body>setter of view's remote host text box content
+	 * @param host desired host address</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QwO8VLbfEeeCIdRqtlieYw" name="host">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QwPjYLbfEeeCIdRqtlieYw" name="addTask" method="_QysaerbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QywE1LbfEeeCIdRqtlieYw">
+              <body>add task item into both drop lists
+	 * @param taskname given task name</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QwPjYbbfEeeCIdRqtlieYw" name="taskname">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Qx7lcLbfEeeCIdRqtlieYw" name="ClientGUI" method="_QysacbbfEeeCIdRqtlieYw">
+            <eAnnotations xmi:id="_Qx7lcrbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_Qx8MgLbfEeeCIdRqtlieYw" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_QyvdzLbfEeeCIdRqtlieYw">
+              <body>Constructor of the class. Create the frame.
+	 * @param externally provided adapter to the model</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_Qx7lcbbfEeeCIdRqtlieYw" name="adapter" type="_Qv3v8LbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_Qx8MgbbfEeeCIdRqtlieYw" type="_QwMgELbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QyHLoLbfEeeCIdRqtlieYw" name="TaskItem"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QyzvMbbfEeeCIdRqtlieYw" name="" memberEnd="_QyzvMrbfEeeCIdRqtlieYw _Qv5lILbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QyzvMrbfEeeCIdRqtlieYw" name="" type="_Qv3v8LbfEeeCIdRqtlieYw" association="_QyzvMbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy-uUbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy-uUrbfEeeCIdRqtlieYw _QydJ4bbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy-uUrbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_Qy-uUbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy_VYLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy_VYbbfEeeCIdRqtlieYw _QydJ47bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy_VYbbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_Qy_VYLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy_VY7bfEeeCIdRqtlieYw" name="" memberEnd="_Qy_VZLbfEeeCIdRqtlieYw _Qydw8bbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy_VZLbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_Qy_VY7bfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy_8cbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy_8crbfEeeCIdRqtlieYw _Qydw9LbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy_8crbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_Qy_8cbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzAjgLbfEeeCIdRqtlieYw" name="" memberEnd="_QzAjgbbfEeeCIdRqtlieYw _QyeYArbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzAjgbbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzAjgLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzAjg7bfEeeCIdRqtlieYw" name="" memberEnd="_QzAjhLbfEeeCIdRqtlieYw _QyeYBbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzAjhLbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzAjg7bfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzBKkbbfEeeCIdRqtlieYw" name="" memberEnd="_QzBKkrbfEeeCIdRqtlieYw _Qye_ErbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzBKkrbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzBKkbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzBKlLbfEeeCIdRqtlieYw" name="" memberEnd="_QzBKlbbfEeeCIdRqtlieYw _QyfmILbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzBKlbbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzBKlLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzBxobbfEeeCIdRqtlieYw" name="" memberEnd="_QzBxorbfEeeCIdRqtlieYw _QyfmI7bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzBxorbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzBxobbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzCYsbbfEeeCIdRqtlieYw" name="" memberEnd="_QzCYsrbfEeeCIdRqtlieYw _QygNMbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzCYsrbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzCYsbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzCYtLbfEeeCIdRqtlieYw" name="" memberEnd="_QzCYtbbfEeeCIdRqtlieYw _QygNNLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzCYtbbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzCYtLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzC_wbbfEeeCIdRqtlieYw" name="" memberEnd="_QzC_wrbfEeeCIdRqtlieYw _Qyg0QbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzC_wrbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzC_wbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzDm0bbfEeeCIdRqtlieYw" name="" memberEnd="_QzDm0rbfEeeCIdRqtlieYw _Qyg0RLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzDm0rbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzDm0bbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzEN4bbfEeeCIdRqtlieYw" name="" memberEnd="_QzEN4rbfEeeCIdRqtlieYw _QyiCYbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzEN4rbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzEN4bbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzEN5LbfEeeCIdRqtlieYw" name="" memberEnd="_QzEN5bbfEeeCIdRqtlieYw _QyipcbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzEN5bbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzEN5LbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzE08bbfEeeCIdRqtlieYw" name="" memberEnd="_QzE08rbfEeeCIdRqtlieYw _QyjQgLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzE08rbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzE08bbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzFcAbbfEeeCIdRqtlieYw" name="" memberEnd="_QzFcArbfEeeCIdRqtlieYw _QyjQg7bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzFcArbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzFcAbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzGDEbbfEeeCIdRqtlieYw" name="" memberEnd="_QzGDErbfEeeCIdRqtlieYw _Qyj3kLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzGDErbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzGDEbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzGDFLbfEeeCIdRqtlieYw" name="" memberEnd="_QzGDFbbfEeeCIdRqtlieYw _Qyj3k7bfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzGDFbbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzGDFLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_QzGqIbbfEeeCIdRqtlieYw" name="" memberEnd="_QzGqIrbfEeeCIdRqtlieYw _QykeobbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_QzGqIrbfEeeCIdRqtlieYw" name="" type="_QwMgELbfEeeCIdRqtlieYw" association="_QzGqIbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt-5kLbfEeeCIdRqtlieYw" name="control">
+        <packagedElement xmi:type="uml:Class" xmi:id="_QvO2wLbfEeeCIdRqtlieYw" name="ClientController">
+          <ownedComment xmi:id="_QytokLbfEeeCIdRqtlieYw">
+            <body>Controller of client side MVC model
+@author Haoshan Zou, Xiaojun Wu</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_QyPugLbfEeeCIdRqtlieYw" name="view" visibility="private" type="_QwMgELbfEeeCIdRqtlieYw" association="_Qy1kYbbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QyQVkbbfEeeCIdRqtlieYw" name="model" visibility="private" type="_QvShILbfEeeCIdRqtlieYw" association="_Qy1kZLbfEeeCIdRqtlieYw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QymT0LbfEeeCIdRqtlieYw" name="ClientController" specification="_QvQr9LbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QymT0bbfEeeCIdRqtlieYw" type="_QvO2wLbfEeeCIdRqtlieYw" direction="return"/>
+            <language>java</language>
+            <body>view = new ClientGUI&lt;ITaskFactory&lt;?>>(new IModelAdapter&lt;ITaskFactory&lt;?>>() {
+
+			@Override
+			public ITaskFactory&lt;?> addTask(String taskname) {
+				return model.makeITaskFac(taskname);
+			}
+
+			@Override
+			public String runTask(ITaskFactory&lt;?> selectedTask, String param) {
+				return model.runTask(selectedTask.make(param));
+			}
+
+			@Override
+			public ITaskFactory&lt;?> combineTask(ITaskFactory&lt;?> selectedTask1, ITaskFactory&lt;?> selectedTask2) {
+				return model.combineTaskFacs(selectedTask1, selectedTask2);
+
+			}
+
+			@Override
+			public String connect(String ip) {
+				return model.connectTo(ip);
+			}
+
+			@Override
+			public void sendMsg(String text) {
+				model.sendMsgToComputeEngine(text);
+			}
+
+			@Override
+			public void quit() {
+				model.stop();
+			}
+		});
+
+		model = new ClientModel(new ILocalTaskViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.append(s);
+			}
+
+			@Override
+			public void setRemoteHost(String host) {
+				view.setRemoteHost(host);
+			}
+
+		});
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QymT0rbfEeeCIdRqtlieYw" name="start" specification="_QvRTA7bfEeeCIdRqtlieYw">
+            <language>java</language>
+            <body>view.append(&quot;[ClientController.start()] &quot; + &quot;user.dir = &quot; + System.getProperty(&quot;user.dir&quot;));
+		view.start();
+		model.start();
+		view.addTask(&quot;provided.client.model.task.Pi2&quot;);
+		view.addTask(&quot;provided.client.model.task.GetInfo&quot;);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyoJALbfEeeCIdRqtlieYw" name="main" specification="_QvRTBLbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QyoJAbbfEeeCIdRqtlieYw" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QyoJArbfEeeCIdRqtlieYw" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ClientController controller = new ClientController();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_QvQr9LbfEeeCIdRqtlieYw" name="ClientController" method="_QymT0LbfEeeCIdRqtlieYw">
+            <eAnnotations xmi:id="_QvRTALbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_QvRTAbbfEeeCIdRqtlieYw" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_QytokbbfEeeCIdRqtlieYw">
+              <body>Constructor of the controller class. Instantiates and connects the model and
+	 * the view.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvRTArbfEeeCIdRqtlieYw" type="_QvO2wLbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvRTA7bfEeeCIdRqtlieYw" name="start" method="_QymT0rbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QytokrbfEeeCIdRqtlieYw">
+              <body>Starts the view then the model.</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_QvRTBLbfEeeCIdRqtlieYw" name="main" isStatic="true" method="_QyoJALbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_Qytok7bfEeeCIdRqtlieYw">
+              <body>Launch the application.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QvRTBbbfEeeCIdRqtlieYw" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QvRTBrbfEeeCIdRqtlieYw" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy1kYbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy1kYrbfEeeCIdRqtlieYw _QyPugLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy1kYrbfEeeCIdRqtlieYw" name="" type="_QvO2wLbfEeeCIdRqtlieYw" association="_Qy1kYbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy1kZLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy1kZbbfEeeCIdRqtlieYw _QyQVkbbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy1kZbbfEeeCIdRqtlieYw" name="" type="_QvO2wLbfEeeCIdRqtlieYw" association="_Qy1kZLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rcLbfEeeCIdRqtlieYw" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rcbbfEeeCIdRqtlieYw" name="awt">
+        <packagedElement xmi:type="uml:Package" xmi:id="_QudasrbfEeeCIdRqtlieYw" name="event">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_Qx5JMbbfEeeCIdRqtlieYw" name="ActionListener"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qx5wQLbfEeeCIdRqtlieYw" name="KeyAdapter"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qx5wQrbfEeeCIdRqtlieYw" name="KeyEvent"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qx6XUbbfEeeCIdRqtlieYw" name="ActionEvent"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxSsQLbfEeeCIdRqtlieYw" name="EventQueue"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx0QsLbfEeeCIdRqtlieYw" name="BorderLayout"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx3UArbfEeeCIdRqtlieYw" name="GridLayout"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx37EbbfEeeCIdRqtlieYw" name="FlowLayout"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt_goLbfEeeCIdRqtlieYw" name="net">
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxTTULbfEeeCIdRqtlieYw" name="SocketException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxT6YbbfEeeCIdRqtlieYw" name="UnknownHostException"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt_gobbfEeeCIdRqtlieYw" name="rmi">
+        <packagedElement xmi:type="uml:Package" xmi:id="_Qt_gorbfEeeCIdRqtlieYw" name="registry">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_QxVIgbbfEeeCIdRqtlieYw" name="Registry"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_Qt_go7bfEeeCIdRqtlieYw" name="server">
+          <packagedElement xmi:type="uml:Class" xmi:id="_QxVvkbbfEeeCIdRqtlieYw" name="UnicastRemoteObject"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxUhcLbfEeeCIdRqtlieYw" name="NotBoundException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxUhcrbfEeeCIdRqtlieYw" name="RemoteException"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QyJA0bbfEeeCIdRqtlieYw" name="Remote"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QuPYQLbfEeeCIdRqtlieYw" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxrGwLbfEeeCIdRqtlieYw" name="ArrayList"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QuU30LbfEeeCIdRqtlieYw" name="io">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QxvYMrbfEeeCIdRqtlieYw" name="Serializable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QyEvYLbfEeeCIdRqtlieYw" name="lang">
+        <packagedElement xmi:type="uml:DataType" xmi:id="_QyEvYbbfEeeCIdRqtlieYw" name="Double"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rdLbfEeeCIdRqtlieYw" name="provided">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rdbbfEeeCIdRqtlieYw" name="client">
+        <packagedElement xmi:type="uml:Package" xmi:id="_Qt9rdrbfEeeCIdRqtlieYw" name="model">
+          <packagedElement xmi:type="uml:Package" xmi:id="_Qt-SgLbfEeeCIdRqtlieYw" name="taskUtils">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_Qv7aULbfEeeCIdRqtlieYw" name="ITaskFactory">
+              <ownedComment xmi:id="_QyvdwbbfEeeCIdRqtlieYw">
+                <body>Abstract factory for creating ITasks&#xD;
+@param &lt;T> The return type of the ITask this factory creates.&#xD;
+@author Stephen&#xD;
+ *</body>
+              </ownedComment>
+              <ownedOperation xmi:id="_Qv8BYbbfEeeCIdRqtlieYw" name="make">
+                <ownedParameter xmi:id="_Qv8BYrbfEeeCIdRqtlieYw" name="param">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_QxvYMLbfEeeCIdRqtlieYw" type="_Qv-doLbfEeeCIdRqtlieYw" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_Qv9PgLbfEeeCIdRqtlieYw" name="ITaskFactoryLoader">
+              <ownedComment xmi:id="_QyvdwrbfEeeCIdRqtlieYw">
+                <body>Utility interface for dynamically loading ITaskFactory's that is independent of the return type&#xD;
+of the ITasks created.   This is useful for creating an design that is able to work with &#xD;
+arbitrary tasks but remain decoupled from the task return types.&#xD;
+@author Stephen Wong&#xD;
+ *</body>
+              </ownedComment>
+              <ownedOperation xmi:id="_Qv9PgbbfEeeCIdRqtlieYw" name="load">
+                <ownedParameter xmi:id="_Qv9PgrbfEeeCIdRqtlieYw" name="classname">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_QxvYMbbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_QwD9MLbfEeeCIdRqtlieYw" name="SingletonTaskFactoryLoader">
+              <ownedComment xmi:id="_QyvdyLbfEeeCIdRqtlieYw">
+                <body>An implementation of ITaskFactoryLoader that loads ITaskFactory instances defined by a &#xD;
+singleton object in a static field of the desired ITask class called &quot;FACTORY&quot;.&lt;br/>&#xD;
+&lt;br/>&#xD;
+If this loader attempts to load a non-existent ITask class, an internally-defined&#xD;
+ErrorTask instance will be returned.   This error task simply echos its constructor &#xD;
+parameter when executed.&#xD;
+ &#xD;
+@author Stephen Wong&#xD;
+ *</body>
+              </ownedComment>
+              <ownedAttribute xmi:id="_Qyci0LbfEeeCIdRqtlieYw" name="SINGLETON" isLeaf="true" isStatic="true" type="_Qv9PgLbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy-HQbbfEeeCIdRqtlieYw">
+                <defaultValue xmi:type="uml:LiteralString" xmi:id="_Qyci0bbfEeeCIdRqtlieYw" value="new SingletonTaskFactoryLoader()"/>
+              </ownedAttribute>
+              <interfaceRealization xmi:id="_QxxNYLbfEeeCIdRqtlieYw" client="_QwD9MLbfEeeCIdRqtlieYw" supplier="_Qv9PgLbfEeeCIdRqtlieYw" contract="_Qv9PgLbfEeeCIdRqtlieYw"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrzabbfEeeCIdRqtlieYw" name="load" specification="_QwJcwbbfEeeCIdRqtlieYw">
+                <ownedParameter xmi:id="_QyrzarbfEeeCIdRqtlieYw" name="classname">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_Qyrza7bfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+                <language>java</language>
+                <body>try {&#xD;
+			return (ITaskFactory&lt;?>) Class.forName(classname).getDeclaredField(&quot;FACTORY&quot;).get(null);&#xD;
+		}&#xD;
+		catch (Exception e) {&#xD;
+			return new ITaskFactory&lt;String>() {&#xD;
+&#xD;
+				@Override&#xD;
+				public ITask&lt;String> make(String param) {&#xD;
+					return new ErrorTask(param);&#xD;
+				}&#xD;
+				&#xD;
+				public String toString() {&#xD;
+					return ErrorTask.class.getName();&#xD;
+				}&#xD;
+			};&#xD;
+		}&#xD;
+	</body>
+              </ownedBehavior>
+              <ownedOperation xmi:id="_QwIOoLbfEeeCIdRqtlieYw" name="SingletonTaskFactoryLoader" visibility="private">
+                <eAnnotations xmi:id="_QwIOobbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                  <details xmi:id="_QwIOorbfEeeCIdRqtlieYw" key="create"/>
+                </eAnnotations>
+                <ownedParameter xmi:id="_QwJcwLbfEeeCIdRqtlieYw" type="_QwD9MLbfEeeCIdRqtlieYw" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:id="_QwJcwbbfEeeCIdRqtlieYw" name="load" method="_QyrzabbfEeeCIdRqtlieYw">
+                <ownedParameter xmi:id="_QwJcwrbfEeeCIdRqtlieYw" name="classname">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_QxzCkLbfEeeCIdRqtlieYw" type="_Qv7aULbfEeeCIdRqtlieYw" direction="return"/>
+              </ownedOperation>
+              <nestedClassifier xmi:type="uml:Class" xmi:id="_QwEkQLbfEeeCIdRqtlieYw" name="ErrorTask" visibility="private" isLeaf="true">
+                <eAnnotations xmi:id="_QwEkQbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                  <details xmi:id="_QwEkQrbfEeeCIdRqtlieYw" key="static"/>
+                </eAnnotations>
+                <ownedComment xmi:id="_QyvdybbfEeeCIdRqtlieYw">
+                  <body>Task used in error situations.  This task simply echoes its contructor's parameter.&#xD;
+	 * @author Stephen Wong&#xD;
+	 *</body>
+                </ownedComment>
+                <ownedAttribute xmi:id="_QybUsbbfEeeCIdRqtlieYw" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <defaultValue xmi:type="uml:LiteralString" xmi:id="_QybUsrbfEeeCIdRqtlieYw" value="-1511071283026818965L"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_Qyb7wLbfEeeCIdRqtlieYw" name="viewAdapter" visibility="private" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy9gNLbfEeeCIdRqtlieYw">
+                  <eAnnotations xmi:id="_Qyb7wbbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                    <details xmi:id="_Qyb7wrbfEeeCIdRqtlieYw" key="transient"/>
+                  </eAnnotations>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_Qyb7xLbfEeeCIdRqtlieYw" name="param" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedAttribute>
+                <interfaceRealization xmi:id="_QxxNYbbfEeeCIdRqtlieYw" client="_QwEkQLbfEeeCIdRqtlieYw" supplier="_Qv-doLbfEeeCIdRqtlieYw" contract="_Qv-doLbfEeeCIdRqtlieYw"/>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrzYLbfEeeCIdRqtlieYw" name="ErrorTask" specification="_QwFLULbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_QyrzYbbfEeeCIdRqtlieYw" name="param">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_QyrzYrbfEeeCIdRqtlieYw" type="_QwEkQLbfEeeCIdRqtlieYw" direction="return"/>
+                  <language>java</language>
+                  <body>this.param = param;&#xD;
+		</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrzY7bfEeeCIdRqtlieYw" name="execute" specification="_QwFLVbbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_QyrzZLbfEeeCIdRqtlieYw" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                  <language>java</language>
+                  <body>String result = &quot;param = &quot;+param;&#xD;
+			viewAdapter.append(result);&#xD;
+			return result;&#xD;
+		</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrzZbbfEeeCIdRqtlieYw" name="setTaskViewAdapter" specification="_Qxx0cbbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_QyrzZrbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+                  <language>java</language>
+                  <body>this.viewAdapter = viewAdapter;&#xD;
+		</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QyrzZ7bfEeeCIdRqtlieYw" name="getFormatter" specification="_QwGZcrbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_QyrzaLbfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+                  <language>java</language>
+                  <body>return new ITaskResultFormatter&lt;String>() {&#xD;
+&#xD;
+				@Override&#xD;
+				public String format(String result) {&#xD;
+					return &quot;ErrorTask: result = &quot;+result;&#xD;
+				}&#xD;
+			};&#xD;
+		</body>
+                </ownedBehavior>
+                <ownedOperation xmi:id="_QwFLULbfEeeCIdRqtlieYw" name="ErrorTask" method="_QyrzYLbfEeeCIdRqtlieYw">
+                  <eAnnotations xmi:id="_QwFLUrbfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                    <details xmi:id="_QwFLU7bfEeeCIdRqtlieYw" key="create"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_QwFLUbbfEeeCIdRqtlieYw" name="param">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_QwFLVLbfEeeCIdRqtlieYw" type="_QwEkQLbfEeeCIdRqtlieYw" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_QwFLVbbfEeeCIdRqtlieYw" name="execute" method="_QyrzY7bfEeeCIdRqtlieYw" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_QwFyYLbfEeeCIdRqtlieYw" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_QwGZcrbfEeeCIdRqtlieYw" name="getFormatter" method="_QyrzZ7bfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_Qxybg7bfEeeCIdRqtlieYw" type="_Qv2h0LbfEeeCIdRqtlieYw" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_Qxx0cbbfEeeCIdRqtlieYw" name="setTaskViewAdapter" method="_QyrzZbbfEeeCIdRqtlieYw">
+                  <ownedParameter xmi:id="_Qxx0crbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+                </ownedOperation>
+              </nestedClassifier>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association" xmi:id="_Qy9gNLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy9gNbbfEeeCIdRqtlieYw _Qyb7wLbfEeeCIdRqtlieYw">
+              <ownedEnd xmi:id="_Qy9gNbbfEeeCIdRqtlieYw" name="" type="_QwEkQLbfEeeCIdRqtlieYw" association="_Qy9gNLbfEeeCIdRqtlieYw"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association" xmi:id="_Qy-HQbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy-HQrbfEeeCIdRqtlieYw _Qyci0LbfEeeCIdRqtlieYw">
+              <ownedEnd xmi:id="_Qy-HQrbfEeeCIdRqtlieYw" name="" type="_QwD9MLbfEeeCIdRqtlieYw" association="_Qy-HQbbfEeeCIdRqtlieYw"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt_gpbbfEeeCIdRqtlieYw" name="compute">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Qv2h0LbfEeeCIdRqtlieYw" name="ITaskResultFormatter">
+          <ownedComment xmi:id="_Qyu2uLbfEeeCIdRqtlieYw">
+            <body>A specialized format converter that takes the return value of a matched ITask object&#xD;
+and converts it into a String representation.   This formatter is capable of more than &#xD;
+a simple toString() of the task result; it can format the result in anyway that it &#xD;
+chooses and/or add additional textual elements to make the string output &quot;prettier&quot; and/or&#xD;
+more easily readable.&lt;br/>&#xD;
+Since the formatter must be matched to the task, instances of this interface are &#xD;
+generally produced by factory methods on the ITask object itself.&#xD;
+ *&#xD;
+@param &lt;T> The return type of the task whose results this formatter will format. &#xD;
+&#xD;
+@author Stephen Wong</body>
+          </ownedComment>
+          <ownedOperation xmi:id="_QyGkkrbfEeeCIdRqtlieYw" name="format">
+            <ownedParameter xmi:id="_QyGkk7bfEeeCIdRqtlieYw" name="result" type="_QyGkkLbfEeeCIdRqtlieYw"/>
+            <ownedParameter xmi:id="_QyGklLbfEeeCIdRqtlieYw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_Qv-doLbfEeeCIdRqtlieYw" name="ITask">
+          <ownedComment xmi:id="_Qyvdw7bfEeeCIdRqtlieYw">
+            <body>A abstract task to be run on the computer engine.&#xD;
+&lt;b>A task is a FULLY SERIALIZABLE object that is wholly transmitted &#xD;
+from the client to the compute engine. &lt;/b>   &#xD;
+&lt;em>A task is NOT an RMI Server object!! No stubs should ever be made from this object.&lt;/em>&#xD;
+@param &lt;T> The type of the returned result of the task</body>
+          </ownedComment>
+          <generalization xmi:id="_QyIZxLbfEeeCIdRqtlieYw" general="_QxvYMrbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_Qv_rwLbfEeeCIdRqtlieYw" name="formatter" type="_Qv2h0LbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy0WQbbfEeeCIdRqtlieYw"/>
+          <ownedOperation xmi:id="_Qv_EsbbfEeeCIdRqtlieYw" name="execute" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+            <ownedComment xmi:id="_QyvdxLbfEeeCIdRqtlieYw">
+              <body>Executes the task and returns a result&#xD;
+   * @return The result of executing the task.&#xD;
+   * @throws RemoteException  thrown when a network error occurs.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_QyJA0LbfEeeCIdRqtlieYw" type="_QyGkkLbfEeeCIdRqtlieYw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Qxv_QbbfEeeCIdRqtlieYw" name="setTaskViewAdapter">
+            <ownedComment xmi:id="_QyvdxbbfEeeCIdRqtlieYw">
+              <body>Sets the adapter to the view properly for this object.&#xD;
+   * Note that this setter must be separate from the an ITask implementation's &#xD;
+   * constructor because the compute engine needs to set this adapter when&#xD;
+   * it receives an ITask from a remote client. &#xD;
+   * @param viewAdapter an adapter to the view.</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_Qxv_QrbfEeeCIdRqtlieYw" name="viewAdapter" type="_QwAS0LbfEeeCIdRqtlieYw"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QwAS0LbfEeeCIdRqtlieYw" name="ILocalTaskViewAdapter">
+          <ownedComment xmi:id="_QyvdxrbfEeeCIdRqtlieYw">
+            <body>A local view adapter for a task.&#xD;
+&lt;b>This adapter is NOT an RMI Server object!!&lt;/b>&#xD;
+This adapter is for LOCAL use ONLY!   &lt;b>This adapter should NOT be serializable!&lt;/b>&#xD;
+This adapter should NEVER be transmitted to anyone.&lt;br/>&#xD;
+&lt;br/>&#xD;
+Whenever an ITask is received, the local system should immediately give an &#xD;
+instance of this adapter to the received ITask object to connect it into &#xD;
+the local system.&lt;br/>   &#xD;
+&lt;em>ITask objects should be careful NOT to include this adapter when they &#xD;
+are serialized&lt;/em> and to always default their reference to &#xD;
+ILocalTaskViewAdapter.DEFAULT_ADAPTER when they are being deserialized.&#xD;
+&#xD;
+@author Stephen Wong&#xD;
+ *</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_QwA54LbfEeeCIdRqtlieYw" name="DEFAULT_ADAPTER" isLeaf="true" isStatic="true" type="_QwAS0LbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy0WRLbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QwA54bbfEeeCIdRqtlieYw" value="new ILocalTaskViewAdapter() {&#xD;&#xA;&#x9;&#x9;public void append(String s) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;[ITaskViewAdapter.DEFAULT_ADAPTER.append()] &quot; + s);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_QwBg8LbfEeeCIdRqtlieYw" name="append">
+            <ownedParameter xmi:id="_QwBg8bbfEeeCIdRqtlieYw" name="s">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QwBg8rbfEeeCIdRqtlieYw" name="IRemoteTaskViewAdapter">
+          <ownedComment xmi:id="_Qyvdx7bfEeeCIdRqtlieYw">
+            <body>A remote view adapter that enables a task or any other part of a system to display&#xD;
+a text message on the user interface of a remote system.&lt;br/>&#xD;
+&lt;b>This adapter IS an RMI Server object!&lt;/b>&#xD;
+Instantiations of this interface should NEVER be sent to a remote machine, &lt;em>only&#xD;
+STUBs made from this Remote object should ever be transmitted.&lt;/em>&#xD;
+@author swong&#xD;
+ *</body>
+          </ownedComment>
+          <generalization xmi:id="_QyJn4bbfEeeCIdRqtlieYw" general="_QyJA0bbfEeeCIdRqtlieYw"/>
+          <ownedAttribute xmi:id="_QwCIALbfEeeCIdRqtlieYw" name="BOUND_PORT_SERVER" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QwCIAbbfEeeCIdRqtlieYw" value="2101"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QwCvELbfEeeCIdRqtlieYw" name="BOUND_PORT_CLIENT" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QwCvEbbfEeeCIdRqtlieYw" value="2102"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_QwCvFLbfEeeCIdRqtlieYw" name="NULL_ADAPTER" isLeaf="true" isStatic="true" type="_QwBg8rbfEeeCIdRqtlieYw" isReadOnly="true" association="_Qy09UbbfEeeCIdRqtlieYw">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_QwDWILbfEeeCIdRqtlieYw" value="new IRemoteTaskViewAdapter() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;@Override&#xD;&#xA;&#x9;&#x9;public void append(String s) throws RemoteException {&#xD;&#xA;&#x9;&#x9;&#x9;System.err.println(&quot;[IRemoteTaskViewAdapter.NULL_ADAPTER.append()] The following message was NOT transmitted: &quot;+s);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_QwCvErbfEeeCIdRqtlieYw" name="append" raisedException="_QxUhcrbfEeeCIdRqtlieYw">
+            <ownedParameter xmi:id="_QwCvE7bfEeeCIdRqtlieYw" name="s">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QxVvk7bfEeeCIdRqtlieYw" name="ICompute"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QyGkkLbfEeeCIdRqtlieYw" name="T"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy0WQbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy0WQrbfEeeCIdRqtlieYw _Qv_rwLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy0WQrbfEeeCIdRqtlieYw" name="" type="_Qv-doLbfEeeCIdRqtlieYw" association="_Qy0WQbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy0WRLbfEeeCIdRqtlieYw" name="" memberEnd="_Qy0WRbbfEeeCIdRqtlieYw _QwA54LbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy0WRbbfEeeCIdRqtlieYw" name="" type="_QwAS0LbfEeeCIdRqtlieYw" association="_Qy0WRLbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Qy09UbbfEeeCIdRqtlieYw" name="" memberEnd="_Qy09UrbfEeeCIdRqtlieYw _QwCvFLbfEeeCIdRqtlieYw">
+          <ownedEnd xmi:id="_Qy09UrbfEeeCIdRqtlieYw" name="" type="_QwBg8rbfEeeCIdRqtlieYw" association="_Qy09UbbfEeeCIdRqtlieYw"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Qt_gprbfEeeCIdRqtlieYw" name="rmiUtils">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QxWWobbfEeeCIdRqtlieYw" name="IRMIUtils"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_QxW9sbbfEeeCIdRqtlieYw" name="IRMI_Defs"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_QxXkwbbfEeeCIdRqtlieYw" name="RMIUtils"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_QuczoLbfEeeCIdRqtlieYw" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_QudasLbfEeeCIdRqtlieYw" name="swing">
+        <packagedElement xmi:type="uml:Package" xmi:id="_QudasbbfEeeCIdRqtlieYw" name="border">
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qx1e0bbfEeeCIdRqtlieYw" name="EmptyBorder"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Qx2s8bbfEeeCIdRqtlieYw" name="TitledBorder"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx0QsrbfEeeCIdRqtlieYw" name="JFrame"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx03wbbfEeeCIdRqtlieYw" name="JPanel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx03w7bfEeeCIdRqtlieYw" name="JScrollPane"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx2F4bbfEeeCIdRqtlieYw" name="JButton"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx3UALbfEeeCIdRqtlieYw" name="JTextField"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx4iILbfEeeCIdRqtlieYw" name="JComboBox"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Qx4iIrbfEeeCIdRqtlieYw" name="JTextArea"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_QR8d0rbfEeeCIdRqtlieYw">
+      <eAnnotations xmi:id="_QR8d07bfEeeCIdRqtlieYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_QR9E4LbfEeeCIdRqtlieYw" base_Package="_QLiT0LbfEeeCIdRqtlieYw">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Generics xmi:id="_QvZ14LbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_QvZO0LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvgjkLbfEeeCIdRqtlieYw" base_Element="_QvfVdbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvgjkbbfEeeCIdRqtlieYw" base_Element="_QvfVdbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvgjkrbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QvhxsLbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QvhKo7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvhxsbbfEeeCIdRqtlieYw" base_Element="_QvhKo7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvhxsrbfEeeCIdRqtlieYw" base_Element="_QvhKo7bfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qvhxs7bfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QvkN8LbfEeeCIdRqtlieYw" genericsValue="Q, R" base_Element="_Qvjm4LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvlcELbfEeeCIdRqtlieYw" base_Element="_Qvk1ALbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvlcEbbfEeeCIdRqtlieYw" base_Element="_Qvk1ALbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvlcErbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QvmDILbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QvlcE7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvmDIbbfEeeCIdRqtlieYw" base_Element="_QvlcE7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvmqMLbfEeeCIdRqtlieYw" base_Element="_QvlcE7bfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvmqMbbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QvptgLbfEeeCIdRqtlieYw" genericsValue="Q, R, T" base_Element="_QvpGcLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QvrisLbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qvq7oLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvrisbbfEeeCIdRqtlieYw" base_Element="_Qvq7oLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvrisrbfEeeCIdRqtlieYw" base_Element="_Qvq7oLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qvris7bfEeeCIdRqtlieYw" name="SuppressWarnings">
+      <annotationParameters xmi:id="_QvritLbfEeeCIdRqtlieYw" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_Qyu2s7bfEeeCIdRqtlieYw" value="&quot;unchecked&quot;"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_QvsJwLbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvsJw7bfEeeCIdRqtlieYw" base_Element="_QvsJwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvsJxLbfEeeCIdRqtlieYw" base_Element="_QvsJwbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvsJxbbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvumBbbfEeeCIdRqtlieYw" base_Element="_QvumBLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvvNELbfEeeCIdRqtlieYw" base_Element="_QvumBLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvvNEbbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_Qvv0ILbfEeeCIdRqtlieYw" genericsValue="Double" base_Element="_QvvNErbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qvv0IbbfEeeCIdRqtlieYw" base_Element="_QvvNErbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_Qvv0IrbfEeeCIdRqtlieYw" base_Element="_QvvNErbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QvwbMLbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QvzegLbfEeeCIdRqtlieYw" genericsValue="Integer" base_Element="_Qvy3dLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QvzegbbfEeeCIdRqtlieYw" base_Element="_Qvy3dLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QvzegrbfEeeCIdRqtlieYw" base_Element="_Qvy3dLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qvzeg7bfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_Qv0FkbbfEeeCIdRqtlieYw" genericsValue="ArrayList&lt;Integer>" base_Element="_Qv0FkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qv0soLbfEeeCIdRqtlieYw" base_Element="_Qv0FkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_Qv0sobbfEeeCIdRqtlieYw" base_Element="_Qv0FkLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qv0sorbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_Qv3I4LbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qv2h0LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv3v8bbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_Qv3v8LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv6MMLbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_Qv5lILbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv8BYLbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qv7aULbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv8ocLbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qv8BYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv92kLbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_Qv9PgbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv_EsLbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qv-doLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qv_rwbbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_Qv_rwLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QwFyYbbfEeeCIdRqtlieYw" base_Element="_QwFLVbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QwGZcLbfEeeCIdRqtlieYw" base_Element="_QwFLVbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QwGZcbbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QwHAgLbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QwGZcrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QwHAgbbfEeeCIdRqtlieYw" base_Element="_QwGZcrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QwHAgrbfEeeCIdRqtlieYw" base_Element="_QwGZcrbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QwHAg7bfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QwI1sLbfEeeCIdRqtlieYw" base_Element="_QwIOoLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QwKD0LbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_QwJcwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QwKD0bbfEeeCIdRqtlieYw" base_Element="_QwJcwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QwKq4LbfEeeCIdRqtlieYw" base_Element="_QwJcwbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QwKq4bbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QwNHILbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_QwMgELbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxSsQbbfEeeCIdRqtlieYw" base_Element="_QxSsQLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxT6YLbfEeeCIdRqtlieYw" base_Element="_QxTTULbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxT6YrbfEeeCIdRqtlieYw" base_Element="_QxT6YbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxUhcbbfEeeCIdRqtlieYw" base_Element="_QxUhcLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxVIgLbfEeeCIdRqtlieYw" base_Element="_QxUhcrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxVvkLbfEeeCIdRqtlieYw" base_Element="_QxVIgbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxVvkrbfEeeCIdRqtlieYw" base_Element="_QxVvkbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxWWoLbfEeeCIdRqtlieYw" base_Element="_QxVvk7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxW9sLbfEeeCIdRqtlieYw" base_Element="_QxWWobbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxXkwLbfEeeCIdRqtlieYw" base_Element="_QxW9sbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QxXkwrbfEeeCIdRqtlieYw" base_Element="_QxXkwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:TypeParameterDeclaration xmi:id="_QxYy47bfEeeCIdRqtlieYw" typeParameterDeclarationValue="T" base_Operation="_QxYy4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QxZZ8bbfEeeCIdRqtlieYw" base_Element="_QxYy4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxaBALbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_QxYy4rbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxaoELbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_QxaBArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QxaoErbfEeeCIdRqtlieYw" base_Element="_QxaBArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxbPILbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_QxaBA7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qxb2MLbfEeeCIdRqtlieYw" genericsValue="?" base_Element="_QxaBBLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_Qxb2MbbfEeeCIdRqtlieYw" base_Element="_QxaBArbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qxb2MrbfEeeCIdRqtlieYw" name="SuppressWarnings">
+      <annotationParameters xmi:id="_Qxb2M7bfEeeCIdRqtlieYw" skipName="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_QyuPpLbfEeeCIdRqtlieYw" value="&quot;unchecked&quot;"/>
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_QyuPpbbfEeeCIdRqtlieYw" value="&quot;rawtypes&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QxdrYLbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QxdEULbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QxeScrbfEeeCIdRqtlieYw" base_Element="_QxeScLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QxeSc7bfEeeCIdRqtlieYw" base_Element="_QxeScLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QxeSdLbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QxgHoLbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QxfgkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxgutLbfEeeCIdRqtlieYw" genericsValue="Q" base_Element="_QxgHorbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxhVwLbfEeeCIdRqtlieYw" genericsValue="R" base_Element="_QxgusLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qxh80bbfEeeCIdRqtlieYw" base_Element="_QxhVwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_Qxh80rbfEeeCIdRqtlieYw" base_Element="_QxhVwbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_Qxh807bfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_QxjyALbfEeeCIdRqtlieYw" genericsValue="T" base_Element="_QxjK8LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxlAILbfEeeCIdRqtlieYw" genericsValue="Q" base_Element="_QxkZEbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxlAIbbfEeeCIdRqtlieYw" genericsValue="R" base_Element="_QxkZErbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxoqgLbfEeeCIdRqtlieYw" genericsValue="Double" base_Element="_QxoDcLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QxpRkrbfEeeCIdRqtlieYw" base_Element="_QxpRkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_Qxp4oLbfEeeCIdRqtlieYw" base_Element="_QxpRkLbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QxqfsLbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_Qxrt0LbfEeeCIdRqtlieYw" base_Element="_QxrGwLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QxsU4LbfEeeCIdRqtlieYw" genericsValue="ArrayList&lt;Integer>" base_Element="_Qxrt0bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qxs78rbfEeeCIdRqtlieYw" base_Element="_Qxs78LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QxuKELbfEeeCIdRqtlieYw" base_Element="_Qxs78LbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QxuKEbbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_Qxv_QLbfEeeCIdRqtlieYw" base_Element="_QxvYMrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qxx0cLbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QxxNYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QxybgLbfEeeCIdRqtlieYw" base_Element="_Qxx0cbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QxybgbbfEeeCIdRqtlieYw" base_Element="_Qxx0cbbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QxybgrbfEeeCIdRqtlieYw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_Qx0QsbbfEeeCIdRqtlieYw" base_Element="_Qx0QsLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx03wLbfEeeCIdRqtlieYw" base_Element="_Qx0QsrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx03wrbfEeeCIdRqtlieYw" base_Element="_Qx03wbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx1e0LbfEeeCIdRqtlieYw" base_Element="_Qx03w7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx2F4LbfEeeCIdRqtlieYw" base_Element="_Qx1e0bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx2s8LbfEeeCIdRqtlieYw" base_Element="_Qx2F4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx2s8rbfEeeCIdRqtlieYw" base_Element="_Qx2s8bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx3UAbbfEeeCIdRqtlieYw" base_Element="_Qx3UALbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx37ELbfEeeCIdRqtlieYw" base_Element="_Qx3UArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx37ErbfEeeCIdRqtlieYw" base_Element="_Qx37EbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx4iIbbfEeeCIdRqtlieYw" base_Element="_Qx4iILbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx5JMLbfEeeCIdRqtlieYw" base_Element="_Qx4iIrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx5JMrbfEeeCIdRqtlieYw" base_Element="_Qx5JMbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx5wQbbfEeeCIdRqtlieYw" base_Element="_Qx5wQLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx6XULbfEeeCIdRqtlieYw" base_Element="_Qx5wQrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qx6XUrbfEeeCIdRqtlieYw" base_Element="_Qx6XUbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_Qx8MgrbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_Qx7lcbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QyEvYrbfEeeCIdRqtlieYw" base_Element="_QyEvYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QyGkkbbfEeeCIdRqtlieYw" base_Element="_QyGkkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QyHLobbfEeeCIdRqtlieYw" base_Element="_QyHLoLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QyJn4LbfEeeCIdRqtlieYw" base_Element="_QyJA0bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyPugbbfEeeCIdRqtlieYw" genericsValue="ITaskFactory&lt;?>" base_Element="_QyPugLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyQVkLbfEeeCIdRqtlieYw" base_Element="_QyPugLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyQVkrbfEeeCIdRqtlieYw" base_Element="_QyQVkbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyQ8orbfEeeCIdRqtlieYw" base_Element="_QyQ8oLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyQ8pLbfEeeCIdRqtlieYw" base_Element="_QyQ8o7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyRjsbbfEeeCIdRqtlieYw" base_Element="_QyQ8pbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyRjtLbfEeeCIdRqtlieYw" base_Element="_QyRjsrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QySKwLbfEeeCIdRqtlieYw" base_Element="_QyRjtbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QySKwrbfEeeCIdRqtlieYw" base_Element="_QySKwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QySx0LbfEeeCIdRqtlieYw" base_Element="_QySKw7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyTY47bfEeeCIdRqtlieYw" base_Element="_QySx07bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyTY5bbfEeeCIdRqtlieYw" base_Element="_QyTY5LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyT_8LbfEeeCIdRqtlieYw" genericsValue="String" base_Element="_QyTY5rbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyUnA7bfEeeCIdRqtlieYw" genericsValue="Q" base_Element="_QyUnArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyVOELbfEeeCIdRqtlieYw" base_Element="_QyUnArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyVOErbfEeeCIdRqtlieYw" genericsValue="R" base_Element="_QyVOEbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyV1ILbfEeeCIdRqtlieYw" base_Element="_QyVOEbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyV1JbbfEeeCIdRqtlieYw" base_Element="_QyV1IbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyXDQLbfEeeCIdRqtlieYw" genericsValue="Q" base_Element="_QyWcMLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyXDQbbfEeeCIdRqtlieYw" base_Element="_QyWcMLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyXqULbfEeeCIdRqtlieYw" genericsValue="R" base_Element="_QyXDQrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyXqUbbfEeeCIdRqtlieYw" base_Element="_QyXDQrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyYRZrbfEeeCIdRqtlieYw" base_Element="_QyYRYrbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyY4cbbfEeeCIdRqtlieYw" base_Element="_QyY4cLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyZfgLbfEeeCIdRqtlieYw" genericsValue="Double" base_Element="_QyY4crbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyaGlLbfEeeCIdRqtlieYw" base_Element="_QyaGkLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyaGlrbfEeeCIdRqtlieYw" base_Element="_QyaGlbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyatobbfEeeCIdRqtlieYw" genericsValue="ArrayList&lt;Integer>" base_Element="_QyatoLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyb7w7bfEeeCIdRqtlieYw" base_Element="_Qyb7wLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyb7xbbfEeeCIdRqtlieYw" base_Element="_Qyb7xLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QydJ4rbfEeeCIdRqtlieYw" base_Element="_QydJ4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qydw8LbfEeeCIdRqtlieYw" base_Element="_QydJ47bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qydw87bfEeeCIdRqtlieYw" base_Element="_Qydw8bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyeYAbbfEeeCIdRqtlieYw" base_Element="_Qydw9LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyeYBLbfEeeCIdRqtlieYw" base_Element="_QyeYArbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qye_EbbfEeeCIdRqtlieYw" base_Element="_QyeYBbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qye_FLbfEeeCIdRqtlieYw" base_Element="_Qye_ErbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyfmIrbfEeeCIdRqtlieYw" base_Element="_QyfmILbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QygNMLbfEeeCIdRqtlieYw" base_Element="_QyfmI7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QygNM7bfEeeCIdRqtlieYw" base_Element="_QygNMbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyg0QLbfEeeCIdRqtlieYw" base_Element="_QygNNLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyg0Q7bfEeeCIdRqtlieYw" base_Element="_Qyg0QbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyhbULbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_Qyg0RLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyiCYLbfEeeCIdRqtlieYw" base_Element="_Qyg0RLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QyiCYrbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_QyiCYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyipcLbfEeeCIdRqtlieYw" base_Element="_QyiCYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyipc7bfEeeCIdRqtlieYw" base_Element="_QyipcbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyjQgrbfEeeCIdRqtlieYw" base_Element="_QyjQgLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QyjQhbbfEeeCIdRqtlieYw" base_Element="_QyjQg7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Qyj3krbfEeeCIdRqtlieYw" base_Element="_Qyj3kLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QykeoLbfEeeCIdRqtlieYw" base_Element="_Qyj3k7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Generics xmi:id="_QykeorbfEeeCIdRqtlieYw" genericsValue="TaskItem" base_Element="_QykeobbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_QylFsLbfEeeCIdRqtlieYw" base_Element="_QykeobbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Annotations xmi:id="_QylFsbbfEeeCIdRqtlieYw" base_Element="_QykeobbfEeeCIdRqtlieYw">
+    <annotations xmi:id="_QylFsrbfEeeCIdRqtlieYw" name="SuppressWarnings">
+      <annotationParameters xmi:id="_QylFs7bfEeeCIdRqtlieYw" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_QyvdyrbfEeeCIdRqtlieYw" value="&quot;unchecked&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_QyzvMLbfEeeCIdRqtlieYw" base_Element="_QyzIILbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy0WQLbfEeeCIdRqtlieYw" base_Element="_QyzvMbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy0WQ7bfEeeCIdRqtlieYw" base_Element="_Qy0WQbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy09ULbfEeeCIdRqtlieYw" base_Element="_Qy0WRLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy1kYLbfEeeCIdRqtlieYw" base_Element="_Qy09UbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy1kY7bfEeeCIdRqtlieYw" base_Element="_Qy1kYbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy2LcLbfEeeCIdRqtlieYw" base_Element="_Qy1kZLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy2ygLbfEeeCIdRqtlieYw" base_Element="_Qy2LcbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy2yg7bfEeeCIdRqtlieYw" base_Element="_Qy2ygbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy3ZkLbfEeeCIdRqtlieYw" base_Element="_Qy2yhLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy4AoLbfEeeCIdRqtlieYw" base_Element="_Qy3ZkbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy4Ao7bfEeeCIdRqtlieYw" base_Element="_Qy4AobbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy4nsrbfEeeCIdRqtlieYw" base_Element="_Qy4nsLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy5OwLbfEeeCIdRqtlieYw" base_Element="_Qy4ns7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy5Ow7bfEeeCIdRqtlieYw" base_Element="_Qy5OwbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy510LbfEeeCIdRqtlieYw" base_Element="_Qy5OxLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy6c4LbfEeeCIdRqtlieYw" base_Element="_Qy510bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy6c47bfEeeCIdRqtlieYw" base_Element="_Qy6c4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy7D8LbfEeeCIdRqtlieYw" base_Element="_Qy6c5LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy7rALbfEeeCIdRqtlieYw" base_Element="_Qy7D8bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy8SELbfEeeCIdRqtlieYw" base_Element="_Qy7rAbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy8SE7bfEeeCIdRqtlieYw" base_Element="_Qy8SEbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy85ILbfEeeCIdRqtlieYw" base_Element="_Qy8SFLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy9gMLbfEeeCIdRqtlieYw" base_Element="_Qy85IbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy9gM7bfEeeCIdRqtlieYw" base_Element="_Qy9gMbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy-HQLbfEeeCIdRqtlieYw" base_Element="_Qy9gNLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy-uULbfEeeCIdRqtlieYw" base_Element="_Qy-HQbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy-uU7bfEeeCIdRqtlieYw" base_Element="_Qy-uUbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy_VYrbfEeeCIdRqtlieYw" base_Element="_Qy_VYLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy_8cLbfEeeCIdRqtlieYw" base_Element="_Qy_VY7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_Qy_8c7bfEeeCIdRqtlieYw" base_Element="_Qy_8cbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzAjgrbfEeeCIdRqtlieYw" base_Element="_QzAjgLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzBKkLbfEeeCIdRqtlieYw" base_Element="_QzAjg7bfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzBKk7bfEeeCIdRqtlieYw" base_Element="_QzBKkbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzBxoLbfEeeCIdRqtlieYw" base_Element="_QzBKlLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzCYsLbfEeeCIdRqtlieYw" base_Element="_QzBxobbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzCYs7bfEeeCIdRqtlieYw" base_Element="_QzCYsbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzC_wLbfEeeCIdRqtlieYw" base_Element="_QzCYtLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzDm0LbfEeeCIdRqtlieYw" base_Element="_QzC_wbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzEN4LbfEeeCIdRqtlieYw" base_Element="_QzDm0bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzEN47bfEeeCIdRqtlieYw" base_Element="_QzEN4bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzE08LbfEeeCIdRqtlieYw" base_Element="_QzEN5LbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzFcALbfEeeCIdRqtlieYw" base_Element="_QzE08bbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzGDELbfEeeCIdRqtlieYw" base_Element="_QzFcAbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzGDE7bfEeeCIdRqtlieYw" base_Element="_QzGDEbbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzGqILbfEeeCIdRqtlieYw" base_Element="_QzGDFLbfEeeCIdRqtlieYw"/>
+  <UMLLabProfile:Reference xmi:id="_QzHRMLbfEeeCIdRqtlieYw" base_Element="_QzGqIbbfEeeCIdRqtlieYw"/>
+</xmi:XMI>

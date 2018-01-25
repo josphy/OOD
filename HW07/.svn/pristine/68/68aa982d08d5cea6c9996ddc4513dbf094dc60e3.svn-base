@@ -1,0 +1,28 @@
+HW07: Remote task execution
+COMP 504 F17 HW07 16
+Team Member: Haoshan Zou(hz56), Xiaojun Wu(xw47)
+
+-------------------------------------------------------------------------------------
+TESTING:
+hz56, test against: net-id(team number)
+	xw47(16), zl58(15), zx18(21), 
+	
+xw47, test against:
+	hz56(16), 
+-------------------------------------------------------------------------------------	
+
+INSTRUCTIONS:
+1. Launch client by running client.control.ClientController. Launch server by running rmiServer.controller. Can be launched on the same or separate computers.
+2. Enter desired server's IP address, click connect.
+3. Enter full class name in task input box above "Add to List" button. Click the button to load it into both drop lists.
+4. Enter parameter for your desired task in the parameter text input box.
+5. Select desired task in the top drop list. Click "Run" to execute the task in connected server. Result is displayed in the text status box.
+6. Select desired tasks in both drop lists to combine. Combined task is added to the drop lists.
+7. Click "Quit" to properly quit the application.
+
+--Executable Tasks:
+provided in drop lists: Pi, GetInfo
+dynamic loading: client.model.task.Fibo, client.model.task.Pow2, client.model.task.RandomArray
+
+-------------------------------------------------------------------------------------
+UML diagrams are src/Client.umlcd and src/Server.umlcd.

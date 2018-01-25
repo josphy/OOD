@@ -1,0 +1,173 @@
+package client.model;
+
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+import client.model.task.MultiTaskFactory;
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.client.model.taskUtils.SingletonTaskFactoryLoader;
+import provided.compute.ICompute;
+import provided.compute.IRemoteTaskViewAdapter;
+import provided.compute.ITask;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.IRMI_Defs;
+import provided.rmiUtils.RMIUtils;
+
+public class ClientModel {
+	
+	private ILocalTaskViewAdapter _viewAdapter = ILocalTaskViewAdapter.NULL_OBJECT;
+	
+	private IRemoteTaskViewAdapter serverViewStub;
+	
+	private IRemoteTaskViewAdapter clientView = new IRemoteTaskViewAdapter() {
+		@Override
+		public void append(String s) throws RemoteException {
+			_viewAdapter.append("[SERVER]" + s);
+		}	
+	};
+	
+	private IRemoteTaskViewAdapter clientViewStub = null;
+	
+	private Registry registry;
+	
+	private ICompute compStub;
+
+	public ClientModel(ILocalTaskViewAdapter adapter) {
+		this._viewAdapter = adapter;
+		this.rmiUtils = new RMIUtils((s) -> {
+			this._viewAdapter.append(s);
+		});
+	}
+	
+//	private ITask<String> outputCmd = new Consumer<String>();
+	
+	/**
+	 * RMI utilities for starting RMI and for getting the Registry
+	 */
+	private IRMIUtils rmiUtils;
+
+	/**
+	 * Starts the client model by initializing the RMI system and creating a remote view adapter stub 
+	 * for use by an engine server.  Procedure:<br/>
+	 * 1. (DO THIS FIRST!) Use the IRMIUtils to start the RMI system, using 
+	 * port = IRMI_Defs.CLASS_SERVER_PORT_CLIENT.  
+	 * This will also automatically start the the security manager and the class file server for remote dynamic
+	 * class loading.<br/>
+	 * 2. Export a STUB from the client's IRemoteTaskViewAdapter RMI server object.  
+	 * Save this stub for use when connecting to an engine server. <br/>
+	 * 
+	 */
+	public void start() {
+		try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_CLIENT); 
+			_viewAdapter.setRemoteHost(rmiUtils.getLocalAddress());
+			_viewAdapter.append("[ClientModel.start()] Ready...\n");
+		} catch (SocketException | UnknownHostException e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
+	/**
+	 * Stops the client model by using the IRMIUtils to stop the RMI system.
+	 * This automatically stops class file server.   
+	 * This MUST be called before exiting the system! 
+	 */
+	public void stop() {
+		rmiUtils.stopRMI();
+		System.exit(0);
+	}
+
+	/**
+	 * Connects to the given remote host's Registry and retrieves the stub to the ICompute object bound 
+	 * to the ICompute.BOUND_NAME name in the remote Registry on port 
+	 * IRMI_Defs.REGISTRY_PORT.  Procedure:<br/> 
+	 * 1. Use the IRMIUtils to retrieve the remote Registry at the given IP address. <br/>
+	 * 2. Use the remote Registry to retrieve an ICompute STUB bound to the name defined by IComputer.BOUND_NAME
+	 * Save the reference to the IComputer stub somewhere.<br/>
+	 * 3. Use the ICompute stub to give the client's IRemoteTaskViewAdapter STUB to the remote engine server and
+	 *   retrieve the compute engine's IRemoteTaskViewAdapter stub.  Save the retrieved stub for later use.  
+	 *   Use the retrieved stub to send a connection status message to the remote compute engine's user interface.<br/> 
+	 * 4. Return a string indicating the success or failure of the connection attempt.
+	 * 
+	 * @param remoteHost The IP address or host name of the remote server.
+	 * @return  A status string on the connection.
+	 */
+	public String connectTo(String remoteHost) {
+		_viewAdapter.append("Locating registry at " + remoteHost + "...");
+		registry = rmiUtils.getRemoteRegistry(remoteHost);
+		_viewAdapter.append("[ClientModel.connectTo()] Found registry: " + registry);
+		
+		try {
+			compStub = (ICompute) registry.lookup(ICompute.BOUND_NAME);
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		_viewAdapter.append("[ClientModel.connectTo()] Found remote Compute object: " + compStub + "\n");
+		
+		if (null == clientViewStub) { // Don't re-export clientTA if already done.
+			try {
+				clientViewStub = (IRemoteTaskViewAdapter) UnicastRemoteObject.exportObject(clientView,
+						IRemoteTaskViewAdapter.BOUND_PORT_CLIENT);
+				serverViewStub = compStub.setTextAdapter(clientViewStub);
+				serverViewStub.append("Hello from hz56's client!\n");
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		_viewAdapter.append("Got text adapter: " + serverViewStub + "\n");
+		
+		return "Connection to " + remoteHost + " established!\n";
+	}
+
+	/**
+	 * Sends a string message to the connected compute engine using the IRemoteTaskViewAdapter STUB
+	 * received from the engine server.   This message should also be echoed to the local user interface.
+	 * @param text The message to be sent
+	 */
+	public void sendMsgToComputeEngine(String text) {
+		try {
+			serverViewStub.append(text);
+		} catch (RemoteException e) {
+			System.out.println("Server Exception: " + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		_viewAdapter.append("[ClientModel.sendMsgToComputeEngine] Sending msg to connected remote host = \"" + text +"\"");
+	}
+
+	/**
+	 * Runs the given ITask on the remote engine server, returning the String formatted
+	 * result, which is produced using the given ITask's ITaskResultFormatter object. 
+	 * @param task The task to run on the remote engine server.
+	 * @param <T> The return type of the give ITask
+	 * @return A string representation of the task results, using the task's formatter object.
+	 */
+	public <T> String runTask(ITask<T> task) {
+		T result = null;
+		try {
+			result = compStub.executeTask(task);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return task.getFormatter().format(result);
+	}
+	
+	public ITaskFactory<?> makeITaskFac(String taskname) {
+		return SingletonTaskFactoryLoader.SINGLETON.load(taskname);
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ITaskFactory<?> combineTaskFacs(ITaskFactory<?> selectedTask1, ITaskFactory<?> selectedTask2) {
+		return new MultiTaskFactory(selectedTask1, selectedTask2);
+	}
+
+}

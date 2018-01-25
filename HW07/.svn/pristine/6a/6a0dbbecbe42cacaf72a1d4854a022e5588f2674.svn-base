@@ -1,0 +1,35 @@
+package rmiServer.model;
+
+import java.rmi.RemoteException;
+
+import provided.compute.ICompute;
+import provided.compute.ITask;
+import provided.compute.IRemoteTaskViewAdapter;
+import provided.compute.ILocalTaskViewAdapter;
+
+public class RMIComputeServer implements ICompute{
+	private ILocalTaskViewAdapter localTestViewAdapter;
+	
+	private IRemoteTaskViewAdapter serverTVAStub;
+	
+	private IRMIServerEngineModel RMIServerEngine;
+	
+	public RMIComputeServer(ILocalTaskViewAdapter localTestViewAdapter, IRemoteTaskViewAdapter serverTVAStub, IRMIServerEngineModel RMIServerEngine) {
+		this.localTestViewAdapter = localTestViewAdapter;
+		this.serverTVAStub = serverTVAStub;
+		this.RMIServerEngine = RMIServerEngine;
+	}
+	
+	public <T> T executeTask(ITask<T> t) throws RemoteException {
+		T res;
+		t.setTaskViewAdapter(localTestViewAdapter);
+		res = t.execute();
+		return res;
+	}
+	
+	public IRemoteTaskViewAdapter setTextAdapter(IRemoteTaskViewAdapter clientTVAStub) throws RemoteException {
+		RMIServerEngine.setClientTVAStub(clientTVAStub);
+		clientTVAStub.append("Hi, I am Xiaojun's RMI server");
+		return serverTVAStub;
+	}
+}

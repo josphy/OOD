@@ -1,0 +1,19 @@
+package rmiServer.view;
+
+public interface IRMIServerView2ModelAdapter {
+	public void quit();
+	
+	public void msgToClientView(String msg);
+	
+	public static final IRMIServerView2ModelAdapter NULL_OBJECT = new IRMIServerView2ModelAdapter() {
+		@Override
+		public void quit() {
+			// No-op
+		}
+		
+		@Override
+		public void msgToClientView(String msg) {
+			// No-op
+		}
+	};
+}

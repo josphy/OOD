@@ -1,0 +1,27 @@
+package client.view;
+
+public interface IModelAdapter {
+	public void connect(String ip);
+	public void sendMsg(String text);
+	public void addTask();
+	public void runTask();
+	public void combineTask();
+	
+	public static final IModelAdapter NULL_OBJECT = new IModelAdapter() {
+		public void connect(String ip) {
+		}
+		
+		public void sendMsg(String text) {
+		}
+		
+		public void addTask() {
+		}
+		
+		public void runTask() {
+		}
+		
+		public void combineTask() {
+		}		
+	};
+
+}

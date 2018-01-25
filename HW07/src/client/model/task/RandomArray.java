@@ -1,0 +1,94 @@
+package client.model.task;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+/**
+ * Task to generate a random array of integers in [1, 100] to a given number of length
+ * @author Haoshan Zou, Xiaojun Wu
+ * 
+ */
+public class RandomArray implements ITask<ArrayList<Integer>> {
+
+	/**
+	 * SerialversionUID for well-defined serialization.
+	 */
+	private static final long serialVersionUID = -4015769738438562392L;
+
+	/**
+	 * Adapter to the local view.
+	 */
+	private transient ILocalTaskViewAdapter taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+
+	/**
+	 * number of array random digits to generate
+	 */
+	private final int digits;
+
+	/**
+	 * Construct the task.
+	 * @param digits the length of random number array to generate
+	 */
+	public RandomArray(int digits) {
+		this.digits = digits;
+		taskView.append("Random array constructing...");
+	}
+
+	@Override
+	/**
+	 * generate random array
+	 * @return an ArrayList<Integer> item of the generated random array
+	 */
+	public ArrayList<Integer> execute() throws RemoteException {
+		taskView.append("Executing RandomArray task with " + digits + " digits.");
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for (int i = 1; i <= digits; i++) {
+			result.add((int) Math.ceil(Math.random() * 100));
+		}
+		return result;
+	}
+
+	@Override
+	/**
+	 * Sets the task view adapter to a new value.  Used by the server to attach
+	 * the task to its view.
+	 */
+	public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+		taskView = viewAdapter;
+	}
+
+	@Override
+	/**
+	 * Return a a formatter that makes a string of the form:  
+	 * "Generated random array : [result] ([digits] places)" 
+	 */
+	public ITaskResultFormatter<ArrayList<Integer>> getFormatter() {
+		return new ITaskResultFormatter<ArrayList<Integer>>() {
+
+			public String format(ArrayList<Integer> result) {
+				return "Generated random array : " + result.toString() + " (" + digits + " places)";
+			}
+		};
+
+	}
+
+	/**
+	 * An ITaskFactory for this task
+	 */
+	public static final ITaskFactory<ArrayList<Integer>> FACTORY = new ITaskFactory<ArrayList<Integer>>() {
+		public ITask<ArrayList<Integer>> make(String param) {
+			return new RandomArray(Integer.parseInt(param));
+		}
+
+		@Override
+		public String toString() {
+			return RandomArray.class.getName();
+		}
+	};
+
+}

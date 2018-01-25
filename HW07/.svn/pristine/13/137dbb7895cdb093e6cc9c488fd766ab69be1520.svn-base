@@ -1,0 +1,70 @@
+package client.model.task;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+public class RandomArray implements ITask<ArrayList<Integer>> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4015769738438562392L;
+	
+	private transient ILocalTaskViewAdapter taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+
+	/**
+	 * number of array random digits to generate
+	 */
+	private final int digits;
+
+	public RandomArray(int digits) {
+		this.digits = digits;
+		taskView.append("Random array constructing...");
+	}
+
+	@Override
+	public ArrayList<Integer> execute() throws RemoteException {
+		taskView.append("Executing RandomArray task with " + digits + " digits.");
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for (int i=1;i<=digits;i++) {
+			result.add((int) Math.ceil(Math.random()*100));
+		}
+		return result;
+	}
+
+	@Override
+	public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+		taskView = viewAdapter;
+	}
+
+	@Override
+	public ITaskResultFormatter<ArrayList<Integer>> getFormatter() {
+		return new ITaskResultFormatter<ArrayList<Integer>>() {
+
+			public String format(ArrayList<Integer> result) {
+				return "Generated random array : " + result.toString() + " (" + digits + " places)";
+			}
+		};
+		
+	}
+	
+	/**
+	 * An ITaskFactory for this task
+	 */
+	public static final ITaskFactory<ArrayList<Integer>> FACTORY = new ITaskFactory<ArrayList<Integer>>() {
+		public ITask<ArrayList<Integer>> make(String param) {
+			return new RandomArray(Integer.parseInt(param));
+		}
+
+		@Override
+		public String toString() {
+			return RandomArray.class.getName();
+		}
+	};
+
+}

@@ -1,0 +1,88 @@
+package client.model.task;
+
+import java.rmi.RemoteException;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+/**
+ * Task to generate 2's power to a given number of power
+ * @author Haoshan Zou, Xiaojun Wu
+ * 
+ */
+public class Pow2 implements ITask<Double> {
+
+	/**
+	 * SerialversionUID for well-defined serialization.
+	 */
+	private static final long serialVersionUID = 4108385259824474093L;
+
+	/**
+	 * Adapter to the local view.
+	 */
+	private transient ILocalTaskViewAdapter taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+
+	/**
+	 * number of power to generate
+	 */
+	private final double digits;
+
+	/**
+	 * Construct the task.
+	 * @param digits the power to generate
+	 */
+	public Pow2(double digits) {
+		this.digits = digits;
+		taskView.append("Power of 2 constructing...");
+	}
+
+	@Override
+	/**
+	 * calculate 2's power.
+	 * @return calculated 2's power
+	 */
+	public Double execute() throws RemoteException {
+		taskView.append("Executing Pow2 task with " + digits + " digits.");
+		return Math.pow(2.0, digits);
+	}
+
+	@Override
+	/**
+	 * Sets the task view adapter to a new value.  Used by the server to attach
+	 * the task to its view.
+	 */
+	public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+		taskView = viewAdapter;
+	}
+
+	@Override
+	/**
+	 * Return a a formatter that makes a string of the form:  
+	 * "2 to the [digits] power : [result] ([digits] places)" 
+	 */
+	public ITaskResultFormatter<Double> getFormatter() {
+		return new ITaskResultFormatter<Double>() {
+
+			public String format(Double result) {
+				return "2 to the " + digits + " power : " + result + " (" + digits + " places)";
+			}
+		};
+	}
+
+	/**
+	 * An ITaskFactory for this task
+	 */
+	public static final ITaskFactory<Double> FACTORY = new ITaskFactory<Double>() {
+		public ITask<Double> make(String param) {
+			return new Pow2(Double.parseDouble(param));
+		}
+
+		@Override
+		public String toString() {
+			return Pow2.class.getName();
+		}
+	};
+
+}

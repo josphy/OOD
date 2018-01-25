@@ -1,0 +1,84 @@
+package rmiServer.model;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+import provided.rmiUtils.*;
+// import provided.engine.model.IEngineModel;
+// import provided.client.model.task.*;
+import provided.compute.ICompute;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.IRemoteTaskViewAdapter;
+
+public class RMIServerModel implements IRMIServerEngineModel {
+	private IRMIUtils rmiUtils;
+	
+	private Registry registry;
+	
+	private ILocalTaskViewAdapter model2ViewAdapter = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+	
+	private IRemoteTaskViewAdapter serverViewAdapter;
+	
+	private IRemoteTaskViewAdapter clientTVAStub = IRemoteTaskViewAdapter.NULL_ADAPTER;
+	
+	private ICompute computeServer;
+	
+	public RMIServerModel(ILocalTaskViewAdapter model2ViewAdapter) {
+		this.model2ViewAdapter = model2ViewAdapter;
+		this.serverViewAdapter = new IRemoteTaskViewAdapter() {
+			@Override
+			public void append(String s) throws RemoteException {
+				model2ViewAdapter.append(s);
+			}
+		};
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.model2ViewAdapter.append(s);
+		});
+	}
+	
+	@Override
+	public void start() {
+		try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_SERVER);
+			registry = rmiUtils.getLocalRegistry();
+		} catch(Exception e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		
+		try {
+			IRemoteTaskViewAdapter serverTVAStub = (IRemoteTaskViewAdapter) UnicastRemoteObject.exportObject(serverViewAdapter, IRemoteTaskViewAdapter.BOUND_PORT_SERVER);
+			computeServer = new RMIComputeServer(model2ViewAdapter, serverTVAStub, this);
+			ICompute computeStub = (ICompute) UnicastRemoteObject.exportObject(computeServer, ICompute.BOUND_PORT);
+			registry.rebind(ICompute.BOUND_NAME, computeStub);
+		} catch(Exception e) {
+			System.err.println("Server Exception: " + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+	
+	@Override
+	public void stop() {
+		rmiUtils.stopRMI();
+		System.exit(-1);
+	}
+	
+	@Override
+	public void sendMsgToClient(String text) {
+		try {
+			clientTVAStub.append(text);
+		} catch(Exception e) {
+			System.out.println("Client Exception: " + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+	
+	@Override
+	public void setClientTVAStub(IRemoteTaskViewAdapter newClientTVAStub) {
+		this.clientTVAStub = newClientTVAStub;
+	}
+}

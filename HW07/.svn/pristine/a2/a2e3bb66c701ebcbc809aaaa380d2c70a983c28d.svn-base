@@ -1,0 +1,45 @@
+package client.model.task;
+
+import java.rmi.RemoteException;
+
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+public class MultiTask<Q,R> implements ITask<String> {
+	
+	private static final long serialVersionUID = -2062204862714215781L;
+	
+	private ITask<Q> task1;
+	
+	private ITask<R> task2;
+
+	public MultiTask(ITask<Q> task1, ITask<R> task2) {
+		this.task1 = task1;
+		this.task2 = task2;
+	}
+
+	@Override
+	public String execute() throws RemoteException {
+		String output = null;
+		output += task1.getFormatter().format(this.task1.execute()) +'\n';
+		output += task2.getFormatter().format(this.task2.execute());
+		return output; 
+	}
+
+	@Override
+	public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+		task1.setTaskViewAdapter(viewAdapter);
+		task2.setTaskViewAdapter(viewAdapter);
+	}
+
+	@Override
+	public ITaskResultFormatter<String> getFormatter() {
+		return new ITaskResultFormatter<String>() {
+    		public String format(String result) {
+    			return result;
+    		}
+    	};
+	}
+
+}

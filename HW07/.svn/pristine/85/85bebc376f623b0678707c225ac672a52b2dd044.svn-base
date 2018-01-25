@@ -1,0 +1,23 @@
+package client.model.task;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ITask;
+
+public class MultiTaskFactory<Q,R,T> implements ITaskFactory<T> {
+	
+	private ITaskFactory<Q> taskFac1;
+	
+	private ITaskFactory<R> taskFac2;
+
+	public MultiTaskFactory(ITaskFactory<Q> fac1, ITaskFactory<R> fac2) {
+		this.taskFac1 = fac1;
+		this.taskFac2 = fac2;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ITask<T> make(String param) {
+		return (ITask<T>) new MultiTask<Q,R>(taskFac1.make(param), taskFac2.make(param));
+	}
+
+}

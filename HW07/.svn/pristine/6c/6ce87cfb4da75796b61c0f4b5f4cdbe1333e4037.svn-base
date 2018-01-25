@@ -1,0 +1,39 @@
+package client.model;
+
+/**
+ * client's local view adapter for the model
+ * @author Haoshan Zou, Xiaojun Wu
+ */
+public interface ILocalTaskViewAdapter {
+	
+	/**
+	 * Append the given string to the view's display
+	 * @param s the string to display
+	 */
+	public void append(String s);
+	
+	/**
+	 * set the view's remote host address
+	 * @param s the ip address to display
+	 */	
+	public void setRemoteHost(String host);
+
+	/**
+	 * null object view adapter for initialization.
+	 */
+	public static final ILocalTaskViewAdapter NULL_OBJECT = new ILocalTaskViewAdapter() {
+
+		@Override
+		public void append(String s) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setRemoteHost(String host) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+}

@@ -1,0 +1,35 @@
+package client.view;
+
+public interface IModelAdapter<TaskItem> {
+	public void quit();
+	public void connect(String ip);
+	public void sendMsg(String text);
+	public TaskItem addTask(String taskname);
+	public String runTask(TaskItem selectedTask, String param);
+	public TaskItem combineTask(TaskItem selectedTask1, TaskItem selectedTask2);
+	
+	public static final IModelAdapter<?> NULL_OBJECT = new IModelAdapter<Object>() {
+		
+		public void quit() {
+		}
+		
+		public void connect(String ip) {
+		}
+		
+		public void sendMsg(String text) {
+		}
+		
+		public Object addTask(String taskname) {
+			return null;
+		}
+		
+		public String runTask(Object selectedTask, String param) {
+			return null;
+		}
+		
+		public Object combineTask(Object selectedTask1, Object selectedTask2) {
+			return null;
+		}		
+	};
+
+}

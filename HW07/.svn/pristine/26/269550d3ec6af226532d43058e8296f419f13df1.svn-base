@@ -1,0 +1,85 @@
+package client.control;
+
+import java.awt.EventQueue;
+
+import client.model.ClientModel;
+import client.model.ILocalTaskViewAdapter;
+import client.view.ClientGUI;
+import client.view.IModelAdapter;
+
+public class ClientController {
+
+	private ClientGUI view;
+	private ClientModel model;
+	
+	public ClientController() {
+		
+		view = new ClientGUI(new IModelAdapter() {
+
+			@Override
+			public void addTask() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void runTask() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void combineTask() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void connect(String ip) {
+				model.connectTo(ip);
+				
+			}
+
+			@Override
+			public void sendMsg(String text) {
+				model.sendMsgToComputeEngine(text);
+				
+			}
+		});
+		
+		model = new ClientModel(new ILocalTaskViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.append(s);		
+			}
+
+			@Override
+			public void setRemoteHost(String host) {
+				view.setRemoteHost(host);
+			}
+			
+		});
+	}
+
+	public void start() {
+		view.start();
+		model.start();
+	}
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ClientController controller = new ClientController();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}
