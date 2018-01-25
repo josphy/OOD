@@ -1,0 +1,30 @@
+package model.strategy;
+
+import java.awt.Point;
+
+import model.ball.Ball;
+import util.Randomizer;
+
+/**
+ * the wander strategy.
+ *
+ */
+public class WanderStrategy implements IUpdateStrategy {
+
+	/**
+	 * update state the ball of context.
+	 */
+	@Override
+	public void updateState(Ball context) {
+		Point vel = context.getVelocity();
+
+		if (vel.x > 0) {
+			vel.x = Randomizer.Singleton.randomInt(1, 40);
+		} else {
+			vel.x = -1 * Randomizer.Singleton.randomInt(1, 40);
+		}
+
+		context.setVelocity(vel);
+	}
+
+}
