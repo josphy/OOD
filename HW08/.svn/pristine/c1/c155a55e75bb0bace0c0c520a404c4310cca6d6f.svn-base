@@ -1,0 +1,148 @@
+package chatApp.controller;
+
+import java.awt.EventQueue;
+import java.util.Set;
+
+import chatApp.model.ChatAppModel;
+import chatApp.model.IMainViewAdapter;
+import chatApp.model.IMain2MiniAdapter;
+import chatApp.view.IMainView2ModelAdapter;
+import chatApp.view.MainView;
+import chatRoom.controller.MiniController;
+import chatRoom.model.ChatRoomModel;
+import common.IChatRoom;
+import common.IReceiver;
+import common.IUser;
+
+public class MainController {
+
+	private MainView view;
+
+	private ChatAppModel model;
+	
+	private MainController() {
+		
+		model = new ChatAppModel(new IMainViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.append(s);
+				
+			}
+
+			@Override
+			public void setLocalIP(String localAddress) {
+				view.setLocalIP(localAddress);
+				
+			}
+
+			@Override
+			public void addUser(IUser remoteUserStub) {
+				view.addUser(remoteUserStub);
+				
+			}
+
+			@Override
+			public void addChatroom(IChatRoom chatroom) {
+				view.addRoom(chatroom);
+				
+			}
+
+			@Override
+			public IMain2MiniAdapter makeMini(IChatRoom chatroom, IReceiver receiverStub) {
+				MiniController miniController = new MiniController(chatroom, receiverStub);
+				
+				IMain2MiniAdapter miniMVCAdpt = new IMain2MiniAdapter() {
+
+					@Override
+					public ChatRoomModel getMiniModel() {
+						return miniController.getMiniModel();
+					}
+
+				};
+				
+				view.getTabPnl().add(chatroom.getName(), miniController.getMiniGUI());
+
+				miniController.start();
+
+				return miniMVCAdpt;
+			}
+
+			@Override
+			public void setConnectedUser(Set<IUser> connectedUsers) {
+				view.setUserBox(connectedUsers);
+			}
+			
+		});
+		
+		view = new MainView(new IMainView2ModelAdapter() {
+
+			@Override
+			public void login(int port, String username) {
+				model.login(port, username);
+				
+			}
+
+			@Override
+			public void createChatRoom(int port, String name) {
+				model.createRoom(port, name);
+				
+			}
+
+			@Override
+			public void connect(String remoteHost) {
+				model.connectTo(remoteHost);
+				
+			}
+
+			@Override
+			public void requestRoom(Object selectedUser) {
+				model.requestRoom((IUser) selectedUser);
+				
+			}
+
+			@Override
+			public void sendRoom(Object selectedUser) {
+//				model.invite((IUser) selectedUser);
+				
+			}
+
+			@Override
+			public void join(int port, Object selectedRoom) {
+				model.joinRoom(port, (IChatRoom) selectedRoom);
+				
+			}
+
+			@Override
+			public void quit() {
+				model.quit();
+				
+			}
+
+		});
+			
+	}
+	
+	
+	public void start() {
+		model.start();
+		view.start();
+	}
+	
+	/**
+	 * Launch the application.
+	 * @param args Arguments given by the system or command line.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() { // Java specs say that the system must be constructed on the GUI event thread.
+			public void run() {
+				try {
+					MainController controller = new MainController(); // instantiate the system
+					controller.start(); // start the system
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

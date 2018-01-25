@@ -1,0 +1,26 @@
+package chatRoom.model;
+
+import common.IConnect;
+import provided.datapacket.ADataPacketAlgoCmd;
+import provided.datapacket.DataPacket;
+
+public class StringCmd extends ADataPacketAlgoCmd<String, String, IConnect, ICmd2ModelAdapter, DataPacket<String, IConnect>>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5021833223831377474L;
+
+	@Override
+	public String apply(Class<?> index, DataPacket<String, IConnect> host, IConnect... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

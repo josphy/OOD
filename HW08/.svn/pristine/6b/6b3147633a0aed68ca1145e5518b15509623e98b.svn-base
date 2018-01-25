@@ -1,0 +1,111 @@
+package client.model.task;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.rmi.RemoteException;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+/**
+ * Task which determines whether a String is a palindrome.
+ * @author Zheng You, Li Zhu
+ */
+public class DeterminePalindrome implements ITask<Boolean> {
+  /**
+   * serialVersionUID is the serial version UID.
+   */
+  private static final long serialVersionUID = 5564384354794619133L;
+  /**
+   * Adapter to the local view. Marked "transient" so that it is not serialized
+   * and instead is re-attached at the destination (the server).
+   */
+  private transient ILocalTaskViewAdapter taskView =
+      ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+  /**
+   * The input String
+   */
+  private String input;
+
+  /**
+   * Constructor for the class.
+   * @param input   an input String
+   */
+  public DeterminePalindrome(String input) {
+    this.input = input;
+  }
+
+  /**
+   * Determine whether input is a palindrome.
+   */
+  @Override
+  public Boolean execute() throws RemoteException {
+    taskView.append("Determine whether input is palindrome...");
+    String reverse = new StringBuilder(input).reverse().toString();
+    return reverse.equals(input);
+  }
+
+  /**
+   * Reinitializes transient fields upon deserialization. taskView is set to a
+   * default value for now (ILocalTaskViewAdapter.DEFAULT_ADAPTER).
+   *
+   * @param stream The object stream with the serialized data
+   *
+   * @throws IOException if the input stream cannot be read correctly
+   * @throws ClassNotFoundException if the class file associated with the input
+   * stream cannot be located.
+   */
+  private void readObject(ObjectInputStream stream) throws IOException,
+    ClassNotFoundException {
+    // De-serialize the non-transient data
+    stream.defaultReadObject();
+    // re-initialize the transient field
+    taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+  }
+
+  /**
+   * Sets the task view adapter to a new value. Test connection by sending a
+   * string representation of the dArray structure. Called by the server to
+   * attach the task to its view.
+   *
+   * @param viewAdapter the adapter to the view.
+   */
+  @Override
+  public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+    taskView = viewAdapter;
+    viewAdapter.append("DeterminePalindrome installed!\n");
+    System.out.println("DeterminePalindrome.setTaskViewAdapter() is invoked.\n" +
+        "Test for setTaskViewAdapter()\n");
+  }
+
+  /**
+   * Return an formatter that creates a String of the form:
+   * "(input) is palidrome: [result]"
+   * @return  an formatter that creates a Boolean object
+   */
+  @Override
+  public ITaskResultFormatter<Boolean> getFormatter() {
+    return new ITaskResultFormatter<Boolean>() {
+      @Override
+      public String format(Boolean result) {
+        return input + " is palidrome: " + result;
+      }
+    };
+  }
+
+  /**
+   * An ITaskFactory for this task
+   */
+  public static final ITaskFactory<Boolean> FACTORY = new ITaskFactory<Boolean>() {
+    public ITask<Boolean> make(String param) {
+      return new DeterminePalindrome(param);
+    }
+    @Override
+    public String toString() {
+      return DeterminePalindrome.class.getName();
+    }
+  };
+
+}

@@ -1,0 +1,32 @@
+package chatApp.Data;
+
+import common.DataPacketAlgoCmd;
+import common.IInstallCmdType;
+
+public class InstallCmdData implements IInstallCmdType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 94776631239593811L;
+	
+	private DataPacketAlgoCmd<?> cmd;
+	
+	private Class<?> cmdId;
+
+	public InstallCmdData(DataPacketAlgoCmd<?> cmd, Class<?> cmdId) {
+		this.cmd = cmd;
+		this.cmdId = cmdId;
+	}
+
+	@Override
+	public DataPacketAlgoCmd<?> getCmd() {
+		return cmd;
+	}
+
+	@Override
+	public Class<?> getCmdId() {
+		return cmdId;
+	}
+
+}

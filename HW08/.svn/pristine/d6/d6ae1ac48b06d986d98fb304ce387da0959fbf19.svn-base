@@ -1,0 +1,36 @@
+package chatRoom.model;
+
+import java.awt.Container;
+
+public interface IMiniViewAdapter {
+	
+	public void addUser(String username);
+	
+	public void append(String s);
+	
+	public Container getDialogPnl();
+	
+	public static IMiniViewAdapter NULL_OBJECT = new IMiniViewAdapter() {
+
+		@Override
+		public void addUser(String username) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public Container getDialogPnl() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void append(String s) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+
+
+}

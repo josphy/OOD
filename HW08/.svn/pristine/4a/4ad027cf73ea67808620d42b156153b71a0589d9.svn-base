@@ -1,0 +1,9 @@
+package lz50_hz56.chatRoom.view;
+
+public interface IChatRoomModelAdapter {
+	
+	public void sendMsg();
+	
+	public void getUserList();
+
+}

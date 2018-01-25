@@ -1,0 +1,148 @@
+package chatRoom.model;
+
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.util.Set;
+
+import javax.swing.ImageIcon;
+
+import common.IChatroom;
+import common.IConnect;
+import common.IUser;
+import provided.datapacket.ADataPacketAlgoCmd;
+import provided.datapacket.DataPacket;
+import provided.datapacket.DataPacketAlgo;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+
+public class ChatRoomModel {
+	
+	private IMiniViewAdapter viewAdpt = IMiniViewAdapter.NULL_OBJECT;	//local view adapter
+	
+	private IChatroom chatroom; 	//API - to send
+	
+	private IConnect chatserver;	//API - to receive
+	
+//	private Set<IConnect> users = new HashSet<>();
+
+	/**
+	 * RMI utilities for starting RMI and for getting the Registry
+	 */
+	private IRMIUtils rmiUtils;
+	
+	private DataPacketAlgo<String, IConnect> myDataPacketAlgo;
+
+	public ChatRoomModel(IMiniViewAdapter adapter) {
+		this.viewAdpt = adapter;
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.viewAdpt.displayMsg();
+		});
+		this.myDataPacketAlgo = new DataPacketAlgo<>(null);
+	}
+	
+	public void start(IConnect chatserver) throws RemoteException {
+		this.chatserver = chatserver;
+		this.chatroom = chatserver.getChatroom();
+//		this.users = chatserver.getChatroom().getConnects();
+		initDataPacketAlgo();
+	}
+	
+	/**
+	 * specify commands to process different types of messages
+	 */
+	public void initDataPacketAlgo() {
+		
+		/**
+		 * unknown message type goes to default command
+		 */
+		myDataPacketAlgo.setDefaultCmd(new ADataPacketAlgoCmd<String, String, IConnect, ICmd2ModelAdapter, DataPacket<String, IConnect>>() {
+
+			private static final long serialVersionUID = -6372641218423318226L;
+			
+			private transient ICmd2ModelAdapter cmd2ModelAdpt;
+
+			@Override
+			public String apply(Class<?> index, DataPacket<String, IConnect> host, IConnect... params) {
+				System.out.println("unknown data packet type");
+
+				(new Thread() {
+					public void run() {
+						super.run();
+						ADataPacketAlgoCmd<String, ?, IConnect, ICmd2ModelAdapter, DataPacket<?, IConnect>> unknownCmd = null;
+						unknownCmd = host.getSender().getNewCommand(index);
+						unknownCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+						myDataPacketAlgo.setCmd(index, unknownCmd);
+						host.execute(myDataPacketAlgo, params);
+					}
+				}).start();
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+				this.cmd2ModelAdpt = cmd2ModelAdpt;
+				
+			}
+			
+		});
+		
+		/**
+		 * predefined commands for text and image
+		 */
+		myDataPacketAlgo.setCmd(String.class, new StringCmd());
+		myDataPacketAlgo.setCmd(ImageIcon.class, new ImageIconCmd());
+		
+	}
+	
+	/**
+	 * invite another user to this room by adding the room to the other user's available room list
+	 * @param userIP identifier of the other user
+	 */
+	public void addUser(String userIP) {
+		Registry registry = rmiUtils.getRemoteRegistry(userIP);
+		try {
+			IUser user = (IUser) registry.lookup(IUser.BOUND_NAME);
+			if (user!=null) {
+				user.addChatroom(chatroom);
+			}
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/**
+	 * current user quit the room
+	 */
+	public void leaveRoom() {
+		try {
+			//current user leaves the room
+			IUser user = this.chatserver.getUser();
+			IChatroom currRoom = this.chatserver.getChatroom();
+			user.removeChatroom(currRoom);
+			currRoom.removeConnect(chatserver);
+			
+			//remove current user from others' room user list
+			Set<IConnect> others = currRoom.getConnects();
+			for (IConnect other:others) {
+				other.getChatroom().removeConnect(chatserver);
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void sendText(String text) {
+		chatroom.sendMsg(new DataPacket<String,IConnect>(String.class, text, chatserver));
+	}
+	
+	public void sendImg() {
+		ImageIcon image = new ImageIcon("chatRoom/file/chips.jpg");
+		chatroom.sendMsg(new DataPacket<ImageIcon,IConnect>(ImageIcon.class, image, chatserver));
+	}
+
+}

@@ -1,0 +1,121 @@
+package chatRoom.controller;
+
+import java.awt.Container;
+import java.rmi.RemoteException;
+import java.util.Collection;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+import chatRoom.model.ChatRoomModel;
+import chatRoom.model.IMiniViewAdapter;
+import chatRoom.model.IMini2MainAdapter;
+import chatRoom.view.IChatRoomModelAdapter;
+import chatRoom.view.MiniView;
+import common.IChatRoom;
+import common.IReceiver;
+
+public class MiniController {
+	
+	private ChatRoomModel model;
+	
+	private MiniView view;
+	
+	public MiniController(IChatRoom chatroom, IReceiver receiverStub, IMini2MainAdapter mainAdpt) {
+		
+		model = new ChatRoomModel(chatroom, receiverStub, new IMiniViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.appendMsg(s); 	//parameter type need specification
+				
+			}
+
+			@Override
+			public void setUserList(Collection<IReceiver> receiverStubs) {
+				view.setUserList(receiverStubs);				
+			}
+
+			@Override
+			public Container getPnl(String label) {
+				return view.getPnl(label);
+			}
+			
+		}, mainAdpt);
+		
+		view = new MiniView( new IChatRoomModelAdapter() {
+
+			@Override
+			public void sendMsg(String text) {
+				model.sendText(text);
+				
+			}
+
+			@Override
+			public void sendImg(ImageIcon image) {
+				model.sendImg(image);
+				
+			}
+
+			@Override
+			public void quit() {
+				model.leaveRoom();
+				
+			}
+
+			@Override
+			public void invite(String ip) {
+				model.addUser(ip);
+				
+			}
+			
+		});
+		
+	}
+	
+	public JPanel getMiniGUI() {
+		return view.getMiniGUI();
+	}
+	
+	public void start() {
+		try {
+			model.start();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		view.start();
+	}
+	
+	public MiniView getMiniView() {
+		return view;
+	}
+
+	public ChatRoomModel getMiniModel() {
+		return model;
+	}
+
+	public void leaveRoom() {
+		model.leaveRoom();
+		
+	}
+	
+
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MiniController controller = new MiniController();
+//					controller.start();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+
+}

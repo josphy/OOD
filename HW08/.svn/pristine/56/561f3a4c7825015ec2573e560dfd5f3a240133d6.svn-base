@@ -1,0 +1,11 @@
+package chatApp.view;
+
+public interface IMainView2ModelAdapter {
+
+	public void createChatRoom(String name);
+	
+	IMainView2ModelAdapter NULL_OBJECT = null;
+
+	
+
+}

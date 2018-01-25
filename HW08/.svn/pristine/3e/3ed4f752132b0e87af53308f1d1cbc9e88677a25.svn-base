@@ -1,0 +1,99 @@
+COMP 504 HW07: Remote task execution
+Zheng You, Li Zhu
+
+1. How to run the program?
+There are two *.launch files in the root directory. Open the
+"ClientConfig.launch" file and click the green button "Run" in the Toolbars to
+start the client program. Open the "EngineConfig.launch" file and click the
+green button "Run" in the Toolbars to start the engine program.
+
+
+2. Describe what options are available and what your program is doing.
+The GUI program is able to perform remote task execution and client-engine
+communication.
+
+--------------------------------------------------------------------------------
+Client Program:
+On top of the client GUI program are 6 panels, Button, Remote Host, Send
+Message, Add Task, Task, and Run Parameter panels separately.
+
+Button Panel:
+- Quit: Shut down the RMI system and quit the client program. Note when closing
+        the client program with clicking the "Close" button on the upper left
+        or upper right corner of the window has the same effect as clicking the
+        "Quit" button.
+- Clear: Clear the contents in the display panel. This is for better display
+         when they are too many information displayed.
+
+Remote Host Panel:
+Enter the remote host IP address and click the "Connect" button to connect to
+the remote engine server. The default IP address is the current machine's
+IP address.
+
+Send Message:
+Type some messages in the text panel and hit "Enter" to send the message entered
+to the engine server. When "Enter" is pressed, the message typed will be cleared
+for the next message.
+
+Add Task:
+Type the _full qualified name_ of the task class to add to the task to the
+client.
+
+Task:
+Choose one task from the top droplist and click "Execute" to perform the task.
+The result will be displayed in the scroll panel below. Choose two tasks from
+the two droplists and click "Combine" button to create a combined task and place
+the combined task in the two droplists. The combined task can be executed as
+an individual one and can be used to further create another combined task.
+
+Run Parameter:
+Type an argument in the text field for the task execution.
+
+--------------------------------------------------------------------------------
+Engine Program
+On top of the engine server program are Button and Send Message panels.
+
+Button:
+- Quit: Shut down the RMI system and quit the engine server program. Note when
+        closing the engine server program with clicking the "Close" button on
+        the upper left or upper right corner of the window has the same effect
+        as clicking the "Quit" button.
+- Clear: Clear the contents in the display panel. This is for better display
+         when they are too many information displayed.
+
+Send Message:
+Type some messages in the text panel and hit "Enter" to send the message entered
+to the client. When "Enter" is pressed, the message typed will be cleared
+for the next message.
+
+3. Task implementations
+There are 3 tasks implemented in this project.
+- DeterminePalindrome: Determine whether an input String is a palindrome.
+  - input type: String
+  - return type: Boolean
+- GetSin: Calculate the sinusoidal value of a radian value.
+  - input type: Double
+  - return type: Double
+- GetTime: Retrieve the current time of the engine server.
+  - input type: Integer
+  - return type: String
+
+4. Test results
+There are 12 tests performed for our client and engine server programs. All
+tests are successful.
+
+Test with team member:
+lz50
+
+Test with other teams:
+Team 04 	ds60  ly15
+Team 05 	lm44  yj25
+Team 11 	xc23  yl148
+Team 12 	zx17  yt30
+Team 13 	yc96  zz50
+Team 14 	lp28  ker7
+Team 16 	hz56  xw47
+Team 17 	pg23  qy11
+Team 19 	zw44  yl128
+Team 21 	wq3   zx18
+Team 23 	ys54  yw29

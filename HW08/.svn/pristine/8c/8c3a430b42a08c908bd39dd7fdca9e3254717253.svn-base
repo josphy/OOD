@@ -1,0 +1,117 @@
+package client.model.task;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.rmi.RemoteException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+/**
+ * Task which retrieves the server's system time.
+ * @author Zheng You, Li Zhu
+ */
+public class GetTime implements ITask<String> {
+  /**
+   * serialVersionUID is the serial version UID.
+   */
+  private static final long serialVersionUID = -1111830770840870355L;
+  /**
+   * Adapter to the local view. Marked "transient" so that it is not serialized
+   * and instead is re-attached at the destination (the server).
+   */
+  private transient ILocalTaskViewAdapter taskView =
+      ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+  /**
+   * The input integer value
+   */
+  private int input;
+
+  /**
+   * Constructor for the class.
+   * @param input   integer input
+   */
+  public GetTime(int input) {
+    this.input = input;
+  }
+
+  /**
+   * Display the internal string on the server's console.
+   *
+   * @return the server's current time
+   * @throws RemoteException if a network error occurs
+   */
+  @Override
+  public String execute() throws RemoteException {
+    taskView.append("Retreving system time...");
+    return ZonedDateTime.now(ZoneId.systemDefault()).toString();
+  }
+
+  /**
+   * Reinitializes transient fields upon deserialization. taskView is set to a
+   * default value for now (ILocalTaskViewAdapter.DEFAULT_ADAPTER).
+   *
+   * @param stream The object stream with the serialized data
+   *
+   * @throws IOException if the input stream cannot be read correctly
+   * @throws ClassNotFoundException if the class file associated with the input
+   * stream cannot be located.
+   */
+  private void readObject(ObjectInputStream stream) throws IOException,
+    ClassNotFoundException {
+    // De-serialize the non-transient data
+    stream.defaultReadObject();
+    // re-initialize the transient field
+    taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+  }
+
+  /**
+   * Sets the task view adapter to a new value. Test connection by sending a
+   * string representation of the dArray structure. Called by the server to
+   * attach the task to its view.
+   *
+   * @param viewAdapter the adapter to the view.
+   */
+  @Override
+  public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+    taskView = viewAdapter;
+    viewAdapter.append("GetTime installed!\n");
+    System.out.println("GetTime.setTaskViewAdapter() is invoked.\n" +
+        "Test for setTaskViewAdapter()\n");
+  }
+
+  /**
+   * Return an formatter that creates a String of the form:
+   * "Server Time: [result]
+   *  Input Integer: [input]"
+   * @return  an formatter that creates a String object
+   */
+  @Override
+  public ITaskResultFormatter<String> getFormatter() {
+    return new ITaskResultFormatter<String>() {
+      @Override
+      public String format(String result) {
+        return "Server Time: " + result + "\nInput Integer: " + input;
+      }
+    };
+  }
+
+  /**
+   * An ITaskFactory for this task
+   */
+  public static final ITaskFactory<String> FACTORY = new ITaskFactory<String>() {
+    @Override
+    public ITask<String> make(String param) {
+      return new GetTime(Integer.parseInt(param));
+    }
+    @Override
+    public String toString() {
+      return GetTime.class.getName();
+    }
+  };
+
+}

@@ -1,0 +1,82 @@
+package chatRoom.model;
+
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+
+import common.IChatroom;
+import common.IConnect;
+import common.IUser;
+import provided.datapacket.ADataPacket;
+import provided.datapacket.ADataPacketAlgoCmd;
+import provided.datapacket.DataPacketAlgo;
+import provided.extvisitor.IExtVisitorHost;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+
+public class ChatRoomModel {
+	
+	private IMiniViewAdapter viewAdp = IMiniViewAdapter.NULL_OBJECT;	//local view adapter
+	
+	private IChatroom chatroom; 	//API - to send
+	
+	private IConnect chatserver;		//API - to receive
+
+	/**
+	 * RMI utilities for starting RMI and for getting the Registry
+	 */
+	private IRMIUtils rmiUtils;
+	
+	private DataPacketAlgo myDataPacketAlgo;
+
+	public ChatRoomModel(IMiniViewAdapter adapter) {
+		this.viewAdp = adapter;
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.viewAdp.displayMsg();
+		});
+		this.myDataPacketAlgo = new DataPacketAlgo(null);
+	}
+	
+	public void start(IConnect chatserver) {
+		this.chatserver = chatserver;
+		this.chatroom = chatserver.getChatroom();
+		initDataPacketAlgo();
+		chatserver.setDataPacketAlgo(myDataPacketAlgo);
+	}
+	
+	public void initDataPacketAlgo() {
+		myDataPacketAlgo.setDefaultCmd(new ADataPacketAlgoCmd() {
+
+			@Override
+			public Object apply(Object index, IExtVisitorHost host, Object... params) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public Object apply(Class index, ADataPacket host, Object... params) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(Object cmd2ModelAdpt) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+	}
+	
+	public void addUser(String userIP) {
+		Registry registry = rmiUtils.getRemoteRegistry(userIP);
+		try {
+			IUser user = (IUser) registry.lookup(IUser.BOUND_NAME);
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

@@ -1,0 +1,130 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.UUID;
+
+import javax.swing.ImageIcon;
+
+import chatRoom.model.ImageIconCmd;
+import chatRoom.model.StringCmd;
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+import common.IComponentFactory;
+import common.IReceiver;
+import common.IUser;
+import provided.datapacket.DataPacketAlgo;
+
+public class Receiver implements IReceiver {
+	
+	private UUID id;
+	
+	private IUser userStub;
+	
+	private DataPacketAlgo<String, String> myDataPacketAlgo;
+	
+	private transient ICmd2ModelAdapter cmd2ModelAdpt;
+
+	public Receiver(UUID id, IUser stub) {
+		this.id = id;
+		this.userStub = stub;
+	}
+	
+	public void start(ICmd2ModelAdapter adapter) {
+		this.cmd2ModelAdpt = adapter;
+		initDataPacketAlgo();
+	}
+	
+	/**
+	 * specify commands to process different types of messages
+	 */
+	public void initDataPacketAlgo() {
+		
+		/**
+		 * unknown message type goes to default command
+		 */
+		myDataPacketAlgo.setDefaultCmd(new DataPacketAlgoCmd<String>() {
+
+			private static final long serialVersionUID = -6372641218423318226L;
+
+			@Override
+			public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {				
+			}
+
+			@Override
+			public String apply(Class<?> index, DataPacketChatRoom<String> host, String... params) {
+				System.out.println("unknown data packet type");
+
+				(new Thread() {
+					public void run() {
+						super.run();
+						DataPacketAlgoCmd<?> unknownCmd = null;
+						unknownCmd = host.getSender().getNewCommand(index);
+						unknownCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+						myDataPacketAlgo.setCmd(index, unknownCmd);
+						host.execute(myDataPacketAlgo, params);
+					}
+				}).start();
+				return null;
+			}
+			
+		});
+		
+		/**
+		 * predefined commands for text and image
+		 */
+		StringCmd stringCmd = new StringCmd();
+		stringCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+		myDataPacketAlgo.setCmd(String.class, stringCmd);
+		
+		ImageIconCmd imageIconCmd = new ImageIconCmd();
+		imageIconCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+		myDataPacketAlgo.setCmd(ImageIcon.class, imageIconCmd);
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> void receive(DataPacketChatRoom<T> data) throws RemoteException {
+		if (myDataPacketAlgo.getCmd(data.getData().getClass()) == null) {
+			IReceiver sender = data.getSender();
+			Class<?> index = data.getData().getClass();
+			DataPacketAlgoCmd<?> newCmd = sender.getNewCommand(index);
+			newCmd.setCmd2ModelAdpt(new ICmd2ModelAdapter() {
+
+				@Override
+				public void appendMsg(String text, String name) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void buildScrollableComponent(IComponentFactory fac, String label) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void buildNonScrollableComponent(IComponentFactory fac, String label) {
+					// TODO Auto-generated method stub
+					
+				}
+
+			});
+			myDataPacketAlgo.setCmd(index, newCmd);
+		}
+		
+		data.execute(myDataPacketAlgo);
+	}
+
+	@Override
+	public IUser getUserStub() throws RemoteException {
+		return userStub;
+	}
+
+	@Override
+	public UUID getUUID() throws RemoteException {
+		return id;
+	}
+
+}

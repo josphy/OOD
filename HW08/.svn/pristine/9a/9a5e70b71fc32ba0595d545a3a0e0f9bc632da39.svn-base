@@ -1,0 +1,5 @@
+package chatApp.model;
+
+public interface IMain2MiniAdapter {
+
+}

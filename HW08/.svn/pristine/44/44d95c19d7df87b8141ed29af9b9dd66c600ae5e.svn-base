@@ -1,0 +1,16 @@
+package chatApp.model;
+
+import javax.swing.JPanel;
+
+import chatRoom.model.ChatRoomModel;
+import chatRoom.view.MiniView;
+
+public interface IMain2MiniAdapter {
+	
+	public ChatRoomModel getMiniModel();
+	
+	public JPanel getMiniView();
+
+	public void quitRoom();
+
+}

@@ -1,0 +1,103 @@
+package chatRoom.controller;
+
+import java.awt.Container;
+import java.rmi.RemoteException;
+import java.util.UUID;
+
+import chatRoom.model.ChatRoomModel;
+import chatRoom.model.IMiniViewAdapter;
+import chatRoom.view.IChatRoomModelAdapter;
+import chatRoom.view.MiniView;
+import common.IConnect;
+
+public class MiniController {
+	
+	private ChatRoomModel model;
+	
+	private MiniView view;
+
+	public MiniController(UUID id, String roomName) {
+		
+		model = new ChatRoomModel(id, roomName, new IMiniViewAdapter() {
+
+			@Override
+			public void addUser(String username) {
+				view.appendUser(username);
+				
+			}
+
+			@Override
+			public void displayMsg() {
+				view.appendMsg("text message"); 	//parameter type need specification
+				
+			}
+
+			@Override
+			public Container getDialogPnl() {
+				return view.getDialogPnl();
+			}
+			
+		});
+		
+		view = new MiniView( new IChatRoomModelAdapter() {
+
+			@Override
+			public void sendMsg(String text) {
+				model.sendText(text);
+				
+			}
+
+			@Override
+			public void sendImg() {
+				model.sendImg();
+				
+			}
+
+			@Override
+			public void quit() {
+				model.leaveRoom();
+				
+			}
+
+			@Override
+			public void invite(String ip) {
+				model.addUser(ip);
+				
+			}
+			
+		});
+	}
+	
+	public void start(IConnect chatserver) {
+		try {
+			model.start(chatserver);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		view.start();
+	}
+	
+	public MiniView getMiniView() {
+		return view;
+	}
+	
+
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MiniController controller = new MiniController();
+//					controller.start();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+
+}

@@ -1,0 +1,32 @@
+package chatApp.Data;
+
+import common.DataPacketChatRoom;
+import common.IExceptionStatusType;
+
+public class ExceptionStatusData implements IExceptionStatusType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1238611075971361530L;
+	
+	DataPacketChatRoom<?> originalData;
+	
+	String failureInfo;
+
+	public ExceptionStatusData(DataPacketChatRoom<?> originalData, String failureInfo) {
+		this.originalData = originalData;
+		this.failureInfo = failureInfo;	
+	}
+
+	@Override
+	public DataPacketChatRoom<?> getOriginalData() {
+		return this.originalData;
+	}
+
+	@Override
+	public String getFailureInfo() {
+		return this.failureInfo;
+	}
+
+}

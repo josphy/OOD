@@ -1,0 +1,63 @@
+package engine.controller;
+
+import engine.model.EngineModel;
+import engine.model.IEngineModel2ViewAdapter;
+import engine.view.EngineView;
+import engine.view.IEngineView2ModelAdapter;
+
+/**
+ * Controller for the Engine
+ * @author Li Zhu, Zheng You
+ */
+public class EngineController {
+  /**
+   * The engine view
+   */
+  private EngineView view;
+  /**
+   * The engine model
+   */
+  private EngineModel model;
+
+  /**
+   * Constructor for the EngineController
+   */
+  public EngineController() {
+    view = new EngineView(new IEngineView2ModelAdapter() {
+      @Override
+      public void stop() {
+        model.stop();
+      }
+
+      @Override
+      public void sendMsgToClient(String msg) {
+        model.sendMsgToClient(msg);
+      }
+    });
+
+    model = new EngineModel(new IEngineModel2ViewAdapter() {
+      @Override
+      public void append(String text) {
+        view.appendToTextArea(text);
+      }
+    });
+  }
+
+  /**
+   * Start the controller
+   */
+  public void start(){
+    view.start();
+    model.start();
+  }
+
+  /**
+   * Main method that starts the controller
+   * @param args  - ignored
+   */
+  public static void main(String[] args) {
+    EngineController controller = new EngineController();
+    controller.start();
+  }
+
+}

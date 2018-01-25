@@ -1,0 +1,9 @@
+package chatApp.model;
+
+import chatRoom.model.ChatRoomModel;
+
+public interface IMain2MiniAdapter {
+	
+	public ChatRoomModel getMiniModel();
+
+}

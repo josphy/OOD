@@ -1,0 +1,12 @@
+package lz50_hz56.chatApp.model;
+
+public class ChatAppModel {
+
+	public ChatAppModel(ChatAppModel2ViewAdapter adapter) {
+		
+	}
+	
+	public void start() {
+		
+	}
+}

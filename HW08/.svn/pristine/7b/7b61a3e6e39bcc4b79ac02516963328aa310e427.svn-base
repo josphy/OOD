@@ -1,0 +1,25 @@
+package chatRoom.model;
+
+public interface IMiniViewAdapter {
+	
+	public void addUser(String username);
+	
+	public void displayMsg(); //msg type not clear
+	
+	public static IMiniViewAdapter NULL_OBJECT = new IMiniViewAdapter() {
+
+		@Override
+		public void addUser(String username) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void displayMsg() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+
+}

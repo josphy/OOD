@@ -1,0 +1,15 @@
+package chatRoom.model;
+
+public class ChatRoomModel {
+	
+	private IMiniViewAdapter viewAdp = IMiniViewAdapter.NULL_OBJECT;
+
+	public ChatRoomModel(IMiniViewAdapter adapter) {
+		this.viewAdp = adapter;
+	}
+	
+	public void start() {
+		
+	}
+
+}

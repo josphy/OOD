@@ -1,0 +1,186 @@
+package lz50_hz56.chatApp.view;
+
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+public class MainView<TDropListItem> extends JFrame  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2699891599211402541L;
+	
+	private IMainView2ModelAdapter view2ModelAdapter;
+	
+	private final JPanel pnlControl = new JPanel();
+	private final JButton btnUserName = new JButton("Set UserName");
+	private final JLabel lblUserIP = new JLabel("Current User:");
+	private final JLabel lblUserIpContent = new JLabel("Unknow IP");
+	private final JButton btnCreateChatroom = new JButton("Create ChatRoom");
+	
+	private final JButton btnConnect = new JButton("Add Friend");
+	private final JTextField tfConnectIP = new JTextField();
+	private final JSplitPane spChatRooms = new JSplitPane();
+	private final JLabel lblChatrooms = new JLabel("ChatRooms");
+	private final JComboBox<TDropListItem> combRooms = new JComboBox<TDropListItem>();
+	private final JButton btnJoin = new JButton("Join");
+	private final JScrollPane scrollPane = new JScrollPane();
+	private final JTextArea textArea = new JTextArea();
+
+	public MainView(IMainView2ModelAdapter adapter) {
+		this.view2ModelAdapter = adapter;
+		tfConnectIP.setToolTipText("Input Target IP address");
+		tfConnectIP.setColumns(10);
+		initGUI();
+	}
+
+	public void start() {
+		setVisible(true);
+	}
+
+	private void initGUI() {
+
+		setBounds(300, 300, 420, 300);
+		getContentPane().setLayout(new GridLayout(2, 1, 0, 0));
+
+		getContentPane().add(pnlControl);
+		pnlControl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		btnUserName.setToolTipText("Create a new user name");
+
+		pnlControl.add(btnUserName);
+		btnUserName.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				
+			}
+
+		});
+
+		pnlControl.add(lblUserIP);
+
+		pnlControl.add(lblUserIpContent);
+		btnCreateChatroom.setToolTipText("Create a chatroom");
+
+		pnlControl.add(btnCreateChatroom);
+		btnCreateChatroom.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Create Chat Room logic starts...
+				view2ModelAdapter.createChatRoom("NewChatRoom");
+				
+				
+				
+			}
+
+		});
+		btnConnect.setToolTipText("Add a friend");
+
+		pnlControl.add(btnConnect);
+		btnConnect.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				
+				
+			}
+
+		});
+
+		pnlControl.add(tfConnectIP);
+
+		pnlControl.add(spChatRooms);
+
+		spChatRooms.setLeftComponent(lblChatrooms);
+
+		spChatRooms.setRightComponent(combRooms);
+		btnJoin.setToolTipText("Join a chatroom");
+
+		pnlControl.add(btnJoin);
+		btnJoin.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				
+				
+			}
+
+		});
+		scrollPane
+				.setViewportBorder(new TitledBorder(null, "Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+
+		getContentPane().add(scrollPane);
+		textArea.setRows(8);
+
+		scrollPane.setViewportView(textArea);
+	}
+
+	public String getNewChatroomName() {
+		String chatroomName = null;
+		do {
+			chatroomName = JOptionPane.showInputDialog(null, "Please input new chatroom's name:", "Chatroom Name",
+					JOptionPane.INFORMATION_MESSAGE);
+			if (chatroomName == null) {
+				return null;
+			}
+
+			chatroomName = chatroomName.trim();
+		} while (chatroomName.isEmpty());
+
+		return chatroomName;
+	}
+
+	public String setUserName() {
+		String userName = null;
+		do {
+			userName = JOptionPane.showInputDialog(null, "Please input userName:", "UserName",
+					JOptionPane.INFORMATION_MESSAGE);
+			if (userName == null) {
+				return null;
+			}
+
+			userName = userName.trim();
+		} while (userName.isEmpty());
+
+		
+		return userName;
+	}
+
+
+	public void append(String s) {
+		textArea.append(s);
+		textArea.setCaretPosition(textArea.getText().length());
+	}
+
+	public void setGUITitle(String s) {
+		setTitle("IP: " + s);
+	}
+
+
+
+	
+}

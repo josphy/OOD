@@ -1,0 +1,126 @@
+package client.controller;
+
+import java.awt.EventQueue;
+import java.util.ArrayList;
+
+import client.model.ClientModel;
+import client.model.IClientModel2ViewAdapter;
+import client.model.task.MultiTask;
+import client.view.ClientView;
+import client.view.IClientView2ModelAdapter;
+import provided.client.model.taskUtils.ITaskFactory;
+import provided.client.model.taskUtils.SingletonTaskFactoryLoader;
+import provided.compute.ITask;
+
+/**
+ * MVC Controller of the client.
+ * @author Zheng You, Li Zhu
+ */
+public class ClientController {
+
+  /**
+   * the view of the client
+   */
+  private ClientView<ITaskFactory<?>> view;
+  /**
+   * the model of the client
+   */
+  private ClientModel model;
+
+  /**
+   * Instantiate a ClientController object.
+   */
+  public ClientController() {
+    view = new ClientView<ITaskFactory<?>>(new
+        IClientView2ModelAdapter<ITaskFactory<?>>() {
+      @Override
+      public void stop() {
+        model.stop();
+      }
+
+      @Override
+      public void connectTo(String remoteHost) {
+        model.connectTo(remoteHost);
+      }
+
+      @Override
+      public void sendMsgToServer(String s) {
+        model.sendMsgToComputeEngine(s);
+      }
+
+      @Override
+      public ITaskFactory<?> addItem(String s) {
+        return SingletonTaskFactoryLoader.SINGLETON.load(s);
+      }
+
+      @Override
+      public String runTask(ITaskFactory<?> fac, String arg) {
+        return model.runTask(fac.make(arg));
+      }
+
+      @Override
+      public ITaskFactory<?> combineTasks(final ITaskFactory<?> fac1,
+          final ITaskFactory<?> fac2) {
+        return new ITaskFactory<ArrayList<Object>>() {
+          @Override
+          public ITask<ArrayList<Object>> make(String param) {
+            return new MultiTask(fac1.make(param), fac2.make(param));
+          }
+          @Override
+          public String toString() {
+            return fac1 + "-" + fac2;
+          }
+        };
+      }
+    });
+
+    model = new ClientModel(new IClientModel2ViewAdapter() {
+      @Override
+      public void setRemoteHost(String address) {
+        view.setRemoteHost(address);
+      }
+
+      @Override
+      public void append(String s) {
+        view.append(s);
+      }
+    });
+  }
+
+  /**
+   * Start the client program.
+   */
+  public void start() {
+    view.addToDropList(SingletonTaskFactoryLoader.SINGLETON.
+        load("provided.client.model.task.GetInfo"));
+    view.addToDropList(SingletonTaskFactoryLoader.SINGLETON.
+        load("provided.client.model.task.Pi2"));
+    view.addToDropList(SingletonTaskFactoryLoader.SINGLETON.
+        load("client.model.task.GetSin"));
+    view.addToDropList(SingletonTaskFactoryLoader.SINGLETON.
+        load("client.model.task.GetTime"));
+    view.addToDropList(SingletonTaskFactoryLoader.SINGLETON.
+        load("client.model.task.DeterminePalindrome"));
+    view.start();
+    model.start();
+  }
+
+
+  /**
+   * Launch the application.
+   * @param args  command line arguments
+   */
+  public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        try {
+          ClientController controller = new ClientController();
+          controller.start();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+  }
+
+}

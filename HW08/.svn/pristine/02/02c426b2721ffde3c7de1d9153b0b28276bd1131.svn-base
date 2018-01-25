@@ -1,0 +1,19 @@
+package client.model;
+
+/**
+ * Client's model to view adapter.
+ * @author Zheng You, Li Zhu
+ */
+public interface IClientModel2ViewAdapter {
+  /**
+   * Append String s to the view's display panel.
+   * @param s   the String to be added.
+   */
+  public void append(String s);
+
+  /**
+   * Set the remote host of the client with specified IP address.
+   * @param address   the IP address of the remote host
+   */
+  public void setRemoteHost(String address);
+}

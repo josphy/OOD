@@ -1,0 +1,73 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.Set;
+import java.util.UUID;
+
+import common.DataPacketChatRoom;
+import common.IChatRoom;
+import common.IReceiver;
+
+public class ChatRoom implements IChatRoom {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4366457236493848337L;
+	
+	private UUID id;
+	
+	private String name;
+	
+	private Set<IReceiver> receiverStubs;
+	
+	public ChatRoom(UUID id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public UUID getUUID() {
+		return id;
+	}
+
+	@Override
+	public Collection<IReceiver> getIReceiverStubs() {
+		return receiverStubs;
+	}
+
+	@Override
+	public <T> void sendPacket(DataPacketChatRoom<T> data) {
+		(new Thread() {
+			@Override
+			public void run() {
+				super.run();
+				receiverStubs.iterator().forEachRemaining((receiver) -> {
+					try {
+						receiver.receive(data);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+				});
+			}
+		}).start();
+	}
+
+	@Override
+	public boolean addIReceiverStubLocally(IReceiver receiver) {
+		return this.receiverStubs.add(receiver);
+	}
+
+	@Override
+	public boolean removeIReceiverStubLocally(IReceiver receiver) {
+		return this.receiverStubs.remove(receiver);
+	}
+
+
+}

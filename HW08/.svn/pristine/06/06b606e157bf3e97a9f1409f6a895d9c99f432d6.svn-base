@@ -1,0 +1,23 @@
+package chatApp.Data;
+
+import common.IRequestCmdType;
+
+public class RequestCmdData implements IRequestCmdType {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8785166559058272881L;
+
+	Class<?> cmdId;
+
+	public RequestCmdData(Class<?> id) {
+		this.cmdId = id;
+	}
+
+	@Override
+	public Class<?> getCmdId() {
+		return cmdId;
+	}
+
+}

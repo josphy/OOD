@@ -1,0 +1,5 @@
+package lz50_hz56.chatRoom.model;
+
+public interface IMiniViewAdapter {
+
+}

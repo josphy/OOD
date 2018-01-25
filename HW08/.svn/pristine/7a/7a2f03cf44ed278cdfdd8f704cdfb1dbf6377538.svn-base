@@ -1,0 +1,76 @@
+package chatRoom.model;
+
+import java.rmi.RemoteException;
+import java.util.Set;
+import java.util.UUID;
+
+import common.IChatroom;
+import common.IUser;
+
+public class AUser implements IUser {
+
+	public AUser() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public UUID getID() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getIP() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<IChatroom> getChatrooms() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<IUser> getConnectedUsers() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addChatroom(IChatroom chatroom) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeChatroom(IChatroom chatroom) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addUser(IUser otherStub) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeUser(IUser otherStub) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void updateViewUserList(IUser otherStub) throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,73 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.UUID;
+
+import common.IChatRoom;
+import common.IUser;
+
+public class User implements IUser {
+	
+	private UUID id;
+	
+	private String name;
+		
+	private transient Map<UUID, IChatRoom> chatrooms;
+	
+	private transient Map<UUID, IUser> connectedUsers;
+	
+	public User(UUID id, String name) {
+		this.id = id;
+		this.name = name;
+		this.chatrooms = new HashMap<>();
+		this.connectedUsers = new HashMap<>();
+		
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setUUID(UUID id) {
+		this.id = id;
+	}
+	
+	public boolean addChatRoom(IChatRoom chatroom) {
+		this.chatrooms.put(chatroom.getUUID(), chatroom);
+		System.out.println(chatroom.getUUID().toString() + " "+ chatroom.getName());
+		return this.chatrooms.containsKey(chatroom.getUUID());
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		return this.name;
+	}
+
+	@Override
+	public UUID getUUID() throws RemoteException {
+		return this.id;
+	}
+
+	@Override
+	public Collection<IChatRoom> getChatRooms() throws RemoteException {
+		return new HashSet<IChatRoom>(chatrooms.values());
+	}
+
+	@Override
+	public void connect(IUser userStub) throws RemoteException {
+		this.connectedUsers.put(userStub.getUUID(), userStub);		
+	}
+	
+	public Collection<IUser> getConnectedUsers(){
+		return new HashSet<IUser>(connectedUsers.values());
+	}
+	
+	public String toString() {
+		return this.name;
+	}
+
+}

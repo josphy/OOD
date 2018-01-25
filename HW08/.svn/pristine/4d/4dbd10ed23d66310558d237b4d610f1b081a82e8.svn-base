@@ -1,0 +1,275 @@
+package chatApp.view;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+
+import common.IChatRoom;
+import common.IUser;
+
+public class MainView extends JFrame  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2699891599211402541L;
+	
+	private IMainView2ModelAdapter modelAdpt;
+	
+	private JPanel contentPane;
+	private final JPanel pnlControl = new JPanel();
+
+	private final JPanel pnlUser = new JPanel();
+	private final JLabel lblUserPort = new JLabel("User Port ");
+	private final JTextField txtUserPort = new JTextField();
+	private final JLabel lblUsername = new JLabel("Username");
+	private final JTextField txtUsername = new JTextField();
+	private final JLabel lblUserIP = new JLabel("Current IP ");
+	private final JLabel lblUserIpContent = new JLabel("Unknown");
+	private final JButton btnLogin = new JButton("Login");
+	
+	private final JPanel pnlRoom = new JPanel();
+	private final JLabel lblRoomPort = new JLabel("Room Port  ");
+	private final JTextField txtRoomPort = new JTextField();
+	private final JLabel lblRoomName = new JLabel("Room Name");
+	private final JTextField txtRoomName = new JTextField();
+	private final JButton btnCreateChatroom = new JButton("Create Chatroom");
+	
+	private final JPanel pnlConnect = new JPanel();
+	private final JTextField txtConnectIP = new JTextField();	
+	private final JButton btnConnect = new JButton("Connect");
+
+	private final JPanel pnlConnectedUser = new JPanel();
+	private final JComboBox<IUser> cmbUsers = new JComboBox<IUser>();
+	private final JButton btnRequest = new JButton("Request");
+	private final JButton btnInvite = new JButton("Invite");
+
+	private final JPanel pnlAvailableRoom = new JPanel();
+	private final JComboBox<IChatRoom> cmbRooms = new JComboBox<IChatRoom>();
+	private final JButton btnJoin = new JButton("Join");
+	
+	private final JButton btnQuit = new JButton("Quit");
+	
+	private final JPanel pnlDisplay = new JPanel();
+	private final JTabbedPane tabbedPane = new JTabbedPane();
+	private final JTextArea textInfo = new JTextArea();
+
+	public MainView(IMainView2ModelAdapter adapter) {
+		this.modelAdpt = adapter;
+		initGUI();
+	}
+
+	public void start() {
+		setVisible(true);
+	}
+
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 960, 720);
+		this.setTitle("Chat App");	//pass chat room name in parameter
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		contentPane.add(pnlControl, BorderLayout.NORTH);
+
+		pnlControl.add(pnlUser);
+		pnlUser.setLayout(new GridLayout(4, 1, 0, 0));
+		pnlUser.setBorder(new TitledBorder("User Setting:"));
+		JPanel subPane1 = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) subPane1.getLayout();
+		flowLayout_1.setVgap(0);
+		flowLayout_1.setAlignment(FlowLayout.LEFT);
+		subPane1.add(lblUserPort);
+		txtUserPort.setToolTipText("set user port for multiple chat apps");
+		subPane1.add(txtUserPort);
+		txtUserPort.setColumns(9);
+		txtUserPort.setText("2100");
+		pnlUser.add(subPane1);
+		JPanel subPane2 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) subPane2.getLayout();
+		flowLayout_2.setVgap(0);
+		flowLayout_2.setAlignment(FlowLayout.LEFT);
+		subPane2.add(lblUsername);
+		txtUsername.setToolTipText("set your username for display");
+		subPane2.add(txtUsername);
+		txtUsername.setColumns(9);
+		pnlUser.add(subPane2);
+		JPanel subPane3 = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) subPane3.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEFT);
+		subPane3.add(lblUserIP);
+		lblUserIpContent.setToolTipText("display current ip");
+		subPane3.add(lblUserIpContent);
+		pnlUser.add(subPane3);
+		btnLogin.setToolTipText("log in to start the chat app");
+		pnlUser.add(btnLogin);
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.login(Integer.parseInt(txtUserPort.getText()), txtUsername.getText());
+			}
+		});
+		
+		pnlControl.add(pnlRoom);
+		pnlRoom.setLayout(new GridLayout(3, 1, 0, 0));
+		pnlRoom.setBorder(new TitledBorder("Room Setting:"));
+		JPanel subPane4 = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) subPane4.getLayout();
+		flowLayout_4.setVgap(0);
+		flowLayout_4.setAlignment(FlowLayout.LEFT);
+		subPane4.add(lblRoomPort);
+		txtRoomPort.setToolTipText("set room port for multiple chat rooms");
+		subPane4.add(txtRoomPort);
+		txtRoomPort.setColumns(4);
+		txtRoomPort.setText("2001");
+		pnlRoom.add(subPane4);
+		JPanel subPane5 = new JPanel();
+		FlowLayout flowLayout_5 = (FlowLayout) subPane5.getLayout();
+		flowLayout_5.setVgap(0);
+		flowLayout_5.setAlignment(FlowLayout.LEFT);
+		subPane5.add(lblRoomName);
+		txtRoomName.setToolTipText("define room name");
+		txtRoomName.setColumns(4);
+		subPane5.add(txtRoomName);
+		pnlRoom.add(subPane5);
+		pnlRoom.add(btnCreateChatroom);
+		btnCreateChatroom.setToolTipText("Create a chatroom");
+		btnCreateChatroom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.createChatRoom(Integer.parseInt(txtRoomPort.getText()),txtRoomName.getText());
+			}
+		});
+		
+		pnlControl.add(pnlConnect);
+		pnlConnect.setLayout(new GridLayout(0, 1, 0, 0));
+		pnlConnect.setBorder(new TitledBorder("Connect To:"));
+		txtConnectIP.setToolTipText("input remote user ip with port");
+		txtConnectIP.setColumns(10);
+		pnlConnect.add(txtConnectIP);
+		pnlConnect.add(btnConnect);
+		btnConnect.setToolTipText("establish connection to the remote user");
+		btnConnect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.connect(txtConnectIP.getText());
+			}
+		});
+
+		pnlControl.add(pnlConnectedUser);
+		pnlConnectedUser.setLayout(new GridLayout(0, 1, 0, 0));
+		pnlConnectedUser.setBorder(new TitledBorder("Connected User:"));
+		cmbUsers.setToolTipText("display connected user list");
+		cmbUsers.setMaximumRowCount(20);
+		pnlConnectedUser.add(cmbUsers);
+		pnlConnectedUser.add(btnRequest);
+		btnRequest.setToolTipText("request available room list from the selected user");
+		btnRequest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.requestRoom(cmbUsers.getSelectedItem());
+			}
+		});
+		
+		pnlConnectedUser.add(btnInvite);
+		btnInvite.setToolTipText("send selected room to selected user");
+		btnInvite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.sendRoom(cmbUsers.getSelectedItem());
+			}
+		});
+		
+		pnlControl.add(pnlAvailableRoom);
+		pnlAvailableRoom.setLayout(new GridLayout(0, 1, 0, 0));
+		pnlAvailableRoom.setBorder(new TitledBorder("Available Room:"));
+		cmbRooms.setToolTipText("display list of available chat rooms");
+		cmbRooms.setMaximumRowCount(30);
+		pnlAvailableRoom.add(cmbRooms);
+		pnlAvailableRoom.add(btnJoin);
+		btnJoin.setToolTipText("join the selected chatroom");
+		btnJoin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.join(Integer.parseInt(txtRoomPort.getText()), cmbRooms.getSelectedItem());
+			}
+		});
+		
+		pnlControl.add(btnQuit);
+		btnQuit.setToolTipText("quit the chat app");
+		btnQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.quit();
+			}
+		});
+		
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		pnlDisplay.add(tabbedPane);
+		tabbedPane.add("info", textInfo);
+		
+	}
+
+//	public String getNewChatroomName() {
+//		String chatroomName = null;
+//		do {
+//			chatroomName = JOptionPane.showInputDialog(null, "Please input new chatroom's name:", "Chatroom Name",
+//					JOptionPane.INFORMATION_MESSAGE);
+//			if (chatroomName == null) {
+//				return null;
+//			}
+//
+//			chatroomName = chatroomName.trim();
+//		} while (chatroomName.isEmpty());
+//
+//		return chatroomName;
+//	}
+//
+//	public String setUserName() {
+//		String userName = null;
+//		do {
+//			userName = JOptionPane.showInputDialog(null, "Please input userName:", "UserName",
+//					JOptionPane.INFORMATION_MESSAGE);
+//			if (userName == null) {
+//				return null;
+//			}
+//
+//			userName = userName.trim();
+//		} while (userName.isEmpty());
+//
+//		
+//		return userName;
+//	}
+
+	public void append(String s) {
+		textInfo.append(s);
+		textInfo.setCaretPosition(textInfo.getText().length());
+	}
+
+	public void setGUITitle(String s) {
+		setTitle("IP: " + s);
+	}
+	
+	public void setLocalIP(String ip) {
+		lblUserIpContent.setText(ip);
+	}
+	
+	public void addUser(IUser user) {
+		cmbUsers.addItem(user);
+	}
+
+	public void addRoom(IChatRoom room) {
+		cmbRooms.addItem(room);
+	}
+	
+}

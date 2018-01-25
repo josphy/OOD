@@ -1,0 +1,7 @@
+package chatRoom.model;
+
+public interface ICmd2ModelAdapter {
+	
+	public void 
+
+}

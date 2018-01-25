@@ -1,0 +1,46 @@
+package lz50_hz56.chatRoom.controller;
+
+import java.awt.EventQueue;
+
+import lz50_hz56.chatRoom.view.MiniView;
+import lz50_hz56.chatRoom.view.IChatRoomModelAdapter;
+
+public class MiniController {
+	
+	private MiniView frame;
+
+	public MiniController() {
+		frame = new MiniView( new IChatRoomModelAdapter() {
+
+			@Override
+			public void sendMsg() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void getUserList() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+	}
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frame.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+}

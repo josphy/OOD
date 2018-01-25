@@ -1,0 +1,33 @@
+package chatRoom.model;
+
+import java.rmi.RemoteException;
+
+import common.IChatroom;
+import common.IConnect;
+import common.IUser;
+
+public class AConnect implements IConnect {
+
+	public AConnect() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public IUser getUser() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IChatroom getChatroom() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void receiveMsg(String msg) throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+}

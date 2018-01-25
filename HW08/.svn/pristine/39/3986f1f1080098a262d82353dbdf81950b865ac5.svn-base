@@ -1,0 +1,99 @@
+package lz50_hz56.chatRoom.view;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JSplitPane;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MiniView extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8418461545782780230L;
+
+	private JPanel contentPane;
+	private final JPanel pnlDisplay = new JPanel();
+	private final JSplitPane pnlSplit = new JSplitPane();
+	private final JScrollPane pnlDialog = new JScrollPane();
+	private final JScrollPane pnlUser = new JScrollPane();
+	private final JTextArea txtUser = new JTextArea();
+	private final JTextArea txtDialog = new JTextArea();
+	private final JPanel pnlAction = new JPanel();
+	private final JTextField txtInput = new JTextField();
+	private final JButton btnSend = new JButton("Send");
+	private final JButton btnSendFile = new JButton("Send File");
+	
+	private IChatRoomModelAdapter modelAdp;
+
+	/**
+	 * Create the frame.
+	 */
+	public MiniView(IChatRoomModelAdapter modelAdp) {
+		initGUI();
+		this.modelAdp = modelAdp;
+	}
+
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 500, 300);
+		this.setTitle("Chat Room");	//pass chat room name in parameter
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		
+		pnlDisplay.add(pnlSplit);
+		pnlSplit.setLeftComponent(pnlDialog);
+		pnlSplit.setRightComponent(pnlUser);
+		txtDialog.setToolTipText("display chat messages");
+		
+		pnlDialog.setViewportView(txtDialog);
+		txtDialog.setColumns(25);
+		pnlDialog.setBorder(new TitledBorder("Dialog:"));
+		txtUser.setToolTipText("display list of users connected to current chat room");
+
+		pnlUser.setViewportView(txtUser);
+		txtUser.setColumns(10);
+		pnlUser.setBorder(new TitledBorder("Connected Users:"));
+		
+		contentPane.add(pnlAction, BorderLayout.SOUTH);
+		FlowLayout flowLayout = (FlowLayout) pnlAction.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		txtInput.setToolTipText("input text message here");
+		
+		pnlAction.add(txtInput);
+		txtInput.setColumns(18);
+		btnSend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		pnlAction.add(btnSend);
+		btnSendFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSendFile.setToolTipText("select file and send");
+		
+		pnlAction.add(btnSendFile);
+	}
+	
+	public void start() {
+		setVisible(true);
+	}
+
+}

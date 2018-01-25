@@ -1,0 +1,11 @@
+package lz50_hz56.chatRoom.model;
+
+public class ChatRoomModel {
+	
+	
+
+	public ChatRoomModel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

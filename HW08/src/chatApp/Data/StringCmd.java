@@ -1,0 +1,60 @@
+package chatApp.Data;
+
+import java.awt.Component;
+import java.rmi.RemoteException;
+
+import javax.swing.JLabel;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+import common.IComponentFactory;
+
+/**
+ * command for String.class visitor
+ */
+public class StringCmd extends DataPacketAlgoCmd<String>{
+	
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -9071343446076818679L;
+	
+	/**
+	 * command to model adapter
+	 */
+	private transient ICmd2ModelAdapter cmd2ModelAdpt;
+
+	@Override
+	/**
+	 * visitor
+	 */
+	public String apply(Class<?> index, DataPacketChatRoom<String> host, String... params) {
+		cmd2ModelAdpt.buildScrollableComponent(new IComponentFactory() {
+
+			@Override
+			public Component makeComponent() {
+				try {
+					Component label = new JLabel(host.getSender().getUserStub().getName() + ": \n" + host.getData().toString());
+					return label;
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return null;
+			}
+			
+		}, "txtDialog");
+		return null;
+	}
+
+	@Override
+	/**
+	 * adapter setter
+	 */
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		this.cmd2ModelAdpt = cmd2ModelAdpt;
+		
+	}
+
+}

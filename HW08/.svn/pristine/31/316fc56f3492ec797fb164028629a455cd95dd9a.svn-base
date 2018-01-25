@@ -1,0 +1,32 @@
+package chatApp.Data;
+
+import common.DataPacketChatRoom;
+import common.IRejectionStatusType;
+
+public class RejectionStatusData implements IRejectionStatusType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7673668347122823839L;
+	
+	DataPacketChatRoom<?> originalData;
+	
+	String failureInfo;
+
+	public RejectionStatusData(DataPacketChatRoom<?> originalData, String failureInfo) {
+		this.originalData = originalData;
+		this.failureInfo = failureInfo;
+	}
+
+	@Override
+	public DataPacketChatRoom<?> getOriginalData() {
+		return this.originalData;
+	}
+
+	@Override
+	public String getFailureInfo() {
+		return this.failureInfo;
+	}
+
+}

@@ -1,0 +1,155 @@
+package engine.model;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.function.Consumer;
+
+import provided.compute.ICompute;
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.IRemoteTaskViewAdapter;
+import provided.compute.ITask;
+
+/**
+ * ComputeEngine which implements ICompute, executing a given ITask object
+ * and returning the result.
+ * @author Li Zhu, Zheng You
+ */
+public class ComputeEngine implements ICompute {
+  /**
+   * Command used to output status and error information in the engine
+   */
+  private Consumer<String> engineCmd;
+  /**
+   * LocalTaskViewAdapter that communicates to the engine's view
+   */
+  private ILocalTaskViewAdapter localTVA = new ILocalTaskViewAdapter() {
+    public void append(String s) {
+      engineCmd.accept(s);
+    }
+  };
+  /**
+   * Remote taskViewAdapter stub that communicates with the client's view
+   */
+  private IRemoteTaskViewAdapter clientTVAStub;
+  /**
+   * The adapter which the client uses to append messages to the engine's view.
+   * The adapter's stub is in the client.
+   */
+  private IRemoteTaskViewAdapter engineTVA;
+  /**
+   * The stub which the engine makes for the engineTVA.
+   */
+  private IRemoteTaskViewAdapter engineTVAStub;
+
+  /**
+   * Constructor for the class.
+   * @param cmd   command used to output status and error information
+   */
+  public ComputeEngine(final Consumer<String> cmd) {
+    try {
+      this.engineCmd = cmd;
+      engineTVA = new IRemoteTaskViewAdapter() {
+        @Override
+        public void append(String s) {
+          engineCmd.accept("[Hw07 Team 22 Client] " + s);
+        }
+      };
+      engineTVAStub = (IRemoteTaskViewAdapter) UnicastRemoteObject
+          .exportObject(engineTVA, IRemoteTaskViewAdapter.BOUND_PORT_SERVER);
+    } catch (Exception e) {
+      String msg = "ERROR! [ComputeEngine] Exception occured while creating "
+          + "IRemoteTaskViewAdapter: " + e;
+      errorPrint(msg, e);
+    }
+  }
+
+  /**
+   * Execute the given ITask object and return the result.
+   *
+   * @param   <T> The type of the return value from executing the given
+   *              ITask object
+   * @param   t   The ITask object to execute
+   * @return  The result from executing the ITask object
+   * @throws  RemoteException if a network error occurs
+   */
+  @Override
+  public <T> T executeTask(ITask<T> t) throws RemoteException {
+    try {
+      t.setTaskViewAdapter(localTVA);
+      engineCmd.accept("[ComputeEngine.executeTask()] Executing task: " + t);
+      T result = t.execute();
+      engineCmd.accept("[ComputeEngine.executeTask()] Task result: " +
+          result);
+      return result;
+    } catch (Exception e) {
+      String msg = "ERROR! [ComputeEngine.executeTask()] Exception occurred"
+          + "during task execution: " + t;
+      errorPrint(msg, e);
+      return null;
+    }
+  }
+
+  /**
+   * Set this object's IRemoteTaskViewAdapter stub so that it can print strings
+   * out on the client's user interface. Return an IRemoteTaskViewAdapter STUB
+   * that will enable the remote client to print strings out on the local
+   * compute engine's user interface.
+   *
+   * Upon receiving the remote client's IRemoteTaskViewAdapter stub, this method
+   * should immediately test the stub by using it to send a status message to
+   * the client.
+   * Upon receiving the return value of this method, the remote client should
+   * immediately test the stub by using it to send a status message to back to
+   * the compute server.
+   *
+   * @param clientTVAStub  the task view adapter STUB to for the server to use.
+   * @return An adapter STUB to the ICompute server's view.
+   * @throws RemoteException if a network error occurs.
+   */
+  @Override
+  public IRemoteTaskViewAdapter setTextAdapter(IRemoteTaskViewAdapter
+      clientTVAStub) throws RemoteException {
+    this.clientTVAStub = clientTVAStub;
+    String msg = "[ComputeEngine.setTextAdapter()] Got "
+        + "IRemoteTaskViewAdapter stub from connected client: " + clientTVAStub;
+    engineCmd.accept(msg);
+    try {
+      clientTVAStub.append("Hi! This is the server from Hw07 Team 22.\n");
+      return engineTVAStub;
+    } catch (Exception e) {
+      String errMsg = "ERROR! [ComputeEngine.setTextAdapter()] ComputeEngine "
+          + "creates remoteTaskViewAdapter: " + e;
+      errorPrint(errMsg, e);
+      return null;
+    }
+  }
+
+  /**
+   * Send message to client.
+   * @param msg   the message to send
+   */
+  public void sendMsgToClient(String msg) {
+    try {
+      String output = "[ComputeEngine.sendMsgToClient()] Sending msg to "
+          + "connected remote client. (msg = " + msg + ")";
+      engineCmd.accept(output);
+      clientTVAStub.append(msg);
+    } catch (RemoteException e) {
+      String errMsg = "ERROR! [ComputeEngine.sendMsgToClient()] Exception "
+          + "occurred when sending message to the client: (msg = " + msg + ")";
+      errorPrint(errMsg, e);
+    }
+  }
+
+  /**
+   * Print error message in console and output it to the view.
+   * @param msg   the error message
+   * @param e     the Exception object
+   */
+  private void errorPrint(String msg, Exception e) {
+    System.err.println(msg);
+    engineCmd.accept(msg);
+    e.printStackTrace();
+  }
+
+}

@@ -1,0 +1,96 @@
+package chatRoom.model;
+
+import java.rmi.RemoteException;
+
+import javax.swing.ImageIcon;
+
+import chatApp.Data.RemoveReceiverData;
+import common.DataPacketChatRoom;
+import common.IRemoveReceiverType;
+import common.IChatRoom;
+import common.IReceiver;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+
+public class ChatRoomModel{
+
+	public IMiniViewAdapter viewAdpt = IMiniViewAdapter.NULL_OBJECT;	//local view adapter
+	
+	private IChatRoom chatroom; 		//API - to send
+	
+	private IReceiver myReceiver;	//API - to receive
+	
+	/**
+	 * RMI utilities for starting RMI and for getting the Registry
+	 */
+	private IRMIUtils rmiUtils;
+
+	public ChatRoomModel(IChatRoom chatroom, IReceiver receiverStub, IMiniViewAdapter adapter) {
+		this.chatroom = chatroom;
+		this.viewAdpt = adapter;
+		this.myReceiver = receiverStub;
+	}
+	
+	public void start() throws RemoteException {
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.viewAdpt.append(s);
+		});
+
+	}
+	
+	/**
+	 * invite another user to this room by adding the room to the other user's available room list
+	 * @param userIP identifier of the other user
+	 */
+	public void addUser(String userIP) {
+//		Registry registry = rmiUtils.getRemoteRegistry(userIP);
+//		try {
+//			IUser user = (IUser) registry.lookup(IUser.BOUND_NAME);
+//			if (user!=null) {
+//				user.addChatroom(chatroom);
+//			}
+//		} catch (RemoteException | NotBoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+	}
+
+	
+	/**
+	 * current user quit the room
+	 */
+	public void leaveRoom() {
+		//current user leaves the room
+		chatroom.removeIReceiverStubLocally(myReceiver);
+		chatroom.sendPacket(new DataPacketChatRoom<IRemoveReceiverType>(IRemoveReceiverType.class, new RemoveReceiverData(myReceiver), myReceiver)); //IAddReceiverType
+		viewAdpt.append("You have left this room!");
+//		System.exit(0);	//shut down the GUI
+		
+	}
+	
+	public void sendText(String text) {
+//		try {
+//			myReceiver.receive(new DataPacketChatRoom<String>(String.class, text, myReceiver));
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		chatroom.sendPacket(new DataPacketChatRoom<String>(String.class, text, myReceiver));
+	}
+	
+	public void sendImg(ImageIcon image) {
+//		ImageIcon image = new ImageIcon("chatRoom/file/chips.jpg");
+		chatroom.sendPacket(new DataPacketChatRoom<ImageIcon>(ImageIcon.class, image, myReceiver));
+	}
+	
+	public IChatRoom getChatRoom() {
+		return this.chatroom;
+	}
+	
+	public void refreshUserList() {
+		viewAdpt.setUserList(chatroom.getIReceiverStubs());
+	}
+	
+}
+

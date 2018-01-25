@@ -1,0 +1,66 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.Map;
+import java.util.UUID;
+
+import common.IChatroom;
+import common.IUser;
+
+public class ChatUser implements IUser {
+
+	@Override
+	public UUID getID() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setName(String name) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getIP() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<UUID, IChatroom> getChatrooms() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addChatroom(IChatroom chatroom) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeChatroom(IChatroom chatroom) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void joinChatroom(IChatroom chatroom) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void autoConnectBack(IUser otherStub) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

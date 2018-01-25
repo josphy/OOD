@@ -1,0 +1,27 @@
+package chatApp.model;
+
+import java.util.Collection;
+
+import javax.swing.JTabbedPane;
+
+import common.IChatRoom;
+import common.IReceiver;
+import common.IUser;
+
+public interface IMainViewAdapter {
+
+	public void append(String s);
+
+	public void setLocalIP(String localAddress);
+
+	public void addUser(IUser remoteUserStub);
+
+	public void addChatroom(IChatRoom chatroom);
+
+	public IMain2MiniAdapter makeMini(IChatRoom chatroom, IReceiver receiverStub);
+
+	public void setConnectedUser(Collection<IUser> connectedUsers);
+	
+	public JTabbedPane getTabPnl();
+	
+}

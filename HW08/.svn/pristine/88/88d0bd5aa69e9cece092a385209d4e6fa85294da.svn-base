@@ -1,0 +1,61 @@
+package chatApp.controller;
+
+import java.awt.EventQueue;
+
+import chatApp.model.ChatAppModel;
+import chatApp.model.ChatAppModel2ViewAdapter;
+import chatApp.model.ChatUser;
+import chatApp.view.IMainView2ModelAdapter;
+import chatApp.view.MainView;
+
+public class MainController {
+
+	private MainView view;
+
+	private ChatAppModel model;
+	
+	private MainController() {
+		
+		model = new ChatAppModel(new ChatAppModel2ViewAdapter() {
+			
+		});
+		
+		view = new MainView(new IMainView2ModelAdapter() {
+
+			@Override
+			public void createChatRoom(String name) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			
+		});
+				
+				
+				
+	}
+	
+	
+	public void start() {
+		model.start();
+		view.start();
+	}
+	
+	/**
+	 * Launch the application.
+	 * @param args Arguments given by the system or command line.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() { // Java specs say that the system must be constructed on the GUI event thread.
+			public void run() {
+				try {
+					MainController controller = new MainController(); // instantiate the system
+					controller.start(); // start the system
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

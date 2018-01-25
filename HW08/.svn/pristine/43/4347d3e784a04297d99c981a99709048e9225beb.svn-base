@@ -1,0 +1,18 @@
+package chatApp.model;
+
+import common.IChatRoom;
+import common.IUser;
+
+public interface IMainViewAdapter {
+
+	void append(String s);
+
+	void setLocalIP(String localAddress);
+
+	void addUser(IUser remoteUserStub);
+
+	void addChatroom(IChatRoom chatroom);
+
+	IMain2MiniAdapter makeMini(IChatRoom chatroom);
+	
+}

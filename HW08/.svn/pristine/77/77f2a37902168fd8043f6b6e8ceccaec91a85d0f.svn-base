@@ -1,0 +1,37 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.UUID;
+
+import common.DataPacketChatRoom;
+import common.IReceiver;
+import common.IUser;
+
+public class Receiver implements IReceiver {
+	
+	UUID id;
+	
+	IUser userStub;
+
+	public Receiver(UUID id, IUser stub) {
+		this.id = id;
+		this.userStub = stub;
+	}
+
+	@Override
+	public <T> void receive(DataPacketChatRoom<T> data) throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public IUser getUserStub() throws RemoteException {
+		return userStub;
+	}
+
+	@Override
+	public UUID getUUID() throws RemoteException {
+		return id;
+	}
+
+}

@@ -1,0 +1,278 @@
+package client.view;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
+import java.awt.GridLayout;
+import javax.swing.border.TitledBorder;
+import javax.swing.JComboBox;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+/**
+ * Client view.
+ * @author Zheng You, Li Zhu
+ */
+public class ClientView<TDropListItem> extends JFrame {
+
+  /**
+   * serialVersionUID is the serial version UID.
+   */
+  private static final long serialVersionUID = -4965730984036854789L;
+
+  private JPanel contentPane;
+  private final JPanel ctrlPnl = new JPanel();
+  private final JButton quitButton = new JButton("Quit");
+  private final JPanel hostPnl = new JPanel();
+  private final JTextField IPTxtField = new JTextField();
+  private final JButton connectBtn = new JButton("Connect");
+  private final JPanel msgPnl = new JPanel();
+  private final JTextField msgField = new JTextField();
+  private final JPanel taskPnl = new JPanel();
+  private final JButton executeBtn = new JButton("Execute");
+  private final JComboBox<TDropListItem> task1Droplist = new JComboBox<>();
+  private final JComboBox<TDropListItem> task2Droplist = new JComboBox<>();
+  private final JButton combineBtn = new JButton("Combine");
+  private final JPanel paramPnl = new JPanel();
+  private final JTextField paramTxtField = new JTextField();
+  private final JScrollPane dispScrollPane = new JScrollPane();
+  private final JTextArea dispTxtArea = new JTextArea();
+  private final JPanel addTaskPnl = new JPanel();
+  private final JTextField taskTxtField = new JTextField();
+  private final JButton addTaskBtn = new JButton("Add Task");
+  private final JLabel instrLbl = new JLabel("Press Enter to send message");
+  private final JPanel btnPnl = new JPanel();
+  private final JButton clearBtn = new JButton("Clear");
+
+  /**
+   * The view to model adapter.
+   */
+  private IClientView2ModelAdapter<TDropListItem> view2ModelAdapter;
+
+  /**
+   * Create the frame.
+   * @param view2ModelAdapter   view to model adapter
+   */
+  public ClientView(IClientView2ModelAdapter<TDropListItem> view2ModelAdapter) {
+    this.view2ModelAdapter = view2ModelAdapter;
+    initGUI();
+  }
+
+  /**
+   * initGUI initialize all the components on the frame.
+   */
+  private void initGUI() {
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    this.addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        stop();
+      }
+    });
+    paramTxtField.setText("30");
+    paramTxtField.setToolTipText("The parameter for the task to execute.");
+    paramTxtField.setColumns(10);
+    msgField.addKeyListener(new KeyAdapter() {
+      @Override
+      public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+          String msg = msgField.getText();
+          view2ModelAdapter.sendMsgToServer(msg);
+          msgField.setText("");
+        }
+      }
+    });
+    msgField.setToolTipText("Type a message to send to the server.");
+    msgField.setColumns(10);
+    IPTxtField.setToolTipText("Type in a remote server's IP address.");
+    IPTxtField.setText("localhost");
+    IPTxtField.setColumns(10);
+    taskTxtField.setToolTipText("Type a task to be executed.");
+    taskTxtField.setColumns(10);
+
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setBounds(100, 100, 1300, 539);
+    contentPane = new JPanel();
+    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+    contentPane.setLayout(new BorderLayout(0, 0));
+    setContentPane(contentPane);
+    ctrlPnl.setBackground(SystemColor.textHighlight);
+
+    contentPane.add(ctrlPnl, BorderLayout.NORTH);
+    btnPnl.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED,
+        null, null), "Button", TitledBorder.CENTER, TitledBorder.TOP, null,
+        new Color(0, 0, 0)));
+
+    ctrlPnl.add(btnPnl);
+    btnPnl.setLayout(new GridLayout(0, 1, 0, 0));
+    btnPnl.add(quitButton);
+    quitButton.setToolTipText("Shut down the RMI system and quit the client "
+        + "program.");
+    clearBtn.setToolTipText("Clear the contents in the display panel.");
+    clearBtn.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dispTxtArea.setText("");
+      }
+    });
+
+    btnPnl.add(clearBtn);
+    quitButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        stop();
+      }
+    });
+    hostPnl.setBorder(new TitledBorder(null, "Remote Host", TitledBorder.CENTER,
+        TitledBorder.TOP, null, null));
+
+    ctrlPnl.add(hostPnl);
+    hostPnl.setLayout(new GridLayout(0, 1, 0, 0));
+
+    hostPnl.add(IPTxtField);
+    connectBtn.setToolTipText("Connect to the server whose IP address is "
+        + "specified above.");
+    connectBtn.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        String remoteHost = IPTxtField.getText();
+        append("Attempting to connect to " + remoteHost + "...\n");
+        view2ModelAdapter.connectTo(remoteHost);
+      }
+    });
+
+    hostPnl.add(connectBtn);
+    msgPnl.setBorder(new TitledBorder(null, "Send Message", TitledBorder.CENTER,
+        TitledBorder.TOP, null, null));
+
+    ctrlPnl.add(msgPnl);
+    msgPnl.setLayout(new GridLayout(0, 1, 0, 0));
+
+    msgPnl.add(instrLbl);
+
+    msgPnl.add(msgField);
+    addTaskPnl.setBorder(new TitledBorder(null, "Add Task", TitledBorder.CENTER,
+        TitledBorder.TOP, null, null));
+
+    ctrlPnl.add(addTaskPnl);
+    addTaskPnl.setLayout(new GridLayout(0, 1, 0, 0));
+
+    addTaskPnl.add(taskTxtField);
+    addTaskBtn.setToolTipText("Add the task specified above to both droplists "
+        + "to the right.");
+    addTaskBtn.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        String task = taskTxtField.getText();
+        TDropListItem o = view2ModelAdapter.addItem(task);
+        if (o == null) { return; }
+        addToDropList(o);
+      }
+    });
+
+    addTaskPnl.add(addTaskBtn);
+    taskPnl.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED,
+        null, null), "Task", TitledBorder.CENTER, TitledBorder.TOP, null,
+        new Color(0, 0, 0)));
+
+    ctrlPnl.add(taskPnl);
+    taskPnl.setLayout(new GridLayout(0, 1, 0, 0));
+    executeBtn.setToolTipText("Execute the task chosen in the top droplist.");
+    executeBtn.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        TDropListItem task = (TDropListItem) task1Droplist.getItemAt(
+            task1Droplist.getSelectedIndex());
+        String arg = paramTxtField.getText();
+        String result = view2ModelAdapter.runTask(task, arg);
+        append("[Task execution returned result] " + result + "\n");
+      }
+    });
+
+    taskPnl.add(executeBtn);
+
+    taskPnl.add(task1Droplist);
+
+    taskPnl.add(task2Droplist);
+    combineBtn.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        TDropListItem o = view2ModelAdapter.combineTasks(
+            task1Droplist.getItemAt(task1Droplist.getSelectedIndex()),
+            task2Droplist.getItemAt(task2Droplist.getSelectedIndex()));
+        if (o == null) { return; }
+        addToDropList(o);
+      }
+    });
+    combineBtn.setToolTipText("Combine the tasks from two droplists and place "
+        + "the new task in both of them.");
+
+    taskPnl.add(combineBtn);
+    paramPnl.setBorder(new TitledBorder(null, "Run Parameter",
+        TitledBorder.CENTER, TitledBorder.TOP, null, null));
+
+    ctrlPnl.add(paramPnl);
+
+    paramPnl.add(paramTxtField);
+
+    contentPane.add(dispScrollPane, BorderLayout.CENTER);
+    dispTxtArea.setLineWrap(true);
+
+    dispScrollPane.setViewportView(dispTxtArea);
+  }
+
+  /**
+   * Set the IPTxtField with remoteHost
+   * @param remoteHost  the IP address of the remote host
+   */
+  public void setRemoteHost(String remoteHost) {
+    IPTxtField.setText(remoteHost);
+  }
+
+  /**
+   * Append String s in the dispTxtArea and set the caret to the last character
+   * of the dispTxtArea.
+   * @param s   the String to append in the dispTxtArea
+   */
+  public void append(String s) {
+    dispTxtArea.append(s);
+    dispTxtArea.setCaretPosition(dispTxtArea.getText().length());
+  }
+
+  /**
+   * Add a TDropListItem object to both droplists.
+   * @param o   the TDropListItem to be added
+   */
+  public void addToDropList(TDropListItem o) {
+    task1Droplist.insertItemAt(o, 0);
+    task2Droplist.insertItemAt(o, 0);
+    task1Droplist.setSelectedIndex(0);
+    task2Droplist.setSelectedIndex(0);
+  }
+
+  /**
+   * Stop the client.
+   */
+  private void stop() {
+    System.out.println("Client View: ending the client...");
+    view2ModelAdapter.stop();
+  }
+
+  /**
+   * Starts the already initialized frame, making it visible and ready to
+   * interact with the user.
+   */
+  public void start() {
+    setVisible(true);
+  }
+
+}

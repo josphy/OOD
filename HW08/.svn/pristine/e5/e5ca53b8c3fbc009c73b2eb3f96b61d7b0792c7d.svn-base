@@ -1,0 +1,158 @@
+package engine.view;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+
+/**
+ * Engine's view
+ * @author Li Zhu, Zheng You
+ */
+public class EngineView extends JFrame {
+
+  private static final long serialVersionUID = -6370687587390425063L;
+
+  private JPanel pnlControl;
+  private JTextArea textArea;
+  private JButton btnQuit;
+  private final JPanel msgPnl = new JPanel();
+  private final JLabel instrLbl = new JLabel("Press Enter to send message");
+  private final JTextField msgField = new JTextField();
+  private JPanel pnlBtns;
+  private JButton btnClear;
+
+  /**
+   * Adapter that helps the engine view communicate to the model
+   */
+  private IEngineView2ModelAdapter modelAdapter;
+
+  /**
+   * Constructor
+   * @param model 		Adapter from the view to the model
+   */
+  public EngineView(IEngineView2ModelAdapter model){
+    modelAdapter = model;
+    initGUI();
+  }
+
+  /**
+   * Set up the main view for the engine
+   */
+  private void initGUI() {
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    this.addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        stop();
+      }
+    });
+    pnlControl = new JPanel();
+    pnlControl.setBackground(SystemColor.textHighlight);
+
+    textArea = new JTextArea();
+    textArea.setLineWrap(true);
+    textArea.setEditable(false);
+
+    setBounds(100, 100, 801, 479);
+    Container container = getContentPane();
+    container.setLayout(new BorderLayout());
+    container.add(pnlControl, BorderLayout.NORTH);
+    JScrollPane scrollPane = new JScrollPane();
+    scrollPane.setAutoscrolls(true);
+    scrollPane.setViewportView(textArea);
+    container.add(scrollPane, BorderLayout.CENTER);
+
+    pnlBtns = new JPanel();
+    pnlBtns.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED,
+        null, null), "Button", TitledBorder.CENTER, TitledBorder.TOP, null,
+        new Color(0, 0, 0)));
+    pnlControl.add(pnlBtns);
+    pnlBtns.setLayout(new GridLayout(0, 1, 0, 0));
+    btnQuit = new JButton("Quit");
+    btnQuit.setToolTipText("Shut down the RMI system and quit the server "
+        + "program.");
+    pnlBtns.add(btnQuit);
+    btnQuit.setSize(80, 40);
+
+    btnClear = new JButton("Clear");
+    btnClear.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        textArea.setText("");
+      }
+    });
+    pnlBtns.add(btnClear);
+
+    btnQuit.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        stop();
+      }
+    });
+
+    msgField.setToolTipText("Type a message to send to the client.");
+    msgField.setColumns(10);
+    msgField.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+          if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            String msg = msgField.getText();
+            modelAdapter.sendMsgToClient(msg);
+            msgField.setText("");
+          }
+        }
+      });
+
+    msgPnl.setBorder(new TitledBorder(null, "Send Message",
+        TitledBorder.CENTER, TitledBorder.TOP, null, null));
+    pnlControl.add(msgPnl);
+    msgPnl.setLayout(new GridLayout(0, 1, 0, 0));
+
+    msgPnl.add(instrLbl);
+    msgPnl.add(msgField);
+  }
+
+  /**
+   * End the engine
+   */
+  private void stop() {
+    System.out.println("Engine View: ending the engine...");
+    modelAdapter.stop();
+  }
+
+  /**
+   * Appends the given string to the text area.
+   * @param text 		The text for the server status to display
+   */
+  public void appendToTextArea(String text) {
+    if (!text.endsWith("\n")) {
+      text = text + "\n";
+    }
+    textArea.append(text);
+    textArea.setCaretPosition(textArea.getText().length());
+  }
+
+  /**
+   * Start the view
+   */
+  public void start() {
+    setVisible(true);
+  }
+
+}

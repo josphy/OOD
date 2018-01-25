@@ -1,0 +1,18 @@
+package engine.view;
+
+/**
+ * Engine's view to model adapter.
+ * @author Li Zhu, Zheng You
+ */
+public interface IEngineView2ModelAdapter {
+  /**
+   * Stop the engine.
+   */
+  public void stop();
+  /**
+   * Send the message to the client.
+   * @param msg   the message to send
+   */
+  public void sendMsgToClient(String msg);
+
+}

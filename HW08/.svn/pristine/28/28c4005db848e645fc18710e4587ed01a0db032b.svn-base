@@ -1,0 +1,131 @@
+package chatRoom.model;
+
+import java.awt.Container;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import javax.swing.ImageIcon;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.IChatRoom;
+import common.ICmd2ModelAdapter;
+import common.IComponentFactory;
+import common.IReceiver;
+import common.IUser;
+import provided.datapacket.ADataPacketAlgoCmd;
+import provided.datapacket.DataPacket;
+import provided.datapacket.DataPacketAlgo;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+
+public class ChatRoomModel{
+
+	private IMiniViewAdapter viewAdpt = IMiniViewAdapter.NULL_OBJECT;	//local view adapter
+	
+	private IChatRoom chatroom; 		//API - to send
+	
+	private IReceiver myReceiver;	//API - to receive
+
+	/**
+	 * RMI utilities for starting RMI and for getting the Registry
+	 */
+	private IRMIUtils rmiUtils;
+	
+	private ICmd2ModelAdapter cmd2ModelAdpt = new ICmd2ModelAdapter() {
+
+		@Override
+		public void appendMsg(String text, String name) {
+			viewAdpt.append(name + ": " + text);
+			
+		}
+
+		@Override
+		public void buildScrollableComponent(IComponentFactory fac, String label) {
+			viewAdpt.getDialogPnl().add(fac.makeComponent());
+			
+		}
+
+		@Override
+		public void buildNonScrollableComponent(IComponentFactory fac, String label) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+
+	public ChatRoomModel(IChatRoom chatroom, IReceiver receiverStub, IMiniViewAdapter adapter) {
+		this.chatroom = chatroom;
+		this.viewAdpt = adapter;
+		this.myReceiver = receiverStub;
+	}
+	
+	public void start() throws RemoteException {
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.viewAdpt.append(s);
+		});
+		myReceiver.start(cmd2ModelAdpt);	//how does receiver know which room the message is from???
+	}
+
+	
+	/**
+	 * invite another user to this room by adding the room to the other user's available room list
+	 * @param userIP identifier of the other user
+	 */
+	public void addUser(String userIP) {
+		Registry registry = rmiUtils.getRemoteRegistry(userIP);
+		try {
+			IUser user = (IUser) registry.lookup(IUser.BOUND_NAME);
+			if (user!=null) {
+				user.addChatroom(chatroom);
+			}
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void addIReceiverStub(IReceiver stub) {
+		
+	}
+	
+	public void removeIReceiverStub(IReceiver stub) {
+		
+	}
+
+	
+	/**
+	 * current user quit the room
+	 */
+	public void leaveRoom() {
+		try {
+			//current user leaves the room
+			IUser user = this.myReceiver.getUserStub();
+			user.removeChatroom(chatroom);
+			chatroom.removeIReceiverStub(myReceiver);
+			
+			System.exit(0);	//shut down the GUI
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void sendText(String text) {
+		chatroom.sendPacket(new DataPacketChatRoom<String>(String.class, text, myReceiver));
+	}
+	
+	public void sendImg() {
+		ImageIcon image = new ImageIcon("chatRoom/file/chips.jpg");
+		chatroom.sendPacket(new DataPacketChatRoom<ImageIcon>(ImageIcon.class, image, myReceiver));
+	}
+	
+}
+

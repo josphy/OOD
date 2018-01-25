@@ -1,0 +1,5 @@
+package chatApp.model;
+
+public class ChatAppModel2ViewAdapter {
+
+}

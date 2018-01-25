@@ -1,0 +1,183 @@
+package chatApp.model;
+
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import common.IChatroom;
+import common.IConnect;
+import common.IUser;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.IRMI_Defs;
+import provided.rmiUtils.RMIUtils;
+
+public class ChatAppModel {
+	
+	private IMainViewAdapter viewAdpt;
+	
+	private IUser user;
+	
+	private IUser remoteUserStub;
+	
+	private Set<IChatroom> chatrooms = new HashSet<>();
+	
+	private Set<IUser> connectedUsers = new HashSet<>();
+	
+	private Map<IChatroom, IMain2MiniAdapter> miniMVCAdpts = new HashMap<>();
+	
+	private IRMIUtils rmiUtils;
+	
+	private Registry registry;
+
+	public ChatAppModel(IMainViewAdapter adapter) {
+		this.viewAdpt = adapter;
+		this.rmiUtils = new RMIUtils((s) -> {
+			this.viewAdpt.append(s);
+		});
+	}
+	
+	public void start() {
+		
+	}
+	
+	public void login(int port, String name) {
+		try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_CLIENT);
+			registry = rmiUtils.getLocalRegistry();
+			String localIP = rmiUtils.getLocalAddress();
+			viewAdpt.setLocalIP(localIP);
+			viewAdpt.append("Logged in! Ready...\n");
+			
+			user = new ChatUser(name);
+			IUser userStub = (IUser) UnicastRemoteObject.exportObject(user, port);
+			
+		} catch (SocketException | UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void connectTo(String remoteHost) {
+		try {
+			viewAdpt.append("Locating registry at " + remoteHost + "...");
+			String[] remote = remoteHost.split(":");	//remoteHost = remoteIP + ":" + port;
+			Registry registryRemote = rmiUtils.getRemoteRegistry(remote[0]);
+			viewAdpt.append("Found registry: " + registryRemote);
+			remoteUserStub = (IUser) registryRemote.lookup(remote[1]);
+			viewAdpt.append("Found remote user object: " + remoteUserStub + "\n");
+			addUser(remoteUserStub);
+			
+		} catch (RemoteException | NotBoundException e) {
+			System.err.println("Exception while retrieving remote user stub: \n" + e);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		viewAdpt.append("Connection to " + remoteHost + " established!\n");		
+	}
+	
+	public void requestRoom(IUser other) {
+		try {
+			addChatroom(other.getChatrooms());
+			viewAdpt.append("Obtained room list from " + other + "!\n");		
+
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void invite(IUser other) {
+		
+	}
+	
+	public void createRoom(int port, String name) {
+		try {
+			IChatroom newRoom = new Chatroom(name);
+			viewAdpt.append("Make new ChatRoom: " + newRoom.getChatroomName() + "\n");
+			// make a new IConnect stub for user in the new chatroom
+			IConnect newChatServer = new Connect(user, newRoom);
+			viewAdpt.append("Make new ChatServer: <User:" + newChatServer.getUser().getUsername() + ", ChatServer: "
+					+ newChatServer.getChatroom().getChatroomName() + ">\n");
+			//get a chatstub for new chatserver 
+			IConnect chatStub = (IConnect) UnicastRemoteObject.exportObject(newChatServer, IConnect.BOUND_PORT);
+			registry.rebind(IConnect.BOUND_NAME + newRoom.hashCode(), chatStub);
+			viewAdpt.append("Make new ChatServer Stub for chatserver.\n");
+			//add chatstub to newRoom
+			newRoom.addConnect(chatStub);
+			viewAdpt.append("Add new ChatServer Stub to newRoom.\n");
+			//add newchatroom to the user chatroom lists
+			user.addChatroom(newRoom);
+			viewAdpt.append("Add new chatroom <" + newRoom.getChatroomName() + "> to user <" + user.getUsername() + ">\n");
+			//add all chatservers in that room to hashset
+//			HashSet<IChatServer> proxy = new HashSet<IChatServer>();
+//			for (IChatServer item : newChatServer.getChatroom().getChatServers()) {
+//				IChatServer proxyChatServer = new ProxyIChatServer(item);
+//				proxy.add(proxyChatServer);
+//			}
+			
+			IMain2MiniAdapter miniMVCAdpt = viewAdpt.makeMini(newChatServer);
+			miniMVCAdpts.put(newRoom, miniMVCAdpt);
+			countRoom++;
+		} catch (Exception e) {
+			viewAdpt.append("Error creating chatroom!");
+		}		
+	}
+	
+	public void joinRoom(IChatroom room) {
+		viewAdpt.append("Join ChatRoom" + room.getChatroomName());
+		IChatroom chatroom = new Chatroom(room.getChatroomName());
+		IConnect chatServer = new Connect(user, chatroom);
+		try {
+			viewAdpt.append("Start joining..");
+			IConnect chatStub = (IConnect) UnicastRemoteObject.exportObject(chatServer,
+					IConnect.BOUND_PORT + countRoom);
+			registry.rebind(IConnect.BOUND_NAME + chatroom.hashCode(), chatStub);
+
+			for (IConnect members : room.getConnects()) {
+				chatroom.addConnect(members);
+				members.addToChatroom(chatStub);
+			}
+			chatroom.addConnect(chatStub);
+			user.addChatroom(chatroom);
+			
+			IMain2MiniAdapter miniMVCAdpt = viewAdpt.makeMini(chatServer);
+			miniMVCAdpts.put(chatroom, miniMVCAdpt);
+			viewAdpt.append("Success!");
+
+		} catch (Exception e) {
+			viewAdpt.append("Fail to join the room!");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+
+	public void addUser(IUser remoteUserStub) {
+		connectedUsers.add(remoteUserStub);
+		viewAdpt.addUser(remoteUserStub);
+		
+	}
+
+	public void addChatroom(Set<IChatroom> remoteChatrooms) {
+		chatrooms.addAll(remoteChatrooms);
+		for (IChatroom chatroom:remoteChatrooms) {
+			viewAdpt.addChatroom(chatroom);			
+		}
+		
+	}
+	
+	public void quit() {
+		rmiUtils.stopRMI();
+		System.exit(0);
+	}
+}

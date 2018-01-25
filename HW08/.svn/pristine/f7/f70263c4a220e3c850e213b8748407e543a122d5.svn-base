@@ -1,0 +1,148 @@
+package engine.model;
+
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.function.Consumer;
+
+import provided.compute.ICompute;
+import provided.compute.IRemoteTaskViewAdapter;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.IRMI_Defs;
+import provided.rmiUtils.RMIUtils;
+
+/**
+ * Engine model
+ *
+ * IMPORTANT: The engine model is NOT the same as the compute engine!
+ * The compute engine (ICompute) is just one of the objects managed by the
+ * engine model.
+ *
+ * @author Li Zhu, Zheng You
+ */
+public class EngineModel {
+  /**
+   * THe engine's model to view adapter
+   */
+  private IEngineModel2ViewAdapter viewAdapter;
+  /**
+   * Output command to put multiple lines on the engine's view.
+   */
+  private Consumer<String> outputCmd = new Consumer<String>() {
+    @Override
+    public void accept(String t) {
+      viewAdapter.append(t + "\n");
+    }
+  };
+  /**
+   * IRMIUtils object used to find the RMI Registry
+   */
+  private IRMIUtils rmiUtils = new RMIUtils(outputCmd);
+  /**
+   * RMI registry
+   */
+  private Registry registry;
+  /**
+   * Compute engine
+   */
+  private ComputeEngine computeEngine;
+  /**
+   * Constructor for the class.
+   * @param adapter   the engine's model to view adapter
+   */
+  public EngineModel(IEngineModel2ViewAdapter adapter) {
+    viewAdapter = adapter;
+  }
+
+  /**
+   * Start the RMI Server (ICompute engine):
+   * 1. Use the provided IRMIUtils to start the RMI system, using port =
+   * IRMI_Defs.CLASS_SERVER_PORT_SERVER. This will also automatically start the
+   * security manager and the class file server for remote dynamic class loading.
+   * 2. Instantiate the ICompute server, saving a reference to it in the model
+   * somewhere.
+   * 3. Create a stub of the ICompute server.
+   * 4. Use the IRMIUtils to get the LOCAL Registry.  Save the reference
+   * somewhere for use later.
+   * 5. Bind the ICompute engine stub to the local Registry using the name and
+   * port defined by ICompute locating the local Registry and binding a STUB of
+   * an ICompute engine instance to the that registry.
+   */
+  public void start() {
+    try {
+      // Step 1
+      rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_SERVER);
+      // Step 2
+      computeEngine = new ComputeEngine(outputCmd);
+      outputCmd.accept("[EngineModel.start()] Initialized new compute "
+          + "engine: " + computeEngine);
+      // Step 3
+      ICompute stub = (ICompute) UnicastRemoteObject.exportObject(
+          computeEngine, IRemoteTaskViewAdapter.BOUND_PORT_SERVER);
+      // Step 4
+      outputCmd.accept("[EngineModel.start()] Looking for registry...");
+      registry = rmiUtils.getLocalRegistry();
+      outputCmd.accept("[EngineModel.start()] Found registry: " + registry);
+      // Step 5
+      registry.rebind(ICompute.BOUND_NAME, stub);
+      outputCmd.accept("[EngineModel.start()] ComputeEngine bound to name "
+          + "\"Compute\"");
+      // Waiting message
+      outputCmd.accept("[EngineModel.start()] Waiting...\n");
+    } catch (Exception e) {
+      String msg = "ERROR! [EngineModel.start()] ComputeEngine exception:" + e;
+      errorPrint(msg, e);
+      System.exit(1);
+    }
+  }
+
+  /**
+   * Stops the engine model by unbinding the ICompute engine from the Registry
+   * and stopping class file server. This MUST be called before exiting the
+   * system!
+   *
+   * Procedure:
+   * 1. Unbind the ICompute server stub from the local Registry.
+   * 2. Use the IRMIUtils to stop the RMI system.
+   */
+  public void stop() {
+    try {
+      registry.unbind(ICompute.BOUND_NAME);
+      String msg = "[EngineModel.stop()] Name " + ICompute.BOUND_NAME +
+          " has been unbound. Stopping the RMI system...";
+      System.out.println(msg);
+      outputCmd.accept(msg);
+      rmiUtils.stopRMI();
+      System.exit(0);
+    } catch (Exception e) {
+      String msg = "ERROR! [EngineModel.stop()] Error unbinding name " +
+          ICompute.BOUND_NAME + ": " + e;
+      errorPrint(msg, e);
+      System.exit(-1);
+    }
+  }
+
+  /**
+   * Send string message to connected remote client using the
+   * IRemoteTaskViewAdapter STUB received from the client. The message should
+   * also be echoed to the local engine server's user interface.
+   *
+   * This is delegated to the compute engine.
+   *
+   * @param msg   The message to be sent
+   */
+  public void sendMsgToClient(String msg) {
+    computeEngine.sendMsgToClient(msg);
+  }
+
+  /**
+   * Print error message in console and output it to the view.
+   * @param msg   the error message
+   * @param e     the Exception object
+   */
+  private void errorPrint(String msg, Exception e) {
+    System.err.println(msg);
+    outputCmd.accept(msg);
+    e.printStackTrace();
+  }
+
+}

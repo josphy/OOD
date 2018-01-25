@@ -1,0 +1,224 @@
+package client.model;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.function.Consumer;
+
+import provided.compute.ICompute;
+import provided.compute.IRemoteTaskViewAdapter;
+import provided.compute.ITask;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.IRMI_Defs;
+import provided.rmiUtils.RMIUtils;
+
+/**
+ * Client model.
+ * @author Zheng You, Li Zhu
+ */
+public class ClientModel {
+  /**
+   * The model to view adapter.
+   */
+  private IClientModel2ViewAdapter model2ViewAdapter;
+  /**
+   * Output command to put multiple lines on the client's view.
+   */
+  private Consumer<String> outputCmd = new Consumer<String>() {
+    @Override
+    public void accept(String t) {
+      model2ViewAdapter.append(t + "\n");
+    };
+  };
+  /**
+   * The RMI utility used by the client.
+   */
+  private IRMIUtils rmiUtils;
+  /**
+   * IComputer object stub to perform computation.
+   */
+  private ICompute computeStub;
+  /**
+   * The stub which the client uses to append messages to the engine's view.
+   */
+  private IRemoteTaskViewAdapter engineTVAStub;
+  /**
+   * The adapter which the engine uses to append messages to the client's view.
+   * The adapter's stub is in the engine.
+   */
+  private IRemoteTaskViewAdapter clientTVA;
+  /**
+   * The stub which the client makes for the clientTVA.
+   */
+  private IRemoteTaskViewAdapter clientTVAStub;
+
+  /**
+   * Constructor for the class.
+   * @param model2ViewAdapter   the client's model to view adapter
+   */
+  public ClientModel(IClientModel2ViewAdapter model2ViewAdapter) {
+    this.model2ViewAdapter = model2ViewAdapter;
+    rmiUtils = new RMIUtils(outputCmd);
+    clientTVA = new IRemoteTaskViewAdapter() {
+      @Override
+      public void append(String s) throws RemoteException {
+        outputCmd.accept("[Hw07 Team 22 Engine Server] " + s);
+      }
+    };
+  }
+
+  /**
+   * Starts the client model by initializing the RMI system and creating a
+   * remote view adapter stub for use by an engine server.
+   *
+   * Procedure:
+   * 1. Use the IRMIUtils to start the RMI system, using
+   * port = IRMI_Defs.CLASS_SERVER_PORT_CLIENT. This will also automatically
+   * start the the security manager and the class file server for remote dynamic
+   * class loading.
+   *
+   * 2. Export a STUB from the client's IRemoteTaskViewAdapter RMI server object.
+   * Save this stub for use when connecting to an engine server.
+   */
+  public void start() {
+    try {
+      rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_CLIENT);
+      model2ViewAdapter.setRemoteHost(rmiUtils.getLocalAddress());
+      clientTVAStub = (IRemoteTaskViewAdapter) UnicastRemoteObject.exportObject
+          (clientTVA, IRemoteTaskViewAdapter.BOUND_PORT_CLIENT);
+      outputCmd.accept("[ClientModel.start()] Ready\n");
+    } catch (Exception e) {
+      String msg = "ERROR! [ClientModel.start()] Error when loading IP address "
+          + e;
+      errorPrint(msg, e);
+      System.exit(1);
+    }
+  }
+
+  /**
+   * Stops the client model by using the IRMIUtils to stop the RMI system.
+   * This automatically stops class file server. This MUST be called before
+   * exiting the system!
+   */
+  public void stop() {
+    try {
+      String msg = "[ClientModel.stop()] Client is stopping.";
+      System.out.println(msg);
+      outputCmd.accept(msg);
+      rmiUtils.stopRMI();
+      System.exit(0);
+    } catch (Exception e) {
+      String msg = "ERROR! [ClientModel.stop()] Error when stopping the "
+          + "client. " + e;
+      errorPrint(msg, e);
+      System.exit(1);
+    }
+  }
+
+  /**
+   * Connects to the given remote host's Registry and retrieves the stub of the
+   * ICompute object bound to the ICompute.BOUND_NAME name in the remote
+   * Registry on port IRMI_Defs.REGISTRY_PORT.
+   *
+   * Procedure:
+   * 1. Use the IRMIUtils to retrieve the remote Registry at the given IP
+   * address.
+   * 2. Use the remote Registry to retrieve an ICompute STUB bound to the name
+   * defined by IComputer.BOUND_NAME. Save the reference to the IComputer stub
+   * somewhere.
+   * 3. Use the ICompute stub to assign the client's IRemoteTaskViewAdapter STUB
+   * of the remote engine server and to retrieve the compute engine's
+   * IRemoteTaskViewAdapter stub. Save the retrieved stub for later use. Use the
+   * retrieved stub to send a connection status message to the remote compute
+   * engine's user interface.
+   * 4. Return a string indicating the success or failure of the connection
+   * attempt.
+   *
+   * @param remoteHost The IP address or host name of the remote server.
+   * @return  A status string on the connection.
+   */
+  public String connectTo(String remoteHost) {
+    String resultStr = "[Connection status] ";
+    try {
+      // Step 1
+      outputCmd.accept("[ClientModel.connectTo()] Locating registry at: " +
+          remoteHost);
+      Registry reg = rmiUtils.getRemoteRegistry(remoteHost);
+      outputCmd.accept("[ClientModel.connectTo()] Found registry: " + reg);
+      // Step 2
+      computeStub =  (ICompute) reg.lookup(ICompute.BOUND_NAME);
+      outputCmd.accept("[ClientModel.connectTo()] Found remote Compute object:"
+          + computeStub);
+      // Step 3
+      // Give an IRemoteTaskViewAdapter stub to the engine as well as returning
+      // an IRemoteTaskViewAdapter to the client.
+      engineTVAStub = computeStub.setTextAdapter(clientTVAStub);
+      outputCmd.accept("[ClientModel.connectTo()] Got text adapter:" +
+          engineTVAStub);
+      // Step 4
+      engineTVAStub.append("Hi! This is the client from Hw07 Team 22.\n");
+      resultStr += "Connection to " + remoteHost + " established!";
+    } catch (Exception e) {
+      String msg = "ERROR! [ClientModel.connectTo()] Exception connecting to "
+          + remoteHost + ": " + e;
+      errorPrint(msg, e);
+      resultStr += "No connection established!";
+    }
+    return resultStr;
+  }
+
+  /**
+   * Sends a string message to the connected compute engine using the
+   * IRemoteTaskViewAdapter STUB received from the engine server. This message
+   * should also be echoed to the local user interface.
+   *
+   * @param text The message to be sent
+   */
+  public void sendMsgToComputeEngine(String text) {
+    try {
+      outputCmd.accept("[ClientModel.sendMsgToComputeEngine()] Sending msg to "
+          + "connected remote host: " + text);
+      engineTVAStub.append(text);
+    } catch (Exception e) {
+      String msg = "ERROR! [ClientModel.sendMsgToComputeEngine()] "
+          + "RemoteException while sending " + text + " to connected remote "
+          + "host: " + e;
+      errorPrint(msg, e);
+    }
+  }
+
+  /**
+   * Run the given ITask on the remote engine server, returning the String
+   * formatted result, which is produced using the given ITask's
+   * ITaskResultFormatter object.
+   *
+   * @param task The task to run on the remote engine server.
+   * @param <T> The return type of the give ITask
+   * @return A string representation of the task results, using the task's
+   *         formatter object.
+   */
+  public <T> String runTask(ITask<T> task) {
+    String resultStr = "";
+    try {
+      T result = computeStub.executeTask(task);
+      resultStr += task.getFormatter().format(result);
+    } catch (Exception e) {
+      String msg = "ERROR! [ClientModel.runTask()] Task execution exception: " + e;
+      errorPrint(msg, e);
+      resultStr += "No resultStr yet.";
+    }
+    return resultStr;
+  }
+
+  /**
+   * Print error message in console and output it to the view.
+   * @param msg   the error message
+   * @param e     the Exception object
+   */
+  private void errorPrint(String msg, Exception e) {
+    System.err.println(msg);
+    outputCmd.accept(msg);
+    e.printStackTrace();
+  }
+
+}

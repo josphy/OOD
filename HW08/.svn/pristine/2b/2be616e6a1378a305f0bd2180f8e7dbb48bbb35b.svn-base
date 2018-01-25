@@ -1,0 +1,64 @@
+package chatApp.model;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import common.IChatRoom;
+import common.IUser;
+
+public class User implements IUser {
+	
+	private UUID id;
+	
+	private String name;
+	
+	private Set<IChatRoom> chatrooms;
+	
+	public User(UUID id, String name) {
+		this.id = id;
+		this.name = name;
+		this.chatrooms = new HashSet<>();
+		
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setUUID(UUID id) {
+		this.id = id;
+	}
+	
+	public boolean addChatRoom(IChatRoom chatroom) {
+		return this.chatrooms.add(chatroom);
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		return this.name;
+	}
+
+	@Override
+	public UUID getUUID() throws RemoteException {
+		return this.id;
+	}
+
+	@Override
+	public Collection<IChatRoom> getChatRooms() throws RemoteException {
+		return this.chatrooms;
+	}
+
+	@Override
+	public void connect(IUser userStub) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public String toString() {
+		return this.name;
+	}
+
+}

@@ -1,0 +1,28 @@
+package chatRoom.model;
+
+import javax.swing.ImageIcon;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+
+public class ImageIconCmd extends DataPacketAlgoCmd<ImageIcon>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1586444981076490099L;
+
+	@Override
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String apply(Class<?> index, DataPacketChatRoom<ImageIcon> host, String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

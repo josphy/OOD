@@ -1,0 +1,101 @@
+package client.model.task;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import provided.compute.ILocalTaskViewAdapter;
+import provided.compute.ITask;
+import provided.compute.ITaskResultFormatter;
+
+/**
+ * The class represents multiple tasks.
+ * @author Zheng You, Li Zhu
+ */
+public class MultiTask implements ITask<ArrayList<Object>>{
+  /**
+   * serialVersionUID is the serial version UID.
+   */
+  private static final long serialVersionUID = 4713487405782357316L;
+  /**
+   * Task1
+   */
+  private ITask<? extends Object> task1;
+  /**
+   * Task2
+   */
+  private ITask<? extends Object> task2;
+  /**
+   * Adapter to the local view. Marked "transient" so that it is not serialized
+   * and instead is re-attached at the destination (the server).
+   */
+  private transient ILocalTaskViewAdapter taskView =
+      ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+
+  /**
+   * Constructor accepting two tasks.
+   * @param task1   1st task
+   * @param task2   2nd task
+   */
+  public MultiTask(ITask<? extends Object> task1, ITask<? extends Object> task2) {
+    this.task1 = task1;
+    this.task2 = task2;
+  }
+
+  @Override
+  public ArrayList<Object> execute() throws RemoteException {
+    ArrayList<Object> list = new ArrayList<>();
+    taskView.append("MultiTask executing:\n");
+    // Task1
+    taskView.append("(Executing task #1)");
+    list.add(task1.execute());
+    // Task2
+    taskView.append("(Executing task #2)");
+    list.add(task2.execute());
+    return list;
+  }
+
+  /**
+   * Reinitializes transient fields upon deserialization. taskView is set to a
+   * default value for now (ILocalTaskViewAdapter.DEFAULT_ADAPTER).
+   *
+   * @param stream The object stream with the serialized data
+   *
+   * @throws IOException if the input stream cannot be read correctly
+   * @throws ClassNotFoundException if the class file associated with the input
+   * stream cannot be located.
+   */
+  private void readObject(ObjectInputStream stream) throws IOException,
+    ClassNotFoundException {
+    // De-serialize the non-transient data
+    stream.defaultReadObject();
+    // re-initialize the transient field
+    taskView = ILocalTaskViewAdapter.DEFAULT_ADAPTER;
+  }
+
+  @Override
+  public void setTaskViewAdapter(ILocalTaskViewAdapter viewAdapter) {
+    taskView = viewAdapter;
+    task1.setTaskViewAdapter(viewAdapter);
+    task2.setTaskViewAdapter(viewAdapter);
+  }
+
+  @Override
+  public ITaskResultFormatter<ArrayList<Object>> getFormatter() {
+    return new ITaskResultFormatter<ArrayList<Object>>() {
+      @SuppressWarnings("unchecked")
+      ITaskResultFormatter<Object> f1 = (ITaskResultFormatter<Object>)
+          task1.getFormatter();
+      @SuppressWarnings("unchecked")
+      ITaskResultFormatter<Object> f2 = (ITaskResultFormatter<Object>)
+          task2.getFormatter();
+      @Override
+      public String format(ArrayList<Object> result) {
+        return "MultiTask results:\n" + "(1) " + f1.format(result.get(0)) + "\n"
+               + "(2) " + f2.format(result.get(1));
+      }
+    };
+  }
+
+}

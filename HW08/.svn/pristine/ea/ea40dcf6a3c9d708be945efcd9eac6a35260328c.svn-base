@@ -1,0 +1,9 @@
+package chatRoom.model;
+
+import common.IChatRoom;
+
+public interface IMini2MainAdapter {
+	
+	public void leaveRoom(IChatRoom chatroom);
+
+}

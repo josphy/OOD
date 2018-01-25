@@ -1,0 +1,13 @@
+package engine.model;
+
+/**
+ * Engine's model to view adapter
+ * @author Li Zhu, Zheng You
+ */
+public interface IEngineModel2ViewAdapter {
+  /**
+   * Append String s to the view's display panel.
+   * @param s   the String to be added.
+   */
+  public void append(String s);
+}

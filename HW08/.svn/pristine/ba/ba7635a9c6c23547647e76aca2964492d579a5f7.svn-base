@@ -1,0 +1,49 @@
+package chatRoom.model;
+
+import java.util.Set;
+import java.util.UUID;
+
+import common.IChatroom;
+import common.IConnect;
+import provided.datapacket.DataPacket;
+
+public class ChatRoom implements IChatroom {
+
+	@Override
+	public UUID getID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getChatroomName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<IConnect> getConnects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addConnect(IConnect conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeConnect(IConnect conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void sendMsg(DataPacket<?, IConnect> dataPacket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

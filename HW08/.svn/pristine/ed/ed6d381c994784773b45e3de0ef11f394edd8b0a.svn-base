@@ -1,0 +1,49 @@
+package chatRoom.view;
+
+public interface IChatRoomModelAdapter {
+	
+	public void sendMsg(String text); //msg type unknown
+	
+	public void sendImg();
+	
+	public void getUserList();
+	
+	public void quit();
+	
+	public void invite(String ip);
+	
+	public static IChatRoomModelAdapter NULL_OBJECT = new IChatRoomModelAdapter() {
+
+		@Override
+		public void sendMsg(String text) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void sendImg() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void getUserList() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void quit() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void invite(String ip) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+
+}

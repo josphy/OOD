@@ -1,0 +1,50 @@
+package chatRoom.model;
+
+import java.util.Map;
+import java.util.UUID;
+
+import common.IChatroom;
+import common.IConnect;
+
+public class ChatRoom implements IChatroom {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8666541423683301661L;
+
+	public ChatRoom() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public UUID getID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<UUID, IConnect> getConnects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addConnect(IConnect conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeConnect(IConnect conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void sendMsg(String msg) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

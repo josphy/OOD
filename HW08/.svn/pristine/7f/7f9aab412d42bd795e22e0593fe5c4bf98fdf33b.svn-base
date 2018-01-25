@@ -1,0 +1,19 @@
+package chatRoom.model;
+
+import java.awt.Container;
+
+public interface ICmd2ModelAdapter {
+	
+	public void addToScrollable(Container container);	//Supplier<Container> containerFac; componentFac.get() = new Component();
+
+	public ICmd2ModelAdapter NULL_OBJECT = new ICmd2ModelAdapter() {
+
+		@Override
+		public void addToScrollable(Container container) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+
+}

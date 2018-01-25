@@ -1,0 +1,61 @@
+package lz50_hz56.chatApp.controller;
+
+import java.awt.EventQueue;
+
+import lz50_hz56.chatApp.model.ChatAppModel;
+import lz50_hz56.chatApp.model.ChatAppModel2ViewAdapter;
+import lz50_hz56.chatApp.model.ChatUser;
+import lz50_hz56.chatApp.view.IMainView2ModelAdapter;
+import lz50_hz56.chatApp.view.MainView;
+
+public class MainController {
+
+	private MainView<ChatUser> view;
+
+	private ChatAppModel model;
+	
+	private MainController() {
+		
+		model = new ChatAppModel(new ChatAppModel2ViewAdapter() {
+			
+		});
+		
+		view = new MainView<ChatUser>(new IMainView2ModelAdapter() {
+
+			@Override
+			public void createChatRoom(String name) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			
+		});
+				
+				
+				
+	}
+	
+	
+	public void start() {
+		model.start();
+		view.start();
+	}
+	
+	/**
+	 * Launch the application.
+	 * @param args Arguments given by the system or command line.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() { // Java specs say that the system must be constructed on the GUI event thread.
+			public void run() {
+				try {
+					MainController controller = new MainController(); // instantiate the system
+					controller.start(); // start the system
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

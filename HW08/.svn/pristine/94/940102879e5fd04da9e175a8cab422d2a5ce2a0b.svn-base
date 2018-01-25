@@ -1,0 +1,24 @@
+package chatApp.Data;
+
+import common.IReceiver;
+import common.IRemoveReceiverType;
+
+public class RemoveReceiverData implements IRemoveReceiverType {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -495923518731046986L;
+
+	private IReceiver receiverStub;
+
+	public RemoveReceiverData(IReceiver stub) {
+		this.receiverStub = stub;
+	}
+
+	@Override
+	public IReceiver getReceiverStub() {
+		return this.receiverStub;
+	}
+
+}

@@ -1,0 +1,24 @@
+package chatApp.Data;
+
+import common.IAddReceiverType;
+import common.IReceiver;
+
+public class AddReceiverData implements IAddReceiverType {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8131659606791620349L;
+	
+	private IReceiver receiverStub;
+
+	public AddReceiverData(IReceiver stub) {
+		this.receiverStub = stub;
+	}
+
+	@Override
+	public IReceiver getReceiverStub() {
+		return receiverStub;
+	}
+
+}

@@ -1,0 +1,49 @@
+package client.view;
+
+/**
+ * Client's view to model adapter.
+ * @author Zheng You, Li Zhu
+ */
+public interface IClientView2ModelAdapter<TDropListItem> {
+  /**
+   * Stop the client.
+   */
+  public void stop();
+
+  /**
+   * Connect the client to the remoteHost.
+   * @param remoteHost  the IP address of the remote host
+   */
+  public void connectTo(String remoteHost);
+
+  /**
+   * Send String s to a server.
+   * @param s   the message to be sent
+   */
+  public void sendMsgToServer(String s);
+
+  /**
+   * Add Task whose name is String s to the client and return a TDropListItem.
+   * @param s   the name of the task
+   * @return    something to put on the droplists
+   */
+  public TDropListItem addItem(String s);
+
+  /**
+   * Perform the choice task with argument arg.
+   * @param task  the task to be executed
+   * @param arg   the argument of the task
+   * @return      the result of the task execution
+   */
+  public String runTask(TDropListItem task, String arg);
+
+  /**
+   * Combine two tasks and return the combined one.
+   * @param task1   the 1st task
+   * @param task2   the 2nd task
+   * @return        the combined task
+   */
+  public TDropListItem combineTasks(TDropListItem task1,
+      TDropListItem task2);
+
+}
