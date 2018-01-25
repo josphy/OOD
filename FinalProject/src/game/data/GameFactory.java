@@ -1,0 +1,69 @@
+package game.data;
+
+import java.awt.Component;
+import java.io.Serializable;
+
+import common.ICRCmd2ModelAdapter;
+import common.IComponentFactory;
+import common.IReceiver;
+import game.controller.GameController;
+import game.view.GameView;
+import provided.mixedData.MixedDataKey;
+
+/**
+ * Factory to start game mini-mini-MVC
+ */
+public class GameFactory implements IComponentFactory, Serializable {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -2634933169569584607L;
+
+	/**
+	 * holds server stub
+	 */
+	private IReceiver serverStub;
+
+	/**
+	 * game view key in client's mixed data dictionary
+	 */
+	private MixedDataKey<GameView> viewKey;
+
+	/**
+	 * client's chat room command to model adapter
+	 */
+	private ICRCmd2ModelAdapter modelAdpt;
+
+	/**
+	 * factory constructor
+	 * @param serverStub externally-provided server stub
+	 * @param viewKey mixed data key for game view
+	 */
+	public GameFactory(IReceiver serverStub, MixedDataKey<GameView> viewKey) {
+		this.serverStub = serverStub;
+		this.viewKey = viewKey;
+	}
+
+	/**
+	 * set command to model adapter
+	 * @param adapter client model adapter
+	 */
+	public void setCmd2ModelAdapter(ICRCmd2ModelAdapter adapter) {
+		this.modelAdpt = adapter;
+	}
+
+	/**
+	 * method to make game
+	 */
+	@Override
+	public Component makeComponent() {
+		GameController gameController = new GameController(serverStub, modelAdpt);
+		gameController.start();
+		//put view into mixedDataDict
+		GameView view = gameController.getGameView();
+		modelAdpt.put(viewKey, view);
+		return gameController.getView();
+	}
+
+}

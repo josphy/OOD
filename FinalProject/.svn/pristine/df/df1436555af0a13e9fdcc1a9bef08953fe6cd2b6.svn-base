@@ -1,0 +1,24 @@
+package concrete.data;
+
+import javax.swing.ImageIcon;
+
+import common.ICRMessageType;
+
+public class ImageMessageData implements ICRMessageType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6953304545289623018L;
+	
+	private ImageIcon image;
+	
+	public ImageMessageData(ImageIcon image) {
+		this.image = image;
+	}
+	
+	public ImageIcon getImage() {
+		return this.image;
+	}
+
+}

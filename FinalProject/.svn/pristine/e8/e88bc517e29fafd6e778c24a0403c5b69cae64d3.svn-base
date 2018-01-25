@@ -1,0 +1,8 @@
+package game.model;
+
+/**
+ * game model's adapter to game view
+ */
+public interface IGameModel2ViewAdapter {
+
+}

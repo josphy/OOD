@@ -1,0 +1,13 @@
+package server.message;
+
+import game.data.IGameMsgType;
+
+public class JudgeChoiceData implements IGameMsgType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6799435267325901857L;
+	
+	
+}

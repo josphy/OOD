@@ -1,0 +1,506 @@
+package chatApp.model;
+
+import java.awt.Container;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+import common.DataPacketCR;
+import common.DataPacketUser;
+import common.DataPacketUserAlgoCmd;
+import common.datatype.IRequestCmdType;
+import common.datatype.chatroom.IAddReceiverType;
+import common.datatype.user.IInvitationType;
+import common.datatype.user.IQuitType;
+import common.datatype.user.IUserExceptionStatusType;
+import common.datatype.user.IUserInstallCmdType;
+import common.datatype.user.IUserRejectionStatusType;
+import common.IChatRoom;
+import common.IComponentFactory;
+import common.IReceiver;
+import common.IUser;
+import common.IUserCmd2ModelAdapter;
+import common.IUserMessageType;
+import concrete.ChatRoom;
+import concrete.Receiver;
+import concrete.User;
+import concrete.data.RequestCmdData;
+import concrete.data.chatroom.AddReceiverData;
+import concrete.data.user.UserExceptionStatusCmd;
+import concrete.data.user.UserRejectionStatusCmd;
+import provided.datapacket.DataPacketAlgo;
+import provided.mixedData.MixedDataDictionary;
+import provided.mixedData.MixedDataKey;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+import provided.util.IVoidLambda;
+
+/**
+ * chat app model (main model)
+ */
+public class ChatAppModel {
+
+	/**
+	 * adapter to main view
+	 */
+	private IMainViewAdapter viewAdpt;
+
+	/**
+	 * chat user
+	 */
+	private User user;
+
+	/**
+	 * chat app user's UUID
+	 */
+	private UUID uuid;
+
+	/**
+	 * remote stub for current user
+	 */
+	private IUser userStub;
+
+	/**
+	 * collector of Receiver objects to avoid it from being cleared
+	 */
+	private Set<Receiver> generatedReceivers = new HashSet<>();
+
+	/**
+	 * store mini models
+	 */
+	private Map<IChatRoom, IMain2MiniAdapter> miniMVCAdpts = new HashMap<>();
+
+	/**
+	 * local visitor to process incoming data packets
+	 */
+	private DataPacketAlgo<String, String> myDataPacketAlgo;
+
+	/**
+	 * store packets of unknown type for later execution
+	 */
+	private Map<Class<?>, Set<DataPacketUser<?>>> unknownDataPackets = new HashMap<>();
+
+	/**
+	 * a local storage for the whole application
+	 */
+	private MixedDataDictionary mixedDataDict = new MixedDataDictionary();
+
+	/**
+	 * provided utils for RMI connection
+	 */
+	private IRMIUtils rmiUtils;
+
+	/**
+	 * local registry
+	 */
+	private Registry registry;
+
+	/**
+	 * constructor of main model
+	 * 
+	 * @param adapter
+	 *            main model to main view adapter
+	 */
+	public ChatAppModel(IMainViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+
+	/**
+	 * start running main model
+	 */
+	public void start() {
+		viewAdpt.append("Welcome to Chat App!\n");
+		this.myDataPacketAlgo = new DataPacketAlgo<String, String>(null);
+		initDataPacketAlgo();
+	}
+
+	/**
+	 * command to main model adapter
+	 */
+	private IUserCmd2ModelAdapter cmd2ModelAdpt = new IUserCmd2ModelAdapter() {
+
+		@Override
+		public String getName() {
+			try {
+				return user.getName();
+			} catch (RemoteException e) {
+				System.err.println("exception getting user name: /n" + e);
+				e.printStackTrace();
+			}
+			return null;
+		}
+
+		@Override
+		public void appendMsg(String text, String name) {
+			viewAdpt.append(name + ": " + text);
+		}
+
+		@Override
+		public void buildScrollableComponent(IComponentFactory fac, String label) {
+			Container panel = viewAdpt.buildScrollablePanel(label);
+			panel.add(fac.makeComponent());
+			panel.validate();
+			panel.repaint();
+		}
+
+		@Override
+		public void buildNonScrollableComponent(IComponentFactory fac, String label) {
+			Container panel = viewAdpt.buildUnscrollablePanel(label);
+			panel.add(fac.makeComponent());
+			panel.validate();
+			panel.repaint();
+		}
+
+		@Override
+		public <T> T put(MixedDataKey<T> key, T value) {
+			return mixedDataDict.put(key, value);
+		}
+
+		@Override
+		public <T> T get(MixedDataKey<T> key) {
+			return mixedDataDict.get(key);
+		}
+
+		@Override
+		public <T extends IUserMessageType> void sendTo(IUser target, Class<T> id, T data) {
+			try {
+				target.receive(new DataPacketUser<T>(id, data, userStub));
+			} catch (RemoteException e) {
+				System.err.println("exception sending message in userCmd2ModelAdapter:/n" + e);
+				e.printStackTrace();
+			}
+
+		}
+
+	};
+
+	/**
+	 * Command used to output strings to one or more destinations. By default,
+	 * output goes to standard error.
+	 */
+	private IVoidLambda<String> outputCmd = new IVoidLambda<String>() {
+		public void apply(String... msgs) {
+			for (String s : msgs) {
+				viewAdpt.append(s + '\n');
+			}
+		}
+	};
+
+	/**
+	 * user login
+	 * 
+	 * @param port
+	 *            port for user stub
+	 * @param name
+	 *            self defined user name for display
+	 */
+	public void login(int port, String name) {
+		viewAdpt.append("Logging in...\n");
+		try {
+			rmiUtils = new RMIUtils(outputCmd);
+			rmiUtils.startRMI(port + 20);
+			registry = rmiUtils.getLocalRegistry();
+			viewAdpt.setLocalIP(rmiUtils.getLocalAddress());
+			viewAdpt.append("Ready...\n");
+		} catch (SocketException | UnknownHostException e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+		}
+
+		try {
+			uuid = UUID.randomUUID();
+			user = new User(uuid, name);
+			user.setDataPacketAlgo(this.myDataPacketAlgo);
+
+			userStub = (IUser) UnicastRemoteObject.exportObject(user, port);
+			registry.rebind(IUser.BOUND_NAME, userStub);
+			viewAdpt.append("IUser " + name + " bound to \"" + IUser.BOUND_NAME + "\"\n");
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while creating user: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * connect to remote user
+	 * 
+	 * @param remoteHost
+	 *            remote user ip
+	 */
+	public void connectTo(String remoteHost) {
+		try {
+			String[] remote = remoteHost.split(":"); // remoteHost = remoteIP + ":" + port;
+			String remoteIP = remote[0]; // String port = remote[1];
+
+			viewAdpt.append("Locating registry at " + remoteIP + "...\n");
+			Registry registryRemote = rmiUtils.getRemoteRegistry(remoteIP);
+			viewAdpt.append("Found registry: " + registryRemote + "\n");
+
+			IUser remoteUserStub = (IUser) registryRemote.lookup(IUser.BOUND_NAME);
+			viewAdpt.append("Found remote user object: " + remoteUserStub + "\n");
+			user.connect(remoteUserStub);
+			remoteUserStub.connect(userStub);
+			refreshConnectedUser();
+
+		} catch (RemoteException | NotBoundException e) {
+			System.err.println("Exception while retrieving remote user stub: \n" + e);
+			e.printStackTrace();
+		}
+
+		viewAdpt.append("Connection to " + remoteHost + " established!\n");
+	}
+
+	/**
+	 * request rooms from remote user
+	 * 
+	 * @param other
+	 *            selected connected user
+	 */
+	public void requestRoom(IUser other) {
+		try {
+			Set<IChatRoom> otherRooms = (Set<IChatRoom>) other.getChatRooms();
+			for (IChatRoom chatroom : otherRooms) {
+				if (user.addChatRoom(chatroom))
+					viewAdpt.addChatroom(chatroom);
+			}
+
+			viewAdpt.append("Obtained room list from " + other.getName() + "!\n");
+			refreshConnectedUser();
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while requesting room from remote user: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * create new room
+	 * 
+	 * @param port
+	 *            parameter not used currently
+	 * @param name
+	 *            self defined room name
+	 */
+	public void createRoom(int port, String name) {
+		try {
+			ChatRoom newRoom = new ChatRoom(UUID.randomUUID(), name);
+			viewAdpt.append("Make new ChatRoom: " + newRoom.getName() + "\n");
+
+			// add new chat room to the user's chat room lists
+			user.addChatRoom(newRoom);
+			viewAdpt.addChatroom(newRoom);
+			viewAdpt.append("Add new chatroom <" + newRoom.getName() + "> to user <" + user.getName() + ">\n");
+
+			refreshConnectedUser();
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while creating a new room: \n" + e);
+			e.printStackTrace();
+		}
+		// registry.rebind(IConnect.BOUND_NAME + newRoom.hashCode(), receiverStub);
+
+	}
+
+	/**
+	 * join selected room
+	 * 
+	 * @param port
+	 *            open port for this room's receiver stub
+	 * @param chatroom
+	 *            selected chat room
+	 */
+	public void joinRoom(int port, IChatRoom chatroom) {
+		viewAdpt.append("Joining ChatRoom " + chatroom.getName() + "...\n");
+		if (miniMVCAdpts.containsKey(chatroom)) {
+			viewAdpt.append("Already in the room. Joining failed. \n");
+			return;
+		}
+
+		try {
+			// make a new IReceiver stub for user in the new chatroom
+			Receiver newReceiver = new Receiver(UUID.randomUUID(), userStub);
+			viewAdpt.append("Make new Receiver for User:" + user.getName() + "\n");
+			IReceiver receiverStub = (IReceiver) UnicastRemoteObject.exportObject(newReceiver, port);
+			registry.rebind(chatroom.getName(), receiverStub);
+			viewAdpt.append("Make new IReceiver Stub.\n");
+
+			// add receiver stub to newRoom
+			chatroom.addIReceiverStub(receiverStub);
+			viewAdpt.append("Add new ChatServer Stub to newRoom.\n");
+
+			viewAdpt.append("Start joining...\n");
+			chatroom.sendPacket(new DataPacketCR<IAddReceiverType>(IAddReceiverType.class,
+					new AddReceiverData(receiverStub), receiverStub)); // IAddReceiverType
+			chatroom.addIReceiverStub(receiverStub);
+
+			IMain2MiniAdapter miniMVCAdpt = viewAdpt.makeMini(chatroom, receiverStub, newReceiver, mixedDataDict);
+			generatedReceivers.add(newReceiver);// keep reference so that it is not collected as garbage
+			miniMVCAdpts.put(chatroom, miniMVCAdpt);
+			viewAdpt.append("Success!");
+
+			refreshConnectedUser();
+
+		} catch (Exception e) {
+			viewAdpt.append("Fail to join the room!\n");
+			System.err.println("Exception while joining room: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * force view to display newest connected user list
+	 */
+	public void refreshConnectedUser() {
+		viewAdpt.setConnectedUser(user.getConnectedUsers());
+	}
+
+	/**
+	 * quit chat app after leaving connected rooms
+	 */
+	public void quit() {
+		for (IMain2MiniAdapter miniModel : miniMVCAdpts.values()) {
+			miniModel.quitRoom();
+		}
+		if (rmiUtils != null)
+			rmiUtils.stopRMI();
+		System.exit(0);
+	}
+
+	/**
+	 * close room tab
+	 * 
+	 * @param chatroom
+	 *            room tab to be closed
+	 */
+	public void deleteRoom(IChatRoom chatroom) {
+		viewAdpt.getTabPnl().remove(miniMVCAdpts.get(chatroom).getMiniView());
+		miniMVCAdpts.remove(chatroom);
+	}
+
+	// public void invite(IUser other) {}
+
+	/**
+	 * specify commands to process different types of User messages
+	 */
+	public void initDataPacketAlgo() {
+		/**
+		 * unknown message type goes to default command
+		 */
+		myDataPacketAlgo.setDefaultCmd(new DataPacketUserAlgoCmd<IUserMessageType>() {
+
+			private static final long serialVersionUID = -7935877124304940055L;
+
+			@Override
+			public String apply(Class<?> index, DataPacketUser<IUserMessageType> host, String... params) {
+				System.out.println("unknown user data packet type " + index.toString());
+
+				// allow multiple unknown packets of the same type
+				if (unknownDataPackets.containsKey(index)) {
+					unknownDataPackets.get(index).add(host);
+				} else {
+					Set<DataPacketUser<?>> values = new HashSet<DataPacketUser<?>>();
+					values.add(host);
+					unknownDataPackets.put(index, values);
+				}
+
+				(new Thread() {
+					public void run() {
+						super.run();
+						try {
+							host.getSender().receive(new DataPacketUser<IRequestCmdType>(IRequestCmdType.class,
+									new RequestCmdData(index), userStub));
+						} catch (RemoteException e) {
+							System.err.println("Exception sending command request: \n" + e);
+							e.printStackTrace();
+						}
+
+					}
+				}).start();
+
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(IUserCmd2ModelAdapter cmd2ModelAdpt) {
+			}
+		});
+
+		myDataPacketAlgo.setCmd(IUserInstallCmdType.class, new DataPacketUserAlgoCmd<IUserInstallCmdType>() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 2584816089372155760L;
+
+			@Override
+			public String apply(Class<?> index, DataPacketUser<IUserInstallCmdType> host, String... params) {
+				System.out.println("receive cmd to install");
+				DataPacketUserAlgoCmd<?> unknownCmd = host.getData().getCmd();
+				unknownCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+				myDataPacketAlgo.setCmd(host.getData().getCmdId(), unknownCmd);
+				Set<DataPacketUser<?>> executables = unknownDataPackets.remove(host.getData().getCmdId());
+				for (DataPacketUser<?> executable : executables) {
+					executable.execute(myDataPacketAlgo, params);
+				}
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(IUserCmd2ModelAdapter cmd2ModelAdpt) {
+			}
+		});
+
+		myDataPacketAlgo.setCmd(IInvitationType.class, new DataPacketUserAlgoCmd<IInvitationType>() {
+
+			private static final long serialVersionUID = -1077314443648529256L;
+
+			@Override
+			public String apply(Class<?> index, DataPacketUser<IInvitationType> host, String... params) {
+				IChatRoom chatroom = host.getData().getChatRoom();
+				user.addChatRoom(chatroom);
+				viewAdpt.addChatroom(chatroom);
+				viewAdpt.append("Invited to room " + chatroom.getName() + "!\n");
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(IUserCmd2ModelAdapter cmd2ModelAdpt) {
+			}
+		});
+
+		myDataPacketAlgo.setCmd(IQuitType.class, new DataPacketUserAlgoCmd<IQuitType>() {
+
+			private static final long serialVersionUID = -5132083404368159574L;
+
+			@Override
+			public String apply(Class<?> index, DataPacketUser<IQuitType> host, String... params) {
+				user.removeUser(host.getData().getUserStub());
+				return null;
+			}
+
+			@Override
+			public void setCmd2ModelAdpt(IUserCmd2ModelAdapter cmd2ModelAdpt) {
+			}
+
+		});
+
+		UserExceptionStatusCmd exceptionCmd = new UserExceptionStatusCmd();
+		exceptionCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+		myDataPacketAlgo.setCmd(IUserExceptionStatusType.class, exceptionCmd);
+
+		UserRejectionStatusCmd rejectionCmd = new UserRejectionStatusCmd();
+		exceptionCmd.setCmd2ModelAdpt(cmd2ModelAdpt);
+		myDataPacketAlgo.setCmd(IUserRejectionStatusType.class, rejectionCmd);
+
+	}
+
+}

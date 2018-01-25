@@ -1,0 +1,28 @@
+package game.model;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+
+	/**
+	 * constructor
+	 * @param adapter externally provided adapter to view
+	 */
+	public GameModel(IGameModel2ViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+	
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		
+	}
+
+}

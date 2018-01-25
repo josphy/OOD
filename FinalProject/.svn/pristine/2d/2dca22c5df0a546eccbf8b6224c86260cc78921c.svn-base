@@ -1,0 +1,22 @@
+package server.message;
+
+
+import game.data.IGameMsgType;
+
+public class UpdateScoreData implements IGameMsgType {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2474157348627230448L;
+	
+	private int score;
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public int getScore() {
+		return this.score;
+	}
+}

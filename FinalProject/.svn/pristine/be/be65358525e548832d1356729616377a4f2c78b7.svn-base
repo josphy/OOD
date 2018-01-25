@@ -1,0 +1,14 @@
+package concrete.data.user;
+
+import common.IChatRoom;
+import common.datatype.user.IInvitationType;
+
+public class InvitationData implements IInvitationType {
+
+	@Override
+	public IChatRoom getChatRoom() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

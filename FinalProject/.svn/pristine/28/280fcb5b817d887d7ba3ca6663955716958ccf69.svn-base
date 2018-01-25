@@ -1,0 +1,25 @@
+package concrete.data.user;
+
+import common.DataPacketUser;
+import common.IUserMessageType;
+import common.datatype.user.IUserExceptionStatusType;
+
+public class UserExceptionStatusData implements IUserExceptionStatusType {
+
+	public UserExceptionStatusData() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public DataPacketUser<? extends IUserMessageType> getOriginalData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFailureInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

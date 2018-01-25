@@ -1,0 +1,135 @@
+package concrete;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+import common.DataPacketCR;
+import common.ICRMessageType;
+import common.IChatRoom;
+import common.IReceiver;
+import common.IUser;
+
+/**
+ * ChatRoom local implementation of network IChatRoom API
+ */
+public class ChatRoom implements IChatRoom {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = 4366457236493848337L;
+
+	/**
+	 * unique id
+	 */
+	private UUID id;
+
+	/**
+	 * user defined chat room name
+	 */
+	private String name;
+
+	/**
+	 * chat room user list
+	 */
+	private Map<UUID, IReceiver> receiverStubs;
+
+	/**
+	 * chat room constructor
+	 * @param id unique id
+	 * @param name defined name
+	 */
+	public ChatRoom(UUID id, String name) {
+		this.id = id;
+		this.name = name;
+		this.receiverStubs = new HashMap<>();
+	}
+
+	@Override
+	/**
+	 * getter of room name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	/**
+	 * getter of unique id
+	 */
+	public UUID getUUID() {
+		return id;
+	}
+
+	@Override
+	/**
+	 * get room user list
+	 */
+	public Collection<IReceiver> getIReceiverStubs() {
+		return new HashSet<IReceiver>(receiverStubs.values());
+	}
+
+	@Override
+	/**
+	 * chat room responsible for broadcasting data packet to all receiver 
+	 */
+	public <T extends ICRMessageType> void sendPacket(DataPacketCR<T> data) {
+		(new Thread() {
+			@Override
+			public void run() {
+				super.run();
+				receiverStubs.values().iterator().forEachRemaining((receiver) -> {
+					try {
+						receiver.receive(data);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+				});
+			}
+		}).start();
+	}
+
+	@Override
+	/**
+	 * add stub locally
+	 */
+	public boolean addIReceiverStub(IReceiver receiver) {
+		try {
+			boolean isNew = !receiverStubs.containsKey(receiver.getUUID());
+			receiverStubs.put(receiver.getUUID(), receiver);
+			return isNew;
+		} catch (RemoteException e) {
+			System.err.println("error adding receiver stub to chat room");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	/**
+	 * remove stub locally
+	 */
+	public boolean removeIReceiverStub(IReceiver receiver) {
+		try {
+			return receiverStubs.remove(receiver.getUUID(), receiver);
+		} catch (RemoteException e) {
+			System.err.println("error removing receiver stub in chat room");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+	 * display user name
+	 */
+	public String toString() {
+		return this.name;
+	}
+	
+
+}

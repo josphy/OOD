@@ -1,0 +1,24 @@
+package game.data;
+
+import gov.nasa.worldwind.geom.Position;
+
+
+public class fengDraft_State {
+	
+	private String stateName;
+	
+	private Position statePos;
+	
+	public fengDraft_State(String name, Position pos) {
+		this.stateName = name;
+		this.statePos = pos;
+	}
+	
+	public String getStateName() {
+		return this.stateName;
+	}
+	
+	public Position getStatePos() {
+		return this.statePos;
+	}
+}

@@ -1,0 +1,117 @@
+package chatRoom.model;
+
+import java.rmi.RemoteException;
+
+import javax.swing.ImageIcon;
+
+import common.DataPacketCR;
+import common.datatype.chatroom.IRemoveReceiverType;
+import concrete.data.RemoveReceiverData;
+import game.data.GameFactory;
+import game.data.GameStartData;
+import common.IChatRoom;
+import common.IReceiver;
+
+/**
+ * chat room model (mini model)
+ */
+public class ChatRoomModel {
+
+	/**
+	 * adater to mini view
+	 */
+	public IMiniViewAdapter viewAdpt = IMiniViewAdapter.NULL_OBJECT; //local view adapter
+
+	/**
+	 * corresponding chatroom
+	 */
+	private IChatRoom chatroom; //API - to send
+
+	/**
+	 * current user's receiver stub for this room
+	 */
+	private IReceiver myReceiver; //API - to receive
+
+	/**
+	 * adapter to main model
+	 */
+	private IMini2MainAdapter mainAdpt;
+
+	/**
+	 * constructor
+	 * @param chatroom chat room instance of this mini model
+	 * @param receiverStub this user's receiver stub in this chat room
+	 * @param viewAdpt adapter to mini view
+	 * @param mainAdpt adapter to main model
+	 */
+	public ChatRoomModel(IChatRoom chatroom, IReceiver receiverStub, IMiniViewAdapter viewAdpt,
+			IMini2MainAdapter mainAdpt) {
+		this.chatroom = chatroom;
+		this.viewAdpt = viewAdpt;
+		this.myReceiver = receiverStub;
+		this.mainAdpt = mainAdpt;
+	}
+
+	/**
+	 * start mini model
+	 * @throws RemoteException exception when starting mini model
+	 */
+	public void start() throws RemoteException {
+	}
+
+	/**
+	 * current user quit the room
+	 */
+	public void leaveRoom() {
+		chatroom.removeIReceiverStub(myReceiver);
+		chatroom.sendPacket(new DataPacketCR<IRemoveReceiverType>(IRemoveReceiverType.class,
+				new RemoveReceiverData(myReceiver), myReceiver)); //IAddReceiverType
+		refreshUserList();
+		viewAdpt.append("You have left this room!");
+		mainAdpt.leaveRoom(chatroom);
+		//		System.exit(0);	//shut down the GUI
+	}
+
+	/**
+	 * send text to the room
+	 * @param text user input text message
+	 */
+	public void sendText(String text) {
+		chatroom.sendPacket(new DataPacketCR<String>(String.class, text, myReceiver));
+	}
+
+	/**
+	 * send image to the room
+	 * @param image selected image
+	 */
+	public void sendImg(ImageIcon image) {
+		chatroom.sendPacket(new DataPacketCR<ImageIcon>(ImageIcon.class, image, myReceiver));
+	}
+	
+	/**
+	 * set up WWJ map view in remote receiver
+	 */
+	public void sendMap() {
+		GameFactory fac = new GameFactory(myReceiver);
+		GameStartData msg = new GameStartData(fac);
+		
+		chatroom.sendPacket(new DataPacketCR<GameStartData>(GameStartData.class, msg, myReceiver));
+		
+	}
+
+	/**
+	 * get current chat room 
+	 * @return current chatroom
+	 */
+	public IChatRoom getChatRoom() {
+		return this.chatroom;
+	}
+
+	/**
+	 * refresh user list in view
+	 */
+	public void refreshUserList() {
+		viewAdpt.setUserList(chatroom.getIReceiverStubs());
+	}
+
+}

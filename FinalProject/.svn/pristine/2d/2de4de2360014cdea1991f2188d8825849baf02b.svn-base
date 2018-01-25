@@ -1,0 +1,65 @@
+package game.view;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import gov.nasa.worldwind.globes.Earth;
+import map.MapPanel;
+
+import javax.swing.JSplitPane;
+import java.awt.Color;
+import java.awt.Dimension;
+
+public class GameView extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5179876899323256723L;
+
+	private JPanel contentPane;
+	private final JPanel pnlDisplay = new JPanel();
+	private final JPanel pnlControl = new JPanel();
+	private final JSplitPane splitPane = new JSplitPane();
+	private final JPanel pnlDialog = new JPanel();
+	private final MapPanel map = new MapPanel();
+	
+	private IGameView2ModelAdapter modelAdpt = null;
+	
+	public void start() {
+		map.start();
+		setVisible(true);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GameView(IGameView2ModelAdapter adapter) {
+		this.modelAdpt = adapter;
+		initGUI();
+	}
+	
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		
+		pnlDisplay.add(splitPane);
+		pnlDialog.setBackground(Color.WHITE);
+		splitPane.setLeftComponent(pnlDialog);
+		splitPane.setRightComponent(map);
+		
+		contentPane.add(pnlControl, BorderLayout.SOUTH);
+	}
+
+}

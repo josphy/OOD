@@ -1,0 +1,71 @@
+package server.view;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ServerView extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2169819873400934393L;
+	private JPanel contentPane;
+	private final JPanel pnlControl = new JPanel();
+	private final JPanel pnlDisplay = new JPanel();
+	private final JButton btnStart = new JButton("Start Game");
+	private final JScrollPane scrollPane = new JScrollPane();
+	private final JTextArea textInfo = new JTextArea();
+	
+	private IServerView2ModelAdapter modelAdpt;
+	
+	public void start() {
+		setVisible(true);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ServerView(IServerView2ModelAdapter modelAdpt) {
+		this.modelAdpt = modelAdpt;
+		initGUI();
+	}
+	
+	private void initGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		contentPane.add(pnlControl, BorderLayout.NORTH);
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelAdpt.startGame();
+			}
+		});
+		
+		pnlControl.add(btnStart);
+		
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		
+		pnlDisplay.add(scrollPane);
+		textInfo.setEditable(false);
+		
+		scrollPane.setViewportView(textInfo);
+	}
+	
+	public void append(String s) {
+		textInfo.append(s);
+		textInfo.setCaretPosition(textInfo.getText().length());
+	}
+
+}

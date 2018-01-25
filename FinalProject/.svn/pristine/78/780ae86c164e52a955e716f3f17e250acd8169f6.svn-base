@@ -1,0 +1,40 @@
+package game.data;
+
+import java.rmi.RemoteException;
+
+import common.DataPacketCR;
+import common.DataPacketCRAlgoCmd;
+import common.ICRCmd2ModelAdapter;
+
+
+public class GameOverAndLoseCmd2 extends DataPacketCRAlgoCmd<GameOverData> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4070653685550267823L;
+	
+	/**
+	 * adapter to chat room model
+	 */
+	private transient ICRCmd2ModelAdapter modelAdpt;
+
+	@Override
+	public String apply(Class<?> index, DataPacketCR<GameOverData> host, String... params) {
+		// TODO Auto-generated method stub
+		try {
+			modelAdpt.appendMsg("Game over! What a pity! You lost the game!", host.getSender().getUserStub().getName());
+		} catch (RemoteException e) {
+			System.err.println("Exception displaying message");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICRCmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		this.modelAdpt = cmd2ModelAdpt;
+	}
+
+}

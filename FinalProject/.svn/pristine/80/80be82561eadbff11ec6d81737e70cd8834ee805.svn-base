@@ -1,0 +1,40 @@
+package server.message;
+
+import java.rmi.RemoteException;
+
+import common.DataPacketCR;
+import common.DataPacketCRAlgoCmd;
+import common.ICRCmd2ModelAdapter;
+
+
+public class UpdateScoreCmd extends DataPacketCRAlgoCmd<UpdateScoreData>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6207773795946453769L;
+	
+	/**
+	 * adapter to chat room model
+	 */
+	private transient ICRCmd2ModelAdapter modelAdpt;
+
+	@Override
+	public String apply(Class<?> index, DataPacketCR<UpdateScoreData> host, String... params) {
+		// TODO Auto-generated method stub
+		try {
+			modelAdpt.appendMsg("Your team's score has been updated to " + Integer.toString(host.getData().getScore()), host.getSender().getUserStub().getName());
+		} catch (RemoteException e) {
+			System.err.println("Exception updating score");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICRCmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		this.modelAdpt = cmd2ModelAdpt;
+	}
+
+}

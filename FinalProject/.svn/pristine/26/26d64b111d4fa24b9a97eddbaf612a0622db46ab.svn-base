@@ -1,0 +1,26 @@
+package game.data;
+
+import java.io.Serializable;
+
+import common.IReceiver;
+import game.controller.GameController;
+
+public class GameFactory implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 789845539230172004L;
+	
+	private IReceiver serverStub;
+
+	public GameFactory(IReceiver serverStub) {
+		this.serverStub = serverStub;
+	}
+
+	public void makeGame() {
+		GameController gameController = new GameController();
+		gameController.start();
+	}
+
+}

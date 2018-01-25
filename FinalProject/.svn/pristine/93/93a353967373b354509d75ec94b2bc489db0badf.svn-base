@@ -1,0 +1,12 @@
+package server.message;
+
+
+import game.data.IGameMsgType;
+
+public class GameOverData implements IGameMsgType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 594435138833178660L;
+}

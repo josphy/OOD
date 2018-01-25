@@ -1,0 +1,45 @@
+package game.data;
+
+import common.ICRCmd2ModelAdapter;
+
+/**
+ * game data: game start data
+ */
+public class GameStartData implements IGameMsgType{
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -2681250750840378085L;
+	
+	/**
+	 * factory instance to makeGame
+	 */
+	private GameFactory fac;
+
+	/**
+	 * constructor
+	 * @param fac externally-provided game factory
+	 */
+	public GameStartData(GameFactory fac){
+		this.fac = fac;
+	}
+	
+	/**
+	 * getter of game factory
+	 * @return game factory
+	 */
+	public GameFactory getFactory() {
+		return fac;
+	}
+
+	/**
+	 * set client command to model adapter
+	 * @param modelAdpt client's chat room command to model adapter
+	 */
+	public void setCmd2ModelAdapter(ICRCmd2ModelAdapter modelAdpt) {
+		fac.setCmd2ModelAdapter(modelAdpt);
+		
+	}
+
+}

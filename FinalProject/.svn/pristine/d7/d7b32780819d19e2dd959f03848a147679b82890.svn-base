@@ -1,0 +1,20 @@
+package game.data;
+
+public class GameStartData implements IGameMsg{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2681250750840378085L;
+	
+	private GameFactory fac;
+
+	public GameStartData(GameFactory fac){
+		this.fac = fac;
+	}
+	
+	public GameFactory getFactory() {
+		return fac;
+	}
+
+}

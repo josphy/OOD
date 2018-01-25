@@ -1,0 +1,43 @@
+package game.data;
+
+import java.awt.Component;
+import java.io.Serializable;
+
+import common.IComponentFactory;
+import common.IReceiver;
+import game.controller.GameController;
+
+/**
+ * Factory to start game mini-mini-MVC
+ */
+public class GameFactory implements IComponentFactory, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2634933169569584607L;
+
+	/**
+	 * holds server stub
+	 */
+	private IReceiver serverStub;
+
+	/**
+	 * factory constructor
+	 * @param serverStub externally-provided server stub
+	 */
+	public GameFactory(IReceiver serverStub) {
+		this.serverStub = serverStub;
+	}
+
+	/**
+	 * method to make game
+	 */
+	@Override
+	public Component makeComponent() {
+		GameController gameController = new GameController();
+		gameController.start();
+		return gameController.getView();
+	}
+
+}

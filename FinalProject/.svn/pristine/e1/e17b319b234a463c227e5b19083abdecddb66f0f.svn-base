@@ -1,0 +1,82 @@
+package server.controller;
+
+import java.awt.EventQueue;
+
+import server.model.ServerModel;
+import server.view.ServerView;
+import server.model.IServerModel2ViewAdapter;
+import server.view.IServerView2ModelAdapter;
+
+/**
+ * server MVC controller
+ */
+public class ServerController {
+	
+	/**
+	 * server model
+	 */
+	ServerModel model;
+	
+	/**
+	 * server view
+	 */
+	ServerView view;
+
+	/**
+	 * constructor
+	 */
+	public ServerController() {
+		model = new ServerModel(new IServerModel2ViewAdapter() {
+
+			@Override
+			public void append(String s) {
+				view.append(s);		
+			}
+			
+		});
+		
+		view = new ServerView(new IServerView2ModelAdapter() {
+
+			@Override
+			public void startGame() {
+				model.sendGame();
+			}
+
+			@Override
+			public void stopGame() {
+				model.stopGame();
+			}
+
+			@Override
+			public void sendQuery() {
+				model.sendQuery();		
+			}
+			
+		});
+		
+	}
+
+	/**
+	 * start server model and view
+	 */
+	public void start() {
+		model.start();
+		view.start();
+	}
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ServerController controller = new ServerController();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

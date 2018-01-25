@@ -1,0 +1,343 @@
+package game.model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
+import java.util.UUID;
+
+import common.ICRCmd2ModelAdapter;
+import common.IReceiver;
+import gov.nasa.worldwind.geom.Position;
+import gov.nasa.worldwind.render.Annotation;
+import gov.nasa.worldwind.render.GlobeAnnotation;
+import map.MapLayer;
+import map.ToggleAnnotation;
+import provided.mixedData.MixedDataKey;
+import game.data.ChooseStateData;
+import game.data.fengDraft_State;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+	
+	private IReceiver serverStub;
+	
+//	private IReceiver clientStub;
+		
+	private ICRCmd2ModelAdapter clientModelAdpt;
+	
+	
+	private Stack<fengDraft_State> states = new Stack<fengDraft_State>();
+	
+	private ArrayList<ToggleAnnotation> stateAnnos = new ArrayList<ToggleAnnotation>();
+	
+	private MapLayer annotations = new MapLayer();
+	
+	private Map<Annotation, String> annotationMap= new HashMap<Annotation, String>();
+
+	/**
+	 * constructor
+	 * @param adapter externally provided adapter to view
+	 */
+	public GameModel(IReceiver serverStub, ICRCmd2ModelAdapter clientModelAdpt, IGameModel2ViewAdapter viewAdpt) {
+		this.serverStub = serverStub;
+		this.clientModelAdpt = clientModelAdpt;
+		this.viewAdpt = viewAdpt;
+	}	
+	
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		loadStateNames();
+		loadToggleAnnotations();
+		
+//		Position willy = Position.fromDegrees(29.718550, -95.399068, 150);
+//		Position epcot = Position.fromDegrees(28.374454, -81.549363, 1000);
+//		Position nyc   = Position.fromDegrees(40.748974, -73.990288, 10000);
+//		
+//		annotations.addToggleAnnotation("Willy", "Willy Selected!", willy);
+//		annotations.addToggleAnnotation("Epcot Center", "Epcot Selected!", epcot, 5000, 1000000);
+//		annotations.addAnnotation(new GlobeAnnotation("NYC", nyc));
+		
+		Set<Annotation> states = annotationMap.keySet();
+		for (Annotation state:states) {
+			annotations.addAnnotation(state);
+		}
+		
+		viewAdpt.show(annotations);
+	}
+	
+	/**
+	 * The method to count selected markers
+	 * @return the one selected marker; if selected more than one, return null
+	 */
+	public Annotation getOneSelected() {
+		int numberOfSelected = 0;
+		Annotation selected = null;
+		for (Annotation annotation: annotations.getAnnotations()) {
+			if (annotation instanceof ToggleAnnotation){  // must check this before GlobeAnnotation
+				if (((ToggleAnnotation) annotation).isSelected()) {
+					numberOfSelected++;
+					selected = annotation;
+				}
+			}
+		}
+		if (numberOfSelected == 1)
+			return selected;
+		else
+			return null;
+	}
+
+	public boolean submitToServer() {
+		Annotation selected = getOneSelected();
+		if (selected == null)
+			return false;
+		
+//		annotations.removeAnnotation(selected); 
+		//send selection to server
+		String stateName = annotationMap.get(selected);
+		clientModelAdpt.sendTo(serverStub, ChooseStateData.class, new ChooseStateData(stateName, selected));
+		((ToggleAnnotation) selected).toggleText();
+		return true;
+		
+	}
+	
+	/*
+	 * feng's personal thoughts: use stack to pop up question on the GUI
+	 */
+	public void loadStateNames() {
+//		ToggleAnnotation texas = new ToggleAnnotation("1", "1 selected", Position.fromDegrees(30.000, -99.000));
+//		annotationMap.put(texas, "Texas");
+		
+		states.push(new fengDraft_State("Texas", Position.fromDegrees(30.000, -99.000)));
+		states.push(new fengDraft_State("California", Position.fromDegrees(37.000, -119.000)));
+		states.push(new fengDraft_State("Alabama", Position.fromDegrees(32.500, -86.000)));
+		states.push(new fengDraft_State("Tennessee", Position.fromDegrees(35.000, -85.000)));
+		
+		states.push(new fengDraft_State("Pennsylvania", Position.fromDegrees(40.000, -77.000))); 
+		states.push(new fengDraft_State("Ohio", Position.fromDegrees(40.000, -82.000)));
+		states.push(new fengDraft_State("Illinois", Position.fromDegrees(39.000, -89.000)));
+		states.push(new fengDraft_State("Virginia", Position.fromDegrees(37.000, -79.000)));
+		
+		states.push(new fengDraft_State("Indiana", Position.fromDegrees(39.000, -86.000)));
+		states.push(new fengDraft_State("Massachusetts", Position.fromDegrees(42.000, -71.000)));
+		states.push(new fengDraft_State("Oklahoma", Position.fromDegrees(35.000, -98.000))); 
+		states.push(new fengDraft_State("Arizona", Position.fromDegrees(34.000, -111.000)));
+		
+		states.push(new fengDraft_State("Florida", Position.fromDegrees(27.000, -83.5000)));
+		states.push(new fengDraft_State("Colorado", Position.fromDegrees(39.000, -105.000)));
+		states.push(new fengDraft_State("Louisiana", Position.fromDegrees(30.000, -91.000)));
+		states.push(new fengDraft_State("Kentucky", Position.fromDegrees(37.000, -85.000)));
+		
+		states.push(new fengDraft_State("Missouri", Position.fromDegrees(38.000, -90.000)));
+		states.push(new fengDraft_State("Georgia", Position.fromDegrees(32.000, -82.000)));
+		states.push(new fengDraft_State("South Dakota", Position.fromDegrees(43.500, -100.000)));
+		states.push(new fengDraft_State("Wisconsin", Position.fromDegrees(45.000, -89.000)));
+		
+		states.push(new fengDraft_State("Utah", Position.fromDegrees(40.000, -111.5)));
+		states.push(new fengDraft_State("Kansas", Position.fromDegrees(38.500, -98.000)));
+		states.push(new fengDraft_State("New Mexico", Position.fromDegrees(34.000, -106.000)));
+		states.push(new fengDraft_State("Conneticut", Position.fromDegrees(41.000, -72.000)));
+		
+		states.push(new fengDraft_State("Michigan", Position.fromDegrees(44.500, -82.000)));
+		states.push(new fengDraft_State("New Hampshire", Position.fromDegrees(43.5, -71.000)));
+		states.push(new fengDraft_State("Wyoming", Position.fromDegrees(43.000, -107.000)));
+		states.push(new fengDraft_State("Oregon", Position.fromDegrees(44.000, -120.000)));
+		
+		states.push(new fengDraft_State("New Jersey", Position.fromDegrees(40.000, -74.000)));
+		states.push(new fengDraft_State("Maryland", Position.fromDegrees(38.000, -77.000)));
+		states.push(new fengDraft_State("North Carolina", Position.fromDegrees(35.000, -80.000)));
+		states.push(new fengDraft_State("West Virginia", Position.fromDegrees(38.500, -80.000)));
+		
+		states.push(new fengDraft_State("Minnesota", Position.fromDegrees(46.000, -93.000)));
+		states.push(new fengDraft_State("Mississippi", Position.fromDegrees(33.000, -90.000)));
+		states.push(new fengDraft_State("Washington", Position.fromDegrees(47.000, -120.000)));
+		states.push(new fengDraft_State("North Dakota", Position.fromDegrees(47.000, -100.000)));
+		
+		states.push(new fengDraft_State("South Carolina", Position.fromDegrees(33.500, -80.000)));
+		states.push(new fengDraft_State("Iowa", Position.fromDegrees(41.500, -93.000)));
+		states.push(new fengDraft_State("Maine", Position.fromDegrees(44.000, -69.000)));
+		states.push(new fengDraft_State("Nevada", Position.fromDegrees(38.500, -117.000)));
+		
+		states.push(new fengDraft_State("New York", Position.fromDegrees(43.000, -75.000)));
+	}
+	
+	public void loadToggleAnnotations() {
+		
+		//annotations.addToggleAnnotation("1", "You sure to choose this state?", Position.fromDegrees(35.000, -98.000)); //Oklahoma
+		ToggleAnnotation Oklahoma = new ToggleAnnotation("1", "You sure to choose this state?", Position.fromDegrees(35.000, -98.000));
+		annotationMap.put(Oklahoma, "Oklahoma");
+		
+		//annotations.addToggleAnnotation("2", "You sure to choose this state?", Position.fromDegrees(40.000, -77.000)); //Pennsylvania
+		ToggleAnnotation Pennsylvania = new ToggleAnnotation("2", "You sure to choose this state?", Position.fromDegrees(40.000, -77.000));
+		annotationMap.put(Pennsylvania, "Pennsylvania");
+		
+		//annotations.addToggleAnnotation("3", "You sure to choose this state?", Position.fromDegrees(43.500, -100.000)); //South Dakota
+		ToggleAnnotation sDakota = new ToggleAnnotation("3", "You sure to choose this state?", Position.fromDegrees(43.500, -100.000));
+		annotationMap.put(sDakota, "South Dakota");
+		
+		//annotations.addToggleAnnotation("4", "You sure to choose this state?", Position.fromDegrees(43.5, -71.000)); //"New Hampshire"
+		ToggleAnnotation nHampshire = new ToggleAnnotation("4", "You sure to choose this state?", Position.fromDegrees(43.5, -71.000));
+		annotationMap.put(nHampshire, "New Hampshire");
+		
+		//annotations.addToggleAnnotation("5", "You sure to choose this state?", Position.fromDegrees(38.500, -80.000)); //West Virginia
+		ToggleAnnotation wVirginia = new ToggleAnnotation("5", "You sure to choose this state?", Position.fromDegrees(38.500, -80.000));
+		annotationMap.put(wVirginia, "West Virginia");
+		
+		//annotations.addToggleAnnotation("6", "You sure to choose this state?", Position.fromDegrees(40.000, -74.000)); // "New Jersey"
+		ToggleAnnotation nJersey = new ToggleAnnotation("6", "You sure to choose this state?", Position.fromDegrees(40.000, -74.000));
+		annotationMap.put(nJersey, "New Jersey");
+		
+		//annotations.addToggleAnnotation("7", "You sure to choose this state?", Position.fromDegrees(47.000, -100.000)); //North Dakota
+		ToggleAnnotation nDakota = new ToggleAnnotation("7", "You sure to choose this state?", Position.fromDegrees(47.000, -100.000));
+		annotationMap.put(nDakota, "North Dakota");
+		
+		//annotations.addToggleAnnotation("8", "You sure to choose this state?", Position.fromDegrees(38.500, -117.000)); //Nevada
+		ToggleAnnotation Nevada = new ToggleAnnotation("8", "You sure to choose this state?", Position.fromDegrees(38.500, -117.000));
+		annotationMap.put(Nevada, "Nevada");
+		
+		//annotations.addToggleAnnotation("9", "You sure to choose this state?", Position.fromDegrees(33.000, -90.000)); //Mississippi
+		ToggleAnnotation Mississippi = new ToggleAnnotation("9", "You sure to choose this state?", Position.fromDegrees(33.000, -90.000));
+		annotationMap.put(Mississippi, "Mississippi");
+		
+		//annotations.addToggleAnnotation("10", "You sure to choose this state?", Position.fromDegrees(39.000, -105.000)); //Colorado
+		ToggleAnnotation Colorado = new ToggleAnnotation("10", "You sure to choose this state?", Position.fromDegrees(39.000, -105.000));
+		annotationMap.put(Colorado, "Colorado");
+		
+		//annotations.addToggleAnnotation("11", "You sure to choose this state?", Position.fromDegrees(38.000, -90.000)); //Missouri
+		ToggleAnnotation Missouri = new ToggleAnnotation("11", "You sure to choose this state?", Position.fromDegrees(38.000, -90.000));
+		annotationMap.put(Missouri, "Missouri");
+		
+		//annotations.addToggleAnnotation("12", "You sure to choose this state?", Position.fromDegrees(37.000, -119.000)); //California
+		ToggleAnnotation California = new ToggleAnnotation("12", "You sure to choose this state?", Position.fromDegrees(37.000, -119.000));
+		annotationMap.put(California, "California");
+		
+		//annotations.addToggleAnnotation("13", "You sure to choose this state?", Position.fromDegrees(39.000, -89.000)); // Illinois
+		ToggleAnnotation Illinois = new ToggleAnnotation("13", "You sure to choose this state?", Position.fromDegrees(39.000, -89.000));
+		annotationMap.put(Illinois, "Illinois");
+		
+		//annotations.addToggleAnnotation("14", "You sure to choose this state?", Position.fromDegrees(27.000, -83.5000)); //Florida
+		ToggleAnnotation Florida = new ToggleAnnotation("14", "You sure to choose this state?", Position.fromDegrees(27.000, -83.5000));
+		annotationMap.put(Florida, "Florida");
+		
+		//annotations.addToggleAnnotation("15", "You sure to choose this state?", Position.fromDegrees(34.000, -106.000)); //New Mexico
+		ToggleAnnotation nMexico = new ToggleAnnotation("15", "You sure to choose this state?", Position.fromDegrees(34.000, -106.000));
+		annotationMap.put(nMexico, "New Mexico");
+		
+		
+		//annotations.addToggleAnnotation("16", "You sure to choose this state?", Position.fromDegrees(40.000, -111.5)); //Utah
+		ToggleAnnotation Utah = new ToggleAnnotation("16", "You sure to choose this state?", Position.fromDegrees(40.000, -111.5));
+		annotationMap.put(Utah, "Utah");
+		
+		//annotations.addToggleAnnotation("17", "You sure to choose this state?", Position.fromDegrees(41.500, -93.000)); //Iowa
+		ToggleAnnotation Iowa = new ToggleAnnotation("17", "You sure to choose this state?", Position.fromDegrees(41.500, -93.000));
+		annotationMap.put(Iowa, "Iowa");
+		
+		//annotations.addToggleAnnotation("18", "You sure to choose this state?", Position.fromDegrees(44.500, -82.000)); //Michigan
+		ToggleAnnotation Michigan = new ToggleAnnotation("18", "You sure to choose this state?", Position.fromDegrees(44.500, -82.000));
+		annotationMap.put(Michigan, "Michigan");
+		
+		//annotations.addToggleAnnotation("19", "You sure to choose this state?", Position.fromDegrees(37.000, -85.000)); //Kentucky
+		ToggleAnnotation Kentucky = new ToggleAnnotation("19", "You sure to choose this state?", Position.fromDegrees(37.000, -85.000));
+		annotationMap.put(Kentucky, "Kentucky");
+		
+		//annotations.addToggleAnnotation("20", "You sure to choose this state?", Position.fromDegrees(35.000, -85.000)); //Tennessee
+		ToggleAnnotation Tennessee = new ToggleAnnotation("20", "You sure to choose this state?", Position.fromDegrees(35.000, -85.000));
+		annotationMap.put(Tennessee, "Tennessee");
+		
+		//annotations.addToggleAnnotation("21", "You sure to choose this state?", Position.fromDegrees(39.000, -86.000)); //Indiana
+		ToggleAnnotation Indiana = new ToggleAnnotation("21", "You sure to choose this state?", Position.fromDegrees(39.000, -86.000));
+		annotationMap.put(Indiana, "Indiana");
+		
+		//annotations.addToggleAnnotation("22", "You sure to choose this state?", Position.fromDegrees(34.000, -111.000)); //Arizona
+		ToggleAnnotation Arizona = new ToggleAnnotation("22", "You sure to choose this state?", Position.fromDegrees(34.000, -111.000));
+		annotationMap.put(Arizona, "Arizona");
+		
+		//annotations.addToggleAnnotation("23", "You sure to choose this state?", Position.fromDegrees(44.000, -120.000)); //Oregon
+		ToggleAnnotation Oregon = new ToggleAnnotation("23", "You sure to choose this state?", Position.fromDegrees(44.000, -120.000));
+		annotationMap.put(Oregon, "Oregon");
+		
+		//annotations.addToggleAnnotation("24", "You sure to choose this state?", Position.fromDegrees(47.000, -120.000)); //Washington
+		ToggleAnnotation Washington = new ToggleAnnotation("24", "You sure to choose this state?", Position.fromDegrees(47.000, -120.000));
+		annotationMap.put(Washington, "Washington");
+		
+		//annotations.addToggleAnnotation("25", "You sure to choose this state?", Position.fromDegrees(38.000, -77.000)); //Maryland
+		ToggleAnnotation Maryland = new ToggleAnnotation("25", "You sure to choose this state?", Position.fromDegrees(38.000, -77.000));
+		annotationMap.put(Maryland, "Maryland");
+		
+		//annotations.addToggleAnnotation("26", "You sure to choose this state?", Position.fromDegrees(46.000, -93.000)); //Minnesota
+		ToggleAnnotation Minnesota = new ToggleAnnotation("26", "You sure to choose this state?", Position.fromDegrees(46.000, -93.000));
+		annotationMap.put(Minnesota, "Minnesota");
+		
+		//annotations.addToggleAnnotation("27", "You sure to choose this state?", Position.fromDegrees(43.000, -75.000)); //New York
+		ToggleAnnotation nYork = new ToggleAnnotation("27", "You sure to choose this state?", Position.fromDegrees(43.000, -75.000));
+		annotationMap.put(nYork, "New York");
+		
+		//annotations.addToggleAnnotation("28", "You sure to choose this state?", Position.fromDegrees(44.000, -69.000)); //Maine
+		ToggleAnnotation Maine = new ToggleAnnotation("28", "You sure to choose this state?", Position.fromDegrees(44.000, -69.000));
+		annotationMap.put(Maine, "Maine");
+		
+		//annotations.addToggleAnnotation("29", "You sure to choose this state?", Position.fromDegrees(32.500, -86.000)); //South Carolina
+		ToggleAnnotation sCarolina = new ToggleAnnotation("29", "You sure to choose this state?", Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(sCarolina, "South Carolina");
+		
+		//annotations.addToggleAnnotation("30", "You sure to choose this state?", Position.fromDegrees(30.000, -99.000)); //Texas
+		ToggleAnnotation Texas = new ToggleAnnotation("30", "You sure to choose this state?", Position.fromDegrees(30.000, -99.000));
+		annotationMap.put(Texas, "Texas");
+		
+		//annotations.addToggleAnnotation("31", "You sure to choose this state?", Position.fromDegrees(32.000, -82.000)); //Georgia
+		ToggleAnnotation Georgia = new ToggleAnnotation("31", "You sure to choose this state?", Position.fromDegrees(32.000, -82.000));
+		annotationMap.put(Georgia, "Georgia");
+		
+		//annotations.addToggleAnnotation("32", "You sure to choose this state?", Position.fromDegrees(30.000, -91.000)); //Louisiana
+		ToggleAnnotation Louisiana = new ToggleAnnotation("32", "You sure to choose this state?", Position.fromDegrees(30.000, -91.000));
+		annotationMap.put(Louisiana, "Louisiana");
+		
+		//annotations.addToggleAnnotation("33", "You sure to choose this state?", Position.fromDegrees(45.000, -89.000)); //Wisconsin
+		ToggleAnnotation Wisconsin = new ToggleAnnotation("33", "You sure to choose this state?", Position.fromDegrees(45.000, -89.000));
+		annotationMap.put(Wisconsin, "Wisconsin");
+		
+		//annotations.addToggleAnnotation("34", "You sure to choose this state?", Position.fromDegrees(41.000, -72.000)); //Conneticut
+		ToggleAnnotation Conneticut = new ToggleAnnotation("34", "You sure to choose this state?", Position.fromDegrees(41.000, -72.000));
+		annotationMap.put(Conneticut, "Conneticut");
+		
+		//annotations.addToggleAnnotation("35", "You sure to choose this state?", Position.fromDegrees(43.000, -107.000)); //Wyoming
+		ToggleAnnotation Wyoming = new ToggleAnnotation("35", "You sure to choose this state?", Position.fromDegrees(43.000, -107.000));
+		annotationMap.put(Wyoming, "Wyoming");
+		
+		//annotations.addToggleAnnotation("36", "You sure to choose this state?", Position.fromDegrees(38.500, -98.000)); //Kansas
+		ToggleAnnotation Kansas = new ToggleAnnotation("36", "You sure to choose this state?", Position.fromDegrees(38.500, -98.000));
+		annotationMap.put(Kansas, "Kansas");
+		
+		//annotations.addToggleAnnotation("37", "You sure to choose this state?", Position.fromDegrees(35.000, -80.000)); //North Carolina
+		ToggleAnnotation nCarolina = new ToggleAnnotation("37", "You sure to choose this state?", Position.fromDegrees(35.000, -80.000));
+		annotationMap.put(nCarolina, "North Carolina");
+		
+		//annotations.addToggleAnnotation("38", "You sure to choose this state?", Position.fromDegrees(40.000, -82.000)); //Ohio
+		ToggleAnnotation Ohio = new ToggleAnnotation("38", "You sure to choose this state?", Position.fromDegrees(40.000, -82.000));
+		annotationMap.put(Ohio, "Ohio");
+		
+		//annotations.addToggleAnnotation("39", "You sure to choose this state?", Position.fromDegrees(42.000, -71.000)); //Massachusetts
+		ToggleAnnotation Massachusetts = new ToggleAnnotation("39", "You sure to choose this state?", Position.fromDegrees(42.000, -71.000));
+		annotationMap.put(Massachusetts, "Massachusetts");
+		
+		//annotations.addToggleAnnotation("40", "You sure to choose this state?", Position.fromDegrees(32.500, -86.000)); //Alabama
+		ToggleAnnotation Alabama = new ToggleAnnotation("40", "You sure to choose this state?", Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(Alabama, "Alabama");
+		
+		//annotations.addToggleAnnotation("41", "You sure to choose this state?", Position.fromDegrees(37.000, -79.000)); //Virginia
+		ToggleAnnotation Virginia = new ToggleAnnotation("41", "You sure to choose this state?", Position.fromDegrees(37.000, -79.000));
+		annotationMap.put(Virginia, "Virginia");
+		
+	}
+	
+}

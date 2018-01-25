@@ -1,0 +1,50 @@
+package game.data;
+
+import gov.nasa.worldwind.render.Annotation;
+
+/**
+ * game data: choose state data
+ */
+public class ChooseStateData implements IGameMsgType {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -3180814086015092687L;
+
+	/**
+	 * selected state name
+	 */
+	private String stateName;
+
+	/**
+	 * selected annotation
+	 */
+	private Annotation selected;
+
+	/**
+	 * constructor
+	 * @param name selected state name
+	 * @param selected selected annotation
+	 */
+	public ChooseStateData(String name, Annotation selected) {
+		this.stateName = name;
+		this.selected = selected;
+	}
+
+	/**
+	 * getter of state name
+	 * @return state name
+	 */
+	public String getStateName() {
+		return this.stateName;
+	}
+
+	/**
+	 * getter of selected annotation
+	 * @return selected annotation
+	 */
+	public Annotation getSelected() {
+		return this.selected;
+	}
+}

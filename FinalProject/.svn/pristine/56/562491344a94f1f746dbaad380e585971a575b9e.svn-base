@@ -1,0 +1,26 @@
+package common;
+
+import java.io.Serializable;
+import java.util.UUID;
+
+public interface ITeam2Server extends Serializable{
+
+	/**
+	 * Return the UUID of the team
+	 * @return the UUID of the team
+	 */
+	public UUID getUUID();
+	
+	/**
+	 * Return the server's stub
+	 * @return the server's stub
+	 */
+	public IServer getSeverStub();
+	
+	/**
+	 * Send a data packet to server
+	 * @param data the data packet to server
+	 */
+	public <T> void sendDataPacketToServer(DataPacketTeam2Server<T> data);
+	
+}

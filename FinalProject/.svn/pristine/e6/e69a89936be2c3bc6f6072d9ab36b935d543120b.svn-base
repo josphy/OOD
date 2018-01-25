@@ -1,0 +1,52 @@
+package concrete.msg;
+
+import common.DataPacketAlgoCmd;
+import common.IInstallCmdType;
+
+/**
+ * Data class for IInstallCmdType data packet
+ */
+public class InstallCmdData implements IInstallCmdType {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = 94776631239593811L;
+	
+	/**
+	 * executable cmd
+	 */
+	private DataPacketAlgoCmd<?> cmd;
+	
+	/**
+	 * cmd id for visitor
+	 */
+	private Class<?> cmdId;
+
+	/**
+	 * constructor to install externally provided data
+	 * @param cmd desired command
+	 * @param cmdId command index
+	 */
+	public InstallCmdData(DataPacketAlgoCmd<?> cmd, Class<?> cmdId) {
+		this.cmd = cmd;
+		this.cmdId = cmdId;
+	}
+
+	@Override
+	/**
+	 * getter of command
+	 */
+	public DataPacketAlgoCmd<?> getCmd() {
+		return cmd;
+	}
+
+	@Override
+	/**
+	 * getter of command index
+	 */
+	public Class<?> getCmdId() {
+		return cmdId;
+	}
+
+}

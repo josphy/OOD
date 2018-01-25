@@ -1,0 +1,14 @@
+package concrete.data.user;
+
+import common.IUser;
+import common.datatype.user.IQuitType;
+
+public class QuitData implements IQuitType {
+
+	@Override
+	public IUser getUserStub() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

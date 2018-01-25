@@ -1,0 +1,37 @@
+package concrete.msg;
+
+import common.IReceiver;
+import common.IRemoveReceiverType;
+
+/**
+ * Data class for IRemoveReceiverType data packet
+ */
+public class RemoveReceiverData implements IRemoveReceiverType {
+	
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -495923518731046986L;
+
+	/**
+	 * holds IReceiver stub
+	 */
+	private IReceiver receiverStub;
+
+	/**
+	 * constructor to install externally provided data
+	 * @param stub IReceiver stub to be removed
+	 */
+	public RemoveReceiverData(IReceiver stub) {
+		this.receiverStub = stub;
+	}
+
+	@Override
+	/**
+	 * getter of the stub
+	 */
+	public IReceiver getReceiverStub() {
+		return this.receiverStub;
+	}
+
+}

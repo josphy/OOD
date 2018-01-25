@@ -1,0 +1,15 @@
+package game.model;
+
+public class GameModel {
+
+	private IGameModel2ViewAdapter viewAdpt = null;
+
+	public GameModel(IGameModel2ViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+	
+	public void start() {
+		
+	}
+
+}

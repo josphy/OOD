@@ -1,0 +1,147 @@
+package game.model;
+
+import java.util.Stack;
+
+import common.ICRCmd2ModelAdapter;
+import common.IReceiver;
+import gov.nasa.worldwind.geom.Position;
+import gov.nasa.worldwind.render.Annotation;
+import gov.nasa.worldwind.render.GlobeAnnotation;
+import map.MapLayer;
+import map.ToggleAnnotation;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+	
+	private IReceiver serverStub;
+	
+	private IReceiver clientStub;
+	
+	private ICRCmd2ModelAdapter crCmd2ModelAdpt;
+	
+	private Stack<String> states = new Stack<String>();
+	
+	private MapLayer annotations = new MapLayer();
+
+	/**
+	 * constructor
+	 * @param adapter externally provided adapter to view
+	 */
+	public GameModel(IGameModel2ViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+	
+	public void loadStateNames() {
+		states.push("Texas");
+		states.push("California");
+		states.push("Alabama");
+		states.push("Tennessee");
+		states.push("Arkansas");
+		states.push("Pennsylvania");
+		states.push("Ohio");
+		states.push("Illinois");
+		states.push("Virginia");
+		states.push("Indiana");
+		states.push("Massachusetts");
+		states.push("Oklahoma");
+		states.push("Arizona");
+		states.push("Florida");
+		states.push("Colorado");
+		states.push("Louisiana");
+		states.push("Kentucky");
+		states.push("Missouri");
+		states.push("Georgia");
+		states.push("South Dakota");
+		states.push("Wisconsin");
+		states.push("Alaska");
+		states.push("Utah");
+		states.push("Kansas");
+		states.push("New Mexico");
+		states.push("Conneticut");
+		states.push("Michigan");
+		states.push("Nebraska");
+		states.push("Idaho");
+		states.push("New Hampshire");
+		states.push("Wyoming");
+		states.push("Oregon");
+		states.push("New Jersey");
+		states.push("Maryland");
+		states.push("North Carolina");
+		states.push("Rhode Island");
+		states.push("West Virginia");
+		states.push("Minnesota");
+		states.push("Vermont");
+		states.push("Mississippi");
+		states.push("Hawaii");
+		states.push("Washington");
+		states.push("North Dakota");
+		states.push("South Carolina");
+		states.push("Delaware");
+		states.push("Lowa");
+		states.push("Maine");
+		states.push("Nevada");
+		states.push("Montana");
+		states.push("New York");
+	}
+	
+	
+	
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		loadStateNames();
+		
+		Position willy = Position.fromDegrees(29.718550, -95.399068, 150);
+		Position epcot = Position.fromDegrees(28.374454, -81.549363, 1000);
+		Position nyc   = Position.fromDegrees(40.748974, -73.990288, 10000);
+		
+		annotations.addToggleAnnotation("Willy", "Willy Selected!", willy);
+		annotations.addToggleAnnotation("Epcot Center", "Epcot Selected!", epcot, 5000, 1000000);
+		annotations.addAnnotation(new GlobeAnnotation("NYC", nyc));
+		
+		
+		viewAdpt.show(annotations);
+	}
+	
+	/**
+	 * The method to count selected markers
+	 * @return the one selected marker; if selected more than one, return null
+	 */
+	public Annotation getOneSelected() {
+		int numberOfSelected = 0;
+		Annotation selected = null;
+		for (Annotation annotation: annotations.getAnnotations()) {
+			if (annotation instanceof ToggleAnnotation){  // must check this before GlobeAnnotation
+				if (((ToggleAnnotation) annotation).isSelected()) {
+					numberOfSelected++;
+					selected = annotation;
+				}
+			}
+		}
+		if (numberOfSelected == 1)
+			return selected;
+		else
+			return null;
+	}
+
+	public boolean submitToServer() {
+		Annotation selected = getOneSelected();
+		if (selected == null)
+			return false;
+		
+		annotations.removeAnnotation(selected);
+		//send selection to server
+		return true;
+		
+	}
+	
+
+}

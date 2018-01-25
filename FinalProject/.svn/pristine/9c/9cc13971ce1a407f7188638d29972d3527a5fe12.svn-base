@@ -1,0 +1,16 @@
+package common;
+
+import provided.datapacket.DataPacket;
+
+public class DataPacketTeam2Server<T> extends DataPacket<T, ITeam> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5210593841136480978L;
+
+	public DataPacketTeam2Server(Class<T> c, T data, ITeam sender) {
+		super(c, data, sender);
+	}
+
+}

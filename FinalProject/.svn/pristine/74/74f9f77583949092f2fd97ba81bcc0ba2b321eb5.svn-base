@@ -1,0 +1,42 @@
+package common;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.UUID;
+
+/**
+ * The IUser represents a user in the team, 
+ * the method in the IUser almost identical from the IUser in HW08
+ */
+public interface IUser extends Remote{
+	
+	public static final String BOUND_NAME = "USER";
+
+	/**
+	 * Return the user's name
+	 * @return the user's name
+	 * @throws RemoteException
+	 */
+	public String getName() throws RemoteException;
+	
+	/**
+	 * Return the user's UUID
+	 * @return the user's UUID
+	 * @throws RemoteException
+	 */
+	public UUID getUUID() throws RemoteException;
+
+	/**
+	 * Return the users team's stub
+	 * @return the users team's stub
+	 * @throws RemoteException
+	 */
+	public ITeam getTeam() throws RemoteException;
+	
+	/**
+	 * Connect to a team (leader)
+	 * @param userStub Connect to a team (leader)
+	 * @throws RemoteException
+	 */
+	public void connect(IUser userStub) throws RemoteException;
+}

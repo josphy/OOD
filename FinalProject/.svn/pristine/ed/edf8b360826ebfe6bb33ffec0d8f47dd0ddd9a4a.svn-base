@@ -1,0 +1,26 @@
+package server.message;
+
+
+import game.data.IGameMsgType;
+
+public class ChooseStateData implements IGameMsgType {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3180814086015092687L;
+	
+	private String stateName;
+	
+	public ChooseStateData(String name){
+		this.stateName = name;
+	}
+	
+	/**
+	 * getter of game factory
+	 * @return game factory
+	 */
+	public String getStateName() {
+		return this.stateName;
+	}
+}

@@ -1,0 +1,18 @@
+package game.data;
+
+import gov.nasa.worldwind.render.GlobeAnnotation;
+import map.ToggleAnnotation;
+
+public class fengDraft_CustomToggleAnnotation extends ToggleAnnotation{
+
+	public fengDraft_CustomToggleAnnotation(GlobeAnnotation annotation) {
+		super(annotation);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8654535039172369782L;
+
+}

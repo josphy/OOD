@@ -1,0 +1,49 @@
+package game.controller;
+
+import java.awt.EventQueue;
+
+import game.model.GameModel;
+import game.model.IGameModel2ViewAdapter;
+import game.view.GameView;
+import game.view.IGameView2ModelAdapter;
+
+public class GameController {
+	
+	private GameModel gameModel;
+	
+	private GameView gameView;
+
+	public GameController() {
+		
+		gameModel = new GameModel(new IGameModel2ViewAdapter() {
+			
+		});
+		
+		gameView = new GameView(new IGameView2ModelAdapter() {
+			
+		});
+	}
+	
+	public void start() {
+		gameModel.start();
+		gameView.start();
+	}
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameController gameController = new GameController();
+					gameController.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+}

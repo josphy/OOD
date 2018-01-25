@@ -1,0 +1,27 @@
+package game.data;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+
+public class GameStartCmd extends DataPacketAlgoCmd<GameStartData>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8250064191783015619L;
+	
+	private transient ICmd2ModelAdapter modelAdpt;
+
+	@Override
+	public String apply(Class<?> index, DataPacketChatRoom<GameStartData> host, String... params) {
+		host.getData().getFactory().makeGame();
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		this.modelAdpt = cmd2ModelAdpt;
+	}
+
+}

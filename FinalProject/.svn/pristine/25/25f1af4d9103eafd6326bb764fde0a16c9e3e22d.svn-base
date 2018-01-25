@@ -1,0 +1,26 @@
+package game.data;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+
+public class GameStartCmd extends DataPacketAlgoCmd<GameStartData>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8250064191783015619L;
+
+	@Override
+	public String apply(Class<?> index, DataPacketChatRoom<GameStartData> host, String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

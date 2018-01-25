@@ -1,0 +1,42 @@
+package game.data;
+
+import common.DataPacketCR;
+import common.DataPacketCRAlgoCmd;
+import common.ICRCmd2ModelAdapter;
+import game.view.GameView;
+import provided.mixedData.MixedDataKey;
+
+public class GameOverCmd extends DataPacketCRAlgoCmd<GameOverData>{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3871415137296763040L;
+
+	private MixedDataKey<GameView> viewKey;
+	
+	/**
+	 * adapter to chat room model
+	 */
+	private transient ICRCmd2ModelAdapter modelAdpt;
+
+	public GameOverCmd(MixedDataKey<GameView> key) {
+		this.viewKey = key;
+	}
+
+	@Override
+	public String apply(Class<?> index, DataPacketCR<GameOverData> host, String... params) {
+		GameView gameView = modelAdpt.get(viewKey);
+		if (gameView != null) {
+			gameView.alert("Game end! See LOBBY for result!");
+			gameView.showStateName("Game end!");
+		}
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICRCmd2ModelAdapter cmd2ModelAdpt) {
+		this.modelAdpt = cmd2ModelAdpt;
+	}
+
+}

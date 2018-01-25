@@ -1,0 +1,52 @@
+package concrete.data.chatroom;
+
+import common.DataPacketCRAlgoCmd;
+import common.datatype.chatroom.ICRInstallCmdType;
+
+/**
+ * Data class for IInstallCmdType data packet
+ */
+public class CRInstallCmdData implements ICRInstallCmdType {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = 94776631239593811L;
+	
+	/**
+	 * executable cmd
+	 */
+	private DataPacketCRAlgoCmd<?> cmd;
+	
+	/**
+	 * cmd id for visitor
+	 */
+	private Class<?> cmdId;
+
+	/**
+	 * constructor to install externally provided data
+	 * @param cmd desired command
+	 * @param cmdId command index
+	 */
+	public CRInstallCmdData(DataPacketCRAlgoCmd<?> cmd, Class<?> cmdId) {
+		this.cmd = cmd;
+		this.cmdId = cmdId;
+	}
+
+	@Override
+	/**
+	 * getter of command
+	 */
+	public DataPacketCRAlgoCmd<?> getCmd() {
+		return cmd;
+	}
+
+	@Override
+	/**
+	 * getter of command index
+	 */
+	public Class<?> getCmdId() {
+		return cmdId;
+	}
+
+}

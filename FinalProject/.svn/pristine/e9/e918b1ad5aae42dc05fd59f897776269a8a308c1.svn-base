@@ -1,0 +1,76 @@
+package chatRoom.view;
+
+import javax.swing.ImageIcon;
+
+/**
+ * mini view to mini model adapter
+ */
+public interface IChatRoomModelAdapter {
+
+	/**
+	 * send text message
+	 * @param text
+	 */
+	public void sendMsg(String text); //msg type unknown
+
+	/**
+	 * send image
+	 * @param image
+	 */
+	public void sendImg(ImageIcon image);
+
+	/**
+	 * quit current room
+	 */
+	public void quit();
+
+	/**
+	 * invite user
+	 * @param ip
+	 */
+	public void invite(String ip);
+	
+	/**
+	 * set up WWJ map in remote user
+	 */
+	public void sendMap();
+
+	/**
+	 * null object
+	 */
+	public static IChatRoomModelAdapter NULL_OBJECT = new IChatRoomModelAdapter() {
+
+		@Override
+		public void sendMsg(String text) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void sendImg(ImageIcon image) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void quit() {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void invite(String ip) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void sendMap() {
+			// TODO Auto-generated method stub
+			
+		}
+
+	};
+
+
+}

@@ -1,0 +1,240 @@
+package game.model;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import common.ICRCmd2ModelAdapter;
+import common.IReceiver;
+import gov.nasa.worldwind.geom.Position;
+import gov.nasa.worldwind.render.Annotation;
+import map.MapLayer;
+import map.ToggleAnnotation;
+import game.data.ChooseStateData;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+
+	/**
+	 * server stub
+	 */
+	private IReceiver serverStub;
+
+	/**
+	 * cmd to client model adapter
+	 */
+	private ICRCmd2ModelAdapter clientModelAdpt;
+
+	/**
+	 * annotation layer
+	 */
+	private MapLayer annotations = new MapLayer();
+
+	/**
+	 * annotation to state name map
+	 */
+	private Map<Annotation, String> annotationMap = new HashMap<Annotation, String>();
+
+	/**
+	 * constructor
+	 * @param serverStub game server stub
+	 * @param clientModelAdpt client model adapter
+	 * @param viewAdpt game view adapter
+	 */
+	public GameModel(IReceiver serverStub, ICRCmd2ModelAdapter clientModelAdpt, IGameModel2ViewAdapter viewAdpt) {
+		this.serverStub = serverStub;
+		this.clientModelAdpt = clientModelAdpt;
+		this.viewAdpt = viewAdpt;
+	}
+
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		loadToggleAnnotations();
+
+		Set<Annotation> states = annotationMap.keySet();
+		for (Annotation state : states) {
+			annotations.addAnnotation(state);
+		}
+
+		viewAdpt.showLayer(annotations);
+	}
+
+	/**
+	 * The method to count selected markers
+	 * @return the one selected marker; if selected more than one, return null
+	 */
+	public Annotation getOneSelected() {
+		int numberOfSelected = 0;
+		Annotation selected = null;
+		for (Annotation annotation : annotations.getAnnotations()) {
+			if (annotation instanceof ToggleAnnotation) { // must check this before GlobeAnnotation
+				if (((ToggleAnnotation) annotation).isSelected()) {
+					numberOfSelected++;
+					selected = annotation;
+				}
+			}
+		}
+		if (numberOfSelected == 1)
+			return selected;
+		else
+			return null;
+	}
+
+	/**
+	 * submit answer to server
+	 * @return submit success or not
+	 */
+	public boolean submitToServer() {
+		Annotation selected = getOneSelected();
+		if (selected == null)
+			return false;
+
+		//send selection to server
+		String stateName = annotationMap.get(selected);
+		clientModelAdpt.sendTo(serverStub, ChooseStateData.class, new ChooseStateData(stateName, selected));
+		((ToggleAnnotation) selected).toggleText();
+		return true;
+	}
+
+	/**
+	 * load toggle annotation: state coordinates
+	 */
+	public void loadToggleAnnotations() {
+
+		String tip = "Sure to choose this state?";
+
+		ToggleAnnotation Oklahoma = new ToggleAnnotation("1", tip, Position.fromDegrees(35.000, -98.000));
+		annotationMap.put(Oklahoma, "Oklahoma");
+
+		ToggleAnnotation Pennsylvania = new ToggleAnnotation("2", tip, Position.fromDegrees(40.000, -77.000));
+		annotationMap.put(Pennsylvania, "Pennsylvania");
+
+		ToggleAnnotation sDakota = new ToggleAnnotation("3", tip, Position.fromDegrees(43.500, -100.000));
+		annotationMap.put(sDakota, "South Dakota");
+
+		ToggleAnnotation nHampshire = new ToggleAnnotation("4", tip, Position.fromDegrees(43.5, -71.000));
+		annotationMap.put(nHampshire, "New Hampshire");
+
+		ToggleAnnotation wVirginia = new ToggleAnnotation("5", tip, Position.fromDegrees(38.500, -80.000));
+		annotationMap.put(wVirginia, "West Virginia");
+
+		ToggleAnnotation nJersey = new ToggleAnnotation("6", tip, Position.fromDegrees(40.000, -74.000));
+		annotationMap.put(nJersey, "New Jersey");
+
+		ToggleAnnotation nDakota = new ToggleAnnotation("7", tip, Position.fromDegrees(47.000, -100.000));
+		annotationMap.put(nDakota, "North Dakota");
+
+		ToggleAnnotation Nevada = new ToggleAnnotation("8", tip, Position.fromDegrees(38.500, -117.000));
+		annotationMap.put(Nevada, "Nevada");
+
+		ToggleAnnotation Mississippi = new ToggleAnnotation("9", tip, Position.fromDegrees(33.000, -90.000));
+		annotationMap.put(Mississippi, "Mississippi");
+
+		ToggleAnnotation Colorado = new ToggleAnnotation("10", tip, Position.fromDegrees(39.000, -105.000));
+		annotationMap.put(Colorado, "Colorado");
+
+		ToggleAnnotation Missouri = new ToggleAnnotation("11", tip, Position.fromDegrees(38.000, -90.000));
+		annotationMap.put(Missouri, "Missouri");
+
+		ToggleAnnotation California = new ToggleAnnotation("12", tip, Position.fromDegrees(37.000, -119.000));
+		annotationMap.put(California, "California");
+
+		ToggleAnnotation Illinois = new ToggleAnnotation("13", tip, Position.fromDegrees(39.000, -89.000));
+		annotationMap.put(Illinois, "Illinois");
+
+		ToggleAnnotation Florida = new ToggleAnnotation("14", tip, Position.fromDegrees(27.000, -83.5000));
+		annotationMap.put(Florida, "Florida");
+
+		ToggleAnnotation nMexico = new ToggleAnnotation("15", tip, Position.fromDegrees(34.000, -106.000));
+		annotationMap.put(nMexico, "New Mexico");
+
+		ToggleAnnotation Utah = new ToggleAnnotation("16", tip, Position.fromDegrees(40.000, -111.5));
+		annotationMap.put(Utah, "Utah");
+
+		ToggleAnnotation Iowa = new ToggleAnnotation("17", tip, Position.fromDegrees(41.500, -93.000));
+		annotationMap.put(Iowa, "Iowa");
+
+		ToggleAnnotation Michigan = new ToggleAnnotation("18", tip, Position.fromDegrees(44.500, -82.000));
+		annotationMap.put(Michigan, "Michigan");
+
+		ToggleAnnotation Kentucky = new ToggleAnnotation("19", tip, Position.fromDegrees(37.000, -85.000));
+		annotationMap.put(Kentucky, "Kentucky");
+
+		ToggleAnnotation Tennessee = new ToggleAnnotation("20", tip, Position.fromDegrees(35.000, -85.000));
+		annotationMap.put(Tennessee, "Tennessee");
+
+		ToggleAnnotation Indiana = new ToggleAnnotation("21", tip, Position.fromDegrees(39.000, -86.000));
+		annotationMap.put(Indiana, "Indiana");
+
+		ToggleAnnotation Arizona = new ToggleAnnotation("22", tip, Position.fromDegrees(34.000, -111.000));
+		annotationMap.put(Arizona, "Arizona");
+
+		ToggleAnnotation Oregon = new ToggleAnnotation("23", tip, Position.fromDegrees(44.000, -120.000));
+		annotationMap.put(Oregon, "Oregon");
+
+		ToggleAnnotation Washington = new ToggleAnnotation("24", tip, Position.fromDegrees(47.000, -120.000));
+		annotationMap.put(Washington, "Washington");
+
+		ToggleAnnotation Maryland = new ToggleAnnotation("25", tip, Position.fromDegrees(38.000, -77.000));
+		annotationMap.put(Maryland, "Maryland");
+
+		ToggleAnnotation Minnesota = new ToggleAnnotation("26", tip, Position.fromDegrees(46.000, -93.000));
+		annotationMap.put(Minnesota, "Minnesota");
+
+		ToggleAnnotation nYork = new ToggleAnnotation("27", tip, Position.fromDegrees(43.000, -75.000));
+		annotationMap.put(nYork, "New York");
+
+		ToggleAnnotation Maine = new ToggleAnnotation("28", tip, Position.fromDegrees(44.000, -69.000));
+		annotationMap.put(Maine, "Maine");
+
+		ToggleAnnotation sCarolina = new ToggleAnnotation("29", tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(sCarolina, "South Carolina");
+
+		ToggleAnnotation Texas = new ToggleAnnotation("30", tip, Position.fromDegrees(30.000, -99.000));
+		annotationMap.put(Texas, "Texas");
+
+		ToggleAnnotation Georgia = new ToggleAnnotation("31", tip, Position.fromDegrees(32.000, -82.000));
+		annotationMap.put(Georgia, "Georgia");
+
+		ToggleAnnotation Louisiana = new ToggleAnnotation("32", tip, Position.fromDegrees(30.000, -91.000));
+		annotationMap.put(Louisiana, "Louisiana");
+
+		ToggleAnnotation Wisconsin = new ToggleAnnotation("33", tip, Position.fromDegrees(45.000, -89.000));
+		annotationMap.put(Wisconsin, "Wisconsin");
+
+		ToggleAnnotation Conneticut = new ToggleAnnotation("34", tip, Position.fromDegrees(41.000, -72.000));
+		annotationMap.put(Conneticut, "Conneticut");
+
+		ToggleAnnotation Wyoming = new ToggleAnnotation("35", tip, Position.fromDegrees(43.000, -107.000));
+		annotationMap.put(Wyoming, "Wyoming");
+
+		ToggleAnnotation Kansas = new ToggleAnnotation("36", tip, Position.fromDegrees(38.500, -98.000));
+		annotationMap.put(Kansas, "Kansas");
+
+		ToggleAnnotation nCarolina = new ToggleAnnotation("37", tip, Position.fromDegrees(35.000, -80.000));
+		annotationMap.put(nCarolina, "North Carolina");
+
+		ToggleAnnotation Ohio = new ToggleAnnotation("38", tip, Position.fromDegrees(40.000, -82.000));
+		annotationMap.put(Ohio, "Ohio");
+
+		ToggleAnnotation Massachusetts = new ToggleAnnotation("39", tip, Position.fromDegrees(42.000, -71.000));
+		annotationMap.put(Massachusetts, "Massachusetts");
+
+		ToggleAnnotation Alabama = new ToggleAnnotation("40", tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(Alabama, "Alabama");
+
+		ToggleAnnotation Virginia = new ToggleAnnotation("41", tip, Position.fromDegrees(37.000, -79.000));
+		annotationMap.put(Virginia, "Virginia");
+
+	}
+
+}

@@ -1,0 +1,92 @@
+package game.model;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+import game.data.fengDraft_State;
+import gov.nasa.worldwind.geom.Position;
+import map.ToggleAnnotation;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+	
+	private Stack<fengDraft_State> states = new Stack<fengDraft_State>();
+	
+	private ArrayList<ToggleAnnotation> stateAnnos = new ArrayList<ToggleAnnotation>();
+
+	/**
+	 * constructor
+	 * @param adapter externally provided adapter to view
+	 */
+	public GameModel(IGameModel2ViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+	
+	public void loadStateNames() {
+		states.push(new fengDraft_State("Texas", Position.fromDegrees(30.000, -99.000)));
+		states.push(new fengDraft_State("California", Position.fromDegrees(37.000, -119.000)));
+		states.push(new fengDraft_State("Alabama", Position.fromDegrees(32.500, -86.000)));
+		states.push(new fengDraft_State("Tennessee", Position.fromDegrees(35.000, -85.000)));
+		//states.push(new fengDraft_State("Arkansas", Position.fromDegrees(35.000, -92.000)));
+		states.push(new fengDraft_State("Pennsylvania", Position.fromDegrees(40.000, -77.000)));
+		states.push(new fengDraft_State("Ohio", Position.fromDegrees(40.000, -82.000)));
+		states.push(new fengDraft_State("Illinois", Position.fromDegrees(39.000, -89.000)));
+		states.push(new fengDraft_State("Virginia", Position.fromDegrees(37.000, -79.000)));
+		states.push(new fengDraft_State("Indiana", Position.fromDegrees(39.000, -86.000)));
+		states.push(new fengDraft_State("Massachusetts", Position.fromDegrees(42.000, -71.000)));
+		states.push(new fengDraft_State("Oklahoma", Position.fromDegrees(35.000, -98.000)));
+		states.push(new fengDraft_State("Arizona", Position.fromDegrees(34.000, -111.000)));
+		states.push(new fengDraft_State("Florida", Position.fromDegrees(27.000, -83.5000)));
+		states.push(new fengDraft_State("Colorado", Position.fromDegrees(39.000, -105.000)));
+		states.push(new fengDraft_State("Louisiana", Position.fromDegrees(30.000, -91.000)));
+		states.push(new fengDraft_State("Kentucky", Position.fromDegrees(37.000, -85.000)));
+		states.push(new fengDraft_State("Missouri", Position.fromDegrees(38.000, -90.000)));
+		states.push(new fengDraft_State("Georgia", Position.fromDegrees(32.000, -82.000)));
+		states.push(new fengDraft_State("South Dakota", Position.fromDegrees(43.500, -100.000)));
+		states.push(new fengDraft_State("Wisconsin", Position.fromDegrees(45.000, -89.000)));
+		//states.push("Alaska");
+		states.push(new fengDraft_State("Utah", Position.fromDegrees(40.000, -111.5)));
+		states.push(new fengDraft_State("Kansas", Position.fromDegrees(38.500, -98.000)));
+		states.push(new fengDraft_State("New Mexico", Position.fromDegrees(34.000, -106.000)));
+		states.push(new fengDraft_State("Conneticut", Position.fromDegrees(41.000, -72.000)));
+		states.push(new fengDraft_State("Michigan", Position.fromDegrees(44.500, -82.000)));
+		states.push(new fengDraft_State("New Hampshire", Position.fromDegrees(43.5, -71.000)));
+		states.push(new fengDraft_State("Wyoming", Position.fromDegrees(43.000, -107.000)));
+		states.push(new fengDraft_State("Oregon", Position.fromDegrees(44.000, -120.000)));
+		states.push(new fengDraft_State("New Jersey", Position.fromDegrees(40.000, -74.000)));
+		states.push(new fengDraft_State("Maryland", Position.fromDegrees(38.000, -77.000)));
+		states.push(new fengDraft_State("North Carolina", Position.fromDegrees(35.000, -80.000)));
+		//states.push("Rhode Island");
+		states.push(new fengDraft_State("West Virginia", Position.fromDegrees(38.500, -80.000)));
+		states.push(new fengDraft_State("Minnesota", Position.fromDegrees(46.000, -93.000)));
+		//states.push("Vermont");
+		states.push(new fengDraft_State("Mississippi", Position.fromDegrees(33.000, -90.000)));
+		//states.push("Hawaii");
+		states.push(new fengDraft_State("Washington", Position.fromDegrees(47.000, -120.000)));
+		states.push(new fengDraft_State("North Dakota", Position.fromDegrees(47.000, -100.000)));
+		states.push(new fengDraft_State("South Carolina", Position.fromDegrees(33.500, -80.000)));
+		//states.push(new fengDraft_State("Delaware", Position.fromDegrees(38.000, )));
+		states.push(new fengDraft_State("Iowa", Position.fromDegrees(41.500, -93.000)));
+		states.push(new fengDraft_State("Maine", Position.fromDegrees(44.000, -69.000)));
+		states.push(new fengDraft_State("Nevada", Position.fromDegrees(38.500, -117.000)));
+		//states.push("Montana");
+		states.push(new fengDraft_State("New York", Position.fromDegrees(43.000, -75.000)));
+	}
+	
+	
+	
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		loadStateNames();
+	}
+
+}

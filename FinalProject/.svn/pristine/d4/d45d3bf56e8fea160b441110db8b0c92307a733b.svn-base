@@ -1,0 +1,35 @@
+package common;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.UUID;
+/**
+ * Like IReceiver in HW08, the instances of IMember will be hold in ITeam represents of different players (IUsers).
+ * The API is almost identical with the IReceiver in HW08
+ */
+public interface IMember extends Remote{
+	/**
+	 * Return the name of the user
+	 * @return the name of the user
+	 * @throws RemoteException
+	 */
+	public String getName() throws RemoteException;
+	/**
+	 * Return the UUID of the user
+	 * @return The UUID of the user
+	 * @throws RemoteException
+	 */
+	public UUID getUUID() throws RemoteException;
+	/**
+	 * Receive a data packet from the receiver's team
+	 * @param data a specific type of data packet
+	 * @throws RemoteException
+	 */
+	public <T> void receiveFromTeam(DataPacketMember2Team<T> data) throws RemoteException;
+	/**
+	 * Return the user's remote stub
+	 * @return the user's remote stub
+	 * @throws RemoteException
+	 */
+	public IUser getUserStub() throws RemoteException;
+}

@@ -1,0 +1,85 @@
+package game.model;
+
+import java.util.Stack;
+
+/**
+ * Game Model
+ */
+public class GameModel {
+
+	/**
+	 * adapter to game view
+	 */
+	private IGameModel2ViewAdapter viewAdpt = null;
+	
+	private Stack<String> states = new Stack<String>();
+
+	/**
+	 * constructor
+	 * @param adapter externally provided adapter to view
+	 */
+	public GameModel(IGameModel2ViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+	
+	public void loadStateNames() {
+		states.push("Texas");
+		states.push("California");
+		states.push("Alabama");
+		states.push("Tennessee");
+		states.push("Arkansas");
+		states.push("Pennsylvania");
+		states.push("Ohio");
+		states.push("Illinois");
+		states.push("Virginia");
+		states.push("Indiana");
+		states.push("Massachusetts");
+		states.push("Oklahoma");
+		states.push("Arizona");
+		states.push("Florida");
+		states.push("Colorado");
+		states.push("Louisiana");
+		states.push("Kentucky");
+		states.push("Missouri");
+		states.push("Georgia");
+		states.push("South Dakota");
+		states.push("Wisconsin");
+		states.push("Alaska");
+		states.push("Utah");
+		states.push("Kansas");
+		states.push("New Mexico");
+		states.push("Conneticut");
+		states.push("Michigan");
+		states.push("Nebraska");
+		states.push("Idaho");
+		states.push("New Hampshire");
+		states.push("Wyoming");
+		states.push("Oregon");
+		states.push("New Jersey");
+		states.push("Maryland");
+		states.push("North Carolina");
+		states.push("Rhode Island");
+		states.push("West Virginia");
+		states.push("Minnesota");
+		states.push("Vermont");
+		states.push("Mississippi");
+		states.push("Hawaii");
+		states.push("Washington");
+		states.push("North Dakota");
+		states.push("South Carolina");
+		states.push("Delaware");
+		states.push("Lowa");
+		states.push("Maine");
+		states.push("Nevada");
+		states.push("Montana");
+		states.push("New York");
+	}
+	
+	/**
+	 * start the game model
+	 */
+	public void start() {
+		loadStateNames();
+	}
+
+}

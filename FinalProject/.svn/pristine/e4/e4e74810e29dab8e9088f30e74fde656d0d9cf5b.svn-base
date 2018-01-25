@@ -1,0 +1,67 @@
+package common;
+
+import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.UUID;
+
+/**
+ * ITeam is like the IChatRoom in HW08 which holds 
+ * its member's remote stub and send and receive message.
+ * In this final project, note that ITeam not only 
+ * should send and receive data packet to and from the user, 
+ * but also should send and receive data packet 
+ * to and from the server. 
+ */
+public interface ITeam extends Serializable, Remote{
+	
+	/**
+	 * Return the name of the team
+	 * @return the name of the team
+	 */
+	public String getName() throws RemoteException;;
+	/**
+	 * Return the UUID of the team
+	 * @return the UUID of the team
+	 */
+	public UUID getUUID() throws RemoteException;;
+	
+	/**
+	 * Return all the member's stub of the team
+	 * @return all the member's stub of the team
+	 */
+	public Collection<IMember> getMemberStubs() throws RemoteException;;	
+
+	/**
+	 * Return the leader's stub
+	 * @return the leader's stub
+	 */
+	public IMember getLeaderStub() throws RemoteException;;
+	
+	/**
+	 * Send a data packet to all the members
+	 * @param data the data packet to all the members
+	 */
+	public <T> void sendPacketToMember(DataPacketTeam2Member<T> data) throws RemoteException;;
+	
+	/**
+	 * Receive a data packet from the server
+	 * @param data a data packet from the server
+	 */
+	public <T> void receiveFromServer(DataPacketServer2Team <T> data) throws RemoteException;;
+	
+	/**
+	 * add a team member 
+	 * @param member the team member's stub
+	 * @return a boolean variable indicates whether the add operation succeeded or not
+	 */
+	public boolean addIMemberStubLocally(IMember member) throws RemoteException;;
+	
+	/**
+	 * Remove a team member
+	 * @param member the team member's stub
+	 * @return a boolean variable indicates whether the remove operation succeeded or not
+	 */
+	public boolean removeIMemberStubLocally(IMember member) throws RemoteException;; 
+}

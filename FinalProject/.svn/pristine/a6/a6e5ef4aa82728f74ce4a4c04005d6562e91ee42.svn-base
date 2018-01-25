@@ -1,0 +1,7 @@
+package game.data;
+
+import java.io.Serializable;
+
+public interface IGameMsg extends Serializable {
+
+}

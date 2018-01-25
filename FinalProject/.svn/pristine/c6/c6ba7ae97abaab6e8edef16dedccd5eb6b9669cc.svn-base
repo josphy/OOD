@@ -1,0 +1,65 @@
+package game.controller;
+
+import java.awt.EventQueue;
+
+import game.model.GameModel;
+import game.model.IGameModel2ViewAdapter;
+import game.view.GameView;
+import game.view.IGameView2ModelAdapter;
+
+/**
+ * Game Controller of mini-mini-MVC
+ */
+public class GameController {
+	
+	/**
+	 * game model instance
+	 */
+	private GameModel gameModel;
+	
+	/**
+	 * game view instance
+	 */
+	private GameView gameView;
+
+	/**
+	 * game controller constructor
+	 */
+	public GameController() {
+		
+		gameModel = new GameModel(new IGameModel2ViewAdapter() {
+			
+		});
+		
+		gameView = new GameView(new IGameView2ModelAdapter() {
+			
+		});
+	}
+	
+	/**
+	 * start mini-mini-MVC
+	 */
+	public void start() {
+		gameModel.start();
+		gameView.start();
+	}
+	
+
+	/**
+	 * Launch the application.
+	 * @param args externally provided parameters
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameController gameController = new GameController();
+					gameController.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+}

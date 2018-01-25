@@ -1,0 +1,39 @@
+package game.data;
+
+import java.rmi.RemoteException;
+
+import common.DataPacketCR;
+import common.DataPacketCRAlgoCmd;
+import common.ICRCmd2ModelAdapter;
+
+public class WrongChoiceCmd extends DataPacketCRAlgoCmd<JudgeChoiceData> {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5989295495029289914L;
+	
+	/**
+	 * adapter to chat room model
+	 */
+	private transient ICRCmd2ModelAdapter modelAdpt;
+
+	@Override
+	public String apply(Class<?> index, DataPacketCR<JudgeChoiceData> host, String... params) {
+		// TODO Auto-generated method stub
+		try {
+			modelAdpt.appendMsg("Your team made the right choice", host.getSender().getUserStub().getName());
+		} catch (RemoteException e) {
+			System.err.println("Exception displaying message");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICRCmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		this.modelAdpt = cmd2ModelAdpt;
+	}
+
+}

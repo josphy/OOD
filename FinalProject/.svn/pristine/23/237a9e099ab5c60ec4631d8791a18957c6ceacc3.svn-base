@@ -1,0 +1,270 @@
+package chatApp.model;
+
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+import common.DataPacketChatRoom;
+import common.IAddReceiverType;
+import common.IChatRoom;
+import common.IReceiver;
+import common.IUser;
+import concrete.ChatRoom;
+import concrete.Receiver;
+import concrete.User;
+import concrete.msg.AddReceiverData;
+import provided.rmiUtils.IRMIUtils;
+import provided.rmiUtils.RMIUtils;
+import provided.util.IVoidLambda;
+
+/**
+ * chat app model (main model)
+ */
+public class ChatAppModel {
+
+	/**
+	 * adapter to main view
+	 */
+	private IMainViewAdapter viewAdpt;
+
+	/**
+	 * chat user
+	 */
+	private User user;
+
+	/**
+	 * remote stub for current user
+	 */
+	private IUser userStub;
+
+	/**
+	 * collector of Receiver objects to avoid it from being cleared
+	 */
+	private Set<Receiver> generatedReceivers = new HashSet<>();
+
+	/**
+	 * store mini models
+	 */
+	private Map<IChatRoom, IMain2MiniAdapter> miniMVCAdpts = new HashMap<>();
+
+	/**
+	 * provided utils for RMI connection
+	 */
+	private IRMIUtils rmiUtils;
+
+	/**
+	 * local registry
+	 */
+	private Registry registry;
+
+	/**
+	 * constructor of main model
+	 * @param adapter main model to main view adapter
+	 */
+	public ChatAppModel(IMainViewAdapter adapter) {
+		this.viewAdpt = adapter;
+	}
+
+	/**
+	 * start running main model
+	 */
+	public void start() {
+		viewAdpt.append("Welcome to Chat App!\n");
+
+	}
+	
+	/**
+	 * Command used to output strings to one or more destinations. By default,
+	 * output goes to standard error.
+	 */
+	private IVoidLambda<String> outputCmd = new IVoidLambda<String>() {
+		public void apply(String... msgs) {
+			for (String s : msgs) {
+				viewAdpt.append(s + '\n');
+			}
+		}
+	};
+
+	/**
+	 * user login
+	 * @param port port for user stub
+	 * @param name self defined user name for display
+	 */
+	public void login(int port, String name) {
+		viewAdpt.append("Logging in...\n");
+		try {
+			rmiUtils = new RMIUtils(outputCmd);
+			rmiUtils.startRMI(port + 100);
+			registry = rmiUtils.getLocalRegistry();
+			viewAdpt.setLocalIP(rmiUtils.getLocalAddress());
+			viewAdpt.append("Ready...\n");
+		} catch (SocketException | UnknownHostException e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+		}
+
+		try {
+			user = new User(UUID.randomUUID(), name);
+			userStub = (IUser) UnicastRemoteObject.exportObject(user, port);
+			registry.rebind(IUser.BOUND_NAME, userStub);
+			viewAdpt.append("IUser " + name + " bound to \"" + IUser.BOUND_NAME + "\"\n");
+			// registry.rebind(Integer.toString(port), userStub);
+			// viewAdpt.append("IUser bound to \"" + port + "\"\n");
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while creating user: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * connect to remote user
+	 * @param remoteHost remote user ip
+	 */
+	public void connectTo(String remoteHost) {
+		try {
+			String[] remote = remoteHost.split(":"); // remoteHost = remoteIP + ":" + port;
+			String remoteIP = remote[0]; // String port = remote[1];
+
+			viewAdpt.append("Locating registry at " + remoteIP + "...\n");
+			Registry registryRemote = rmiUtils.getRemoteRegistry(remoteIP);
+			viewAdpt.append("Found registry: " + registryRemote + "\n");
+
+			IUser remoteUserStub = (IUser) registryRemote.lookup(IUser.BOUND_NAME);
+			viewAdpt.append("Found remote user object: " + remoteUserStub + "\n");
+			user.connect(remoteUserStub);
+			remoteUserStub.connect(userStub);
+			refreshConnectedUser();
+
+		} catch (RemoteException | NotBoundException e) {
+			System.err.println("Exception while retrieving remote user stub: \n" + e);
+			e.printStackTrace();
+		}
+
+		viewAdpt.append("Connection to " + remoteHost + " established!\n");
+	}
+
+	/**
+	 * request rooms from remote user
+	 * @param other selected connected user
+	 */
+	public void requestRoom(IUser other) {
+		try {
+			Set<IChatRoom> otherRooms = (Set<IChatRoom>) other.getChatRooms();
+			for (IChatRoom chatroom : otherRooms) {
+				user.addChatRoom(chatroom);
+				viewAdpt.addChatroom(chatroom);
+			}
+
+			viewAdpt.append("Obtained room list from " + other.getName() + "!\n");
+			refreshConnectedUser();
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while requesting room from remote user: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * create new room
+	 * @param port parameter not used currently
+	 * @param name self defined room name
+	 */
+	public void createRoom(int port, String name) {
+		try {
+			ChatRoom newRoom = new ChatRoom(UUID.randomUUID(), name);
+			viewAdpt.append("Make new ChatRoom: " + newRoom.getName() + "\n");
+
+			// add new chat room to the user's chat room lists
+			user.addChatRoom(newRoom);
+			viewAdpt.addChatroom(newRoom);
+			viewAdpt.append("Add new chatroom <" + newRoom.getName() + "> to user <" + user.getName() + ">\n");
+
+			refreshConnectedUser();
+
+		} catch (RemoteException e) {
+			System.err.println("Exception while creating a new room: \n" + e);
+			e.printStackTrace();
+		}
+		// registry.rebind(IConnect.BOUND_NAME + newRoom.hashCode(), receiverStub);
+
+	}
+
+	/**
+	 * join selected room
+	 * @param port open port for this room's receiver stub
+	 * @param chatroom selected chat room
+	 */
+	public void joinRoom(int port, IChatRoom chatroom) {
+		viewAdpt.append("Joining ChatRoom " + chatroom.getName() + "...\n");
+		try {
+			// make a new IReceiver stub for user in the new chatroom
+			Receiver newReceiver = new Receiver(UUID.randomUUID(), userStub);
+			viewAdpt.append("Make new Receiver for User:" + user.getName() + "\n");
+			IReceiver receiverStub = (IReceiver) UnicastRemoteObject.exportObject(newReceiver, port);
+			registry.rebind(chatroom.getName(), receiverStub);
+			newReceiver.start(receiverStub); //first priority after stub is created
+			viewAdpt.append("Make new IReceiver Stub.\n");
+
+			// add receiver stub to newRoom
+			chatroom.addIReceiverStubLocally(receiverStub);
+			viewAdpt.append("Add new ChatServer Stub to newRoom.\n");
+
+			viewAdpt.append("Start joining...\n");
+			chatroom.sendPacket(new DataPacketChatRoom<IAddReceiverType>(IAddReceiverType.class,
+					new AddReceiverData(receiverStub), receiverStub)); // IAddReceiverType
+			chatroom.addIReceiverStubLocally(receiverStub);
+
+			IMain2MiniAdapter miniMVCAdpt = viewAdpt.makeMini(chatroom, receiverStub);
+			newReceiver.setModel(miniMVCAdpt.getMiniModel());
+			generatedReceivers.add(newReceiver);//keep reference so that it is not collected as garbage
+			miniMVCAdpts.put(chatroom, miniMVCAdpt);
+			viewAdpt.append("Success!");
+
+			refreshConnectedUser();
+
+		} catch (Exception e) {
+			viewAdpt.append("Fail to join the room!\n");
+			System.err.println("Exception while joining room: \n" + e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * force view to display newest connected user list
+	 */
+	public void refreshConnectedUser() {
+		viewAdpt.setConnectedUser(user.getConnectedUsers());
+	}
+
+	/**
+	 * quit chat app after leaving connected rooms 
+	 */
+	public void quit() {
+		for (IMain2MiniAdapter miniModel : miniMVCAdpts.values()) {
+			miniModel.quitRoom();
+		}
+		if (rmiUtils != null)
+			rmiUtils.stopRMI();
+		System.exit(0);
+	}
+
+	/**
+	 * close room tab
+	 * @param chatroom room tab to be closed
+	 */
+	public void deleteRoom(IChatRoom chatroom) {
+		viewAdpt.getTabPnl().remove(miniMVCAdpts.get(chatroom).getMiniView());
+		miniMVCAdpts.remove(chatroom);
+	}
+
+	//	public void invite(IUser other) {}
+}

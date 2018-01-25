@@ -1,0 +1,19 @@
+package game.data;
+
+import gov.nasa.worldwind.geom.Position;
+import map.IRightClickAction;
+
+/*
+ * When the player right clicks on the map, judge if it is the right state.
+ */
+public class fengDraft_CustomRightClickAction {
+	
+	public static final IRightClickAction Singleton = new IRightClickAction() {
+		public void apply(Position p){
+			
+			/*
+			 * compare current position with given state's position
+			 */
+		}
+	};
+}

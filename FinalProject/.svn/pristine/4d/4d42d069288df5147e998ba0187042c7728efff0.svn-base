@@ -1,0 +1,60 @@
+package concrete.data;
+
+import java.awt.Component;
+import java.rmi.RemoteException;
+
+import javax.swing.JLabel;
+
+import common.DataPacketCRAlgoCmd;
+import common.ICRCmd2ModelAdapter;
+import common.DataPacketCR;
+import common.IComponentFactory;
+
+/**
+ * command for String.class visitor
+ */
+public class StringCmd extends DataPacketCRAlgoCmd<String>{
+	
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -9071343446076818679L;
+	
+	/**
+	 * command to model adapter
+	 */
+	private transient ICRCmd2ModelAdapter cmd2ModelAdpt;
+
+	@Override
+	/**
+	 * visitor
+	 */
+	public String apply(Class<?> index, DataPacketCR<String> host, String... params) {
+		cmd2ModelAdpt.buildScrollableComponent(new IComponentFactory() {
+
+			@Override
+			public Component makeComponent() {
+				try {
+					Component label = new JLabel(host.getSender().getUserStub().getName() + ": \n" + host.getData().toString());
+					return label;
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return null;
+			}
+			
+		}, "txtDialog");
+		return null;
+	}
+
+	@Override
+	/**
+	 * adapter setter
+	 */
+	public void setCmd2ModelAdpt(ICRCmd2ModelAdapter cmd2ModelAdpt) {
+		this.cmd2ModelAdpt = cmd2ModelAdpt;
+		
+	}
+
+}

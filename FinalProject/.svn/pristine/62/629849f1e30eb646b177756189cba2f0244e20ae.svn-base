@@ -1,0 +1,102 @@
+package game.controller;
+
+import java.awt.Component;
+import java.awt.EventQueue;
+
+import common.ICRCmd2ModelAdapter;
+import common.IReceiver;
+import game.model.GameModel;
+import game.model.IGameModel2ViewAdapter;
+import game.view.GameView;
+import game.view.IGameView2ModelAdapter;
+import map.MapLayer;
+
+/**
+ * Game Controller of mini-mini-MVC
+ */
+public class GameController {
+	
+	/**
+	 * game model instance
+	 */
+	private GameModel gameModel;
+	
+	/**
+	 * game view instance
+	 */
+	private GameView gameView;
+
+	/**
+	 * game controller constructor
+	 */
+	public GameController(IReceiver serverStub, ICRCmd2ModelAdapter clientModelAdpt) {
+		
+		gameModel = new GameModel(serverStub, clientModelAdpt, new IGameModel2ViewAdapter() {
+
+			@Override
+			public void showLayer(MapLayer layer) {
+				gameView.addMapLayer(layer);
+			}
+
+			@Override
+			public void showInstruction(String ins) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void showScore(double score) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void showStateName(String name) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		gameView = new GameView(new IGameView2ModelAdapter() {
+
+			@Override
+			public boolean submitAnswer() {
+				return gameModel.submitToServer();
+				
+			}
+			
+		});
+	}
+	
+	/**
+	 * start mini-mini-MVC
+	 */
+	public void start() {
+		gameView.start();
+		gameModel.start();
+	}
+	
+	public Component getView() {
+		return gameView.getView();
+	}
+	
+
+	/**
+	 * Launch the application.
+	 * @param args externally provided parameters
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameController gameController = new GameController(null, null);
+					gameController.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+}

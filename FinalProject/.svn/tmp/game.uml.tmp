@@ -1,0 +1,2084 @@
+<<<<<<< .mine
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_68ebIN9ZEeemGrc0ucf8WQ" name="game">
+    <eAnnotations xmi:id="_7Ti3UN9ZEeemGrc0ucf8WQ" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_7Ti3Ud9ZEeemGrc0ucf8WQ" source="codegen">
+        <details xmi:id="_7Ti3Ut9ZEeemGrc0ucf8WQ" key="codegenDirectory" value="/FinalProject/src"/>
+        <details xmi:id="_7qYC8N9ZEeemGrc0ucf8WQ" key="AssociatedSourceCode" value="/FinalProject/src/game/model/IGameModel2ViewAdapter.java;3886926174/1;/FinalProject/src/game/model/GameModel.java;2448659501/1;/FinalProject/src/game/controller/GameController.java;3670860594/1;/FinalProject/src/game/view/GameView.java;4094687712/1;/FinalProject/src/game/view/IGameView2ModelAdapter.java;1107247141/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_7fir8N9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTAN9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTAd9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTAt9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTA99ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTBN9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTBd9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTBt9ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_7fjTB99ZEeemGrc0ucf8WQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fJqYN9ZEeemGrc0ucf8WQ" name="game">
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fLfkN9ZEeemGrc0ucf8WQ" name="model">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_7fiE4N9ZEeemGrc0ucf8WQ" name="IGameModel2ViewAdapter">
+          <ownedComment xmi:id="_7g8aIN9ZEeemGrc0ucf8WQ">
+            <body>game model's adapter to game view</body>
+          </ownedComment>
+          <ownedOperation xmi:id="_7gqtUN9ZEeemGrc0ucf8WQ" name="showLayer">
+            <ownedParameter xmi:id="_7gqtUd9ZEeemGrc0ucf8WQ" name="layer" type="_7gXyYN9ZEeemGrc0ucf8WQ"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7fj6EN9ZEeemGrc0ucf8WQ" name="GameModel">
+          <ownedComment xmi:id="_7g9BMN9ZEeemGrc0ucf8WQ">
+            <body>Game Model</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_7gxbAN9ZEeemGrc0ucf8WQ" name="viewAdpt" visibility="private" type="_7fiE4N9ZEeemGrc0ucf8WQ" association="_7g_dcN9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7gyCEN9ZEeemGrc0ucf8WQ" value="null"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7gyCEt9ZEeemGrc0ucf8WQ" name="serverStub" visibility="private" type="_7ga1sd9ZEeemGrc0ucf8WQ" association="_7hAEgN9ZEeemGrc0ucf8WQ"/>
+          <ownedAttribute xmi:id="_7gypId9ZEeemGrc0ucf8WQ" name="clientModelAdpt" visibility="private" type="_7gaOot9ZEeemGrc0ucf8WQ" association="_7hAEg99ZEeemGrc0ucf8WQ"/>
+          <ownedAttribute xmi:id="_7gypI99ZEeemGrc0ucf8WQ" name="annotations" visibility="private" type="_7gXyYN9ZEeemGrc0ucf8WQ" association="_7hAEht9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7gypJN9ZEeemGrc0ucf8WQ" value="new MapLayer()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7gzQMd9ZEeemGrc0ucf8WQ" name="annotationMap" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <qualifier xmi:id="_7g0eUd9ZEeemGrc0ucf8WQ" type="_7gbcw99ZEeemGrc0ucf8WQ"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7gzQMt9ZEeemGrc0ucf8WQ" value="new HashMap&lt;Annotation, String>()"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g594N9ZEeemGrc0ucf8WQ" name="GameModel" specification="_7gr7cN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g594d9ZEeemGrc0ucf8WQ" name="serverStub" type="_7ga1sd9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g594t9ZEeemGrc0ucf8WQ" name="clientModelAdpt" type="_7gaOot9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g59499ZEeemGrc0ucf8WQ" name="viewAdpt" type="_7fiE4N9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g595N9ZEeemGrc0ucf8WQ" type="_7fj6EN9ZEeemGrc0ucf8WQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>this.serverStub = serverStub;
+		this.clientModelAdpt = clientModelAdpt;
+		this.viewAdpt = viewAdpt;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g6k8N9ZEeemGrc0ucf8WQ" name="start" specification="_7flIMN9ZEeemGrc0ucf8WQ">
+            <language>java</language>
+            <body>loadToggleAnnotations();
+
+		Set&lt;Annotation> states = annotationMap.keySet();
+		for (Annotation state : states) {
+			annotations.addAnnotation(state);
+		}
+
+		viewAdpt.showLayer(annotations);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g6k8d9ZEeemGrc0ucf8WQ" name="getOneSelected" specification="_7flIMd9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g6k8t9ZEeemGrc0ucf8WQ" type="_7gbcw99ZEeemGrc0ucf8WQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>int numberOfSelected = 0;
+		Annotation selected = null;
+		for (Annotation annotation : annotations.getAnnotations()) {
+			if (annotation instanceof ToggleAnnotation) { // must check this before GlobeAnnotation
+				if (((ToggleAnnotation) annotation).isSelected()) {
+					numberOfSelected++;
+					selected = annotation;
+				}
+			}
+		}
+		if (numberOfSelected == 1)
+			return selected;
+		else
+			return null;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g6k899ZEeemGrc0ucf8WQ" name="submitToServer" specification="_7flvQN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g6k9N9ZEeemGrc0ucf8WQ" direction="return">
+              <name xsi:nil="true"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Annotation selected = getOneSelected();
+		if (selected == null)
+			return false;
+
+		//send selection to server
+		String stateName = annotationMap.get(selected);
+		clientModelAdpt.sendTo(serverStub, ChooseStateData.class, new ChooseStateData(stateName, selected));
+		((ToggleAnnotation) selected).toggleText();
+		return true;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g6k9d9ZEeemGrc0ucf8WQ" name="loadToggleAnnotations" specification="_7flvQt9ZEeemGrc0ucf8WQ">
+            <language>java</language>
+            <body>String tip = &quot;Sure to choose this state?&quot;;
+
+		ToggleAnnotation Oklahoma = new ToggleAnnotation(&quot;1&quot;, tip, Position.fromDegrees(35.000, -98.000));
+		annotationMap.put(Oklahoma, &quot;Oklahoma&quot;);
+
+		ToggleAnnotation Pennsylvania = new ToggleAnnotation(&quot;2&quot;, tip, Position.fromDegrees(40.000, -77.000));
+		annotationMap.put(Pennsylvania, &quot;Pennsylvania&quot;);
+
+		ToggleAnnotation sDakota = new ToggleAnnotation(&quot;3&quot;, tip, Position.fromDegrees(43.500, -100.000));
+		annotationMap.put(sDakota, &quot;South Dakota&quot;);
+
+		ToggleAnnotation nHampshire = new ToggleAnnotation(&quot;4&quot;, tip, Position.fromDegrees(43.5, -71.000));
+		annotationMap.put(nHampshire, &quot;New Hampshire&quot;);
+
+		ToggleAnnotation wVirginia = new ToggleAnnotation(&quot;5&quot;, tip, Position.fromDegrees(38.500, -80.000));
+		annotationMap.put(wVirginia, &quot;West Virginia&quot;);
+
+		ToggleAnnotation nJersey = new ToggleAnnotation(&quot;6&quot;, tip, Position.fromDegrees(40.000, -74.000));
+		annotationMap.put(nJersey, &quot;New Jersey&quot;);
+
+		ToggleAnnotation nDakota = new ToggleAnnotation(&quot;7&quot;, tip, Position.fromDegrees(47.000, -100.000));
+		annotationMap.put(nDakota, &quot;North Dakota&quot;);
+
+		ToggleAnnotation Nevada = new ToggleAnnotation(&quot;8&quot;, tip, Position.fromDegrees(38.500, -117.000));
+		annotationMap.put(Nevada, &quot;Nevada&quot;);
+
+		ToggleAnnotation Mississippi = new ToggleAnnotation(&quot;9&quot;, tip, Position.fromDegrees(33.000, -90.000));
+		annotationMap.put(Mississippi, &quot;Mississippi&quot;);
+
+		ToggleAnnotation Colorado = new ToggleAnnotation(&quot;10&quot;, tip, Position.fromDegrees(39.000, -105.000));
+		annotationMap.put(Colorado, &quot;Colorado&quot;);
+
+		ToggleAnnotation Missouri = new ToggleAnnotation(&quot;11&quot;, tip, Position.fromDegrees(38.000, -90.000));
+		annotationMap.put(Missouri, &quot;Missouri&quot;);
+
+		ToggleAnnotation California = new ToggleAnnotation(&quot;12&quot;, tip, Position.fromDegrees(37.000, -119.000));
+		annotationMap.put(California, &quot;California&quot;);
+
+		ToggleAnnotation Illinois = new ToggleAnnotation(&quot;13&quot;, tip, Position.fromDegrees(39.000, -89.000));
+		annotationMap.put(Illinois, &quot;Illinois&quot;);
+
+		ToggleAnnotation Florida = new ToggleAnnotation(&quot;14&quot;, tip, Position.fromDegrees(27.000, -83.5000));
+		annotationMap.put(Florida, &quot;Florida&quot;);
+
+		ToggleAnnotation nMexico = new ToggleAnnotation(&quot;15&quot;, tip, Position.fromDegrees(34.000, -106.000));
+		annotationMap.put(nMexico, &quot;New Mexico&quot;);
+
+		ToggleAnnotation Utah = new ToggleAnnotation(&quot;16&quot;, tip, Position.fromDegrees(40.000, -111.5));
+		annotationMap.put(Utah, &quot;Utah&quot;);
+
+		ToggleAnnotation Iowa = new ToggleAnnotation(&quot;17&quot;, tip, Position.fromDegrees(41.500, -93.000));
+		annotationMap.put(Iowa, &quot;Iowa&quot;);
+
+		ToggleAnnotation Michigan = new ToggleAnnotation(&quot;18&quot;, tip, Position.fromDegrees(44.500, -82.000));
+		annotationMap.put(Michigan, &quot;Michigan&quot;);
+
+		ToggleAnnotation Kentucky = new ToggleAnnotation(&quot;19&quot;, tip, Position.fromDegrees(37.000, -85.000));
+		annotationMap.put(Kentucky, &quot;Kentucky&quot;);
+
+		ToggleAnnotation Tennessee = new ToggleAnnotation(&quot;20&quot;, tip, Position.fromDegrees(35.000, -85.000));
+		annotationMap.put(Tennessee, &quot;Tennessee&quot;);
+
+		ToggleAnnotation Indiana = new ToggleAnnotation(&quot;21&quot;, tip, Position.fromDegrees(39.000, -86.000));
+		annotationMap.put(Indiana, &quot;Indiana&quot;);
+
+		ToggleAnnotation Arizona = new ToggleAnnotation(&quot;22&quot;, tip, Position.fromDegrees(34.000, -111.000));
+		annotationMap.put(Arizona, &quot;Arizona&quot;);
+
+		ToggleAnnotation Oregon = new ToggleAnnotation(&quot;23&quot;, tip, Position.fromDegrees(44.000, -120.000));
+		annotationMap.put(Oregon, &quot;Oregon&quot;);
+
+		ToggleAnnotation Washington = new ToggleAnnotation(&quot;24&quot;, tip, Position.fromDegrees(47.000, -120.000));
+		annotationMap.put(Washington, &quot;Washington&quot;);
+
+		ToggleAnnotation Maryland = new ToggleAnnotation(&quot;25&quot;, tip, Position.fromDegrees(38.000, -77.000));
+		annotationMap.put(Maryland, &quot;Maryland&quot;);
+
+		ToggleAnnotation Minnesota = new ToggleAnnotation(&quot;26&quot;, tip, Position.fromDegrees(46.000, -93.000));
+		annotationMap.put(Minnesota, &quot;Minnesota&quot;);
+
+		ToggleAnnotation nYork = new ToggleAnnotation(&quot;27&quot;, tip, Position.fromDegrees(43.000, -75.000));
+		annotationMap.put(nYork, &quot;New York&quot;);
+
+		ToggleAnnotation Maine = new ToggleAnnotation(&quot;28&quot;, tip, Position.fromDegrees(44.000, -69.000));
+		annotationMap.put(Maine, &quot;Maine&quot;);
+
+		ToggleAnnotation sCarolina = new ToggleAnnotation(&quot;29&quot;, tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(sCarolina, &quot;South Carolina&quot;);
+
+		ToggleAnnotation Texas = new ToggleAnnotation(&quot;30&quot;, tip, Position.fromDegrees(30.000, -99.000));
+		annotationMap.put(Texas, &quot;Texas&quot;);
+
+		ToggleAnnotation Georgia = new ToggleAnnotation(&quot;31&quot;, tip, Position.fromDegrees(32.000, -82.000));
+		annotationMap.put(Georgia, &quot;Georgia&quot;);
+
+		ToggleAnnotation Louisiana = new ToggleAnnotation(&quot;32&quot;, tip, Position.fromDegrees(30.000, -91.000));
+		annotationMap.put(Louisiana, &quot;Louisiana&quot;);
+
+		ToggleAnnotation Wisconsin = new ToggleAnnotation(&quot;33&quot;, tip, Position.fromDegrees(45.000, -89.000));
+		annotationMap.put(Wisconsin, &quot;Wisconsin&quot;);
+
+		ToggleAnnotation Conneticut = new ToggleAnnotation(&quot;34&quot;, tip, Position.fromDegrees(41.000, -72.000));
+		annotationMap.put(Conneticut, &quot;Conneticut&quot;);
+
+		ToggleAnnotation Wyoming = new ToggleAnnotation(&quot;35&quot;, tip, Position.fromDegrees(43.000, -107.000));
+		annotationMap.put(Wyoming, &quot;Wyoming&quot;);
+
+		ToggleAnnotation Kansas = new ToggleAnnotation(&quot;36&quot;, tip, Position.fromDegrees(38.500, -98.000));
+		annotationMap.put(Kansas, &quot;Kansas&quot;);
+
+		ToggleAnnotation nCarolina = new ToggleAnnotation(&quot;37&quot;, tip, Position.fromDegrees(35.000, -80.000));
+		annotationMap.put(nCarolina, &quot;North Carolina&quot;);
+
+		ToggleAnnotation Ohio = new ToggleAnnotation(&quot;38&quot;, tip, Position.fromDegrees(40.000, -82.000));
+		annotationMap.put(Ohio, &quot;Ohio&quot;);
+
+		ToggleAnnotation Massachusetts = new ToggleAnnotation(&quot;39&quot;, tip, Position.fromDegrees(42.000, -71.000));
+		annotationMap.put(Massachusetts, &quot;Massachusetts&quot;);
+
+		ToggleAnnotation Alabama = new ToggleAnnotation(&quot;40&quot;, tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(Alabama, &quot;Alabama&quot;);
+
+		ToggleAnnotation Virginia = new ToggleAnnotation(&quot;41&quot;, tip, Position.fromDegrees(37.000, -79.000));
+		annotationMap.put(Virginia, &quot;Virginia&quot;);
+
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_7flIMN9ZEeemGrc0ucf8WQ" name="start" method="_7g6k8N9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BMt9ZEeemGrc0ucf8WQ">
+              <body>start the game model</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7flIMd9ZEeemGrc0ucf8WQ" name="getOneSelected" method="_7g6k8d9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BM99ZEeemGrc0ucf8WQ">
+              <body>The method to count selected markers
+	 * @return the one selected marker; if selected more than one, return null</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gsigN9ZEeemGrc0ucf8WQ" type="_7gbcw99ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7flvQN9ZEeemGrc0ucf8WQ" name="submitToServer" method="_7g6k899ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BNN9ZEeemGrc0ucf8WQ">
+              <body>submit answer to server
+	 * @return submit success or not</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7flvQd9ZEeemGrc0ucf8WQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7flvQt9ZEeemGrc0ucf8WQ" name="loadToggleAnnotations" method="_7g6k9d9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BNd9ZEeemGrc0ucf8WQ">
+              <body>load toggle annotation: state coordinates</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7gr7cN9ZEeemGrc0ucf8WQ" name="GameModel" method="_7g594N9ZEeemGrc0ucf8WQ">
+            <eAnnotations xmi:id="_7gr7dN9ZEeemGrc0ucf8WQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_7gr7dd9ZEeemGrc0ucf8WQ" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_7g9BMd9ZEeemGrc0ucf8WQ">
+              <body>constructor
+	 * @param serverStub game server stub
+	 * @param clientModelAdpt client model adapter
+	 * @param viewAdpt game view adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gr7cd9ZEeemGrc0ucf8WQ" name="serverStub" type="_7ga1sd9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gr7ct9ZEeemGrc0ucf8WQ" name="clientModelAdpt" type="_7gaOot9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gr7c99ZEeemGrc0ucf8WQ" name="viewAdpt" type="_7fiE4N9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gr7dt9ZEeemGrc0ucf8WQ" type="_7fj6EN9ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gz3QN9ZEeemGrc0ucf8WQ" name="Annotation"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7g_dcN9ZEeemGrc0ucf8WQ" name="" memberEnd="_7g_dcd9ZEeemGrc0ucf8WQ _7gxbAN9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7g_dcd9ZEeemGrc0ucf8WQ" name="" type="_7fj6EN9ZEeemGrc0ucf8WQ" association="_7g_dcN9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hAEgN9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hAEgd9ZEeemGrc0ucf8WQ _7gyCEt9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hAEgd9ZEeemGrc0ucf8WQ" name="" type="_7fj6EN9ZEeemGrc0ucf8WQ" association="_7hAEgN9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hAEg99ZEeemGrc0ucf8WQ" name="" memberEnd="_7hAEhN9ZEeemGrc0ucf8WQ _7gypId9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hAEhN9ZEeemGrc0ucf8WQ" name="" type="_7fj6EN9ZEeemGrc0ucf8WQ" association="_7hAEg99ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hAEht9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hAEh99ZEeemGrc0ucf8WQ _7gypI99ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hAEh99ZEeemGrc0ucf8WQ" name="" type="_7fj6EN9ZEeemGrc0ucf8WQ" association="_7hAEht9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fMttN9ZEeemGrc0ucf8WQ" name="data">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gcq4d9ZEeemGrc0ucf8WQ" name="ChooseStateData"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fQ_Id9ZEeemGrc0ucf8WQ" name="view">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7fr14N9ZEeemGrc0ucf8WQ" name="GameView">
+          <ownedComment xmi:id="_7g9BO99ZEeemGrc0ucf8WQ">
+            <body>Game view</body>
+          </ownedComment>
+          <generalization xmi:id="_7gvl0N9ZEeemGrc0ucf8WQ" general="_7gjYkd9ZEeemGrc0ucf8WQ"/>
+          <ownedAttribute xmi:id="_7g2TgN9ZEeemGrc0ucf8WQ" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g2Tgd9ZEeemGrc0ucf8WQ" value="5179876899323256723L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g2Tgt9ZEeemGrc0ucf8WQ" name="contentPane" visibility="private" type="_7gj_ot9ZEeemGrc0ucf8WQ" association="_7hBSpN9ZEeemGrc0ucf8WQ"/>
+          <ownedAttribute xmi:id="_7g26kN9ZEeemGrc0ucf8WQ" name="pnlDisplay" visibility="private" isLeaf="true" type="_7gj_ot9ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hB5sd9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g26kd9ZEeemGrc0ucf8WQ" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g26k99ZEeemGrc0ucf8WQ" name="pnlControl" visibility="private" isLeaf="true" type="_7gj_ot9ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hB5tN9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g26lN9ZEeemGrc0ucf8WQ" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g3hod9ZEeemGrc0ucf8WQ" name="map" visibility="private" isLeaf="true" type="_7glNwt9ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hCgwd9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g3hot9ZEeemGrc0ucf8WQ" value="new MapPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g3hpN9ZEeemGrc0ucf8WQ" name="btnSubmit" visibility="private" isLeaf="true" type="_7gixg99ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hCgxN9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g4IsN9ZEeemGrc0ucf8WQ" value="new JButton(&quot;Submit&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g4Ist9ZEeemGrc0ucf8WQ" name="textQuestion" visibility="private" isLeaf="true" type="_7glNwN9ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hDH0d9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g4Is99ZEeemGrc0ucf8WQ" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_7g4vwN9ZEeemGrc0ucf8WQ" name="modelAdpt" visibility="private" type="_7fx8gN9ZEeemGrc0ucf8WQ" association="_7hDu4d9ZEeemGrc0ucf8WQ">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_7g4vwd9ZEeemGrc0ucf8WQ" value="null"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7MCt9ZEeemGrc0ucf8WQ" name="start" specification="_7ftEAN9ZEeemGrc0ucf8WQ">
+            <language>java</language>
+            <body>map.start();
+		// setVisible(true);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zEN9ZEeemGrc0ucf8WQ" name="GameView" specification="_7gmb4N9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7zEd9ZEeemGrc0ucf8WQ" name="adapter" type="_7fx8gN9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g7zEt9ZEeemGrc0ucf8WQ" type="_7fr14N9ZEeemGrc0ucf8WQ" direction="return"/>
+            <language>java</language>
+            <body>this.modelAdpt = adapter;
+		initGUI();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zE99ZEeemGrc0ucf8WQ" name="initGUI" specification="_7ftrEN9ZEeemGrc0ucf8WQ">
+            <language>java</language>
+            <body>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		map.setPreferredSize(new java.awt.Dimension(600, 300));
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		pnlDisplay.add(map);
+
+		contentPane.add(pnlControl, BorderLayout.SOUTH);
+		btnSubmit.setToolTipText(&quot;please choose one annotation and submit : )&quot;);
+		pnlControl.add(btnSubmit);
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!modelAdpt.submitAnswer())
+					alert(&quot;Submission failed. Please select exactly one state.&quot;);
+			}
+		});
+
+		textQuestion.setColumns(20);
+		textQuestion.setEditable(false);
+		pnlControl.add(textQuestion);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zFN9ZEeemGrc0ucf8WQ" name="getView" specification="_7ftrEd9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7zFd9ZEeemGrc0ucf8WQ" type="_7gfHIN9ZEeemGrc0ucf8WQ" direction="return"/>
+            <language>java</language>
+            <body>return contentPane;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zFt9ZEeemGrc0ucf8WQ" name="addMapLayer" specification="_7gu-wd9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7zF99ZEeemGrc0ucf8WQ" name="layer" type="_7gXyYN9ZEeemGrc0ucf8WQ"/>
+            <language>java</language>
+            <body>map.addLayer(layer);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zGN9ZEeemGrc0ucf8WQ" name="alert" specification="_7fuSIN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7zGd9ZEeemGrc0ucf8WQ" name="msg">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>JOptionPane.showMessageDialog(null, msg);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7zGt9ZEeemGrc0ucf8WQ" name="showStateName" specification="_7fu5MN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7zG99ZEeemGrc0ucf8WQ" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>textQuestion.setText(name);
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_7ftEAN9ZEeemGrc0ucf8WQ" name="start" method="_7g7MCt9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oQN9ZEeemGrc0ucf8WQ">
+              <body>start the game view</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7ftrEN9ZEeemGrc0ucf8WQ" name="initGUI" visibility="private" method="_7g7zE99ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oQt9ZEeemGrc0ucf8WQ">
+              <body>init GUI layout</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7ftrEd9ZEeemGrc0ucf8WQ" name="getView" method="_7g7zFN9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oQ99ZEeemGrc0ucf8WQ">
+              <body>get game view panel
+	 * 
+	 * @return content pane</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gu-wN9ZEeemGrc0ucf8WQ" type="_7gfHIN9ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7fuSIN9ZEeemGrc0ucf8WQ" name="alert" method="_7g7zGN9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oRd9ZEeemGrc0ucf8WQ">
+              <body>Pop up an alert window on the screen to show some messages
+	 * 
+	 * @param msg
+	 *            The message to be shown on the screen</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7fuSId9ZEeemGrc0ucf8WQ" name="msg">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7fu5MN9ZEeemGrc0ucf8WQ" name="showStateName" method="_7g7zGt9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oRt9ZEeemGrc0ucf8WQ">
+              <body>set question box
+	 * 
+	 * @param name
+	 *            desired display</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7fu5Md9ZEeemGrc0ucf8WQ" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7gmb4N9ZEeemGrc0ucf8WQ" name="GameView" method="_7g7zEN9ZEeemGrc0ucf8WQ">
+            <eAnnotations xmi:id="_7gmb4t9ZEeemGrc0ucf8WQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_7gmb499ZEeemGrc0ucf8WQ" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_7g9oQd9ZEeemGrc0ucf8WQ">
+              <body>Create the frame.
+	 * 
+	 * @param adapter
+	 *            externally provided adapter to game model</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gmb4d9ZEeemGrc0ucf8WQ" name="adapter" type="_7fx8gN9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gmb5N9ZEeemGrc0ucf8WQ" type="_7fr14N9ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7gu-wd9ZEeemGrc0ucf8WQ" name="addMapLayer" method="_7g7zFt9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9oRN9ZEeemGrc0ucf8WQ">
+              <body>add layer to map panel
+	 * 
+	 * @param layer
+	 *            map layer</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gu-wt9ZEeemGrc0ucf8WQ" name="layer" type="_7gXyYN9ZEeemGrc0ucf8WQ"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_7fx8gN9ZEeemGrc0ucf8WQ" name="IGameView2ModelAdapter">
+          <ownedComment xmi:id="_7g9oR99ZEeemGrc0ucf8WQ">
+            <body>Game view's adapter to game model</body>
+          </ownedComment>
+          <ownedOperation xmi:id="_7fyjkN9ZEeemGrc0ucf8WQ" name="submitAnswer">
+            <ownedComment xmi:id="_7g9oSN9ZEeemGrc0ucf8WQ">
+              <body>submit answer to server
+	 * @return if submit success, return true</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7fyjkd9ZEeemGrc0ucf8WQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hBSpN9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hBSpd9ZEeemGrc0ucf8WQ _7g2Tgt9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hBSpd9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hBSpN9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hB5sd9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hB5st9ZEeemGrc0ucf8WQ _7g26kN9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hB5st9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hB5sd9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hB5tN9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hB5td9ZEeemGrc0ucf8WQ _7g26k99ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hB5td9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hB5tN9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hCgwd9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hCgwt9ZEeemGrc0ucf8WQ _7g3hod9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hCgwt9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hCgwd9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hCgxN9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hCgxd9ZEeemGrc0ucf8WQ _7g3hpN9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hCgxd9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hCgxN9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hDH0d9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hDH0t9ZEeemGrc0ucf8WQ _7g4Ist9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hDH0t9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hDH0d9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hDu4d9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hDu4t9ZEeemGrc0ucf8WQ _7g4vwN9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hDu4t9ZEeemGrc0ucf8WQ" name="" type="_7fr14N9ZEeemGrc0ucf8WQ" association="_7hDu4d9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fS0UN9ZEeemGrc0ucf8WQ" name="controller">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7foLgN9ZEeemGrc0ucf8WQ" name="GameController">
+          <ownedComment xmi:id="_7g9BNt9ZEeemGrc0ucf8WQ">
+            <body>Game Controller of mini-mini-MVC</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_7g1FYN9ZEeemGrc0ucf8WQ" name="gameModel" visibility="private" type="_7fj6EN9ZEeemGrc0ucf8WQ" association="_7hArkd9ZEeemGrc0ucf8WQ"/>
+          <ownedAttribute xmi:id="_7g1scd9ZEeemGrc0ucf8WQ" name="gameView" type="_7fr14N9ZEeemGrc0ucf8WQ" isReadOnly="true" association="_7hBSod9ZEeemGrc0ucf8WQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7MAN9ZEeemGrc0ucf8WQ" name="GameController" specification="_7gtJkN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7MAd9ZEeemGrc0ucf8WQ" name="serverStub" type="_7ga1sd9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g7MAt9ZEeemGrc0ucf8WQ" name="clientModelAdpt" type="_7gaOot9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7g7MA99ZEeemGrc0ucf8WQ" type="_7foLgN9ZEeemGrc0ucf8WQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>gameModel = new GameModel(serverStub, clientModelAdpt, new IGameModel2ViewAdapter() {
+
+			@Override
+			public void showLayer(MapLayer layer) {
+				gameView.addMapLayer(layer);
+			}
+
+		});
+
+		gameView = new GameView(new IGameView2ModelAdapter() {
+
+			@Override
+			public boolean submitAnswer() {
+				return gameModel.submitToServer();
+
+			}
+
+		});
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7MBN9ZEeemGrc0ucf8WQ" name="start" specification="_7fpZoN9ZEeemGrc0ucf8WQ">
+            <language>java</language>
+            <body>gameView.start();
+		gameModel.start();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7MBd9ZEeemGrc0ucf8WQ" name="getView" specification="_7fpZod9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7MBt9ZEeemGrc0ucf8WQ" type="_7gfHIN9ZEeemGrc0ucf8WQ" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>return gameView.getView();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7g7MB99ZEeemGrc0ucf8WQ" name="main" specification="_7fqAsN9ZEeemGrc0ucf8WQ">
+            <ownedParameter xmi:id="_7g7MCN9ZEeemGrc0ucf8WQ" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7g7MCd9ZEeemGrc0ucf8WQ" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameController gameController = new GameController(null, null);
+					gameController.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_7fpZoN9ZEeemGrc0ucf8WQ" name="start" method="_7g7MBN9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BON9ZEeemGrc0ucf8WQ">
+              <body>start mini-mini-MVC</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7fpZod9ZEeemGrc0ucf8WQ" name="getView" method="_7g7MBd9ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BOd9ZEeemGrc0ucf8WQ">
+              <body>get view panel
+	 * @return view panel</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gtwo99ZEeemGrc0ucf8WQ" type="_7gfHIN9ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7fqAsN9ZEeemGrc0ucf8WQ" name="main" isStatic="true" method="_7g7MB99ZEeemGrc0ucf8WQ">
+            <ownedComment xmi:id="_7g9BOt9ZEeemGrc0ucf8WQ">
+              <body>Launch the application.
+	 * @param args externally provided parameters</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7fqAsd9ZEeemGrc0ucf8WQ" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7fqAst9ZEeemGrc0ucf8WQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_7gtJkN9ZEeemGrc0ucf8WQ" name="GameController" method="_7g7MAN9ZEeemGrc0ucf8WQ">
+            <eAnnotations xmi:id="_7gtwoN9ZEeemGrc0ucf8WQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_7gtwod9ZEeemGrc0ucf8WQ" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_7g9BN99ZEeemGrc0ucf8WQ">
+              <body>game controller constructor
+	 * @param serverStub server receiver stub
+	 * @param clientModelAdpt client command to chat room model adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_7gtJkd9ZEeemGrc0ucf8WQ" name="serverStub" type="_7ga1sd9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gtJkt9ZEeemGrc0ucf8WQ" name="clientModelAdpt" type="_7gaOot9ZEeemGrc0ucf8WQ"/>
+            <ownedParameter xmi:id="_7gtwot9ZEeemGrc0ucf8WQ" type="_7foLgN9ZEeemGrc0ucf8WQ" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hArkd9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hArkt9ZEeemGrc0ucf8WQ _7g1FYN9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hArkt9ZEeemGrc0ucf8WQ" name="" type="_7foLgN9ZEeemGrc0ucf8WQ" association="_7hArkd9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7hBSod9ZEeemGrc0ucf8WQ" name="" memberEnd="_7hBSot9ZEeemGrc0ucf8WQ _7g1scd9ZEeemGrc0ucf8WQ">
+          <ownedEnd xmi:id="_7hBSot9ZEeemGrc0ucf8WQ" name="" type="_7foLgN9ZEeemGrc0ucf8WQ" association="_7hBSod9ZEeemGrc0ucf8WQ"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fK4gN9ZEeemGrc0ucf8WQ" name="map">
+      <packagedElement xmi:type="uml:Class" xmi:id="_7gXyYN9ZEeemGrc0ucf8WQ" name="MapLayer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_7gcD0d9ZEeemGrc0ucf8WQ" name="ToggleAnnotation"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_7glNwt9ZEeemGrc0ucf8WQ" name="MapPanel"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fMGoN9ZEeemGrc0ucf8WQ" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fMGod9ZEeemGrc0ucf8WQ" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gZAgN9ZEeemGrc0ucf8WQ" name="HashMap"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_7gZnkN9ZEeemGrc0ucf8WQ" name="Map"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_7gaOoN9ZEeemGrc0ucf8WQ" name="Set"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fQ_IN9ZEeemGrc0ucf8WQ" name="awt">
+        <packagedElement xmi:type="uml:Package" xmi:id="_7fUpgN9ZEeemGrc0ucf8WQ" name="event">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_7giKcd9ZEeemGrc0ucf8WQ" name="ActionListener"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_7gixgd9ZEeemGrc0ucf8WQ" name="ActionEvent"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gfHIN9ZEeemGrc0ucf8WQ" name="Component"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gfuMd9ZEeemGrc0ucf8WQ" name="EventQueue"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7ghjYN9ZEeemGrc0ucf8WQ" name="BorderLayout"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fMGot9ZEeemGrc0ucf8WQ" name="common">
+      <packagedElement xmi:type="uml:Interface" xmi:id="_7gaOot9ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_7ga1sd9ZEeemGrc0ucf8WQ" name="IReceiver"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fMGo99ZEeemGrc0ucf8WQ" name="gov">
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fMtsN9ZEeemGrc0ucf8WQ" name="nasa">
+        <packagedElement xmi:type="uml:Package" xmi:id="_7fMtsd9ZEeemGrc0ucf8WQ" name="worldwind">
+          <packagedElement xmi:type="uml:Package" xmi:id="_7fMtst9ZEeemGrc0ucf8WQ" name="geom">
+            <packagedElement xmi:type="uml:Class" xmi:id="_7gbcwd9ZEeemGrc0ucf8WQ" name="Position"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_7fMts99ZEeemGrc0ucf8WQ" name="render">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_7gbcw99ZEeemGrc0ucf8WQ" name="Annotation"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_7fUpgd9ZEeemGrc0ucf8WQ" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_7fUpgt9ZEeemGrc0ucf8WQ" name="swing">
+        <packagedElement xmi:type="uml:Package" xmi:id="_7fUpg99ZEeemGrc0ucf8WQ" name="border">
+          <packagedElement xmi:type="uml:Class" xmi:id="_7gkmsd9ZEeemGrc0ucf8WQ" name="EmptyBorder"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gixg99ZEeemGrc0ucf8WQ" name="JButton"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gjYkd9ZEeemGrc0ucf8WQ" name="JFrame"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gj_oN9ZEeemGrc0ucf8WQ" name="JOptionPane"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7gj_ot9ZEeemGrc0ucf8WQ" name="JPanel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7glNwN9ZEeemGrc0ucf8WQ" name="JTextField"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_7TjeYN9ZEeemGrc0ucf8WQ">
+      <eAnnotations xmi:id="_7TjeYd9ZEeemGrc0ucf8WQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_7TkFcN9ZEeemGrc0ucf8WQ" base_Package="_68ebIN9ZEeemGrc0ucf8WQ">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Array xmi:id="_7fqAs99ZEeemGrc0ucf8WQ" base_Element="_7fqAsd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gYZcN9ZEeemGrc0ucf8WQ" base_Element="_7gXyYN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gZAgd9ZEeemGrc0ucf8WQ" base_Element="_7gZAgN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gZnkd9ZEeemGrc0ucf8WQ" base_Element="_7gZnkN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gaOod9ZEeemGrc0ucf8WQ" base_Element="_7gaOoN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7ga1sN9ZEeemGrc0ucf8WQ" base_Element="_7gaOot9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gbcwN9ZEeemGrc0ucf8WQ" base_Element="_7ga1sd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gbcwt9ZEeemGrc0ucf8WQ" base_Element="_7gbcwd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gcD0N9ZEeemGrc0ucf8WQ" base_Element="_7gbcw99ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gcq4N9ZEeemGrc0ucf8WQ" base_Element="_7gcD0d9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gcq4t9ZEeemGrc0ucf8WQ" base_Element="_7gcq4d9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gfuMN9ZEeemGrc0ucf8WQ" base_Element="_7gfHIN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7ggVQN9ZEeemGrc0ucf8WQ" base_Element="_7gfuMd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7giKcN9ZEeemGrc0ucf8WQ" base_Element="_7ghjYN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gixgN9ZEeemGrc0ucf8WQ" base_Element="_7giKcd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gixgt9ZEeemGrc0ucf8WQ" base_Element="_7gixgd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gjYkN9ZEeemGrc0ucf8WQ" base_Element="_7gixg99ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gjYkt9ZEeemGrc0ucf8WQ" base_Element="_7gjYkd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gj_od9ZEeemGrc0ucf8WQ" base_Element="_7gj_oN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gkmsN9ZEeemGrc0ucf8WQ" base_Element="_7gj_ot9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gkmst9ZEeemGrc0ucf8WQ" base_Element="_7gkmsd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7glNwd9ZEeemGrc0ucf8WQ" base_Element="_7glNwN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7gl00N9ZEeemGrc0ucf8WQ" base_Element="_7glNwt9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7gyCEd9ZEeemGrc0ucf8WQ" base_Element="_7gxbAN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7gypIN9ZEeemGrc0ucf8WQ" base_Element="_7gyCEt9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7gypIt9ZEeemGrc0ucf8WQ" base_Element="_7gypId9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7gzQMN9ZEeemGrc0ucf8WQ" base_Element="_7gypI99ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7gzQM99ZEeemGrc0ucf8WQ" base_Element="_7gzQMd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7g0eUN9ZEeemGrc0ucf8WQ" base_Element="_7gz3QN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g1scN9ZEeemGrc0ucf8WQ" base_Element="_7g1FYN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g2Tg99ZEeemGrc0ucf8WQ" base_Element="_7g2Tgt9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g26kt9ZEeemGrc0ucf8WQ" base_Element="_7g26kN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g3hoN9ZEeemGrc0ucf8WQ" base_Element="_7g26k99ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g3ho99ZEeemGrc0ucf8WQ" base_Element="_7g3hod9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g4Isd9ZEeemGrc0ucf8WQ" base_Element="_7g3hpN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g4ItN9ZEeemGrc0ucf8WQ" base_Element="_7g4Ist9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_7g4vwt9ZEeemGrc0ucf8WQ" base_Element="_7g4vwN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7g_dct9ZEeemGrc0ucf8WQ" base_Element="_7g_dcN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hAEgt9ZEeemGrc0ucf8WQ" base_Element="_7hAEgN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hAEhd9ZEeemGrc0ucf8WQ" base_Element="_7hAEg99ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hArkN9ZEeemGrc0ucf8WQ" base_Element="_7hAEht9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hBSoN9ZEeemGrc0ucf8WQ" base_Element="_7hArkd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hBSo99ZEeemGrc0ucf8WQ" base_Element="_7hBSod9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hB5sN9ZEeemGrc0ucf8WQ" base_Element="_7hBSpN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hB5s99ZEeemGrc0ucf8WQ" base_Element="_7hB5sd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hCgwN9ZEeemGrc0ucf8WQ" base_Element="_7hB5tN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hCgw99ZEeemGrc0ucf8WQ" base_Element="_7hCgwd9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hDH0N9ZEeemGrc0ucf8WQ" base_Element="_7hCgxN9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hDu4N9ZEeemGrc0ucf8WQ" base_Element="_7hDH0d9ZEeemGrc0ucf8WQ"/>
+  <UMLLabProfile:Reference xmi:id="_7hEV8N9ZEeemGrc0ucf8WQ" base_Element="_7hDu4d9ZEeemGrc0ucf8WQ"/>
+</xmi:XMI>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_yWkVcN9-EeeNHqh_gF87ow" name="game">
+    <eAnnotations xmi:id="_zA_LcN9-EeeNHqh_gF87ow" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_zA_ygN9-EeeNHqh_gF87ow" source="codegen">
+        <details xmi:id="_zA_ygd9-EeeNHqh_gF87ow" key="codegenDirectory" value="/FinalProject/src"/>
+        <details xmi:id="_0LDx4N9-EeeNHqh_gF87ow" key="AssociatedSourceCode" value="/FinalProject/src/game/controller/GameController.java;2313710307/1;/FinalProject/src/game/data/ChooseStateCmd.java;541830420/1;/FinalProject/src/game/data/ChooseStateData.java;893696548/1;/FinalProject/src/game/data/GameFactory.java;1808809632/1;/FinalProject/src/game/data/GameOverCmd.java;1392467439/1;/FinalProject/src/game/data/GameOverData.java;2242262588/1;/FinalProject/src/game/data/GameStartCmd.java;1750725349/1;/FinalProject/src/game/data/GameStartData.java;1637948366/1;/FinalProject/src/game/data/IGameMsgType.java;4188419370/1;/FinalProject/src/game/data/QueryStateCmd.java;3978234715/1;/FinalProject/src/game/data/QueryStateData.java;4243132197/1;/FinalProject/src/game/model/GameModel.java;1902689902/1;/FinalProject/src/game/model/IGameModel2ViewAdapter.java;3886926174/1;/FinalProject/src/game/view/GameView.java;4094687712/1;/FinalProject/src/game/view/IGameView2ModelAdapter.java;1888401339/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_z0nn0N9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_z0nn0d9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_z0oO4N9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_z0oO4d9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_z0oO4t9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_z0oO499-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_z0o18N9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_z0o18d9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_z0pdAN9-EeeNHqh_gF87ow">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zyoq0N9-EeeNHqh_gF87ow" name="game">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyqgAd9-EeeNHqh_gF87ow" name="model">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z12W4N9-EeeNHqh_gF87ow" name="GameModel">
+          <ownedComment xmi:id="_z-JXQ99-EeeNHqh_gF87ow">
+            <body>Game Model</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9ny0N9-EeeNHqh_gF87ow" name="viewAdpt" visibility="private" type="_z2BWAN9-EeeNHqh_gF87ow" association="_z-f8kd9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9oZ4N9-EeeNHqh_gF87ow" value="null"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9pA8d9-EeeNHqh_gF87ow" name="serverStub" visibility="private" type="_z6u24d9-EeeNHqh_gF87ow" association="_z-hKsd9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9qPEd9-EeeNHqh_gF87ow" name="clientModelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-iY0d9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9rdMd9-EeeNHqh_gF87ow" name="annotations" visibility="private" type="_z6wsEN9-EeeNHqh_gF87ow" association="_z-jm8d9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9sEQN9-EeeNHqh_gF87ow" value="new MapLayer()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9t5cN9-EeeNHqh_gF87ow" name="annotationMap" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <qualifier xmi:id="_z9w8wd9-EeeNHqh_gF87ow" type="_z9vuoN9-EeeNHqh_gF87ow"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9uggN9-EeeNHqh_gF87ow" value="new HashMap&lt;Annotation, String>()"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-CpkN9-EeeNHqh_gF87ow" name="GameModel" specification="_z89EcN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Cpkd9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-Cpkt9-EeeNHqh_gF87ow" name="clientModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-Cpk99-EeeNHqh_gF87ow" name="viewAdpt" type="_z2BWAN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-CplN9-EeeNHqh_gF87ow" type="_z12W4N9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.serverStub = serverStub;
+		this.clientModelAdpt = clientModelAdpt;
+		this.viewAdpt = viewAdpt;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-Cpld9-EeeNHqh_gF87ow" name="start" specification="_z15aMN9-EeeNHqh_gF87ow">
+            <language>java</language>
+            <body>loadToggleAnnotations();
+		
+		Set&lt;Annotation> states = annotationMap.keySet();
+		for (Annotation state:states) {
+			annotations.addAnnotation(state);
+		}
+		
+		viewAdpt.showLayer(annotations);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-Cplt9-EeeNHqh_gF87ow" name="getOneSelected" specification="_z16BQN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Cpl99-EeeNHqh_gF87ow" type="_z68SQN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>int numberOfSelected = 0;
+		Annotation selected = null;
+		for (Annotation annotation: annotations.getAnnotations()) {
+			if (annotation instanceof ToggleAnnotation){  // must check this before GlobeAnnotation
+				if (((ToggleAnnotation) annotation).isSelected()) {
+					numberOfSelected++;
+					selected = annotation;
+				}
+			}
+		}
+		if (numberOfSelected == 1)
+			return selected;
+		else
+			return null;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-DQoN9-EeeNHqh_gF87ow" name="submitToServer" specification="_z16oUN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-DQod9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>Annotation selected = getOneSelected();
+		if (selected == null)
+			return false;
+		
+		//send selection to server
+		String stateName = annotationMap.get(selected);
+		clientModelAdpt.sendTo(serverStub, ChooseStateData.class, new ChooseStateData(stateName, selected));
+		((ToggleAnnotation) selected).toggleText();
+		return true;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-DQot9-EeeNHqh_gF87ow" name="loadToggleAnnotations" specification="_z172cN9-EeeNHqh_gF87ow">
+            <language>java</language>
+            <body>String tip = &quot;Sure to choose this state?&quot;;
+		
+		ToggleAnnotation Oklahoma = new ToggleAnnotation(&quot;1&quot;, tip, Position.fromDegrees(35.000, -98.000));
+		annotationMap.put(Oklahoma, &quot;Oklahoma&quot;);
+		
+		ToggleAnnotation Pennsylvania = new ToggleAnnotation(&quot;2&quot;, tip, Position.fromDegrees(40.000, -77.000));
+		annotationMap.put(Pennsylvania, &quot;Pennsylvania&quot;);
+		
+		ToggleAnnotation sDakota = new ToggleAnnotation(&quot;3&quot;, tip, Position.fromDegrees(43.500, -100.000));
+		annotationMap.put(sDakota, &quot;South Dakota&quot;);
+		
+		ToggleAnnotation nHampshire = new ToggleAnnotation(&quot;4&quot;, tip, Position.fromDegrees(43.5, -71.000));
+		annotationMap.put(nHampshire, &quot;New Hampshire&quot;);
+		
+		ToggleAnnotation wVirginia = new ToggleAnnotation(&quot;5&quot;, tip, Position.fromDegrees(38.500, -80.000));
+		annotationMap.put(wVirginia, &quot;West Virginia&quot;);
+		
+		ToggleAnnotation nJersey = new ToggleAnnotation(&quot;6&quot;, tip, Position.fromDegrees(40.000, -74.000));
+		annotationMap.put(nJersey, &quot;New Jersey&quot;);
+		
+		ToggleAnnotation nDakota = new ToggleAnnotation(&quot;7&quot;, tip, Position.fromDegrees(47.000, -100.000));
+		annotationMap.put(nDakota, &quot;North Dakota&quot;);
+		
+		ToggleAnnotation Nevada = new ToggleAnnotation(&quot;8&quot;, tip, Position.fromDegrees(38.500, -117.000));
+		annotationMap.put(Nevada, &quot;Nevada&quot;);
+		
+		ToggleAnnotation Mississippi = new ToggleAnnotation(&quot;9&quot;, tip, Position.fromDegrees(33.000, -90.000));
+		annotationMap.put(Mississippi, &quot;Mississippi&quot;);
+		
+		ToggleAnnotation Colorado = new ToggleAnnotation(&quot;10&quot;, tip, Position.fromDegrees(39.000, -105.000));
+		annotationMap.put(Colorado, &quot;Colorado&quot;);
+		
+		ToggleAnnotation Missouri = new ToggleAnnotation(&quot;11&quot;, tip, Position.fromDegrees(38.000, -90.000));
+		annotationMap.put(Missouri, &quot;Missouri&quot;);
+		
+		ToggleAnnotation California = new ToggleAnnotation(&quot;12&quot;, tip, Position.fromDegrees(37.000, -119.000));
+		annotationMap.put(California, &quot;California&quot;);
+		
+		ToggleAnnotation Illinois = new ToggleAnnotation(&quot;13&quot;, tip, Position.fromDegrees(39.000, -89.000));
+		annotationMap.put(Illinois, &quot;Illinois&quot;);
+		
+		ToggleAnnotation Florida = new ToggleAnnotation(&quot;14&quot;, tip, Position.fromDegrees(27.000, -83.5000));
+		annotationMap.put(Florida, &quot;Florida&quot;);
+		
+		ToggleAnnotation nMexico = new ToggleAnnotation(&quot;15&quot;, tip, Position.fromDegrees(34.000, -106.000));
+		annotationMap.put(nMexico, &quot;New Mexico&quot;);
+		
+		ToggleAnnotation Utah = new ToggleAnnotation(&quot;16&quot;, tip, Position.fromDegrees(40.000, -111.5));
+		annotationMap.put(Utah, &quot;Utah&quot;);
+		
+		ToggleAnnotation Iowa = new ToggleAnnotation(&quot;17&quot;, tip, Position.fromDegrees(41.500, -93.000));
+		annotationMap.put(Iowa, &quot;Iowa&quot;);
+		
+		ToggleAnnotation Michigan = new ToggleAnnotation(&quot;18&quot;, tip, Position.fromDegrees(44.500, -82.000));
+		annotationMap.put(Michigan, &quot;Michigan&quot;);
+		
+		ToggleAnnotation Kentucky = new ToggleAnnotation(&quot;19&quot;, tip, Position.fromDegrees(37.000, -85.000));
+		annotationMap.put(Kentucky, &quot;Kentucky&quot;);
+		
+		ToggleAnnotation Tennessee = new ToggleAnnotation(&quot;20&quot;, tip, Position.fromDegrees(35.000, -85.000));
+		annotationMap.put(Tennessee, &quot;Tennessee&quot;);
+		
+		ToggleAnnotation Indiana = new ToggleAnnotation(&quot;21&quot;, tip, Position.fromDegrees(39.000, -86.000));
+		annotationMap.put(Indiana, &quot;Indiana&quot;);
+		
+		ToggleAnnotation Arizona = new ToggleAnnotation(&quot;22&quot;, tip, Position.fromDegrees(34.000, -111.000));
+		annotationMap.put(Arizona, &quot;Arizona&quot;);
+		
+		ToggleAnnotation Oregon = new ToggleAnnotation(&quot;23&quot;, tip, Position.fromDegrees(44.000, -120.000));
+		annotationMap.put(Oregon, &quot;Oregon&quot;);
+		
+		ToggleAnnotation Washington = new ToggleAnnotation(&quot;24&quot;, tip, Position.fromDegrees(47.000, -120.000));
+		annotationMap.put(Washington, &quot;Washington&quot;);
+		
+		ToggleAnnotation Maryland = new ToggleAnnotation(&quot;25&quot;, tip, Position.fromDegrees(38.000, -77.000));
+		annotationMap.put(Maryland, &quot;Maryland&quot;);
+		
+		ToggleAnnotation Minnesota = new ToggleAnnotation(&quot;26&quot;, tip, Position.fromDegrees(46.000, -93.000));
+		annotationMap.put(Minnesota, &quot;Minnesota&quot;);
+		
+		ToggleAnnotation nYork = new ToggleAnnotation(&quot;27&quot;, tip, Position.fromDegrees(43.000, -75.000));
+		annotationMap.put(nYork, &quot;New York&quot;);
+		
+		ToggleAnnotation Maine = new ToggleAnnotation(&quot;28&quot;, tip, Position.fromDegrees(44.000, -69.000));
+		annotationMap.put(Maine, &quot;Maine&quot;);
+		
+		ToggleAnnotation sCarolina = new ToggleAnnotation(&quot;29&quot;, tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(sCarolina, &quot;South Carolina&quot;);
+		
+		ToggleAnnotation Texas = new ToggleAnnotation(&quot;30&quot;, tip, Position.fromDegrees(30.000, -99.000));
+		annotationMap.put(Texas, &quot;Texas&quot;);
+		
+		ToggleAnnotation Georgia = new ToggleAnnotation(&quot;31&quot;, tip, Position.fromDegrees(32.000, -82.000));
+		annotationMap.put(Georgia, &quot;Georgia&quot;);
+		
+		ToggleAnnotation Louisiana = new ToggleAnnotation(&quot;32&quot;, tip, Position.fromDegrees(30.000, -91.000));
+		annotationMap.put(Louisiana, &quot;Louisiana&quot;);
+		
+		ToggleAnnotation Wisconsin = new ToggleAnnotation(&quot;33&quot;, tip, Position.fromDegrees(45.000, -89.000));
+		annotationMap.put(Wisconsin, &quot;Wisconsin&quot;);
+		
+		ToggleAnnotation Conneticut = new ToggleAnnotation(&quot;34&quot;, tip, Position.fromDegrees(41.000, -72.000));
+		annotationMap.put(Conneticut, &quot;Conneticut&quot;);
+		
+		ToggleAnnotation Wyoming = new ToggleAnnotation(&quot;35&quot;, tip, Position.fromDegrees(43.000, -107.000));
+		annotationMap.put(Wyoming, &quot;Wyoming&quot;);
+		
+		ToggleAnnotation Kansas = new ToggleAnnotation(&quot;36&quot;, tip, Position.fromDegrees(38.500, -98.000));
+		annotationMap.put(Kansas, &quot;Kansas&quot;);
+		
+		ToggleAnnotation nCarolina = new ToggleAnnotation(&quot;37&quot;, tip, Position.fromDegrees(35.000, -80.000));
+		annotationMap.put(nCarolina, &quot;North Carolina&quot;);
+		
+		ToggleAnnotation Ohio = new ToggleAnnotation(&quot;38&quot;, tip, Position.fromDegrees(40.000, -82.000));
+		annotationMap.put(Ohio, &quot;Ohio&quot;);
+		
+		ToggleAnnotation Massachusetts = new ToggleAnnotation(&quot;39&quot;, tip, Position.fromDegrees(42.000, -71.000));
+		annotationMap.put(Massachusetts, &quot;Massachusetts&quot;);
+		
+		ToggleAnnotation Alabama = new ToggleAnnotation(&quot;40&quot;, tip, Position.fromDegrees(32.500, -86.000));
+		annotationMap.put(Alabama, &quot;Alabama&quot;);
+		
+		ToggleAnnotation Virginia = new ToggleAnnotation(&quot;41&quot;, tip, Position.fromDegrees(37.000, -79.000));
+		annotationMap.put(Virginia, &quot;Virginia&quot;);
+		
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z15aMN9-EeeNHqh_gF87ow" name="start" method="_z-Cpld9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-J-Ud9-EeeNHqh_gF87ow">
+              <body>start the game model</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z16BQN9-EeeNHqh_gF87ow" name="getOneSelected" method="_z-Cplt9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-J-Ut9-EeeNHqh_gF87ow">
+              <body>The method to count selected markers
+	 * @return the one selected marker; if selected more than one, return null</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8-5oN9-EeeNHqh_gF87ow" type="_z68SQN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z16oUN9-EeeNHqh_gF87ow" name="submitToServer" method="_z-DQoN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-J-U99-EeeNHqh_gF87ow">
+              <body>submit answer to server
+	 * @return submit success or not</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z17PYN9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z172cN9-EeeNHqh_gF87ow" name="loadToggleAnnotations" method="_z-DQot9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-J-VN9-EeeNHqh_gF87ow">
+              <body>load toggle annotation: state coordinates</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z89EcN9-EeeNHqh_gF87ow" name="GameModel" method="_z-CpkN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8-SkN9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8-Skd9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-J-UN9-EeeNHqh_gF87ow">
+              <body>constructor
+	 * @param serverStub game server stub
+	 * @param clientModelAdpt client model adapter
+	 * @param viewAdpt game view adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z89rgN9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z89rgd9-EeeNHqh_gF87ow" name="clientModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z89rgt9-EeeNHqh_gF87ow" name="viewAdpt" type="_z2BWAN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8-Skt9-EeeNHqh_gF87ow" type="_z12W4N9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z2BWAN9-EeeNHqh_gF87ow" name="IGameModel2ViewAdapter">
+          <ownedComment xmi:id="_z-KlYN9-EeeNHqh_gF87ow">
+            <body>game model's adapter to game view</body>
+          </ownedComment>
+          <ownedOperation xmi:id="_z9BV4N9-EeeNHqh_gF87ow" name="showLayer">
+            <ownedParameter xmi:id="_z9BV4d9-EeeNHqh_gF87ow" name="layer" type="_z6wsEN9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z9vuoN9-EeeNHqh_gF87ow" name="Annotation"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-f8kd9-EeeNHqh_gF87ow" name="" memberEnd="_z-f8kt9-EeeNHqh_gF87ow _z9ny0N9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-f8kt9-EeeNHqh_gF87ow" name="" type="_z12W4N9-EeeNHqh_gF87ow" association="_z-f8kd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-hKsd9-EeeNHqh_gF87ow" name="" memberEnd="_z-hKst9-EeeNHqh_gF87ow _z9pA8d9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-hKst9-EeeNHqh_gF87ow" name="" type="_z12W4N9-EeeNHqh_gF87ow" association="_z-hKsd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-iY0d9-EeeNHqh_gF87ow" name="" memberEnd="_z-iY0t9-EeeNHqh_gF87ow _z9qPEd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-iY0t9-EeeNHqh_gF87ow" name="" type="_z12W4N9-EeeNHqh_gF87ow" association="_z-iY0d9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-jm8d9-EeeNHqh_gF87ow" name="" memberEnd="_z-jm8t9-EeeNHqh_gF87ow _z9rdMd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-jm8t9-EeeNHqh_gF87ow" name="" type="_z12W4N9-EeeNHqh_gF87ow" association="_z-jm8d9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyrHEN9-EeeNHqh_gF87ow" name="view">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z2DyQN9-EeeNHqh_gF87ow" name="GameView">
+          <ownedComment xmi:id="_z-KlYd9-EeeNHqh_gF87ow">
+            <body>Game view</body>
+          </ownedComment>
+          <generalization xmi:id="_z9FnUd9-EeeNHqh_gF87ow" general="_z7wKkN9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9yK4N9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9yK4d9-EeeNHqh_gF87ow" value="5179876899323256723L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9yK4t9-EeeNHqh_gF87ow" name="contentPane" visibility="private" type="_z7xYsd9-EeeNHqh_gF87ow" association="_z-k1Ed9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9yx8d9-EeeNHqh_gF87ow" name="pnlDisplay" visibility="private" isLeaf="true" type="_z7xYsd9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-mDMd9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9zZAN9-EeeNHqh_gF87ow" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z90AEN9-EeeNHqh_gF87ow" name="pnlControl" visibility="private" isLeaf="true" type="_z7xYsd9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-n4YN9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z90AEd9-EeeNHqh_gF87ow" value="new JPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z90nId9-EeeNHqh_gF87ow" name="map" visibility="private" isLeaf="true" type="_z7z08d9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-pGgN9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z90nIt9-EeeNHqh_gF87ow" value="new MapPanel()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z91OMd9-EeeNHqh_gF87ow" name="btnSubmit" visibility="private" isLeaf="true" type="_z7u8cN9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-qUod9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z91OMt9-EeeNHqh_gF87ow" value="new JButton(&quot;Submit&quot;)"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z911Qd9-EeeNHqh_gF87ow" name="textQuestion" visibility="private" isLeaf="true" type="_z7zN4N9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-riwd9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z92cUN9-EeeNHqh_gF87ow" value="new JTextField()"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z93DYN9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z2SbwN9-EeeNHqh_gF87ow" association="_z-sw4d9-EeeNHqh_gF87ow">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z93DYd9-EeeNHqh_gF87ow" value="null"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-D3sN9-EeeNHqh_gF87ow" name="start" specification="_z2FncN9-EeeNHqh_gF87ow">
+            <language>java</language>
+            <body>map.start();
+		// setVisible(true);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-D3sd9-EeeNHqh_gF87ow" name="GameView" specification="_z71qIN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-D3st9-EeeNHqh_gF87ow" name="adapter" type="_z2SbwN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-D3s99-EeeNHqh_gF87ow" type="_z2DyQN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.modelAdpt = adapter;
+		initGUI();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-D3tN9-EeeNHqh_gF87ow" name="initGUI" specification="_z2G1kN9-EeeNHqh_gF87ow">
+            <language>java</language>
+            <body>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+
+		contentPane.add(pnlDisplay, BorderLayout.CENTER);
+		map.setPreferredSize(new java.awt.Dimension(600, 300));
+		pnlDisplay.setLayout(new BorderLayout(0, 0));
+		pnlDisplay.add(map);
+
+		contentPane.add(pnlControl, BorderLayout.SOUTH);
+		btnSubmit.setToolTipText(&quot;please choose one annotation and submit : )&quot;);
+		pnlControl.add(btnSubmit);
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!modelAdpt.submitAnswer())
+					alert(&quot;Submission failed. Please select exactly one state.&quot;);
+			}
+		});
+
+		textQuestion.setColumns(20);
+		textQuestion.setEditable(false);
+		pnlControl.add(textQuestion);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-EewN9-EeeNHqh_gF87ow" name="getView" specification="_z2HcoN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Eewd9-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>return contentPane;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-Eewt9-EeeNHqh_gF87ow" name="addMapLayer" specification="_z9FAQd9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Eew99-EeeNHqh_gF87ow" name="layer" type="_z6wsEN9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>map.addLayer(layer);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-EexN9-EeeNHqh_gF87ow" name="alert" specification="_z2IqwN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Eexd9-EeeNHqh_gF87ow" name="msg">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>JOptionPane.showMessageDialog(null, msg);
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-FF0N9-EeeNHqh_gF87ow" name="showStateName" specification="_z2J44N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-FF0d9-EeeNHqh_gF87ow" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>textQuestion.setText(name);
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z2FncN9-EeeNHqh_gF87ow" name="start" method="_z-D3sN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-KlYt9-EeeNHqh_gF87ow">
+              <body>start the game view</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z2G1kN9-EeeNHqh_gF87ow" name="initGUI" visibility="private" method="_z-D3tN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-KlZN9-EeeNHqh_gF87ow">
+              <body>init GUI layout</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z2HcoN9-EeeNHqh_gF87ow" name="getView" method="_z-EewN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-LMcN9-EeeNHqh_gF87ow">
+              <body>get game view panel
+	 * 
+	 * @return content pane</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z9FAQN9-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z2IqwN9-EeeNHqh_gF87ow" name="alert" method="_z-EexN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-LMct9-EeeNHqh_gF87ow">
+              <body>Pop up an alert window on the screen to show some messages
+	 * 
+	 * @param msg
+	 *            The message to be shown on the screen</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z2Iqwd9-EeeNHqh_gF87ow" name="msg">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z2J44N9-EeeNHqh_gF87ow" name="showStateName" method="_z-FF0N9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-LMc99-EeeNHqh_gF87ow">
+              <body>set question box
+	 * 
+	 * @param name
+	 *            desired display</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z2J44d9-EeeNHqh_gF87ow" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z71qIN9-EeeNHqh_gF87ow" name="GameView" method="_z-D3sd9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z71qIt9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z71qI99-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-KlY99-EeeNHqh_gF87ow">
+              <body>Create the frame.
+	 * 
+	 * @param adapter
+	 *            externally provided adapter to game model</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z71qId9-EeeNHqh_gF87ow" name="adapter" type="_z2SbwN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z72RMN9-EeeNHqh_gF87ow" type="_z2DyQN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z9FAQd9-EeeNHqh_gF87ow" name="addMapLayer" method="_z-Eewt9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-LMcd9-EeeNHqh_gF87ow">
+              <body>add layer to map panel
+	 * 
+	 * @param layer
+	 *            map layer</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z9FnUN9-EeeNHqh_gF87ow" name="layer" type="_z6wsEN9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z2SbwN9-EeeNHqh_gF87ow" name="IGameView2ModelAdapter">
+          <ownedComment xmi:id="_z-LMdN9-EeeNHqh_gF87ow">
+            <body>Game view's adapter to game model</body>
+          </ownedComment>
+          <ownedOperation xmi:id="_z2TC0N9-EeeNHqh_gF87ow" name="submitAnswer">
+            <ownedComment xmi:id="_z-LzgN9-EeeNHqh_gF87ow">
+              <body>submit answer to server
+	 * @return if submit success, return true</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z2Tp4N9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-k1Ed9-EeeNHqh_gF87ow" name="" memberEnd="_z-k1Et9-EeeNHqh_gF87ow _z9yK4t9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-k1Et9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-k1Ed9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-mDMd9-EeeNHqh_gF87ow" name="" memberEnd="_z-mDMt9-EeeNHqh_gF87ow _z9yx8d9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-mDMt9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-mDMd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-n4YN9-EeeNHqh_gF87ow" name="" memberEnd="_z-n4Yd9-EeeNHqh_gF87ow _z90AEN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-n4Yd9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-n4YN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-pGgN9-EeeNHqh_gF87ow" name="" memberEnd="_z-pGgd9-EeeNHqh_gF87ow _z90nId9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-pGgd9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-pGgN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-qUod9-EeeNHqh_gF87ow" name="" memberEnd="_z-qUot9-EeeNHqh_gF87ow _z91OMd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-qUot9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-qUod9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-riwd9-EeeNHqh_gF87ow" name="" memberEnd="_z-riwt9-EeeNHqh_gF87ow _z911Qd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-riwt9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-riwd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-sw4d9-EeeNHqh_gF87ow" name="" memberEnd="_z-sw4t9-EeeNHqh_gF87ow _z93DYN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-sw4t9-EeeNHqh_gF87ow" name="" type="_z2DyQN9-EeeNHqh_gF87ow" association="_z-sw4d9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyvYgN9-EeeNHqh_gF87ow" name="controller">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z0j9cN9-EeeNHqh_gF87ow" name="GameController">
+          <ownedComment xmi:id="_z-GT8N9-EeeNHqh_gF87ow">
+            <body>Game Controller of mini-mini-MVC</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9MVAN9-EeeNHqh_gF87ow" name="gameModel" visibility="private" type="_z12W4N9-EeeNHqh_gF87ow" association="_z-ShMN9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9NjId9-EeeNHqh_gF87ow" name="gameView" type="_z2DyQN9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-TIQd9-EeeNHqh_gF87ow"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z95foN9-EeeNHqh_gF87ow" name="GameController" specification="_z8BQUN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z95fod9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z95fot9-EeeNHqh_gF87ow" name="clientModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z95fo99-EeeNHqh_gF87ow" type="_z0j9cN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>gameModel = new GameModel(serverStub, clientModelAdpt, new IGameModel2ViewAdapter() {
+
+			@Override
+			public void showLayer(MapLayer layer) {
+				gameView.addMapLayer(layer);
+			}
+			
+		});
+		
+		gameView = new GameView(new IGameView2ModelAdapter() {
+
+			@Override
+			public boolean submitAnswer() {
+				return gameModel.submitToServer();
+				
+			}
+			
+		});
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z96GsN9-EeeNHqh_gF87ow" name="start" specification="_z0rSMN9-EeeNHqh_gF87ow">
+            <language>java</language>
+            <body>gameView.start();
+		gameModel.start();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z96twN9-EeeNHqh_gF87ow" name="getView" specification="_z0r5QN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z96twd9-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>return gameView.getView();
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z96twt9-EeeNHqh_gF87ow" name="main" specification="_z0tHYN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z96tw99-EeeNHqh_gF87ow" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z96txN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameController gameController = new GameController(null, null);
+					gameController.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z0rSMN9-EeeNHqh_gF87ow" name="start" method="_z96GsN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-GT8t9-EeeNHqh_gF87ow">
+              <body>start mini-mini-MVC</body>
+            </ownedComment>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z0r5QN9-EeeNHqh_gF87ow" name="getView" method="_z96twN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-G7AN9-EeeNHqh_gF87ow">
+              <body>get view panel
+	 * @return view panel</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8B3Yt9-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z0tHYN9-EeeNHqh_gF87ow" name="main" isStatic="true" method="_z96twt9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-G7Ad9-EeeNHqh_gF87ow">
+              <body>Launch the application.
+	 * @param args externally provided parameters</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z0tHYd9-EeeNHqh_gF87ow" name="args">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z0tucN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8BQUN9-EeeNHqh_gF87ow" name="GameController" method="_z95foN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8BQU99-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8B3YN9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-GT8d9-EeeNHqh_gF87ow">
+              <body>game controller constructor
+	 * @param serverStub server receiver stub
+	 * @param clientModelAdpt client command to chat room model adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8BQUd9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8BQUt9-EeeNHqh_gF87ow" name="clientModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8B3Yd9-EeeNHqh_gF87ow" type="_z0j9cN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-ShMN9-EeeNHqh_gF87ow" name="" memberEnd="_z-ShMd9-EeeNHqh_gF87ow _z9MVAN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-ShMd9-EeeNHqh_gF87ow" name="" type="_z0j9cN9-EeeNHqh_gF87ow" association="_z-ShMN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-TIQd9-EeeNHqh_gF87ow" name="" memberEnd="_z-TIQt9-EeeNHqh_gF87ow _z9NjId9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-TIQt9-EeeNHqh_gF87ow" name="" type="_z0j9cN9-EeeNHqh_gF87ow" association="_z-TIQd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyzp8N9-EeeNHqh_gF87ow" name="data">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z0ym8N9-EeeNHqh_gF87ow" name="ChooseStateCmd">
+          <ownedComment xmi:id="_z-G7At9-EeeNHqh_gF87ow">
+            <body>visitor command for ChooseStateData.class</body>
+          </ownedComment>
+          <generalization xmi:id="_z8LoYN9-EeeNHqh_gF87ow" general="_z64A0d9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9OxQN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9OxQd9-EeeNHqh_gF87ow" value="-8360033921529626266L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9PYUN9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-UWYd9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z9PYUd9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z9PYUt9-EeeNHqh_gF87ow" key="transient"/>
+            </eAnnotations>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z97U0N9-EeeNHqh_gF87ow" name="apply" specification="_z8E6sN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z97U0d9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z97U0t9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z97U099-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z97U1N9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z97U1d9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>try {&#xD;
+			modelAdpt.appendMsg(&quot;has choosen the area of &quot; + host.getData().getStateName(), host.getSender().getUserStub().getName());&#xD;
+			//model calculate score and send result&#xD;
+			&#xD;
+		} catch (RemoteException e) {&#xD;
+			System.err.println(&quot;Exception processing choose state data&quot;);&#xD;
+			e.printStackTrace();&#xD;
+		}&#xD;
+		return null;&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z97U1t9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" specification="_z8KaQN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z97U199-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>this.modelAdpt = cmd2ModelAdpt;&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z8E6sN9-EeeNHqh_gF87ow" name="apply" method="_z97U0N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8E6sd9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8E6st9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8FhwN9-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z8JMIN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z8Fhwd9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8KaQN9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" method="_z97U1t9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8KaQd9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z04GgN9-EeeNHqh_gF87ow" name="ChooseStateData">
+          <ownedComment xmi:id="_z-G7A99-EeeNHqh_gF87ow">
+            <body>game data: choose state data</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9QmcN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9RNgN9-EeeNHqh_gF87ow" value="-3180814086015092687L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9RNgd9-EeeNHqh_gF87ow" name="stateName" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9R0kN9-EeeNHqh_gF87ow" name="selected" type="_z68SQN9-EeeNHqh_gF87ow" isReadOnly="true" association="_z-Vkgd9-EeeNHqh_gF87ow"/>
+          <interfaceRealization xmi:id="_z6-HcN9-EeeNHqh_gF87ow" client="_z04GgN9-EeeNHqh_gF87ow" supplier="_z1jb8N9-EeeNHqh_gF87ow" contract="_z1jb8N9-EeeNHqh_gF87ow"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9774N9-EeeNHqh_gF87ow" name="ChooseStateData" specification="_z8NdkN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9774d9-EeeNHqh_gF87ow" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z9774t9-EeeNHqh_gF87ow" name="selected" type="_z68SQN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z977499-EeeNHqh_gF87ow" type="_z04GgN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.stateName = name;&#xD;
+		this.selected = selected;&#xD;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z8NdkN9-EeeNHqh_gF87ow" name="ChooseStateData" method="_z9774N9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8OEod9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8OEot9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_z8Ndkd9-EeeNHqh_gF87ow" name="name">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z8OEoN9-EeeNHqh_gF87ow" name="selected" type="_z68SQN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8OEo99-EeeNHqh_gF87ow" type="_z04GgN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z08_AN9-EeeNHqh_gF87ow" name="GameFactory">
+          <ownedComment xmi:id="_z-G7BN9-EeeNHqh_gF87ow">
+            <body>Factory to start game mini-mini-MVC</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9SboN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9Sbod9-EeeNHqh_gF87ow" value="-2634933169569584607L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9TCsN9-EeeNHqh_gF87ow" name="serverStub" visibility="private" type="_z6u24d9-EeeNHqh_gF87ow" association="_z-XZsN9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9Tpwd9-EeeNHqh_gF87ow" name="viewKey" visibility="private" type="_z7EOEN9-EeeNHqh_gF87ow" association="_z-Yn0N9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9Ve8d9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-Z18N9-EeeNHqh_gF87ow"/>
+          <interfaceRealization xmi:id="_z8OrsN9-EeeNHqh_gF87ow" client="_z08_AN9-EeeNHqh_gF87ow" supplier="_z7CY4d9-EeeNHqh_gF87ow" contract="_z7CY4d9-EeeNHqh_gF87ow"/>
+          <interfaceRealization xmi:id="_z8PSwN9-EeeNHqh_gF87ow" client="_z08_AN9-EeeNHqh_gF87ow" supplier="_z7BKwN9-EeeNHqh_gF87ow" contract="_z7BKwN9-EeeNHqh_gF87ow"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9775N9-EeeNHqh_gF87ow" name="GameFactory" specification="_z8Qg4N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9775d9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z9775t9-EeeNHqh_gF87ow" name="viewKey" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z977599-EeeNHqh_gF87ow" type="_z08_AN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.serverStub = serverStub;
+		this.viewKey = viewKey;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z98i8N9-EeeNHqh_gF87ow" name="setCmd2ModelAdapter" specification="_z8SWEN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z98i8d9-EeeNHqh_gF87ow" name="adapter" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>this.modelAdpt = adapter;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z98i8t9-EeeNHqh_gF87ow" name="makeComponent" specification="_z1ACUN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z98i899-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>GameController gameController = new GameController(serverStub, modelAdpt);
+		gameController.start();
+		//put view into mixedDataDict
+		GameView view = gameController.getGameView();
+		modelAdpt.put(viewKey, view);
+		return gameController.getView();
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z1ACUN9-EeeNHqh_gF87ow" name="makeComponent" method="_z98i8t9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8S9IN9-EeeNHqh_gF87ow" type="_z6p-YN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8Qg4N9-EeeNHqh_gF87ow" name="GameFactory" method="_z9775N9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8RH8N9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8RH8d9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-HiEN9-EeeNHqh_gF87ow">
+              <body>factory constructor
+	 * @param serverStub externally-provided server stub
+	 * @param viewKey mixed data key for game view</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8Qg4d9-EeeNHqh_gF87ow" name="serverStub" type="_z6u24d9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8Qg4t9-EeeNHqh_gF87ow" name="viewKey" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8RH8t9-EeeNHqh_gF87ow" type="_z08_AN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8SWEN9-EeeNHqh_gF87ow" name="setCmd2ModelAdapter" method="_z98i8N9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-HiEd9-EeeNHqh_gF87ow">
+              <body>set command to model adapter
+	 * @param adapter client model adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8SWEd9-EeeNHqh_gF87ow" name="adapter" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1H-IN9-EeeNHqh_gF87ow" name="GameOverCmd">
+          <ownedComment xmi:id="_z-HiEt9-EeeNHqh_gF87ow">
+            <body>visitor command for GameOverData.class</body>
+          </ownedComment>
+          <generalization xmi:id="_z8a48t9-EeeNHqh_gF87ow" general="_z64A0d9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9WtEN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9XUIN9-EeeNHqh_gF87ow" value="3871415137296763040L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9XUId9-EeeNHqh_gF87ow" name="viewKey" visibility="private" type="_z7EOEN9-EeeNHqh_gF87ow" association="_z-bEEN9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9ZwYN9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-brId9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z9ZwYd9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z9aXcN9-EeeNHqh_gF87ow" key="transient"/>
+            </eAnnotations>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z99KAN9-EeeNHqh_gF87ow" name="GameOverCmd" specification="_z8ULQN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z99KAd9-EeeNHqh_gF87ow" name="key" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z99KAt9-EeeNHqh_gF87ow" type="_z1H-IN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.viewKey = key;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z99KA99-EeeNHqh_gF87ow" name="apply" specification="_z8WngN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z99KBN9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z99KBd9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z99KBt9-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z99KB99-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z99KCN9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>GameView gameView = modelAdpt.get(viewKey);
+		if (gameView != null) {
+			gameView.alert(&quot;Game end! See LOBBY for result!&quot;);
+			gameView.showStateName(&quot;Game end!&quot;);
+		}
+		return null;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z99xEN9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" specification="_z8aR4N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z99xEd9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>this.modelAdpt = cmd2ModelAdpt;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z8ULQN9-EeeNHqh_gF87ow" name="GameOverCmd" method="_z99KAN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8UyUd9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8UyUt9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-HiE99-EeeNHqh_gF87ow">
+              <body>constructor
+	 * @param key game view mixed data key</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8UyUN9-EeeNHqh_gF87ow" name="key" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8UyU99-EeeNHqh_gF87ow" type="_z1H-IN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8WngN9-EeeNHqh_gF87ow" name="apply" method="_z99KA99-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8Wngd9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8Wngt9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8Wng99-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z8ZDwN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z8XOkN9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8aR4N9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" method="_z99xEN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8aR4d9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1QhAN9-EeeNHqh_gF87ow" name="GameOverData">
+          <ownedComment xmi:id="_z-IJIN9-EeeNHqh_gF87ow">
+            <body>game data: game over data</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9blkN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9blkd9-EeeNHqh_gF87ow" value="594435138833178660L"/>
+          </ownedAttribute>
+          <interfaceRealization xmi:id="_z7P0QN9-EeeNHqh_gF87ow" client="_z1QhAN9-EeeNHqh_gF87ow" supplier="_z1jb8N9-EeeNHqh_gF87ow" contract="_z1jb8N9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1WAkN9-EeeNHqh_gF87ow" name="GameStartCmd">
+          <ownedComment xmi:id="_z-IJId9-EeeNHqh_gF87ow">
+            <body>Visitor command to for GameStartData.class</body>
+          </ownedComment>
+          <generalization xmi:id="_z8kp8N9-EeeNHqh_gF87ow" general="_z64A0d9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9cMoN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9czsN9-EeeNHqh_gF87ow" value="8250064191783015619L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9czsd9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-c5QN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z9dawN9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z9dawd9-EeeNHqh_gF87ow" key="transient"/>
+            </eAnnotations>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z99xEt9-EeeNHqh_gF87ow" name="apply" specification="_z8d8QN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z99xE99-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z99xFN9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z99xFd9-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z99xFt9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z99xF99-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>try {
+			modelAdpt.appendMsg(&quot;has sent you a game!\n&quot;, host.getSender().getUserStub().getName());
+		} catch (RemoteException e) {
+			System.err.println(&quot;Exception getting sender's name&quot;);
+			e.printStackTrace();
+		}
+		host.getData().setCmd2ModelAdapter(modelAdpt);
+		modelAdpt.buildNonScrollableComponent(host.getData().getFactory(), &quot;GUESS STATE&quot;);
+		return null;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9-YIN9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" specification="_z8i0wd9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9-YId9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>this.modelAdpt = cmd2ModelAdpt;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z8d8QN9-EeeNHqh_gF87ow" name="apply" method="_z99xEt9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8d8Qd9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8d8Qt9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8d8Q99-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z8hmod9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z8ejUN9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8i0wd9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" method="_z9-YIN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8jb0N9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1bgIN9-EeeNHqh_gF87ow" name="GameStartData">
+          <ownedComment xmi:id="_z-IJIt9-EeeNHqh_gF87ow">
+            <body>game data: game start data</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9eo4N9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9eo4d9-EeeNHqh_gF87ow" value="-2681250750840378085L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9fP8N9-EeeNHqh_gF87ow" name="fac" visibility="private" type="_z08_AN9-EeeNHqh_gF87ow" association="_z-dgUd9-EeeNHqh_gF87ow"/>
+          <interfaceRealization xmi:id="_z7UFsN9-EeeNHqh_gF87ow" client="_z1bgIN9-EeeNHqh_gF87ow" supplier="_z1jb8N9-EeeNHqh_gF87ow" contract="_z1jb8N9-EeeNHqh_gF87ow"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9-_MN9-EeeNHqh_gF87ow" name="GameStartData" specification="_z7VT0N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9-_Md9-EeeNHqh_gF87ow" name="fac" type="_z08_AN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z9-_Mt9-EeeNHqh_gF87ow" type="_z1bgIN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.fac = fac;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9_mQN9-EeeNHqh_gF87ow" name="getFactory" specification="_z1fKgN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9_mQd9-EeeNHqh_gF87ow" type="_z08_AN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>return fac;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z9_mQt9-EeeNHqh_gF87ow" name="setCmd2ModelAdapter" specification="_z8nGMN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z9_mQ99-EeeNHqh_gF87ow" name="modelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>fac.setCmd2ModelAdapter(modelAdpt);
+		
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z1fKgN9-EeeNHqh_gF87ow" name="getFactory" method="_z9_mQN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-IwMN9-EeeNHqh_gF87ow">
+              <body>getter of game factory
+	 * @return game factory</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z7V64N9-EeeNHqh_gF87ow" type="_z08_AN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z7VT0N9-EeeNHqh_gF87ow" name="GameStartData" method="_z9-_MN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z7VT0t9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z7VT099-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-IJI99-EeeNHqh_gF87ow">
+              <body>constructor
+	 * @param fac externally-provided game factory</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z7VT0d9-EeeNHqh_gF87ow" name="fac" type="_z08_AN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z7VT1N9-EeeNHqh_gF87ow" type="_z1bgIN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8nGMN9-EeeNHqh_gF87ow" name="setCmd2ModelAdapter" method="_z9_mQt9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-IwMd9-EeeNHqh_gF87ow">
+              <body>set client command to model adapter
+	 * @param modelAdpt client's chat room command to model adapter</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8nGMd9-EeeNHqh_gF87ow" name="modelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z1jb8N9-EeeNHqh_gF87ow" name="IGameMsgType">
+          <ownedComment xmi:id="_z-IwMt9-EeeNHqh_gF87ow">
+            <body>game message type interface</body>
+          </ownedComment>
+          <generalization xmi:id="_z8oUUN9-EeeNHqh_gF87ow" general="_z7XwEN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1kqEN9-EeeNHqh_gF87ow" name="QueryStateCmd">
+          <ownedComment xmi:id="_z-IwM99-EeeNHqh_gF87ow">
+            <body>visitor command for QueryStateData.class</body>
+          </ownedComment>
+          <generalization xmi:id="_z83k4t9-EeeNHqh_gF87ow" general="_z64A0d9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9geEN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9hFIN9-EeeNHqh_gF87ow" value="8964339712375994457L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9hFId9-EeeNHqh_gF87ow" name="viewKey" visibility="private" type="_z7EOEN9-EeeNHqh_gF87ow" association="_z-eHYd9-EeeNHqh_gF87ow"/>
+          <ownedAttribute xmi:id="_z9kIcN9-EeeNHqh_gF87ow" name="modelAdpt" visibility="private" type="_z6uP0N9-EeeNHqh_gF87ow" association="_z-fVgN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z9kIcd9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z9kIct9-EeeNHqh_gF87ow" key="transient"/>
+            </eAnnotations>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-ANUN9-EeeNHqh_gF87ow" name="QueryStateCmd" specification="_z8picN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-ANUd9-EeeNHqh_gF87ow" name="key" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-ANUt9-EeeNHqh_gF87ow" type="_z1kqEN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.viewKey = key;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-A0YN9-EeeNHqh_gF87ow" name="apply" specification="_z8tM0N9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-A0Yd9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-A0Yt9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z-A0Y99-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z-A0ZN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z-A0Zd9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>try {
+			modelAdpt.appendMsg(&quot;please select state: &quot; + host.getData().getState(),
+					host.getSender().getUserStub().getName());
+			GameView gameView = modelAdpt.get(viewKey);
+			if (gameView != null)
+				gameView.showStateName(&quot;please select &quot; + host.getData().getState());
+		} catch (RemoteException e) {
+			System.err.println(&quot;exception proccessing query state data:\n&quot; + e);
+			e.printStackTrace();
+		}
+		return null;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-A0Zt9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" specification="_z81vsN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-A0Z99-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+            <language>java</language>
+            <body>this.modelAdpt = cmd2ModelAdpt;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z8picN9-EeeNHqh_gF87ow" name="QueryStateCmd" method="_z-ANUN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z8qwkN9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z8rXoN9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-IwNN9-EeeNHqh_gF87ow">
+              <body>constructor
+	 * @param key game view key</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z8picd9-EeeNHqh_gF87ow" name="key" type="_z7EOEN9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8rXod9-EeeNHqh_gF87ow" type="_z1kqEN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z8tM0N9-EeeNHqh_gF87ow" name="apply" method="_z-A0YN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z8tz4N9-EeeNHqh_gF87ow" name="index" type="_z8DFgd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8tz4d9-EeeNHqh_gF87ow" name="host" type="_z62ysd9-EeeNHqh_gF87ow"/>
+            <ownedParameter xmi:id="_z8tz4t9-EeeNHqh_gF87ow" name="params">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z8yFUN9-EeeNHqh_gF87ow" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z8ua8N9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z81vsN9-EeeNHqh_gF87ow" name="setCmd2ModelAdpt" method="_z-A0Zt9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z82WwN9-EeeNHqh_gF87ow" name="cmd2ModelAdpt" type="_z6uP0N9-EeeNHqh_gF87ow"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z1w3UN9-EeeNHqh_gF87ow" name="QueryStateData">
+          <ownedComment xmi:id="_z-JXQN9-EeeNHqh_gF87ow">
+            <body>game data: query state data</body>
+          </ownedComment>
+          <ownedAttribute xmi:id="_z9l9oN9-EeeNHqh_gF87ow" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_z9l9od9-EeeNHqh_gF87ow" value="-8080328207784605868L"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_z9mksN9-EeeNHqh_gF87ow" name="stateName" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <interfaceRealization xmi:id="_z7fE0N9-EeeNHqh_gF87ow" client="_z1w3UN9-EeeNHqh_gF87ow" supplier="_z1jb8N9-EeeNHqh_gF87ow" contract="_z1jb8N9-EeeNHqh_gF87ow"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-BbcN9-EeeNHqh_gF87ow" name="QueryStateData" specification="_z1ysgN9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-Bbcd9-EeeNHqh_gF87ow" name="stateName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z-Bbct9-EeeNHqh_gF87ow" type="_z1w3UN9-EeeNHqh_gF87ow" direction="return"/>
+            <language>java</language>
+            <body>this.stateName = stateName;
+	</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z-CCgN9-EeeNHqh_gF87ow" name="getState" specification="_z1z6od9-EeeNHqh_gF87ow">
+            <ownedParameter xmi:id="_z-CCgd9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>return stateName;
+	</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_z1ysgN9-EeeNHqh_gF87ow" name="QueryStateData" method="_z-BbcN9-EeeNHqh_gF87ow">
+            <eAnnotations xmi:id="_z1zTkd9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_z1zTkt9-EeeNHqh_gF87ow" key="create"/>
+            </eAnnotations>
+            <ownedComment xmi:id="_z-JXQd9-EeeNHqh_gF87ow">
+              <body>constructor
+	 * @param stateName state name</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z1zTkN9-EeeNHqh_gF87ow" name="stateName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_z1z6oN9-EeeNHqh_gF87ow" type="_z1w3UN9-EeeNHqh_gF87ow" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_z1z6od9-EeeNHqh_gF87ow" name="getState" method="_z-CCgN9-EeeNHqh_gF87ow">
+            <ownedComment xmi:id="_z-JXQt9-EeeNHqh_gF87ow">
+              <body>get state query
+	 * @return query state name</body>
+            </ownedComment>
+            <ownedParameter xmi:id="_z10hsN9-EeeNHqh_gF87ow" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-UWYd9-EeeNHqh_gF87ow" name="" memberEnd="_z-UWYt9-EeeNHqh_gF87ow _z9PYUN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-UWYt9-EeeNHqh_gF87ow" name="" type="_z0ym8N9-EeeNHqh_gF87ow" association="_z-UWYd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-Vkgd9-EeeNHqh_gF87ow" name="" memberEnd="_z-WLkN9-EeeNHqh_gF87ow _z9R0kN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-WLkN9-EeeNHqh_gF87ow" name="" type="_z04GgN9-EeeNHqh_gF87ow" association="_z-Vkgd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-XZsN9-EeeNHqh_gF87ow" name="" memberEnd="_z-XZsd9-EeeNHqh_gF87ow _z9TCsN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-XZsd9-EeeNHqh_gF87ow" name="" type="_z08_AN9-EeeNHqh_gF87ow" association="_z-XZsN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-Yn0N9-EeeNHqh_gF87ow" name="" memberEnd="_z-Yn0d9-EeeNHqh_gF87ow _z9Tpwd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-Yn0d9-EeeNHqh_gF87ow" name="" type="_z08_AN9-EeeNHqh_gF87ow" association="_z-Yn0N9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-Z18N9-EeeNHqh_gF87ow" name="" memberEnd="_z-Z18d9-EeeNHqh_gF87ow _z9Ve8d9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-Z18d9-EeeNHqh_gF87ow" name="" type="_z08_AN9-EeeNHqh_gF87ow" association="_z-Z18N9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-bEEN9-EeeNHqh_gF87ow" name="" memberEnd="_z-bEEd9-EeeNHqh_gF87ow _z9XUId9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-bEEd9-EeeNHqh_gF87ow" name="" type="_z1H-IN9-EeeNHqh_gF87ow" association="_z-bEEN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-brId9-EeeNHqh_gF87ow" name="" memberEnd="_z-brIt9-EeeNHqh_gF87ow _z9ZwYN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-brIt9-EeeNHqh_gF87ow" name="" type="_z1H-IN9-EeeNHqh_gF87ow" association="_z-brId9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-c5QN9-EeeNHqh_gF87ow" name="" memberEnd="_z-c5Qd9-EeeNHqh_gF87ow _z9czsd9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-c5Qd9-EeeNHqh_gF87ow" name="" type="_z1WAkN9-EeeNHqh_gF87ow" association="_z-c5QN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-dgUd9-EeeNHqh_gF87ow" name="" memberEnd="_z-dgUt9-EeeNHqh_gF87ow _z9fP8N9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-dgUt9-EeeNHqh_gF87ow" name="" type="_z1bgIN9-EeeNHqh_gF87ow" association="_z-dgUd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-eHYd9-EeeNHqh_gF87ow" name="" memberEnd="_z-eHYt9-EeeNHqh_gF87ow _z9hFId9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-eHYt9-EeeNHqh_gF87ow" name="" type="_z1kqEN9-EeeNHqh_gF87ow" association="_z-eHYd9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_z-fVgN9-EeeNHqh_gF87ow" name="" memberEnd="_z-fVgd9-EeeNHqh_gF87ow _z9kIcN9-EeeNHqh_gF87ow">
+          <ownedEnd xmi:id="_z-fVgd9-EeeNHqh_gF87ow" name="" type="_z1kqEN9-EeeNHqh_gF87ow" association="_z-fVgN9-EeeNHqh_gF87ow"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zyp48N9-EeeNHqh_gF87ow" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyp48d9-EeeNHqh_gF87ow" name="awt">
+        <packagedElement xmi:type="uml:Package" xmi:id="_zzmUIN9-EeeNHqh_gF87ow" name="event">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_z7tHQN9-EeeNHqh_gF87ow" name="ActionListener"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_z7tuUd9-EeeNHqh_gF87ow" name="ActionEvent"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z6p-YN9-EeeNHqh_gF87ow" name="Component"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z6saoN9-EeeNHqh_gF87ow" name="EventQueue"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7r5IN9-EeeNHqh_gF87ow" name="BorderLayout"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zyx0wN9-EeeNHqh_gF87ow" name="rmi">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z609gN9-EeeNHqh_gF87ow" name="RemoteException"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zy3UUN9-EeeNHqh_gF87ow" name="io">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z7BKwN9-EeeNHqh_gF87ow" name="Serializable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_zzaG4N9-EeeNHqh_gF87ow" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7gS8N9-EeeNHqh_gF87ow" name="HashMap"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z7hhEd9-EeeNHqh_gF87ow" name="Map"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_z7jWQN9-EeeNHqh_gF87ow" name="Set"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_z8DFgN9-EeeNHqh_gF87ow" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z8DFgd9-EeeNHqh_gF87ow" name="Class"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zyqgAN9-EeeNHqh_gF87ow" name="common">
+      <packagedElement xmi:type="uml:Interface" xmi:id="_z6uP0N9-EeeNHqh_gF87ow" name="ICRCmd2ModelAdapter"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_z6u24d9-EeeNHqh_gF87ow" name="IReceiver"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_z62ysd9-EeeNHqh_gF87ow" name="DataPacketCR"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_z64A0d9-EeeNHqh_gF87ow" name="DataPacketCRAlgoCmd"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_z7CY4d9-EeeNHqh_gF87ow" name="IComponentFactory"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_z7XwEN9-EeeNHqh_gF87ow" name="ICRMessageType"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zyrHEd9-EeeNHqh_gF87ow" name="map">
+      <packagedElement xmi:type="uml:Class" xmi:id="_z6wsEN9-EeeNHqh_gF87ow" name="MapLayer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_z7lygd9-EeeNHqh_gF87ow" name="ToggleAnnotation"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_z7z08d9-EeeNHqh_gF87ow" name="MapPanel"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zy04EN9-EeeNHqh_gF87ow" name="gov">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zy04Ed9-EeeNHqh_gF87ow" name="nasa">
+        <packagedElement xmi:type="uml:Package" xmi:id="_zy04Et9-EeeNHqh_gF87ow" name="worldwind">
+          <packagedElement xmi:type="uml:Package" xmi:id="_zy04E99-EeeNHqh_gF87ow" name="render">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_z68SQN9-EeeNHqh_gF87ow" name="Annotation"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_zzbVAN9-EeeNHqh_gF87ow" name="geom">
+            <packagedElement xmi:type="uml:Class" xmi:id="_z7kkYN9-EeeNHqh_gF87ow" name="Position"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zy37YN9-EeeNHqh_gF87ow" name="provided">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zy37Yd9-EeeNHqh_gF87ow" name="mixedData">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7EOEN9-EeeNHqh_gF87ow" name="MixedDataKey"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zzm7MN9-EeeNHqh_gF87ow" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_zzm7Md9-EeeNHqh_gF87ow" name="swing">
+        <packagedElement xmi:type="uml:Package" xmi:id="_zzniQN9-EeeNHqh_gF87ow" name="border">
+          <packagedElement xmi:type="uml:Class" xmi:id="_z7x_wd9-EeeNHqh_gF87ow" name="EmptyBorder"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7u8cN9-EeeNHqh_gF87ow" name="JButton"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7wKkN9-EeeNHqh_gF87ow" name="JFrame"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7wxod9-EeeNHqh_gF87ow" name="JOptionPane"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7xYsd9-EeeNHqh_gF87ow" name="JPanel"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_z7zN4N9-EeeNHqh_gF87ow" name="JTextField"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_zBAZkN9-EeeNHqh_gF87ow">
+      <eAnnotations xmi:id="_zBBAoN9-EeeNHqh_gF87ow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_zBCOwN9-EeeNHqh_gF87ow" base_Package="_yWkVcN9-EeeNHqh_gF87ow">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Array xmi:id="_z0uVgN9-EeeNHqh_gF87ow" base_Element="_z0tHYd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z1BQcN9-EeeNHqh_gF87ow" base_Element="_z1ACUN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z1B3gN9-EeeNHqh_gF87ow" base_Element="_z1ACUN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z1B3gd9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_z6rMgN9-EeeNHqh_gF87ow" base_Element="_z6p-YN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z6towN9-EeeNHqh_gF87ow" base_Element="_z6saoN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z6u24N9-EeeNHqh_gF87ow" base_Element="_z6uP0N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z6wFAN9-EeeNHqh_gF87ow" base_Element="_z6u24d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z6x6MN9-EeeNHqh_gF87ow" base_Element="_z6wsEN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z62ysN9-EeeNHqh_gF87ow" base_Element="_z609gN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z64A0N9-EeeNHqh_gF87ow" base_Element="_z62ysd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z65O8N9-EeeNHqh_gF87ow" base_Element="_z64A0d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z69gYN9-EeeNHqh_gF87ow" base_Element="_z68SQN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7CY4N9-EeeNHqh_gF87ow" base_Element="_z7BKwN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7DnAN9-EeeNHqh_gF87ow" base_Element="_z7CY4d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7FcMN9-EeeNHqh_gF87ow" base_Element="_z7EOEN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7Y-MN9-EeeNHqh_gF87ow" base_Element="_z7XwEN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7hhEN9-EeeNHqh_gF87ow" base_Element="_z7gS8N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7ivMN9-EeeNHqh_gF87ow" base_Element="_z7hhEd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7j9UN9-EeeNHqh_gF87ow" base_Element="_z7jWQN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7lygN9-EeeNHqh_gF87ow" base_Element="_z7kkYN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7nAoN9-EeeNHqh_gF87ow" base_Element="_z7lygd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7sgMN9-EeeNHqh_gF87ow" base_Element="_z7r5IN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7tuUN9-EeeNHqh_gF87ow" base_Element="_z7tHQN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7uVYN9-EeeNHqh_gF87ow" base_Element="_z7tuUd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7vjgN9-EeeNHqh_gF87ow" base_Element="_z7u8cN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7wxoN9-EeeNHqh_gF87ow" base_Element="_z7wKkN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7xYsN9-EeeNHqh_gF87ow" base_Element="_z7wxod9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7x_wN9-EeeNHqh_gF87ow" base_Element="_z7xYsd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7ym0N9-EeeNHqh_gF87ow" base_Element="_z7x_wd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z7z08N9-EeeNHqh_gF87ow" base_Element="_z7zN4N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z70cAN9-EeeNHqh_gF87ow" base_Element="_z7z08d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z8EToN9-EeeNHqh_gF87ow" base_Element="_z8DFgd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8GI0N9-EeeNHqh_gF87ow" base_Element="_z8E6sN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8H-AN9-EeeNHqh_gF87ow" genericsValue="?" base_Element="_z8E6sd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8IlEN9-EeeNHqh_gF87ow" genericsValue="ChooseStateData" base_Element="_z8E6st9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Array xmi:id="_z8JMId9-EeeNHqh_gF87ow" dimensions="1" base_Element="_z8FhwN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8JzMN9-EeeNHqh_gF87ow" base_Element="_z8E6sN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8JzMd9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8LBUN9-EeeNHqh_gF87ow" base_Element="_z8KaQN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8LBUd9-EeeNHqh_gF87ow" base_Element="_z8KaQN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8LBUt9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_z8MPcN9-EeeNHqh_gF87ow" genericsValue="ChooseStateData" base_Element="_z8LoYN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8RvAN9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z8Qg4t9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8WAcN9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z8UyUN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8XOkd9-EeeNHqh_gF87ow" base_Element="_z8WngN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8X1oN9-EeeNHqh_gF87ow" genericsValue="?" base_Element="_z8Wngd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8YcsN9-EeeNHqh_gF87ow" genericsValue="GameOverData" base_Element="_z8Wngt9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Array xmi:id="_z8ZDwd9-EeeNHqh_gF87ow" base_Element="_z8Wng99-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8Zq0N9-EeeNHqh_gF87ow" base_Element="_z8WngN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8Zq0d9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8aR4t9-EeeNHqh_gF87ow" base_Element="_z8aR4N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8a48N9-EeeNHqh_gF87ow" base_Element="_z8aR4N9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8a48d9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_z8cHEN9-EeeNHqh_gF87ow" genericsValue="GameOverData" base_Element="_z8a48t9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8ejUd9-EeeNHqh_gF87ow" base_Element="_z8d8QN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8fxcN9-EeeNHqh_gF87ow" genericsValue="?" base_Element="_z8d8Qd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8hmoN9-EeeNHqh_gF87ow" genericsValue="GameStartData" base_Element="_z8d8Qt9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Array xmi:id="_z8iNsN9-EeeNHqh_gF87ow" dimensions="1" base_Element="_z8d8Q99-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8iNsd9-EeeNHqh_gF87ow" base_Element="_z8d8QN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8i0wN9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8kC4N9-EeeNHqh_gF87ow" base_Element="_z8i0wd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z8kC4d9-EeeNHqh_gF87ow" base_Element="_z8i0wd9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z8kC4t9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_z8l4EN9-EeeNHqh_gF87ow" genericsValue="GameStartData" base_Element="_z8kp8N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8slwN9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z8picd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8vCAN9-EeeNHqh_gF87ow" base_Element="_z8tM0N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8wQIN9-EeeNHqh_gF87ow" genericsValue="?" base_Element="_z8tz4N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z8xeQN9-EeeNHqh_gF87ow" genericsValue="QueryStateData" base_Element="_z8tz4d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Array xmi:id="_z8yFUd9-EeeNHqh_gF87ow" base_Element="_z8tz4t9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z81IoN9-EeeNHqh_gF87ow" base_Element="_z8tM0N9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z81Iod9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z8290N9-EeeNHqh_gF87ow" base_Element="_z81vsN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Annotations xmi:id="_z83k4N9-EeeNHqh_gF87ow" base_Element="_z81vsN9-EeeNHqh_gF87ow">
+    <annotations xmi:id="_z83k4d9-EeeNHqh_gF87ow" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Generics xmi:id="_z84zAN9-EeeNHqh_gF87ow" genericsValue="QueryStateData" base_Element="_z83k4t9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9NjIN9-EeeNHqh_gF87ow" base_Element="_z9MVAN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9P_YN9-EeeNHqh_gF87ow" base_Element="_z9PYUN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9TpwN9-EeeNHqh_gF87ow" base_Element="_z9TCsN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z9U34N9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z9Tpwd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9Ve8N9-EeeNHqh_gF87ow" base_Element="_z9Tpwd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9WGAN9-EeeNHqh_gF87ow" base_Element="_z9Ve8d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z9YiQN9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z9XUId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9ZJUN9-EeeNHqh_gF87ow" base_Element="_z9XUId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9aXcd9-EeeNHqh_gF87ow" base_Element="_z9ZwYN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9eB0N9-EeeNHqh_gF87ow" base_Element="_z9czsd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9f3AN9-EeeNHqh_gF87ow" base_Element="_z9fP8N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Generics xmi:id="_z9iTQN9-EeeNHqh_gF87ow" genericsValue="GameView" base_Element="_z9hFId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9jhYN9-EeeNHqh_gF87ow" base_Element="_z9hFId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9kvgN9-EeeNHqh_gF87ow" base_Element="_z9kIcN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9nLwN9-EeeNHqh_gF87ow" base_Element="_z9mksN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9pA8N9-EeeNHqh_gF87ow" base_Element="_z9ny0N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9qPEN9-EeeNHqh_gF87ow" base_Element="_z9pA8d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9rdMN9-EeeNHqh_gF87ow" base_Element="_z9qPEd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9srUN9-EeeNHqh_gF87ow" base_Element="_z9rdMd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9vHkN9-EeeNHqh_gF87ow" base_Element="_z9t5cN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z9w8wN9-EeeNHqh_gF87ow" base_Element="_z9vuoN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9yx8N9-EeeNHqh_gF87ow" base_Element="_z9yK4t9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z9zZAd9-EeeNHqh_gF87ow" base_Element="_z9yx8d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z90nIN9-EeeNHqh_gF87ow" base_Element="_z90AEN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z91OMN9-EeeNHqh_gF87ow" base_Element="_z90nId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z911QN9-EeeNHqh_gF87ow" base_Element="_z91OMd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z92cUd9-EeeNHqh_gF87ow" base_Element="_z911Qd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_z93qcN9-EeeNHqh_gF87ow" base_Element="_z93DYN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-TIQN9-EeeNHqh_gF87ow" base_Element="_z-ShMN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-UWYN9-EeeNHqh_gF87ow" base_Element="_z-TIQd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-VkgN9-EeeNHqh_gF87ow" base_Element="_z-UWYd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-WyoN9-EeeNHqh_gF87ow" base_Element="_z-Vkgd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-YAwN9-EeeNHqh_gF87ow" base_Element="_z-XZsN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-ZO4N9-EeeNHqh_gF87ow" base_Element="_z-Yn0N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-adAN9-EeeNHqh_gF87ow" base_Element="_z-Z18N9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-brIN9-EeeNHqh_gF87ow" base_Element="_z-bEEN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-cSMN9-EeeNHqh_gF87ow" base_Element="_z-brId9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-dgUN9-EeeNHqh_gF87ow" base_Element="_z-c5QN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-eHYN9-EeeNHqh_gF87ow" base_Element="_z-dgUd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-eucN9-EeeNHqh_gF87ow" base_Element="_z-eHYd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-f8kN9-EeeNHqh_gF87ow" base_Element="_z-fVgN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-hKsN9-EeeNHqh_gF87ow" base_Element="_z-f8kd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-iY0N9-EeeNHqh_gF87ow" base_Element="_z-hKsd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-jm8N9-EeeNHqh_gF87ow" base_Element="_z-iY0d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-k1EN9-EeeNHqh_gF87ow" base_Element="_z-jm8d9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-mDMN9-EeeNHqh_gF87ow" base_Element="_z-k1Ed9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-nRUN9-EeeNHqh_gF87ow" base_Element="_z-mDMd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-ofcN9-EeeNHqh_gF87ow" base_Element="_z-n4YN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-qUoN9-EeeNHqh_gF87ow" base_Element="_z-pGgN9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-riwN9-EeeNHqh_gF87ow" base_Element="_z-qUod9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-sw4N9-EeeNHqh_gF87ow" base_Element="_z-riwd9-EeeNHqh_gF87ow"/>
+  <UMLLabProfile:Reference xmi:id="_z-t_AN9-EeeNHqh_gF87ow" base_Element="_z-sw4d9-EeeNHqh_gF87ow"/>
+</xmi:XMI>
+>>>>>>> .r30537

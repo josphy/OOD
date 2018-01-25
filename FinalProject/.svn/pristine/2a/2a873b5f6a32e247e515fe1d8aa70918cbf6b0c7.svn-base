@@ -1,0 +1,12 @@
+package common;
+
+import provided.datapacket.ADataPacketAlgoCmd;
+
+public abstract class DataPacketAlgoCmdServer2Team<T, A> extends ADataPacketAlgoCmd<String, T, String, A, DataPacketServer2Team<T>> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7658954218686440939L;
+
+}

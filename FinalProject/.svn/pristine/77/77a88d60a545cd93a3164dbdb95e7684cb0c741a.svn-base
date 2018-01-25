@@ -1,0 +1,18 @@
+package server.model;
+
+
+/**
+ * Game server model to server view adapter
+ * @author Haoshan Zou, Zhenwei Feng
+ *
+ */
+
+public interface IServerModel2ViewAdapter {
+	
+	/**
+	 * append text to view
+	 * @param s text
+	 */
+	public void append(String s);
+
+}

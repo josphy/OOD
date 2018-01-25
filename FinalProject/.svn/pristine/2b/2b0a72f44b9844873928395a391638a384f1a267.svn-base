@@ -1,0 +1,12 @@
+package game.model;
+
+import map.MapLayer;
+
+/**
+ * game model's adapter to game view
+ */
+public interface IGameModel2ViewAdapter {
+
+	public void show(MapLayer layer);
+
+}

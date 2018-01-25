@@ -1,0 +1,34 @@
+package game.data;
+
+/**
+ * game data: query state data
+ */
+public class QueryStateData implements IGameMsgType {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = -8080328207784605868L;
+
+	/**
+	 * query state name
+	 */
+	private String stateName;
+
+	/**
+	 * constructor
+	 * @param stateName state name
+	 */
+	public QueryStateData(String stateName) {
+		this.stateName = stateName;
+	}
+
+	/**
+	 * get state query
+	 * @return query state name
+	 */
+	public String getState() {
+		return stateName;
+	}
+
+}

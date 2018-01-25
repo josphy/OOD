@@ -1,0 +1,32 @@
+package common;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.UUID;
+/**
+ * Like IReceiver in HW08 and IMember in our design, an instance of IServer will be hold in ITeam 
+ * which allows a team can send and receive message from each other.
+ */
+public interface IServer extends Remote{
+	/**
+	 * Return the name of the server
+	 * @return The name of the server
+	 * @throws RemoteException
+	 */
+	public String getName() throws RemoteException;
+	
+	/**
+	 * Return the UUID of the server
+	 * @return UUID of the server
+	 * @throws RemoteException
+	 */
+	public UUID getUUID() throws RemoteException;
+	
+	/**
+	 * Receive a data packet from a team
+	 * @param data the data packet we would like the server to receive
+	 * @throws RemoteException
+	 */
+	public <T> void receiveFromTeam(DataPacketTeam2Server<T> data) throws RemoteException;
+	
+}

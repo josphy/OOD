@@ -1,0 +1,21 @@
+package concrete.data.user;
+
+import common.IChatRoom;
+import common.datatype.user.IInvitationType;
+
+public class InvitationData implements IInvitationType {
+	
+	private static final long serialVersionUID = 6230736382704846133L;
+	
+	private IChatRoom chatroom;
+	
+	public InvitationData(IChatRoom chatroom) {
+		this.chatroom = chatroom;
+	}
+
+	@Override
+	public IChatRoom getChatRoom() {
+		return this.chatroom;
+	}
+
+}

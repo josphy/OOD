@@ -1,0 +1,66 @@
+package server.model;
+
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.UUID;
+
+import common.IUser;
+import concrete.User;
+import provided.rmiUtils.IRMI_Defs;
+import provided.rmiUtils.RMIUtils;
+import provided.util.IVoidLambda;
+
+public class ServerModel {
+	
+	private IServerModel2ViewAdapter viewAdpt;
+	
+	private RMIUtils rmiUtils;
+	
+	private Registry registry;
+	
+	private User user;
+	
+	private IUser userStub;
+	
+	/**
+	 * Command used to output strings to one or more destinations. By default,
+	 * output goes to standard error.
+	 */
+	private IVoidLambda<String> outputCmd = new IVoidLambda<String>() {
+		public void apply(String... msgs) {
+			for (String s : msgs) {
+				viewAdpt.append(s + '\n');
+			}
+		}
+	};
+
+	public ServerModel(IServerModel2ViewAdapter viewAdpt) {
+		this.viewAdpt= viewAdpt;
+		this.rmiUtils = new RMIUtils(outputCmd);
+	}
+	
+	public void start() {
+		try {
+			rmiUtils.startRMI(IRMI_Defs.CLASS_SERVER_PORT_SERVER);
+			registry = rmiUtils.getLocalRegistry();
+		} catch (Exception e) {
+			System.err.println("Exception while intializing RMI: \n" + e);
+			e.printStackTrace();
+		}
+
+		try {
+			user = new User(UUID.randomUUID(), "GameServer");
+			userStub = (IUser) UnicastRemoteObject.exportObject(user, IRMI_Defs.CLASS_SERVER_PORT_SERVER + 1);
+			registry.rebind(IUser.BOUND_NAME, userStub);
+			viewAdpt.append("Game Server bound to \"" + IUser.BOUND_NAME + "\"\n");
+		} catch (Exception e) {
+			System.err.println("Server Exception: " + e);
+			e.printStackTrace();
+		}		
+	}
+	
+	public void sendGame() {
+		
+	}
+
+}

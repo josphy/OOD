@@ -1,0 +1,26 @@
+package game.model;
+
+import map.MapLayer;
+
+/**
+ * game model's adapter to game view
+ */
+public interface IGameModel2ViewAdapter {
+
+	/**
+	 * Add layer to map
+	 * @param layer
+	 */
+	public void showLayer(MapLayer layer);
+	
+	/**
+	 * Display instructions of how to play the game on view
+	 * @param ins
+	 */
+	public void showInstruction(String ins);
+	
+	public void showScore(double score);
+	
+	public void showStateName(String name);
+
+}

@@ -1,0 +1,117 @@
+package concrete;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import common.DataPacketCR;
+import common.ICRMessageType;
+import common.IChatRoom;
+import common.IReceiver;
+
+/**
+ * ChatRoom local implementation of network IChatRoom API
+ */
+public class ChatRoom implements IChatRoom {
+
+	/**
+	 * auto generated UID
+	 */
+	private static final long serialVersionUID = 4366457236493848337L;
+
+	/**
+	 * unique id
+	 */
+	private UUID id;
+
+	/**
+	 * user defined chat room name
+	 */
+	private String name;
+
+	/**
+	 * chat room user list
+	 */
+	private Set<IReceiver> receiverStubs;
+
+	/**
+	 * chat room constructor
+	 * @param id unique id
+	 * @param name defined name
+	 */
+	public ChatRoom(UUID id, String name) {
+		this.id = id;
+		this.name = name;
+		this.receiverStubs = new HashSet<>();
+	}
+
+	@Override
+	/**
+	 * getter of room name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	/**
+	 * getter of unique id
+	 */
+	public UUID getUUID() {
+		return id;
+	}
+
+	@Override
+	/**
+	 * get room user list
+	 */
+	public Collection<IReceiver> getIReceiverStubs() {
+		return receiverStubs;
+	}
+
+	@Override
+	/**
+	 * chat room responsible for broadcasting data packet to all receiver 
+	 */
+	public <T extends ICRMessageType> void sendPacket(DataPacketCR<T> data) {
+		(new Thread() {
+			@Override
+			public void run() {
+				super.run();
+				receiverStubs.iterator().forEachRemaining((receiver) -> {
+					try {
+						receiver.receive(data);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+				});
+			}
+		}).start();
+	}
+
+	@Override
+	/**
+	 * add stub locally
+	 */
+	public boolean addIReceiverStub(IReceiver receiver) {
+		return receiverStubs.add(receiver);
+	}
+
+	@Override
+	/**
+	 * remove stub locally
+	 */
+	public boolean removeIReceiverStub(IReceiver receiver) {
+		return receiverStubs.remove(receiver);
+	}
+
+	/**
+	 * display user name
+	 */
+	public String toString() {
+		return this.name;
+	}
+
+}

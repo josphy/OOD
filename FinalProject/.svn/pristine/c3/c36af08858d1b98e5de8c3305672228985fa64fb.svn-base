@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_nHv4UN-ZEeemGrc0ucf8WQ">
+  <modelElement href="game.uml#_nj6P4N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqdj0d-ZEeemGrc0ucf8WQ" targetItem="_nqfZEt-ZEeemGrc0ucf8WQ" sourceItem="_nqdj0N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqdj09-ZEeemGrc0ucf8WQ" targetItem="_nqfZHt-ZEeemGrc0ucf8WQ" sourceItem="_nqdj0t-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqeK4d-ZEeemGrc0ucf8WQ" targetItem="_nqfZId-ZEeemGrc0ucf8WQ" sourceItem="_nqeK4N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqeK49-ZEeemGrc0ucf8WQ" targetItem="_nqfZJt-ZEeemGrc0ucf8WQ" sourceItem="_nqeK4t-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqeK5d-ZEeemGrc0ucf8WQ" targetItem="_nqfZLN-ZEeemGrc0ucf8WQ" sourceItem="_nqeK5N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqfZAN-ZEeemGrc0ucf8WQ" sourceAnchor="0.0,51.0" targetAnchor="373.0,190.0" target="_nrNKsN-ZEeemGrc0ucf8WQ" source="_nqfZEt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmvhcN-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2CYN-ZEeemGrc0ucf8WQ" sourceX="-508" targetY="44"/>
+    <stereotypes xmi:id="_nqfZAd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmwIgN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqfZAt-ZEeemGrc0ucf8WQ" text="">
+      <visualProperties xmi:id="_yw3QgN-ZEeemGrc0ucf8WQ" position="391.430919382237,-14.413814422988125"/>
+    </nameVisual>
+    <sourceRole xmi:id="_nqfZA9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmvhcd-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw2pd9-ZEeemGrc0ucf8WQ" position="-52.7320016520569,-31.44687283639786"/>
+      <visibility xmi:id="_nqfZBN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZBd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqfZBt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="gameModel" navigable="true">
+      <modelElement href="game.uml#_nmfp0N-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw3Qgd-ZEeemGrc0ucf8WQ" position="316.55653114980726,13.042855685230464"/>
+      <visibility xmi:id="_nqfZB9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqfZCN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqfZCd-ZEeemGrc0ucf8WQ" sourceAnchor="302.0,0.0" targetAnchor="393.0,129.0" target="_nrUfgt-ZEeemGrc0ucf8WQ" source="_nqfZEt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmwIgd-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2CYd-ZEeemGrc0ucf8WQ" sourceY="-198" targetX="1273"/>
+    <stereotypes xmi:id="_nqfZCt-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmwIg9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqfZC9-ZEeemGrc0ucf8WQ" text="">
+      <visualProperties xmi:id="_yw33kd-ZEeemGrc0ucf8WQ" position="-11.627499388883336,108.65009937516956"/>
+    </nameVisual>
+    <sourceRole xmi:id="_nqfZDN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmwIgt-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw33kN-ZEeemGrc0ucf8WQ" position="4.577794872555899,-70.661784915302"/>
+      <visibility xmi:id="_nqfZDd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZDt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqfZD9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="gameView" navigable="true">
+      <modelElement href="game.uml#_nmgQ4N-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw33kt-ZEeemGrc0ucf8WQ" position="1250.6759362402115,53.92847207825537"/>
+      <visibility xmi:id="_nqfZEN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZEd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqhOMd-ZEeemGrc0ucf8WQ" targetItem="_nqh1QN-ZEeemGrc0ucf8WQ" sourceItem="_nqhOMN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_nqicUN-ZEeemGrc0ucf8WQ" sourceAnchor="157.0,0.0" targetAnchor="57.0,40.0" dashed="true" superClass="_nqh1QN-ZEeemGrc0ucf8WQ" subClass="_nqjDYN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmAhoN-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2CYt-ZEeemGrc0ucf8WQ" sourceY="-48" targetX="-419" targetY="27"/>
+    <bendpoints xmi:id="_yw2CY9-ZEeemGrc0ucf8WQ" sourceX="419" sourceY="-48" targetY="27"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqicUt-ZEeemGrc0ucf8WQ" targetItem="_nqjDYN-ZEeemGrc0ucf8WQ" sourceItem="_nqicUd-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqoi8d-ZEeemGrc0ucf8WQ" targetItem="_nqpxEN-ZEeemGrc0ucf8WQ" sourceItem="_nqoi8N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqoi8t-ZEeemGrc0ucf8WQ" source="_nqpxEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmx9tN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nqpKA9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmx9tt-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqpKAN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nqpKAd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmx9td-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqpKBd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqpKBN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqpKAt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmjUNN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqpKB9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqpKBt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqrmQd-ZEeemGrc0ucf8WQ" targetItem="_nqs0Yd-ZEeemGrc0ucf8WQ" sourceItem="_nqrmQN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqrmQt-ZEeemGrc0ucf8WQ" source="_nqs0Yd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmwIhN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nqsNU9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmwvkN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqsNUN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nqsNUd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmwIhd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqsNVd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqsNVN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqsNUt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmgQ49-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqsNV9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqsNVt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqupkd-ZEeemGrc0ucf8WQ" targetItem="_nqweyd-ZEeemGrc0ucf8WQ" sourceItem="_nqupkN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqupkt-ZEeemGrc0ucf8WQ" source="_nqweyd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmx9sd-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nqvQpN-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmx9s9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqvQod-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nqvQot-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmx9st-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqv3sd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqv3sN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqvQo9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmitIt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqv3s9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqv3st-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqvQoN-ZEeemGrc0ucf8WQ" targetItem="_nqwe29-ZEeemGrc0ucf8WQ" sourceItem="_nqupk9-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nqwewN-ZEeemGrc0ucf8WQ" source="_nqweyd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmxWp9-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nqwewd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmx9sN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nqwewt-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nqwew9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmxWqN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqwexN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqwexd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nqwext-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="viewKey" navigable="true">
+      <modelElement href="game.uml#_nmiGE9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqwex9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqweyN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_nqy7AN-ZEeemGrc0ucf8WQ" sourceAnchor="229.0,0.0" targetAnchor="57.0,40.0" dashed="true" superClass="_nqh1QN-ZEeemGrc0ucf8WQ" subClass="_nq0JKd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nl7pId-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2CZN-ZEeemGrc0ucf8WQ" sourceY="-28" targetX="113" targetY="27"/>
+    <bendpoints xmi:id="_yw2CZd-ZEeemGrc0ucf8WQ" sourceX="-113" sourceY="-28" targetY="27"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nqy7At-ZEeemGrc0ucf8WQ" targetItem="_nq0JKd-ZEeemGrc0ucf8WQ" sourceItem="_nqy7Ad-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq0JIN-ZEeemGrc0ucf8WQ" source="_nq0JKd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmwvkd-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq0JId-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmwvk9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq0JIt-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq0JI9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmwvkt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq0JJN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq0JJd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq0JJt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="selected" navigable="true">
+      <modelElement href="game.uml#_nmg389-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq0JJ9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq0JKN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nq1-Ud-ZEeemGrc0ucf8WQ" targetItem="_nq3zg9-ZEeemGrc0ucf8WQ" sourceItem="_nq1-UN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq1-Ut-ZEeemGrc0ucf8WQ" source="_nq3zg9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmykwd-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq2lY9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmykw9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq2lYN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq2lYd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmykwt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq3Mc9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq3Mct-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq2lYt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="viewKey" navigable="true">
+      <modelElement href="game.uml#_nmkiUd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq3Mdd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq3MdN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq1-U9-ZEeemGrc0ucf8WQ" source="_nq3zg9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmykxN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq3Mcd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmykxt-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq2lZN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq2lZd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmykxd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq3Med-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq3MeN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq3McN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmkiVN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq3zgd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq3zgN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nq1-Vd-ZEeemGrc0ucf8WQ" targetItem="_nq3zld-ZEeemGrc0ucf8WQ" sourceItem="_nq1-VN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nq620d-ZEeemGrc0ucf8WQ" targetItem="_nq9TEN-ZEeemGrc0ucf8WQ" sourceItem="_nq620N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq620t-ZEeemGrc0ucf8WQ" source="_nq9TEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmwvlN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq8E89-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmxWoN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq8E8N-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq8E8d-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmwvld-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sAd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq8sAN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq8E8t-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="serverStub" navigable="true">
+      <modelElement href="game.uml#_nmg39t-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sA9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq8sAt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq6209-ZEeemGrc0ucf8WQ" source="_nq9TEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmxWod-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq8E99-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmxWo9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq8E9N-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq8E9d-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmxWot-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sBt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq8sBd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq8E9t-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="viewKey" navigable="true">
+      <modelElement href="game.uml#_nmhfAd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sCN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq8sB9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nq621N-ZEeemGrc0ucf8WQ" source="_nq9TEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmxWpN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nq8E-9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmxWpt-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nq8E-N-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nq8E-d-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmxWpd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sDN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq8sC9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nq8E-t-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmhfBN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq8sDt-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq8sDd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nq7d4d-ZEeemGrc0ucf8WQ" targetItem="_nq9TLt-ZEeemGrc0ucf8WQ" sourceItem="_nq7d4N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nq7d49-ZEeemGrc0ucf8WQ" targetItem="_nq9TOt-ZEeemGrc0ucf8WQ" sourceItem="_nq7d4t-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_nq_vUN-ZEeemGrc0ucf8WQ" sourceAnchor="358.0,53.0" targetAnchor="57.0,40.0" dashed="true" superClass="_nqh1QN-ZEeemGrc0ucf8WQ" subClass="_nrCLkN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmDk8N-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2CZt-ZEeemGrc0ucf8WQ" sourceX="679" targetX="939" targetY="518"/>
+    <bendpoints xmi:id="_yw2CZ9-ZEeemGrc0ucf8WQ" sourceX="679" sourceY="-861" targetX="939" targetY="-343"/>
+    <bendpoints xmi:id="_yw2pcN-ZEeemGrc0ucf8WQ" sourceX="-332" sourceY="-861" targetX="-72" targetY="-343"/>
+    <bendpoints xmi:id="_yw2pcd-ZEeemGrc0ucf8WQ" sourceX="-332" sourceY="-491" targetX="-72" targetY="27"/>
+    <bendpoints xmi:id="_yw2pct-ZEeemGrc0ucf8WQ" sourceX="-260" sourceY="-491" targetY="27"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrAWYd-ZEeemGrc0ucf8WQ" targetItem="_nrCLkN-ZEeemGrc0ucf8WQ" sourceItem="_nrAWYN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrBkgd-ZEeemGrc0ucf8WQ" targetItem="_nrCLnN-ZEeemGrc0ucf8WQ" sourceItem="_nrBkgN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrBkg9-ZEeemGrc0ucf8WQ" targetItem="_nrCLpd-ZEeemGrc0ucf8WQ" sourceItem="_nrBkgt-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrDZsN-ZEeemGrc0ucf8WQ" sourceAnchor="0.0,54.0" targetAnchor="243.0,155.0" target="_nq9TEN-ZEeemGrc0ucf8WQ" source="_nrFO4d-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmx9t9-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2pc9-ZEeemGrc0ucf8WQ" sourceX="-698" targetY="109"/>
+    <stereotypes xmi:id="_nrEAxd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmykwN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrEAwt-ZEeemGrc0ucf8WQ" text="">
+      <visualProperties xmi:id="_yw4eod-ZEeemGrc0ucf8WQ" position="620.7609792125528,1.3556502228283307"/>
+    </nameVisual>
+    <sourceRole xmi:id="_nrEAw9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmx9uN-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw4eoN-ZEeemGrc0ucf8WQ" position="-59.527922440174166,-9.588200692871737"/>
+      <visibility xmi:id="_nrEn19-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrEn1t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrEAxN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="fac" navigable="true">
+      <modelElement href="game.uml#_nmj7Qt-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw4eot-ZEeemGrc0ucf8WQ" position="611.1532984407149,99.09000361710571"/>
+      <visibility xmi:id="_nrEn2d-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrEn2N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_nrDZsd-ZEeemGrc0ucf8WQ" sourceAnchor="130.0,0.0" targetAnchor="57.0,40.0" dashed="true" superClass="_nqh1QN-ZEeemGrc0ucf8WQ" subClass="_nrFO4d-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmBIsN-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2pdN-ZEeemGrc0ucf8WQ" sourceY="-617" targetX="-143" targetY="27"/>
+    <bendpoints xmi:id="_yw2pdd-ZEeemGrc0ucf8WQ" sourceX="143" sourceY="-617" targetY="27"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrEAwd-ZEeemGrc0ucf8WQ" targetItem="_nrFO4d-ZEeemGrc0ucf8WQ" sourceItem="_nrEAwN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrEn0d-ZEeemGrc0ucf8WQ" targetItem="_nrFO7d-ZEeemGrc0ucf8WQ" sourceItem="_nrEn0N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrEn09-ZEeemGrc0ucf8WQ" targetItem="_nrFO8t-ZEeemGrc0ucf8WQ" sourceItem="_nrEn0t-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrEn1d-ZEeemGrc0ucf8WQ" targetItem="_nrFO-9-ZEeemGrc0ucf8WQ" sourceItem="_nrEn1N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrHrIN-ZEeemGrc0ucf8WQ" targetItem="_nrISNd-ZEeemGrc0ucf8WQ" sourceItem="_nrHEEN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrHrId-ZEeemGrc0ucf8WQ" sourceAnchor="385.0,0.0" targetAnchor="0.0,32.0" target="_nrISNd-ZEeemGrc0ucf8WQ" source="_nrNKsN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmykx9-ZEeemGrc0ucf8WQ"/>
+    <bendpoints xmi:id="_yw2pdt-ZEeemGrc0ucf8WQ" sourceY="-87" targetX="-880"/>
+    <stereotypes xmi:id="_nrHrJd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmzL0d-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrHrIt-ZEeemGrc0ucf8WQ" text="">
+      <visualProperties xmi:id="_yw5FsN-ZEeemGrc0ucf8WQ" position="-18.552251036577445,11.387897367559844"/>
+    </nameVisual>
+    <sourceRole xmi:id="_nrHrI9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzL0N-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw4eo9-ZEeemGrc0ucf8WQ" position="0.7110433666369431,-62.05466051116102"/>
+      <visibility xmi:id="_nrISMd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrISMN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrHrJN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="viewAdpt" navigable="true">
+      <modelElement href="game.uml#_nmlwcN-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw5Fsd-ZEeemGrc0ucf8WQ" position="-903.4791961901058,-32.06311434838631"/>
+      <stereotypes xmi:id="_nrISNN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmlwct-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrISM9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrISMt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKHYd-ZEeemGrc0ucf8WQ" targetItem="_nrNKsN-ZEeemGrc0ucf8WQ" sourceItem="_nrKHYN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrKHYt-ZEeemGrc0ucf8WQ" source="_nrNKsN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmzL0t-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrLVg9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmzL1N-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrLVgN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrLVgd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzL09-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrL8kt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrL8kd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrLVgt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="serverStub" navigable="true">
+      <modelElement href="game.uml#_nmlwc9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrL8lN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrL8k9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrKHY9-ZEeemGrc0ucf8WQ" source="_nrNKsN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmzL1d-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrLVh9-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmzL19-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrLVhN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrLVhd-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzL1t-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrL8l9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrL8lt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrLVht-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="clientModelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmlwdd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrMjod-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrMjoN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrKHZN-ZEeemGrc0ucf8WQ" source="_nrNKsN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmzy4N-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrL8kN-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmzy4t-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrLViN-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrLVid-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzy4d-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrMjpN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrMjo9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrLVit-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="annotations" navigable="true">
+      <modelElement href="game.uml#_nmmXgd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrMjpt-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrMjpd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKHZt-ZEeemGrc0ucf8WQ" targetItem="_nrNKy9-ZEeemGrc0ucf8WQ" sourceItem="_nrKHZd-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKucd-ZEeemGrc0ucf8WQ" targetItem="_nrNKzt-ZEeemGrc0ucf8WQ" sourceItem="_nrKucN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKuc9-ZEeemGrc0ucf8WQ" targetItem="_nrNK09-ZEeemGrc0ucf8WQ" sourceItem="_nrKuct-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKudd-ZEeemGrc0ucf8WQ" targetItem="_nrNK2N-ZEeemGrc0ucf8WQ" sourceItem="_nrKudN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrKud9-ZEeemGrc0ucf8WQ" targetItem="_nrNK29-ZEeemGrc0ucf8WQ" sourceItem="_nrKudt-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrQOAd-ZEeemGrc0ucf8WQ" targetItem="_nrUfgt-ZEeemGrc0ucf8WQ" sourceItem="_nrQOAN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrQ1Ed-ZEeemGrc0ucf8WQ" targetItem="_nrUfrN-ZEeemGrc0ucf8WQ" sourceItem="_nrQ1EN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrQ1E9-ZEeemGrc0ucf8WQ" targetItem="_nrUfr9-ZEeemGrc0ucf8WQ" sourceItem="_nrQ1Et-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrQ1Fd-ZEeemGrc0ucf8WQ" targetItem="_nrVGgd-ZEeemGrc0ucf8WQ" sourceItem="_nrQ1FN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrRcId-ZEeemGrc0ucf8WQ" targetItem="_nrVGht-ZEeemGrc0ucf8WQ" sourceItem="_nrRcIN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrRcI9-ZEeemGrc0ucf8WQ" targetItem="_nrVGjN-ZEeemGrc0ucf8WQ" sourceItem="_nrRcIt-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrRcJd-ZEeemGrc0ucf8WQ" targetItem="_nrVGkt-ZEeemGrc0ucf8WQ" sourceItem="_nrRcJN-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrRcJ9-ZEeemGrc0ucf8WQ" targetItem="_nrVGm9-ZEeemGrc0ucf8WQ" sourceItem="_nrRcJt-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrSqQN-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmzy49-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrSqQd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nmzy5d-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrSqQt-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrSqQ9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzy5N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrSqRN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrSqRd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrSqRt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="contentPane" navigable="true">
+      <modelElement href="game.uml#_nmnlod-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrSqR9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrSqSN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrTRUN-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmzy5t-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrTRUd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm0Z8N-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrTRUt-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrTRU9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nmzy59-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrTRVN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrTRVd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrTRVt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="pnlDisplay" navigable="true">
+      <modelElement href="game.uml#_nmnlo9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrTRV9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrTRWN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrTRWd-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nm0Z8d-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrTRWt-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm0Z89-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrTRW9-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrTRXN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nm0Z8t-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrTRXd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrTRXt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrTRX9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="pnlControl" navigable="true">
+      <modelElement href="game.uml#_nmnlpt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrTRYN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrTRYd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrT4YN-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nm0Z9N-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrT4Yd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm0Z9t-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrT4Yt-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrT4Y9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nm0Z9d-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrT4ZN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrT4Zd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrT4Zt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="map" navigable="true">
+      <modelElement href="game.uml#_nmoMsd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrT4Z9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrT4aN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrT4ad-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nm0Z99-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrT4at-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm1BAN-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrT4a9-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrT4bN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nm0Z-N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrT4bd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrT4bt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrT4b9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="btnSubmit" navigable="true">
+      <modelElement href="game.uml#_nmoMtN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrT4cN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrT4cd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrUfcN-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nm1BAd-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrUfcd-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm1BA9-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrUfct-ZEeemGrc0ucf8WQ" text=""/>
+    <sourceRole xmi:id="_nrUfc9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nm1BAt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrUfdN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrUfdd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrUfdt-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="textQuestion" navigable="true">
+      <modelElement href="game.uml#_nmoMt9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrUfd9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfeN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_nrUfed-ZEeemGrc0ucf8WQ" sourceAnchor="196.0,0.0" targetAnchor="102.0,65.0" target="_nrZ_AN-ZEeemGrc0ucf8WQ" source="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nm1BBN-ZEeemGrc0ucf8WQ"/>
+    <stereotypes xmi:id="_nrUfet-ZEeemGrc0ucf8WQ" name="Reference">
+      <modelElement href="game.uml#_nm1BBt-ZEeemGrc0ucf8WQ"/>
+    </stereotypes>
+    <nameVisual xmi:id="_nrUfe9-ZEeemGrc0ucf8WQ" text="">
+      <visualProperties xmi:id="_yw5swN-ZEeemGrc0ucf8WQ" position="-13.788324155753344,-28.482055198996193"/>
+    </nameVisual>
+    <sourceRole xmi:id="_nrUffN-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="">
+      <modelElement href="game.uml#_nm1BBd-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw5Fst-ZEeemGrc0ucf8WQ" position="3.8726489027937987,-67.5854065060139"/>
+      <visibility xmi:id="_nrUffd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrUfft-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_nrUff9-ZEeemGrc0ucf8WQ" aggregationKind="NONE" name="modelAdpt" navigable="true">
+      <modelElement href="game.uml#_nmozwd-ZEeemGrc0ucf8WQ"/>
+      <visualProperties xmi:id="_yw5swd-ZEeemGrc0ucf8WQ" position="-24.50983756925848,-25.376758156359585"/>
+      <visibility xmi:id="_nrUfgN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfgd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrZX8d-ZEeemGrc0ucf8WQ" targetItem="_nrZ_AN-ZEeemGrc0ucf8WQ" sourceItem="_nrZX8N-ZEeemGrc0ucf8WQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_nrZX89-ZEeemGrc0ucf8WQ" targetItem="_nrZ_A9-ZEeemGrc0ucf8WQ" sourceItem="_nrZX8t-ZEeemGrc0ucf8WQ"/>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqdj0N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqdj0d-ZEeemGrc0ucf8WQ" text="Game Controller of mini-mini-MVC" item="_nqfZEt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmseJt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqdj0t-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqdj09-ZEeemGrc0ucf8WQ" text="start mini-mini-MVC" item="_nqfZHt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmseKN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqeK4N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqeK4d-ZEeemGrc0ucf8WQ" text="get view panel&#xA;&#x9; * @return view panel" item="_nqfZId-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFMN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqeK4t-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqeK49-ZEeemGrc0ucf8WQ" text="Launch the application.&#xA;&#x9; * @param args externally provided parameters" item="_nqfZJt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFMd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqeK5N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqeK5d-ZEeemGrc0ucf8WQ" text="game controller constructor&#xA;&#x9; * @param serverStub server receiver stub&#xA;&#x9; * @param clientModelAdpt client command to chat room model adapter" item="_nqfZLN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmseJ9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqhOMN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqhOMd-ZEeemGrc0ucf8WQ" text="game message type interface" item="_nqh1QN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFP9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqicUd-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqicUt-ZEeemGrc0ucf8WQ" text="game data: game over data" item="_nqjDYN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFOd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqoi8N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqoi8d-ZEeemGrc0ucf8WQ" text="Visitor command to for GameStartData.class" item="_nqpxEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFOt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqrmQN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqrmQd-ZEeemGrc0ucf8WQ" text="visitor command for ChooseStateData.class" item="_nqs0Yd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFMt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqupkN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqupkd-ZEeemGrc0ucf8WQ" text="visitor command for GameOverData.class" item="_nqweyd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFN9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqupk9-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqvQoN-ZEeemGrc0ucf8WQ" text="constructor&#xA;&#x9; * @param key game view mixed data key" item="_nqwe29-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFON-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nqy7Ad-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nqy7At-ZEeemGrc0ucf8WQ" text="game data: choose state data" item="_nq0JKd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFM9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nq1-UN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nq1-Ud-ZEeemGrc0ucf8WQ" text="visitor command for QueryStateData.class" item="_nq3zg9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFQN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nq1-VN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nq1-Vd-ZEeemGrc0ucf8WQ" text="constructor&#xA;&#x9; * @param key game view key" item="_nq3zld-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFQd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nq620N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nq620d-ZEeemGrc0ucf8WQ" text="Factory to start game mini-mini-MVC" item="_nq9TEN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFNN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nq7d4N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nq7d4d-ZEeemGrc0ucf8WQ" text="factory constructor&#xA;&#x9; * @param serverStub externally-provided server stub&#xA;&#x9; * @param viewKey mixed data key for game view" item="_nq9TLt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFNd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nq7d4t-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nq7d49-ZEeemGrc0ucf8WQ" text="set command to model adapter&#xA;&#x9; * @param adapter client model adapter" item="_nq9TOt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFNt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrAWYN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrAWYd-ZEeemGrc0ucf8WQ" text="game data: query state data" item="_nrCLkN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFQt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrBkgN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrBkgd-ZEeemGrc0ucf8WQ" text="constructor&#xA;&#x9; * @param stateName state name" item="_nrCLnN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFQ9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrBkgt-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrBkg9-ZEeemGrc0ucf8WQ" text="get state query&#xA;&#x9; * @return query state name" item="_nrCLpd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFRN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrEAwN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrEAwd-ZEeemGrc0ucf8WQ" text="game data: game start data" item="_nrFO4d-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFO9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrEn0N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrEn0d-ZEeemGrc0ucf8WQ" text="getter of game factory&#xA;&#x9; * @return game factory" item="_nrFO7d-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFPd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrEn0t-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrEn09-ZEeemGrc0ucf8WQ" text="constructor&#xA;&#x9; * @param fac externally-provided game factory" item="_nrFO8t-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFPN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrEn1N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrEn1d-ZEeemGrc0ucf8WQ" text="set client command to model adapter&#xA;&#x9; * @param modelAdpt client's chat room command to model adapter" item="_nrFO-9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFPt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrHEEN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrHrIN-ZEeemGrc0ucf8WQ" text="game model's adapter to game view" item="_nrISNd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsRd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKHYN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKHYd-ZEeemGrc0ucf8WQ" text="Game Model" item="_nrNKsN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtFRd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKHZd-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKHZt-ZEeemGrc0ucf8WQ" text="start the game model" item="_nrNKy9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsQd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKucN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKucd-ZEeemGrc0ucf8WQ" text="The method to count selected markers&#xA;&#x9; * @return the one selected marker; if selected more than one, return null" item="_nrNKzt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsQt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKuct-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKuc9-ZEeemGrc0ucf8WQ" text="submit answer to server&#xA;&#x9; * @return submit success or not" item="_nrNK09-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsQ9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKudN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKudd-ZEeemGrc0ucf8WQ" text="load toggle annotation: state coordinates" item="_nrNK2N-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsRN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrKudt-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrKud9-ZEeemGrc0ucf8WQ" text="constructor&#xA;&#x9; * @param serverStub game server stub&#xA;&#x9; * @param clientModelAdpt client model adapter&#xA;&#x9; * @param viewAdpt game view adapter" item="_nrNK29-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsQN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrQOAN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrQOAd-ZEeemGrc0ucf8WQ" text="Game view" item="_nrUfgt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsRt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrQ1EN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrQ1Ed-ZEeemGrc0ucf8WQ" text="start the game view" item="_nrUfrN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsR9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrQ1Et-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrQ1E9-ZEeemGrc0ucf8WQ" text="init GUI layout" item="_nrUfr9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsSd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrQ1FN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrQ1Fd-ZEeemGrc0ucf8WQ" text="get game view panel&#xA;&#x9; * &#xA;&#x9; * @return content pane" item="_nrVGgd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsSt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrRcIN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrRcId-ZEeemGrc0ucf8WQ" text="Pop up an alert window on the screen to show some messages&#xA;&#x9; * &#xA;&#x9; * @param msg&#xA;&#x9; *            The message to be shown on the screen" item="_nrVGht-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsTN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrRcIt-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrRcI9-ZEeemGrc0ucf8WQ" text="set question box&#xA;&#x9; * &#xA;&#x9; * @param name&#xA;&#x9; *            desired display" item="_nrVGjN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsTd-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrRcJN-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrRcJd-ZEeemGrc0ucf8WQ" text="Create the frame.&#xA;&#x9; * &#xA;&#x9; * @param adapter&#xA;&#x9; *            externally provided adapter to game model" item="_nrVGkt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsSN-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrRcJt-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrRcJ9-ZEeemGrc0ucf8WQ" text="add layer to map panel&#xA;&#x9; * &#xA;&#x9; * @param layer&#xA;&#x9; *            map layer" item="_nrVGm9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsS9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrZX8N-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrZX8d-ZEeemGrc0ucf8WQ" text="Game view's adapter to game model" item="_nrZ_AN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsTt-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_nrZX8t-ZEeemGrc0ucf8WQ" sourceConnectionVisual="_nrZX89-ZEeemGrc0ucf8WQ" text="submit answer to server&#xA;&#x9; * @return if submit success, return true" item="_nrZ_A9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nmtsT9-ZEeemGrc0ucf8WQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nqfZEt-ZEeemGrc0ucf8WQ" comments="_nqdj0N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqdj0d-ZEeemGrc0ucf8WQ" name="GameController" associationsOut="_nqfZAN-ZEeemGrc0ucf8WQ _nqfZCd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkSqYN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqfZE9-ZEeemGrc0ucf8WQ" position="30.0,30.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqfZFN-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nqfZFd-ZEeemGrc0ucf8WQ" name="gameModel">
+      <modelElement href="game.uml#_nmfp0N-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqfZFt-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmfp0d-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqfZF9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqfZGN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqfZGd-ZEeemGrc0ucf8WQ" name="GameModel">
+        <modelElement href="game.uml#_nkh68N-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nqfZGt-ZEeemGrc0ucf8WQ" name="gameView">
+      <modelElement href="game.uml#_nmgQ4N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqfZG9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZHN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqfZHd-ZEeemGrc0ucf8WQ" name="GameView">
+        <modelElement href="game.uml#_nkkXMd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nqfZHt-ZEeemGrc0ucf8WQ" comments="_nqdj0t-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqdj09-ZEeemGrc0ucf8WQ" name="start">
+      <modelElement href="game.uml#_nkT4gN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqfZH9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZIN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_nqfZId-ZEeemGrc0ucf8WQ" comments="_nqeK4N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqeK4d-ZEeemGrc0ucf8WQ" name="getView">
+      <modelElement href="game.uml#_nkT4gd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqfZIt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZI9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqfZJN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmLgxt-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqfZJd-ZEeemGrc0ucf8WQ" name="Component">
+          <modelElement href="game.uml#_nl2JkN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nqfZJt-ZEeemGrc0ucf8WQ" comments="_nqeK4t-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqeK49-ZEeemGrc0ucf8WQ" name="main" staticOperation="true">
+      <modelElement href="game.uml#_nkT4gt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqfZJ9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZKN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nqfZKd-ZEeemGrc0ucf8WQ" name="args">
+        <modelElement href="game.uml#_nkUfkN-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqfZKt-ZEeemGrc0ucf8WQ" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_nqfZK9-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nqfZLN-ZEeemGrc0ucf8WQ" comments="_nqeK5N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqeK5d-ZEeemGrc0ucf8WQ" name="GameController">
+      <modelElement href="game.uml#_nmLgwN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nqfZLd-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nqfZLt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqfZL9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqfZMN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmLgxd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqfZMd-ZEeemGrc0ucf8WQ" name="GameController">
+          <modelElement href="game.uml#_nkSqYN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nqfZMt-ZEeemGrc0ucf8WQ" name="serverStub">
+        <modelElement href="game.uml#_nmLgwd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqfZM9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqfZNN-ZEeemGrc0ucf8WQ" name="IReceiver">
+          <modelElement href="game.uml#_nl3-w9-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqfZNd-ZEeemGrc0ucf8WQ" name="clientModelAdpt">
+        <modelElement href="game.uml#_nmLgwt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqfZNt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqfZN9-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_nqh1QN-ZEeemGrc0ucf8WQ" comments="_nqhOMN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqhOMd-ZEeemGrc0ucf8WQ" name="IGameMsgType" subclassedBy="_nqicUN-ZEeemGrc0ucf8WQ _nqy7AN-ZEeemGrc0ucf8WQ _nq_vUN-ZEeemGrc0ucf8WQ _nrDZsd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nke3oN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqh1Qd-ZEeemGrc0ucf8WQ" position="694.0,173.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqh1Qt-ZEeemGrc0ucf8WQ" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nqjDYN-ZEeemGrc0ucf8WQ" comments="_nqicUd-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqicUt-ZEeemGrc0ucf8WQ" name="GameOverData" generalizations="_nqicUN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkcbYN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqjDYd-ZEeemGrc0ucf8WQ" position="175.0,288.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqjDYt-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nqjDY9-ZEeemGrc0ucf8WQ" defaultValue="594435138833178660L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmjUMN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqjDZN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqjDZd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqjDZt-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nqpxEN-ZEeemGrc0ucf8WQ" comments="_nqoi8N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqoi8d-ZEeemGrc0ucf8WQ" name="GameStartCmd" associationsOut="_nqoi8t-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkcbYd-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqpxEd-ZEeemGrc0ucf8WQ" position="96.0,408.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqpxEt-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nqpxE9-ZEeemGrc0ucf8WQ" defaultValue="8250064191783015619L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmjUMt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqpxFN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqpxFd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqpxFt-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nqpxF9-ZEeemGrc0ucf8WQ" name="modelAdpt">
+      <modelElement href="game.uml#_nmjUNN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqpxGN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmjUN9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqpxGd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqpxGt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqpxG9-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nqpxHN-ZEeemGrc0ucf8WQ" name="apply">
+      <modelElement href="game.uml#_nmUDoN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqpxHd-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmUDpd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqpxHt-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmV40N-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqpxH9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqpxIN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqpxId-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmUDpN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqpxIt-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nqpxI9-ZEeemGrc0ucf8WQ" name="index">
+        <modelElement href="game.uml#_nmUDod-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqpxJN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqpxJd-ZEeemGrc0ucf8WQ" name="Class">
+          <modelElement href="game.uml#_nmMH0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqpxJt-ZEeemGrc0ucf8WQ" name="host">
+        <modelElement href="game.uml#_nmUDot-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqpxJ9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqpxKN-ZEeemGrc0ucf8WQ" name="DataPacketCR">
+          <modelElement href="game.uml#_nl5z8t-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqpxKd-ZEeemGrc0ucf8WQ" name="params">
+        <modelElement href="game.uml#_nmUDo9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqpxKt-ZEeemGrc0ucf8WQ" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_nqpxK9-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nqpxLN-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdpt">
+      <modelElement href="game.uml#_nmV40t-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqpxLd-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmV41N-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqpxLt-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmV41d-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqpxL9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqpxMN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nqpxMd-ZEeemGrc0ucf8WQ" name="cmd2ModelAdpt">
+        <modelElement href="game.uml#_nmV409-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqpxMt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqpxM9-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nqs0Yd-ZEeemGrc0ucf8WQ" comments="_nqrmQN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqrmQd-ZEeemGrc0ucf8WQ" name="ChooseStateCmd" associationsOut="_nqrmQt-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkVGoN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqs0Yt-ZEeemGrc0ucf8WQ" position="96.0,604.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqs0Y9-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nqs0ZN-ZEeemGrc0ucf8WQ" defaultValue="-8360033921529626266L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmgQ4d-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqs0Zd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqs0Zt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqs0Z9-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nqs0aN-ZEeemGrc0ucf8WQ" name="modelAdpt">
+      <modelElement href="game.uml#_nmgQ49-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqs0ad-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmgQ5t-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqs0at-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqs0a9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqs0bN-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nqs0bd-ZEeemGrc0ucf8WQ" name="apply">
+      <modelElement href="game.uml#_nmMH09-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqs0bt-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmMu49-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqs0b9-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmN9AN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqs0cN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqs0cd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqs0ct-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmMu4t-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqs0c9-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nqs0dN-ZEeemGrc0ucf8WQ" name="index">
+        <modelElement href="game.uml#_nmMH1N-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqs0dd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqs0dt-ZEeemGrc0ucf8WQ" name="Class">
+          <modelElement href="game.uml#_nmMH0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqs0d9-ZEeemGrc0ucf8WQ" name="host">
+        <modelElement href="game.uml#_nmMu4N-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqs0eN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqs0ed-ZEeemGrc0ucf8WQ" name="DataPacketCR">
+          <modelElement href="game.uml#_nl5z8t-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqs0et-ZEeemGrc0ucf8WQ" name="params">
+        <modelElement href="game.uml#_nmMu4d-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqs0e9-ZEeemGrc0ucf8WQ" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_nqs0fN-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nqs0fd-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdpt">
+      <modelElement href="game.uml#_nmN9At-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqs0ft-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmN9BN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqs0f9-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmN9Bd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqs0gN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqs0gd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nqs0gt-ZEeemGrc0ucf8WQ" name="cmd2ModelAdpt">
+        <modelElement href="game.uml#_nmN9A9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqs0g9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqs0hN-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nqweyd-ZEeemGrc0ucf8WQ" comments="_nqupkN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqupkd-ZEeemGrc0ucf8WQ" name="GameOverCmd" associationsOut="_nqupkt-ZEeemGrc0ucf8WQ _nqwewN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkamMN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nqweyt-ZEeemGrc0ucf8WQ" position="-368.0,179.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nqwey9-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nqwezN-ZEeemGrc0ucf8WQ" defaultValue="3871415137296763040L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmiGEd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nqwezd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqwezt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqwez9-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nqwe0N-ZEeemGrc0ucf8WQ" name="viewKey">
+      <modelElement href="game.uml#_nmiGE9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqwe0d-ZEeemGrc0ucf8WQ" name="Generics">
+        <modelElement href="game.uml#_nmitIN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqwe0t-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmitId-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqwe09-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqwe1N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqwe1d-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+        <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nqwe1t-ZEeemGrc0ucf8WQ" name="modelAdpt">
+      <modelElement href="game.uml#_nmitIt-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqwe19-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmitJd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqwe2N-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nqwe2d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nqwe2t-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nqwe29-ZEeemGrc0ucf8WQ" comments="_nqupk9-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqvQoN-ZEeemGrc0ucf8WQ" name="GameOverCmd">
+      <modelElement href="game.uml#_nmRAUN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nqwe3N-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nqwe3d-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqwe3t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqwe39-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmRnYt-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqwe4N-ZEeemGrc0ucf8WQ" name="GameOverCmd">
+          <modelElement href="game.uml#_nkamMN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nqwe4d-ZEeemGrc0ucf8WQ" name="key">
+        <modelElement href="game.uml#_nmRAUd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqwe4t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqwe49-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+          <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nqwe5N-ZEeemGrc0ucf8WQ" name="apply">
+      <modelElement href="game.uml#_nmRnZN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqwe5d-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmSOcd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqwe5t-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmS1gd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqwe59-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqwe6N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nqwe6d-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmSOcN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nqwe6t-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nqwe69-ZEeemGrc0ucf8WQ" name="index">
+        <modelElement href="game.uml#_nmRnZd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqwe7N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqwe7d-ZEeemGrc0ucf8WQ" name="Class">
+          <modelElement href="game.uml#_nmMH0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqwe7t-ZEeemGrc0ucf8WQ" name="host">
+        <modelElement href="game.uml#_nmRnZt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqwe79-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqwe8N-ZEeemGrc0ucf8WQ" name="DataPacketCR">
+          <modelElement href="game.uml#_nl5z8t-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nqwe8d-ZEeemGrc0ucf8WQ" name="params">
+        <modelElement href="game.uml#_nmRnZ9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqwe8t-ZEeemGrc0ucf8WQ" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_nqwe89-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nqwe9N-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdpt">
+      <modelElement href="game.uml#_nmS1g9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nqwe9d-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmS1hd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nqwe9t-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmS1ht-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nqwe99-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nqwe-N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nqwe-d-ZEeemGrc0ucf8WQ" name="cmd2ModelAdpt">
+        <modelElement href="game.uml#_nmS1hN-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nqwe-t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nqwe-9-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nq0JKd-ZEeemGrc0ucf8WQ" comments="_nqy7Ad-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nqy7At-ZEeemGrc0ucf8WQ" name="ChooseStateData" associationsOut="_nq0JIN-ZEeemGrc0ucf8WQ" generalizations="_nqy7AN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkW70N-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nq0JKt-ZEeemGrc0ucf8WQ" position="635.0,268.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nq0JK9-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nq0JLN-ZEeemGrc0ucf8WQ" defaultValue="-3180814086015092687L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmg38N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq0JLd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq0JLt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq0JL9-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq0JMN-ZEeemGrc0ucf8WQ" name="stateName">
+      <modelElement href="game.uml#_nmg38t-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq0JMd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq0JMt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq0JM9-ZEeemGrc0ucf8WQ" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq0JNN-ZEeemGrc0ucf8WQ" name="selected">
+      <modelElement href="game.uml#_nmg389-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq0JNd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq0JNt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq0JN9-ZEeemGrc0ucf8WQ" name="Annotation">
+        <modelElement href="game.uml#_nl7CEN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nq0JON-ZEeemGrc0ucf8WQ" name="ChooseStateData">
+      <modelElement href="game.uml#_nmPLIN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nq0JOd-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nq0JOt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq0JO9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nq0JPN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmPLJd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nq0JPd-ZEeemGrc0ucf8WQ" name="ChooseStateData">
+          <modelElement href="game.uml#_nkW70N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nq0JPt-ZEeemGrc0ucf8WQ" name="name">
+        <modelElement href="game.uml#_nmPLId-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq0JP9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq0JQN-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nq0JQd-ZEeemGrc0ucf8WQ" name="selected">
+        <modelElement href="game.uml#_nmPLIt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq0JQt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq0JQ9-ZEeemGrc0ucf8WQ" name="Annotation">
+          <modelElement href="game.uml#_nl7CEN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nq3zg9-ZEeemGrc0ucf8WQ" comments="_nq1-UN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nq1-Ud-ZEeemGrc0ucf8WQ" name="QueryStateCmd" associationsOut="_nq1-Ut-ZEeemGrc0ucf8WQ _nq1-U9-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkfesN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nq3zhN-ZEeemGrc0ucf8WQ" position="623.0,458.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nq3zhd-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nq3zht-ZEeemGrc0ucf8WQ" defaultValue="8964339712375994457L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmj7RN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq3zh9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq3ziN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq3zid-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq3zit-ZEeemGrc0ucf8WQ" name="viewKey">
+      <modelElement href="game.uml#_nmkiUd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq3zi9-ZEeemGrc0ucf8WQ" name="Generics">
+        <modelElement href="game.uml#_nmkiUt-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nq3zjN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmkiU9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq3zjd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq3zjt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq3zj9-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+        <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq3zkN-ZEeemGrc0ucf8WQ" name="modelAdpt">
+      <modelElement href="game.uml#_nmkiVN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq3zkd-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmlJYN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq3zkt-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq3zk9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq3zlN-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nq3zld-ZEeemGrc0ucf8WQ" comments="_nq1-VN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nq1-Vd-ZEeemGrc0ucf8WQ" name="QueryStateCmd">
+      <modelElement href="game.uml#_nmZjMN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nq3zlt-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nq3zl9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq3zmN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nq3zmd-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmZjNN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nq3zmt-ZEeemGrc0ucf8WQ" name="QueryStateCmd">
+          <modelElement href="game.uml#_nkfesN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nq3zm9-ZEeemGrc0ucf8WQ" name="key">
+        <modelElement href="game.uml#_nmZjMd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq3znN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq3znd-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+          <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nq3znt-ZEeemGrc0ucf8WQ" name="apply">
+      <modelElement href="game.uml#_nmaKQd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq3zn9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmaKRt-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nq3zoN-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmbYYN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq3zod-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq3zot-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nq3zo9-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmaKRd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nq3zpN-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nq3zpd-ZEeemGrc0ucf8WQ" name="index">
+        <modelElement href="game.uml#_nmaKQt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq3zpt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq3zp9-ZEeemGrc0ucf8WQ" name="Class">
+          <modelElement href="game.uml#_nmMH0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nq3zqN-ZEeemGrc0ucf8WQ" name="host">
+        <modelElement href="game.uml#_nmaKQ9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq3zqd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq3zqt-ZEeemGrc0ucf8WQ" name="DataPacketCR">
+          <modelElement href="game.uml#_nl5z8t-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nq3zq9-ZEeemGrc0ucf8WQ" name="params">
+        <modelElement href="game.uml#_nmaKRN-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq3zrN-ZEeemGrc0ucf8WQ" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_nq3zrd-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nq3zrt-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdpt">
+      <modelElement href="game.uml#_nmbYYt-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq3zr9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmbYZN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nq3zsN-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nmb_cN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq3zsd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq3zst-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nq3zs9-ZEeemGrc0ucf8WQ" name="cmd2ModelAdpt">
+        <modelElement href="game.uml#_nmbYY9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq3ztN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq3ztd-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nq9TEN-ZEeemGrc0ucf8WQ" comments="_nq620N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nq620d-ZEeemGrc0ucf8WQ" name="GameFactory" associationsIn="_nrDZsN-ZEeemGrc0ucf8WQ" associationsOut="_nq620t-ZEeemGrc0ucf8WQ _nq6209-ZEeemGrc0ucf8WQ _nq621N-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkYJ8N-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nq9TEd-ZEeemGrc0ucf8WQ" position="-463.0,647.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nq9TEt-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nq9TE9-ZEeemGrc0ucf8WQ" defaultValue="-2634933169569584607L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmg39N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq9TFN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq9TFd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq9TFt-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq9TF9-ZEeemGrc0ucf8WQ" name="serverStub">
+      <modelElement href="game.uml#_nmg39t-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq9TGN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmhfAN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq9TGd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq9TGt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq9TG9-ZEeemGrc0ucf8WQ" name="IReceiver">
+        <modelElement href="game.uml#_nl3-w9-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq9THN-ZEeemGrc0ucf8WQ" name="viewKey">
+      <modelElement href="game.uml#_nmhfAd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq9THd-ZEeemGrc0ucf8WQ" name="Generics">
+        <modelElement href="game.uml#_nmhfAt-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nq9THt-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmhfA9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq9TH9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq9TIN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq9TId-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+        <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nq9TIt-ZEeemGrc0ucf8WQ" name="modelAdpt">
+      <modelElement href="game.uml#_nmhfBN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq9TI9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmiGEN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq9TJN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nq9TJd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nq9TJt-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nq9TJ9-ZEeemGrc0ucf8WQ" name="makeComponent">
+      <modelElement href="game.uml#_nkYxAN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nq9TKN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nkZYEN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_nq9TKd-ZEeemGrc0ucf8WQ" name="Annotations">
+        <modelElement href="game.uml#_nkZYEd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nq9TKt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq9TK9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nq9TLN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmQZQ9-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nq9TLd-ZEeemGrc0ucf8WQ" name="Component">
+          <modelElement href="game.uml#_nl2JkN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nq9TLt-ZEeemGrc0ucf8WQ" comments="_nq7d4N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nq7d4d-ZEeemGrc0ucf8WQ" name="GameFactory">
+      <modelElement href="game.uml#_nmPyMN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nq9TL9-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nq9TMN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq9TMd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nq9TMt-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmPyNd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nq9TM9-ZEeemGrc0ucf8WQ" name="GameFactory">
+          <modelElement href="game.uml#_nkYJ8N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nq9TNN-ZEeemGrc0ucf8WQ" name="serverStub">
+        <modelElement href="game.uml#_nmPyMd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq9TNd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq9TNt-ZEeemGrc0ucf8WQ" name="IReceiver">
+          <modelElement href="game.uml#_nl3-w9-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nq9TN9-ZEeemGrc0ucf8WQ" name="viewKey">
+        <modelElement href="game.uml#_nmPyMt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq9TON-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq9TOd-ZEeemGrc0ucf8WQ" name="MixedDataKey">
+          <modelElement href="game.uml#_nl9eUN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nq9TOt-ZEeemGrc0ucf8WQ" comments="_nq7d4t-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nq7d49-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdapter">
+      <modelElement href="game.uml#_nmQZQd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nq9TO9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nq9TPN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nq9TPd-ZEeemGrc0ucf8WQ" name="adapter">
+        <modelElement href="game.uml#_nmQZQt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nq9TPt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nq9TP9-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nrCLkN-ZEeemGrc0ucf8WQ" comments="_nrAWYN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrAWYd-ZEeemGrc0ucf8WQ" name="QueryStateData" generalizations="_nq_vUN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkgs0N-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrCLkd-ZEeemGrc0ucf8WQ" position="653.0,678.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrCLkt-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nrCLk9-ZEeemGrc0ucf8WQ" defaultValue="-8080328207784605868L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmlJYd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrCLlN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrCLld-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrCLlt-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrCLl9-ZEeemGrc0ucf8WQ" name="stateName">
+      <modelElement href="game.uml#_nmlJY9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrCLmN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmlJZN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrCLmd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrCLmt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrCLm9-ZEeemGrc0ucf8WQ" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nrCLnN-ZEeemGrc0ucf8WQ" comments="_nrBkgN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrBkgd-ZEeemGrc0ucf8WQ" name="QueryStateData">
+      <modelElement href="game.uml#_nkgs0d-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nrCLnd-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nrCLnt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrCLn9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrCLoN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nkhT4t-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrCLod-ZEeemGrc0ucf8WQ" name="QueryStateData">
+          <modelElement href="game.uml#_nkgs0N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nrCLot-ZEeemGrc0ucf8WQ" name="stateName">
+        <modelElement href="game.uml#_nkgs0t-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrCLo9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrCLpN-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nrCLpd-ZEeemGrc0ucf8WQ" comments="_nrBkgt-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrBkg9-ZEeemGrc0ucf8WQ" name="getState">
+      <modelElement href="game.uml#_nkhT49-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrCLpt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrCLp9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrCLqN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nkhT5N-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrCLqd-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nrFO4d-ZEeemGrc0ucf8WQ" comments="_nrEAwN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrEAwd-ZEeemGrc0ucf8WQ" name="GameStartData" associationsOut="_nrDZsN-ZEeemGrc0ucf8WQ" generalizations="_nrDZsd-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkdpgN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrFO4t-ZEeemGrc0ucf8WQ" position="478.0,857.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrFO49-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nrFO5N-ZEeemGrc0ucf8WQ" defaultValue="-2681250750840378085L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmj7QN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrFO5d-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrFO5t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrFO59-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrFO6N-ZEeemGrc0ucf8WQ" name="fac">
+      <modelElement href="game.uml#_nmj7Qt-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrFO6d-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmj7Q9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrFO6t-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrFO69-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrFO7N-ZEeemGrc0ucf8WQ" name="GameFactory">
+        <modelElement href="game.uml#_nkYJ8N-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nrFO7d-ZEeemGrc0ucf8WQ" comments="_nrEn0N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrEn0d-ZEeemGrc0ucf8WQ" name="getFactory">
+      <modelElement href="game.uml#_nkeQkN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrFO7t-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrFO79-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrFO8N-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmBvxd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrFO8d-ZEeemGrc0ucf8WQ" name="GameFactory">
+          <modelElement href="game.uml#_nkYJ8N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nrFO8t-ZEeemGrc0ucf8WQ" comments="_nrEn0t-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrEn09-ZEeemGrc0ucf8WQ" name="GameStartData">
+      <modelElement href="game.uml#_nmBvwN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nrFO89-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nrFO9N-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrFO9d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrFO9t-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmBvxN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrFO99-ZEeemGrc0ucf8WQ" name="GameStartData">
+          <modelElement href="game.uml#_nkdpgN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nrFO-N-ZEeemGrc0ucf8WQ" name="fac">
+        <modelElement href="game.uml#_nmBvwd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrFO-d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrFO-t-ZEeemGrc0ucf8WQ" name="GameFactory">
+          <modelElement href="game.uml#_nkYJ8N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nrFO-9-ZEeemGrc0ucf8WQ" comments="_nrEn1N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrEn1d-ZEeemGrc0ucf8WQ" name="setCmd2ModelAdapter">
+      <modelElement href="game.uml#_nmXG8N-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrFO_N-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrFO_d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nrFO_t-ZEeemGrc0ucf8WQ" name="modelAdpt">
+        <modelElement href="game.uml#_nmXG8d-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrFO_9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrFPAN-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_nrISNd-ZEeemGrc0ucf8WQ" comments="_nrHEEN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrHrIN-ZEeemGrc0ucf8WQ" name="IGameModel2ViewAdapter" associationsIn="_nrHrId-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkkXMN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrISNt-ZEeemGrc0ucf8WQ" position="414.0,-272.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrISN9-ZEeemGrc0ucf8WQ" label="+"/>
+    <operations xmi:id="_nrISON-ZEeemGrc0ucf8WQ" name="showLayer">
+      <modelElement href="game.uml#_nmdNk9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrI5QN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrI5Qd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nrI5Qt-ZEeemGrc0ucf8WQ" name="layer">
+        <modelElement href="game.uml#_nmdNlN-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrI5Q9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrI5RN-ZEeemGrc0ucf8WQ" name="MapLayer">
+          <modelElement href="game.uml#_nl4l0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nrNKsN-ZEeemGrc0ucf8WQ" comments="_nrKHYN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKHYd-ZEeemGrc0ucf8WQ" name="GameModel" associationsIn="_nqfZAN-ZEeemGrc0ucf8WQ" associationsOut="_nrHrId-ZEeemGrc0ucf8WQ _nrKHYt-ZEeemGrc0ucf8WQ _nrKHY9-ZEeemGrc0ucf8WQ _nrKHZN-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkh68N-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrNKsd-ZEeemGrc0ucf8WQ" position="-851.0,-153.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrNKst-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nrNKs9-ZEeemGrc0ucf8WQ" defaultValue="null" name="viewAdpt">
+      <modelElement href="game.uml#_nmlwcN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrNKtN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrNKtd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrNKtt-ZEeemGrc0ucf8WQ" name="IGameModel2ViewAdapter">
+        <modelElement href="game.uml#_nkkXMN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrNKt9-ZEeemGrc0ucf8WQ" name="serverStub">
+      <modelElement href="game.uml#_nmlwc9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrNKuN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmlwdN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrNKud-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrNKut-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrNKu9-ZEeemGrc0ucf8WQ" name="IReceiver">
+        <modelElement href="game.uml#_nl3-w9-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrNKvN-ZEeemGrc0ucf8WQ" name="clientModelAdpt">
+      <modelElement href="game.uml#_nmlwdd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrNKvd-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmmXgN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrNKvt-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrNKv9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrNKwN-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+        <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrNKwd-ZEeemGrc0ucf8WQ" defaultValue="new MapLayer()" name="annotations">
+      <modelElement href="game.uml#_nmmXgd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrNKwt-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmmXg9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrNKw9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrNKxN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrNKxd-ZEeemGrc0ucf8WQ" name="MapLayer">
+        <modelElement href="game.uml#_nl4l0d-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrNKxt-ZEeemGrc0ucf8WQ" defaultValue="new HashMap&lt;Annotation, String>()" name="annotationMap">
+      <modelElement href="game.uml#_nmmXhN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrNKx9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmmXht-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrNKyN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrNKyd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrNKyt-ZEeemGrc0ucf8WQ" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nrNKy9-ZEeemGrc0ucf8WQ" comments="_nrKHZd-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKHZt-ZEeemGrc0ucf8WQ" name="start">
+      <modelElement href="game.uml#_nkiiAN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrNKzN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrNKzd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_nrNKzt-ZEeemGrc0ucf8WQ" comments="_nrKucN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKucd-ZEeemGrc0ucf8WQ" name="getOneSelected">
+      <modelElement href="game.uml#_nkiiAd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrNKz9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrNK0N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrNK0d-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmdNkt-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrNK0t-ZEeemGrc0ucf8WQ" name="Annotation">
+          <modelElement href="game.uml#_nl7CEN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nrNK09-ZEeemGrc0ucf8WQ" comments="_nrKuct-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKuc9-ZEeemGrc0ucf8WQ" name="submitToServer">
+      <modelElement href="game.uml#_nkiiAt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrNK1N-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrNK1d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrNK1t-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nkjJEN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrNK19-ZEeemGrc0ucf8WQ" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nrNK2N-ZEeemGrc0ucf8WQ" comments="_nrKudN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKudd-ZEeemGrc0ucf8WQ" name="loadToggleAnnotations">
+      <modelElement href="game.uml#_nkjJEd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrNK2d-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrNK2t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_nrNK29-ZEeemGrc0ucf8WQ" comments="_nrKudt-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrKud9-ZEeemGrc0ucf8WQ" name="GameModel">
+      <modelElement href="game.uml#_nmcmgN-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nrNK3N-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nrNK3d-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrNK3t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrNK39-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmdNkd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrNK4N-ZEeemGrc0ucf8WQ" name="GameModel">
+          <modelElement href="game.uml#_nkh68N-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nrNK4d-ZEeemGrc0ucf8WQ" name="serverStub">
+        <modelElement href="game.uml#_nmcmgd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrNK4t-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrNK49-ZEeemGrc0ucf8WQ" name="IReceiver">
+          <modelElement href="game.uml#_nl3-w9-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nrNK5N-ZEeemGrc0ucf8WQ" name="clientModelAdpt">
+        <modelElement href="game.uml#_nmcmgt-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrNK5d-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrNK5t-ZEeemGrc0ucf8WQ" name="ICRCmd2ModelAdapter">
+          <modelElement href="game.uml#_nl3-wd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_nrNK59-ZEeemGrc0ucf8WQ" name="viewAdpt">
+        <modelElement href="game.uml#_nmcmg9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrNK6N-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrNK6d-ZEeemGrc0ucf8WQ" name="IGameModel2ViewAdapter">
+          <modelElement href="game.uml#_nkkXMN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_nrUfgt-ZEeemGrc0ucf8WQ" comments="_nrQOAN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrQOAd-ZEeemGrc0ucf8WQ" name="GameView" associationsIn="_nqfZCd-ZEeemGrc0ucf8WQ" associationsOut="_nrSqQN-ZEeemGrc0ucf8WQ _nrTRUN-ZEeemGrc0ucf8WQ _nrTRWd-ZEeemGrc0ucf8WQ _nrT4YN-ZEeemGrc0ucf8WQ _nrT4ad-ZEeemGrc0ucf8WQ _nrUfcN-ZEeemGrc0ucf8WQ _nrUfed-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkkXMd-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrUfg9-ZEeemGrc0ucf8WQ" position="-1334.0,-297.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrUfhN-ZEeemGrc0ucf8WQ" label="+"/>
+    <attributes xmi:id="_nrUfhd-ZEeemGrc0ucf8WQ" defaultValue="5179876899323256723L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="game.uml#_nmm-k9-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrUfht-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfh9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfiN-ZEeemGrc0ucf8WQ" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfid-ZEeemGrc0ucf8WQ" name="contentPane">
+      <modelElement href="game.uml#_nmnlod-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfit-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmnlot-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfi9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfjN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfjd-ZEeemGrc0ucf8WQ" name="JPanel">
+        <modelElement href="game.uml#_nmHPVd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfjt-ZEeemGrc0ucf8WQ" defaultValue="new JPanel()" name="pnlDisplay">
+      <modelElement href="game.uml#_nmnlo9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfj9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmnlpd-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfkN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfkd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfkt-ZEeemGrc0ucf8WQ" name="JPanel">
+        <modelElement href="game.uml#_nmHPVd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfk9-ZEeemGrc0ucf8WQ" defaultValue="new JPanel()" name="pnlControl">
+      <modelElement href="game.uml#_nmnlpt-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUflN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmoMsN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfld-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUflt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfl9-ZEeemGrc0ucf8WQ" name="JPanel">
+        <modelElement href="game.uml#_nmHPVd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfmN-ZEeemGrc0ucf8WQ" defaultValue="new MapPanel()" name="map">
+      <modelElement href="game.uml#_nmoMsd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfmd-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmoMs9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfmt-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfm9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfnN-ZEeemGrc0ucf8WQ" name="MapPanel">
+        <modelElement href="game.uml#_nmH2Zd-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfnd-ZEeemGrc0ucf8WQ" defaultValue="new JButton(&quot;Submit&quot;)" name="btnSubmit">
+      <modelElement href="game.uml#_nmoMtN-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfnt-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmoMtt-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfn9-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfoN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfod-ZEeemGrc0ucf8WQ" name="JButton">
+        <modelElement href="game.uml#_nmGoQt-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfot-ZEeemGrc0ucf8WQ" defaultValue="new JTextField()" name="textQuestion">
+      <modelElement href="game.uml#_nmoMt9-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfo9-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmozwN-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfpN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfpd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfpt-ZEeemGrc0ucf8WQ" name="JTextField">
+        <modelElement href="game.uml#_nmH2Y9-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_nrUfp9-ZEeemGrc0ucf8WQ" defaultValue="null" name="modelAdpt">
+      <modelElement href="game.uml#_nmozwd-ZEeemGrc0ucf8WQ"/>
+      <stereotypes xmi:id="_nrUfqN-ZEeemGrc0ucf8WQ" name="LegacyStyledElement">
+        <modelElement href="game.uml#_nmozw9-ZEeemGrc0ucf8WQ"/>
+      </stereotypes>
+      <visibility xmi:id="_nrUfqd-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrUfqt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <type xmi:id="_nrUfq9-ZEeemGrc0ucf8WQ" name="IGameView2ModelAdapter">
+        <modelElement href="game.uml#_nkmzcN-ZEeemGrc0ucf8WQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_nrUfrN-ZEeemGrc0ucf8WQ" comments="_nrQ1EN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrQ1Ed-ZEeemGrc0ucf8WQ" name="start">
+      <modelElement href="game.uml#_nkk-QN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrUfrd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrUfrt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_nrUfr9-ZEeemGrc0ucf8WQ" comments="_nrQ1Et-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrQ1E9-ZEeemGrc0ucf8WQ" name="initGUI">
+      <modelElement href="game.uml#_nkllUN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrUfsN-ZEeemGrc0ucf8WQ" label="-"/>
+      <cardinality xmi:id="_nrVGgN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_nrVGgd-ZEeemGrc0ucf8WQ" comments="_nrQ1FN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrQ1Fd-ZEeemGrc0ucf8WQ" name="getView">
+      <modelElement href="game.uml#_nkllUd-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrVGgt-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrVGg9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrVGhN-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmd0oN-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrVGhd-ZEeemGrc0ucf8WQ" name="Component">
+          <modelElement href="game.uml#_nl2JkN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_nrVGht-ZEeemGrc0ucf8WQ" comments="_nrRcIN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrRcId-ZEeemGrc0ucf8WQ" name="alert">
+      <modelElement href="game.uml#_nkllUt-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrVGh9-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrVGiN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nrVGid-ZEeemGrc0ucf8WQ" name="msg">
+        <modelElement href="game.uml#_nkllU9-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrVGit-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrVGi9-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nrVGjN-ZEeemGrc0ucf8WQ" comments="_nrRcIt-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrRcI9-ZEeemGrc0ucf8WQ" name="showStateName">
+      <modelElement href="game.uml#_nkmMYN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrVGjd-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrVGjt-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nrVGj9-ZEeemGrc0ucf8WQ" name="name">
+        <modelElement href="game.uml#_nkmMYd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrVGkN-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrVGkd-ZEeemGrc0ucf8WQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nrVGkt-ZEeemGrc0ucf8WQ" comments="_nrRcJN-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrRcJd-ZEeemGrc0ucf8WQ" name="GameView">
+      <modelElement href="game.uml#_nmIdcd-ZEeemGrc0ucf8WQ"/>
+      <keywords xmi:id="_nrVGk9-ZEeemGrc0ucf8WQ" keyword="create"/>
+      <visibility xmi:id="_nrVGlN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrVGld-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrVGlt-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nmIddd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrVGl9-ZEeemGrc0ucf8WQ" name="GameView">
+          <modelElement href="game.uml#_nkkXMd-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_nrVGmN-ZEeemGrc0ucf8WQ" name="adapter">
+        <modelElement href="game.uml#_nmIdct-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrVGmd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrVGmt-ZEeemGrc0ucf8WQ" name="IGameView2ModelAdapter">
+          <modelElement href="game.uml#_nkmzcN-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_nrVGm9-ZEeemGrc0ucf8WQ" comments="_nrRcJt-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrRcJ9-ZEeemGrc0ucf8WQ" name="addMapLayer">
+      <modelElement href="game.uml#_nmebsN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrVGnN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrVGnd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <parameters xmi:id="_nrVGnt-ZEeemGrc0ucf8WQ" name="layer">
+        <modelElement href="game.uml#_nmebsd-ZEeemGrc0ucf8WQ"/>
+        <cardinality xmi:id="_nrVGn9-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+        <type xmi:id="_nrVGoN-ZEeemGrc0ucf8WQ" name="MapLayer">
+          <modelElement href="game.uml#_nl4l0d-ZEeemGrc0ucf8WQ"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_nrZ_AN-ZEeemGrc0ucf8WQ" comments="_nrZX8N-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrZX8d-ZEeemGrc0ucf8WQ" name="IGameView2ModelAdapter" associationsIn="_nrUfed-ZEeemGrc0ucf8WQ">
+    <modelElement href="game.uml#_nkmzcN-ZEeemGrc0ucf8WQ"/>
+    <visualProperties xmi:id="_nrZ_Ad-ZEeemGrc0ucf8WQ" position="-1240.0,-417.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_nrZ_At-ZEeemGrc0ucf8WQ" label="+"/>
+    <operations xmi:id="_nrZ_A9-ZEeemGrc0ucf8WQ" comments="_nrZX8t-ZEeemGrc0ucf8WQ" targetConnectionVisual="_nrZX89-ZEeemGrc0ucf8WQ" name="submitAnswer">
+      <modelElement href="game.uml#_nknagN-ZEeemGrc0ucf8WQ"/>
+      <visibility xmi:id="_nrZ_BN-ZEeemGrc0ucf8WQ" label="+"/>
+      <cardinality xmi:id="_nrZ_Bd-ZEeemGrc0ucf8WQ" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_nrZ_Bt-ZEeemGrc0ucf8WQ">
+        <modelElement href="game.uml#_nknagd-ZEeemGrc0ucf8WQ"/>
+        <type xmi:id="_nrZ_B9-ZEeemGrc0ucf8WQ" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

@@ -1,0 +1,14 @@
+package server.model;
+
+/**
+ * server model to view adapter
+ */
+public interface IServerModel2ViewAdapter {
+
+	/**
+	 * append text to view
+	 * @param s text
+	 */
+	public void append(String s);
+
+}

@@ -1,0 +1,13 @@
+package server.view;
+
+public interface IServerView2ModelAdapter {
+
+	public void startGame();
+
+	public void stopGame();
+
+	public void sendQuery();
+	
+	
+
+}
