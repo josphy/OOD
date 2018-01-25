@@ -1,0 +1,67 @@
+/**
+ * 
+ */
+package model.paint;
+
+import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
+
+import model.ball.Ball;
+
+/**
+ * This decorator class allows its subclasses to add extra features to the decorees
+ * Simply delegate to the decorees
+ */
+public abstract class ADecoratorPaintStrategy extends APaintStrategy {
+
+	/**
+	 * The strategy to deal with
+	 */
+	private APaintStrategy decoree;
+	/**
+	 * Constructor, build a decorator from another paint strategy
+	 * @param at The affine transform object
+	 */
+	public ADecoratorPaintStrategy(AffineTransform at, APaintStrategy decoree) {
+		super(at);
+		// TODO Auto-generated constructor stub
+		this.decoree = decoree;
+	}
+
+	/**
+	 * Constructor, build a decorator from another paint strategy
+	 */
+	public ADecoratorPaintStrategy(APaintStrategy decoree) {
+		// TODO Auto-generated constructor stub
+		super(new AffineTransform());
+		this.decoree = decoree;
+	}	
+	
+	/* (non-Javadoc)
+	 * @see model.paint.APaintStrategy#paintXfrm(java.awt.Graphics, model.ball.Ball, java.awt.geom.AffineTransform)
+	 */
+
+	@Override
+	/**
+	 * Simply delegate to the decoree
+	 */
+	public void paintXfrm(Graphics g, Ball host, AffineTransform at) {
+		// TODO Auto-generated method stub
+		decoree.paintXfrm(g, host, at);
+	}
+	
+	/**
+	 * Simply delegate to the decoree
+	 */
+	public void init(Ball host) {
+		decoree.init(host);
+	}
+	
+	/**
+	 * Simply delegate to the decoree
+	 */
+	public void paint(Graphics g, Ball host) {
+		decoree.paint(g, host);
+	}
+
+}

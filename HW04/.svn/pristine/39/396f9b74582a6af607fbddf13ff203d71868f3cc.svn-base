@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+package model.paintStrategy;
+
+import java.awt.geom.AffineTransform;
+
+import model.paint.UprightImagePaintStrategy;
+
+/**
+ * @author kt_li
+ *
+ */
+public class GifPaintStrategy extends UprightImagePaintStrategy {
+
+	/**
+	 * @param at
+	 * @param filename
+	 * @param fillFactor
+	 */
+	public GifPaintStrategy(AffineTransform at, String filename, double fillFactor) {
+		super(at, filename, fillFactor);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param filename
+	 * @param fillFactor
+	 */
+	public GifPaintStrategy(String filename, double fillFactor) {
+		super(filename, fillFactor);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public GifPaintStrategy() {
+		super("../images/mad.gif", 1.0);
+	}
+
+}

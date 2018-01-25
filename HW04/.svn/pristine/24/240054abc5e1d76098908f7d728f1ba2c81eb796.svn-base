@@ -1,0 +1,40 @@
+package model.paint;
+import model.ball.*;
+import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
+
+
+public abstract class APaintStrategy implements IPaintStrategy {
+	
+	protected AffineTransform affTrans;
+	
+	public APaintStrategy(AffineTransform at) {
+		affTrans = at;
+	}
+	
+	public void init(Ball host) {
+	}
+	
+	/**
+	 * https://www.clear.rice.edu/comp504/f17/lectures/lec12/
+	 */
+	public void paint(Graphics g, Ball host) {
+		  double scale = host.getRadius();
+		  affTrans.setToTranslation(host.getLocation().x, host.getLocation().y);
+		  affTrans.scale(scale, scale);
+		  affTrans.rotate(host.getVelocity().x, host.getVelocity().y);
+		  g.setColor(host.getColor());    
+		  paintCfg(g, host);
+		  paintXfrm(g, host, affTrans);
+		}
+	
+	protected void paintCfg(Graphics g, Ball host) {
+	}
+	
+	public abstract void paintXfrm(Graphics g, Ball host, AffineTransform at);
+
+	protected AffineTransform getAffTrans() {
+		return affTrans;
+	}
+	
+}

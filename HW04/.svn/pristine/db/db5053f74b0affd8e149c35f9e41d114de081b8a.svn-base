@@ -1,0 +1,17 @@
+package model.paintStrategy;
+
+import model.paint.UprightImagePaintStrategy;
+
+/**
+ * Paint strategy that paints a Black Tip Reef shark as its image.
+ */
+public class SharkImagePaintStrategy extends UprightImagePaintStrategy{
+
+	/**
+	 * Constructor loads the shark image
+	 */
+	public SharkImagePaintStrategy() {
+		super("../images/BlackTipReef.gif", 0.5);
+	}
+
+}

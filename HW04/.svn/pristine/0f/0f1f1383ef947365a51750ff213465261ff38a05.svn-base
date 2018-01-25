@@ -1,0 +1,36 @@
+package model.shape;
+
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+
+public class EllipseShapeFactory implements IShapeFactory {
+	
+	private static EllipseShapeFactory Singleton = new EllipseShapeFactory();
+
+	public EllipseShapeFactory() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/*
+	 * Instantiates an ellipse
+	 * @param x - x-coordinate of the center of the ellipse
+	 * @param y - y-coordinate of the center of the ellipse
+	 * @paramxScale - The x-radius of the ellipse
+	 * @param yScale - The y-radius of the ellipse
+	 * @return An Ellipse2D.Double object.
+	 */
+	@Override
+	public Shape makeShape(double x, double y, double xScale, double yScale) {
+		// TODO Auto-generated method stub
+		return new Ellipse2D.Double(x-xScale, y-yScale, xScale, yScale);
+	}
+
+	public static EllipseShapeFactory getSingleton() {
+		return Singleton;
+	}
+
+	public static void setSingleton(EllipseShapeFactory singleton) {
+		Singleton = singleton;
+	}
+
+}

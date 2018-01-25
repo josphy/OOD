@@ -1,0 +1,48 @@
+package model.paintStrategy;
+
+import java.awt.geom.AffineTransform;
+
+import model.paint.ShapePaintStrategy;
+import model.shape.*;
+
+
+/** 
+ * Paint strategy to paint an ellipse shape
+ * https://www.clear.rice.edu/comp504/f17/lectures/lec12/
+ */ 
+public class EllipsePaintStrategy extends ShapePaintStrategy {
+  
+  /**
+   * No parameter constructor that creates a prototype ellipse that 
+   * has twice the width as height but an average radius of 1.
+   * An AffineTranform for internal use is instantiated.
+   */
+  public EllipsePaintStrategy(){
+	  this(new AffineTransform(), 0, 0, 4.0/3.0, 2.0/3.0);
+  }
+  
+  /**
+   * Constructor that allows the specification of the location, x-radius and y-radius of the prototype ellipse.
+   * @param x - floating point x-coordinate of center of ellipse
+   * @param y - floating point y-coordinate of center of ellipse
+   * @param width - floating point x-radius of the ellipse
+   * @param height - floating point y-radius of the ellipse
+   */
+  public EllipsePaintStrategy(double x, double y, double width, double height) {
+	  this(new AffineTransform(), x, y, width, height);
+  }
+  
+  /**
+   * Constructor that allows the specification of the location, x-radius and y-radius
+   * of the prototype ellipse.   The AffineTransform to use is given.
+   * @param at The AffineTransform to use for internal calculations
+   * @param x floating point x-coordinate of center of circle
+   * @param y floating point y-coordinate of center of circle
+   * @param width floating point x-radius of the circle (ellipse)
+   * @param height floating point y-radius of the circle (ellipse)
+   */
+  public EllipsePaintStrategy(AffineTransform at, double x, double y, double width, double height){
+	  super(at, EllipseShapeFactory.getSingleton().makeShape(x, y, width, height));
+  }
+}
+

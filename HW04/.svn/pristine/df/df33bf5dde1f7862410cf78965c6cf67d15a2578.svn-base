@@ -1,0 +1,59 @@
+/**
+ * 
+ */
+package model.paint;
+
+import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
+import java.util.ArrayList;
+
+import model.ball.Ball;
+
+/**
+ *
+ */
+public class AnimePaintStrategy extends APaintStrategy {
+
+	private ArrayList<APaintStrategy> pstrats = new ArrayList<APaintStrategy>();
+	private int counter = 0;	
+	
+	/**
+	 * @param at
+	 */
+	public AnimePaintStrategy(AffineTransform at, APaintStrategy... inputStrats) {
+		super(at);
+		// TODO Auto-generated constructor stub
+		for (APaintStrategy inputStrat: inputStrats) {
+			pstrats.add(inputStrat);
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public AnimePaintStrategy(APaintStrategy... inputStrats) {
+		// TODO Auto-generated constructor stub
+		super(new AffineTransform());
+		for (APaintStrategy inputStrat: inputStrats) {
+			pstrats.add(inputStrat);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see model.paint.APaintStrategy#paintXfrm(java.awt.Graphics, model.ball.Ball, java.awt.geom.AffineTransform)
+	 */
+	@Override
+	public void paintXfrm(Graphics g, Ball host, AffineTransform at) {
+		// TODO Auto-generated method stub
+		if(counter < pstrats.size()) {
+			pstrats.get(counter).paintXfrm(g, host, at);
+			counter++;
+		}
+		else {
+			counter -= pstrats.size();
+			pstrats.get(counter).paintXfrm(g, host, at);
+			counter++;
+		}
+	}
+
+}

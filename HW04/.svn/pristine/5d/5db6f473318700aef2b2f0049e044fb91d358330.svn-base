@@ -1,0 +1,45 @@
+package model.shape;
+
+import java.awt.Shape;
+import java.awt.geom.Rectangle2D;
+
+/**
+ * Concrete IShapeFactory that instantiates Rectangle2d.Double shapes.
+ */
+public class RectangleShapeFactory implements IShapeFactory {
+	
+	/**
+	 * Singleton pattern
+	 */
+	private static RectangleShapeFactory Singleton= new RectangleShapeFactory();
+
+	/**
+	 * Instantiates a Rectangle2D.Double object at the specified origin and size.
+	 * @param x - The x-coordinate of the center of the prototype rectangle
+	 * @param y - The y-coordinate of the center of the prototype rectangle
+	 * @param xScale - The half-width of the rectangle, i.e. the width as measured from the center.
+	 * @param yScale - The half-height of the rectangle, i.e. the height as measured from the center.
+	 * @return A Rectangle2D.Double instance
+	 */
+	@Override
+	public Shape makeShape(double x, double y, double xScale, double yScale) {
+		return new Rectangle2D.Double(x-xScale, y-yScale, 2*xScale, 2*yScale);
+	}
+
+	/**
+	 * Get RectangleShapeFactory singleton
+	 * @return the singleton instance of RectangleShapeFactory
+	 */
+	public static RectangleShapeFactory getSingleton() {
+		return Singleton;
+	}
+
+	/**
+	 * Set RectangleShapeFactory singleton
+	 * @param singleton - desired RectangleShapeFactory to be set
+	 */
+	public static void setSingleton(RectangleShapeFactory singleton) {
+		Singleton = singleton;
+	}
+
+}

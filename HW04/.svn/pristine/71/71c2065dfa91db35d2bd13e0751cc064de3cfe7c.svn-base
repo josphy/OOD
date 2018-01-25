@@ -1,0 +1,161 @@
+package control;
+
+import java.awt.EventQueue;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import view.*;
+import model.*;
+import model.strategy.*;
+
+// TODO: Auto-generated Javadoc
+/**
+ * MVC Controller for the system.
+ *
+ * @version 1.0
+ * @since 2017-09-17
+ */
+
+public class Controller {
+
+	/**
+	 * model is the instance of BallModel.
+	 */
+	private BallModel model;
+
+	/**
+	 * model is the instance of BallFrame.
+	 */
+	private BallFrame<IStrategyFac, String> view;
+
+	/**
+	 * Controller constructor builds the system.
+	 */
+	public Controller() {
+		/**
+		 * Use model to view adapter to repaint the ball panel.
+		 */
+		model = new BallModel(new IModel2ViewAdapter() {
+
+			/**
+			 * update method is the implementation of update method in IModel2ViewAdapter interface. This method repaints the ball panel.
+			 */
+			@Override
+			public void update() {
+				// TODO Auto-generated method stub
+				view.update();
+			}
+
+		});
+
+		/**
+		 * Use view to draw the ball on the view side.
+		 */
+		view = new BallFrame<IStrategyFac, String>(new IModelControlAdapter<IStrategyFac, String>() {
+
+			@Override
+			/**
+			 * Returns an IStrategyFac that can instantiate the strategy specified
+			 * by classname. Returns null if classname is null. The toString() of
+			 * the returned factory is the classname.
+			 * @param classname  Shortened name of desired strategy 
+			 * @return A factory to make that strategy
+			 */
+			public IStrategyFac addStrategy(String classname) {
+				return model.makeStrategyFac(classname);
+			}
+
+			@Override
+			/**
+			 * Add a ball to the system with a strategy as given by the given IStrategyFac
+			 * @param selectedItem The fully qualified name of the desired strategy.
+			 */
+			public void makeBall(IStrategyFac selectedItem) {
+				if (null != selectedItem)
+					model.loadBall(selectedItem.make()); // Here, loadBall takes a strategy object, but your method may take the strategy factory instead.		          	  
+			}
+
+			public void makeSwitcherBall() {
+				model.loadBall(model.getSwitcherStrategy()); // Here, loadBall takes a strategy object, but your method may take the strategy factory instead.		          	  
+			}
+
+			@Override
+			/**
+			 * Returns an IStrategyFac that can instantiate a MultiStrategy with the
+			 * two strategies made by the two given IStrategyFac objects. Returns
+			 * null if either supplied factory is null. The toString() of the
+			 * returned factory is the toString()'s of the two given factories,
+			 * concatenated with "-".             * 
+			 * @param selectedItem1 An IStrategyFac for a strategy
+			 * @param selectedItem2 An IStrategyFac for a strategy
+			 * @return An IStrategyFac for the composition of the two strategies
+			 */
+			public IStrategyFac combineStrategies(IStrategyFac selectedItem1, IStrategyFac selectedItem2) {
+				return model.combineStrategyFacs(selectedItem1, selectedItem2);
+			}
+
+			@Override
+			public void clearBalls() {
+				// TODO Auto-generated method stub
+				model.clearBalls();
+			}
+
+			@Override
+			public void setPanel(JPanel ballPanel) {
+				// TODO Auto-generated method stub
+				model.setPanel(ballPanel);
+			}
+
+			@Override
+			public void switchStrategy(IStrategyFac selectedItem) {
+				// TODO Auto-generated method stub
+				model.switchSwitcherStrategy(selectedItem.make());
+			}
+
+			// need to update to shape factory or something
+			@Override
+			public String addPaintStrategy(String paintName) {
+				// TODO Auto-generated method stub
+				//model.switchSwitcherStrategy(selectedItem.make());
+				return paintName;
+			}
+			
+			// etc.
+		}, new IModelUpdateAdapter() {
+			/**
+			 * Pass the update request to the model.
+			 * @param g The Graphics object the balls use to draw themselves.
+			 */
+			public void update(Graphics g) {
+				model.update(g);
+			}
+		});
+
+	}
+
+	/**
+	 * Start the system by starting model and view.
+	 */
+	public void start() {
+		model.start();
+		view.start(view);
+	}
+
+	/**
+	 * Launch the application.
+	 * @param args input parameter
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Controller controller = new Controller();
+					controller.start();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

@@ -1,0 +1,20 @@
+package model.shape;
+
+import java.awt.Point;
+import java.awt.geom.AffineTransform;
+
+/**
+ * Concrete PolygonFactory that creates fish-shaped Polygons that have a shorter tail and a closed mouth.
+ */
+public class Fish2PolygonFactory extends PolygonFactory{
+
+	/**
+	 * default constructor that defines polygon Fish2 shape
+	 */
+	public Fish2PolygonFactory() {
+		super(new AffineTransform(), 0.2, new Point(9,0), new Point(7,2), new Point(3,4), new Point(0,0),
+				new Point(0,10), new Point(3,6), new Point(7,8), new Point(9,10), new Point(12,8), 
+				new Point(16,5), new Point(12,2));
+	}
+
+}

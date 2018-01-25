@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package model.paint;
+
+import java.awt.geom.AffineTransform;
+import java.awt.Color;
+import java.awt.Graphics;
+import model.ball.*;
+/**
+ *
+ */
+public class FixedColorPaintStrategy extends ADecoratorPaintStrategy {
+
+	private Color color;
+	
+	/**
+	 * @param at
+	 * @param decoree
+	 */
+	public FixedColorPaintStrategy(AffineTransform at, APaintStrategy decoree, Color color) {
+		super(at, decoree);
+		// TODO Auto-generated constructor stub
+		this.color = color;
+	}
+
+	/**
+	 * @param decoree
+	 */
+	public FixedColorPaintStrategy(APaintStrategy decoree, Color color) {
+		super(decoree);
+		// TODO Auto-generated constructor stub
+		this.color = color;
+	}
+	
+	public void paintXfrm(Graphics g, Ball host, AffineTransform at) {
+		g.setColor(color);
+		super.paintXfrm(g, host, at);
+	}
+
+}
