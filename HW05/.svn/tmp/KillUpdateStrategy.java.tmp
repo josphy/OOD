@@ -1,0 +1,69 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IBallCmd;
+import model.IInteractStrategy;
+import model.IUpdateStrategy;
+import model.MultiInteractStrategy;
+import util.IDispatcher;
+
+/**
+<<<<<<< .mine
+ * interaction behavior: kill the other ball
+=======
+ * A concrete implementation of IUpdateStrategy, set up a MultiInteractStrategy
+ * which contains a "kill" interaction strategy which kills another Ball when
+ * they interact.
+ *
+ * This strategy must be combined with another strategy which has interaction
+ * criteria detection mechanism，such as detecting collision.
+>>>>>>> .r24135
+ */
+public class KillUpdateStrategy implements IUpdateStrategy<IBallCmd> {
+<<<<<<< .mine
+
+	/**
+	 * install kill interact strategy into the context ball
+	 * @param context this ball
+	 */
+	public void init(Ball context) {
+//		context.setInteractStrategy(new MultiInteractStrategy(context.getInteractStrategy(), new IInteractStrategy(){
+		context.setInteractStrategy(new IInteractStrategy(){
+=======
+  @Override
+  public void init(Ball context) {
+    context.setInteractStrategy(new MultiInteractStrategy(
+        context.getInteractStrategy(), new IInteractStrategy(){
+      @Override
+      public void interact(Ball context, Ball target, IDispatcher<IBallCmd> disp) {
+        disp.deleteObserver(target);
+      }
+    }));
+  }
+>>>>>>> .r24135
+
+<<<<<<< .mine
+			@Override
+			public void interact(Ball context, Ball target, IDispatcher<IBallCmd> disp) {
+				disp.deleteObserver(target);			
+			}
+			
+		});
+	}
+	
+	/**
+	 * update method called by timer
+	 * @param context this ball
+	 * @param dispatcher current dispatcher
+	 */
+	@Override
+	public void updateState(Ball context, IDispatcher<IBallCmd> dispatcher) {
+		// TODO Auto-generated method stub
+		
+	}
+=======
+  // Do nothing.
+  @Override
+  public void updateState(Ball context, IDispatcher<IBallCmd> dispatcher) {}
+>>>>>>> .r24135
+}

@@ -1,0 +1,20 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IUpdateStrategy;
+import util.Dispatcher;
+
+/**
+ * straight moving strategy.
+ */
+public class StraightUpdateStrategy implements IUpdateStrategy {
+  /**
+   * for straight moving ball, do nothing when update state.
+   *
+   * @param context the context
+   */
+  @Override
+  public void updateState(Ball context, Dispatcher dispatcher) {
+  }
+
+}

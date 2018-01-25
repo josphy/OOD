@@ -1,0 +1,43 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IBallCmd;
+import model.IUpdateStrategy;
+import util.IDispatcher;
+
+/**
+ * criteria: detect if any two balls have the same color
+ */
+public class SameColorUpdateStrategy implements IUpdateStrategy<IBallCmd> {
+
+	/**
+	 * default init function, not installing interact strategy
+	 * @param context this ball
+	 */
+	  @Override
+	  public void init(Ball context) {
+	    // TODO Auto-generated method stub
+
+	  }
+
+	  /**
+	   * update method called by timer
+	   * @param context this ball
+	   * @param dispatcher current dispatcher
+	   */
+	  @Override
+	  public void updateState(Ball context, IDispatcher<IBallCmd> dispatcher) {
+	      dispatcher.dispatch(new IBallCmd() {
+	          @Override
+	          public void apply(Ball another, IDispatcher<IBallCmd> disp) {
+	            if (context != another) {  // Make sure the another is not itself.
+	              if (context.getColor() == another.getColor()) {
+	                context.interactWith(another, dispatcher);
+	                another.interactWith(context, dispatcher);
+	              }
+	            }
+	          }
+	      });
+	  }
+
+}

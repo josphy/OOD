@@ -1,0 +1,81 @@
+package model;
+
+import util.IDispatcher;
+
+<<<<<<< .mine
+/**
+ * MultiInteractStrategy that allows multiple interact strategies to be installed
+ */
+=======
+/**
+ * Multiple interact strategies.
+ */
+>>>>>>> .r24135
+public class MultiInteractStrategy implements IInteractStrategy {
+<<<<<<< .mine
+	
+	/**
+	 * interact strategy s1
+	 */
+	private IInteractStrategy s1;
+	
+	/**
+	 * interact strategy s2
+	 */
+	private IInteractStrategy s2;
+=======
+  /**
+   * IInteractStrategy s1
+   */
+  private IInteractStrategy s1;
+  /**
+   * IInteractStrategy s2
+   */
+  private IInteractStrategy s2;
+>>>>>>> .r24135
+
+<<<<<<< .mine
+	/**
+	 * constructor that takes input strategy parameters
+	 * @param s1
+	 * @param s2
+	 */
+	public MultiInteractStrategy(IInteractStrategy s1, IInteractStrategy s2) {
+		this.s1=s1;
+		this.s2=s2;
+	}
+=======
+  /**
+   * Construct a MultiInteractStrategy object.
+   * @param s1  an IInteractStrategy
+   * @param s2  an IInteractStrategy
+   */
+  public MultiInteractStrategy(IInteractStrategy s1, IInteractStrategy s2) {
+    this.s1 = s1;
+    this.s2 = s2;
+  }
+>>>>>>> .r24135
+
+<<<<<<< .mine
+	/**
+	 * interact method that calls each strategy's interact if it is not a null strategy
+	 * @param context current ball
+	 * @param target interacting ball
+	 * @param disp current dispatcher
+	 */
+	@Override
+	public void interact(Ball context, Ball target, IDispatcher<IBallCmd> disp) {
+		if (s1 != IInteractStrategy.NULL_STRATEGY) 
+			s1.interact(context, target, disp);	
+		if (s2 != IInteractStrategy.NULL_STRATEGY) 
+			s2.interact(context, target, disp);
+	}
+=======
+  @Override
+  public void interact(Ball context, Ball target, IDispatcher<IBallCmd> disp) {
+    s1.interact(context, target, disp);
+    s2.interact(context, target, disp);
+  }
+>>>>>>> .r24135
+
+}

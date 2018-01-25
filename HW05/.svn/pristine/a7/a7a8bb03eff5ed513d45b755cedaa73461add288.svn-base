@@ -1,0 +1,36 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IUpdateStrategy;
+import util.Dispatcher;
+
+/**
+ * switcher strategy class: able to update strategy after ball generated.
+ */
+public class SwitcherUpdateStrategy implements IUpdateStrategy {
+  /**
+   * the strategy for a switcherStrategy, which can be later changed to
+   * other strategies. the default is a straight strategy.
+   */
+  private IUpdateStrategy _strategy = new StraightUpdateStrategy();
+
+  /**
+   * update state the ball of context.
+   *
+   * @param context the context
+   */
+  @Override
+  public void updateState(Ball context, Dispatcher dispatcher) {
+    _strategy.updateState(context, dispatcher);
+  }
+
+  /**
+   * set a new strategy.
+   *
+   * @param newStrategy a new strategy.
+   */
+  public void setStrategy(IUpdateStrategy newStrategy) {
+    _strategy = newStrategy;
+  }
+
+}

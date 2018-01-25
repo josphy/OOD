@@ -1,0 +1,18 @@
+package model;
+
+import util.Dispatcher;
+
+/**
+ * Top-level abstraction of an update strategy.
+ */
+public interface IUpdateStrategy {
+  /**
+   * Abstract method to update the state of a ball.
+   *
+   * @param context     the ball to be updated strategy
+   * @param dispatcher  the Dispatcher which sends the command that is calling
+   *                    through to here.
+   */
+  public void updateState(Ball context, Dispatcher dispatcher);
+
+}

@@ -1,0 +1,42 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IUpdateStrategy;
+import util.Dispatcher;
+
+/**
+ * multiple strategies: enables dynamically combined strategies.
+ */
+public class MultiUpdateStrategy implements IUpdateStrategy {
+  /**
+   * strategy 1.
+   */
+  private IUpdateStrategy _s1;
+  /**
+   * strategy 2.
+   */
+  private IUpdateStrategy _s2;
+
+  /**
+   * constructor.
+   *
+   * @param s1 strategy1
+   * @param s2 strategy2
+   */
+  public MultiUpdateStrategy(IUpdateStrategy s1, IUpdateStrategy s2) {
+    _s1 = s1;
+    _s2 = s2;
+  }
+
+  /**
+   * update state the ball of context.
+   *
+   * @param context the context
+   */
+  @Override
+  public void updateState(Ball context, Dispatcher dispatcher) {
+    _s1.updateState(context, dispatcher);
+    _s2.updateState(context, dispatcher);
+  }
+
+}

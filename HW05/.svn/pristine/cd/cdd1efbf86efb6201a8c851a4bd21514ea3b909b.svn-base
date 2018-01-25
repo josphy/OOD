@@ -1,0 +1,58 @@
+package model.updatestrategy;
+
+import java.awt.Color;
+
+import model.Ball;
+import model.IBallCmd;
+import model.IUpdateStrategy;
+import util.IDispatcher;
+import util.Randomizer;
+
+/**
+ * A concrete strategy behaves when two balls overlap. 
+ * Make the other ball also an infect ball. Recover to straight ball after a period of time.
+ */
+public class InfectUpdateStrategy implements IUpdateStrategy<IBallCmd> {
+
+	private int count = 0; // tick counter that counts out the delay before another ball can be spawned.
+	private int delay = 200;  // tick delay which increases at each spawn to keep total spawn rate from exponentially exploding.
+
+	/**
+	 * default init function, not installing interact strategy
+	 * @param context this ball
+	 */
+	@Override
+	public void init(Ball context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * update method called by timer
+	 * @param context this ball
+	 * @param dispatcher current dispatcher
+	 */
+	@Override
+	public void updateState(Ball context, IDispatcher<IBallCmd> dispatcher) {
+		
+		context.setColor(Color.BLACK);
+		dispatcher.dispatch(new IBallCmd() {
+
+			@Override
+			public void apply(Ball other, IDispatcher<IBallCmd> disp) {
+				count++;
+				if (count != 0 && context != other) {
+					if ((context.getRadius() + other.getRadius()) > 
+					    context.getLocation().distance(other.getLocation())) {
+						other.setUpdateStrategy(new InfectUpdateStrategy());
+					}
+				}
+				if (count > delay) {
+					context.setColor(Randomizer.Singleton.randomColor());
+					context.setUpdateStrategy(new StraightUpdateStrategy<IBallCmd>());
+				}
+			}
+		});
+	}
+
+}

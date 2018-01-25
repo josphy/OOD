@@ -1,0 +1,22 @@
+package model.updatestrategy;
+
+import model.Ball;
+import model.IUpdateStrategy;
+import util.Dispatcher;
+import util.Randomizer;
+
+/**
+ * color strategy: ball changing color every movement.
+ */
+public class ColorUpdateStrategy implements IUpdateStrategy {
+  /**
+   * update ball with random changing color.
+   *
+   * @param context the context
+   */
+  @Override
+  public void updateState(Ball context, Dispatcher dispatcher) {
+    context.setColor(Randomizer.Singleton.randomColor());
+  }
+
+}

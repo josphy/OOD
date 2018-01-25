@@ -1,0 +1,312 @@
+package model;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import model.updatestrategy.*;
+import util.IDispatcher;
+import util.Randomizer;
+import util.SetDispatcherSequential;
+
+/**
+ * This is a Ball Model class.
+ */
+public class BallModel {
+  /**
+   * viewUpdateAdpt is the instance of the model to view adapter. This ensures
+   * that the adapter is always valid.
+   */
+  private IViewUpdateAdapter viewUpdateAdpt = IViewUpdateAdapter.NULL_OBJECT;
+
+  /**
+   * Constructor of BallModel.
+   *
+   * @param viewUpdateAdpt An instance of model to view adaptor.
+   */
+  public BallModel(IViewUpdateAdapter viewUpdateAdpt) {
+    this.viewUpdateAdpt = viewUpdateAdpt;
+  }
+
+  /**
+   * myDispatcher is the instance of the dispatcher.
+   */
+  private IDispatcher<IBallCmd> myDispatcher = new
+      SetDispatcherSequential<IBallCmd>();
+
+  /**
+   * timeSlice is the time interval between time ticks.
+   */
+  private int timeSlice = 30;
+
+  /**
+   * The timer that controls when the balls are periodically painted.
+   */
+  private Timer paintTimer = new Timer(timeSlice, (e) -> viewUpdateAdpt.update());
+
+  /**
+   * The timer that controls when the balls are periodically updated.
+   */
+  private Timer updateTimer = new Timer(timeSlice, (e) ->
+    myDispatcher.dispatch(new IBallCmd() {
+      @Override
+      public void apply(Ball context, IDispatcher<IBallCmd> disp) {
+        context.updateState(disp);
+        context.move();
+        context.bounce();
+      }
+    }));
+
+  /**
+   * Start both timers.
+   */
+  public void start() {
+    paintTimer.start();
+    updateTimer.start();
+  }
+
+  /**
+   * This method is called by IModelUpdateAdapter.paint(), and updates all
+   * balls' painted locations by painting all the balls onto the given Graphics
+   * object.
+   *
+   * @param g The Graphics object from the view's paintComponent() call.
+   */
+  public void update(Graphics g) {
+    myDispatcher.dispatch(new IBallCmd() {
+      @Override
+      public void apply(Ball context, IDispatcher<IBallCmd> disp) {
+        context.paint(g);
+      }
+    });
+  }
+
+  /**
+   * Create a new ball and add it to the myDispatcher.
+   *
+   * @param strategyFac       ball update strategy factory
+   * @param paintStrategyFac  ball paint strategy factory
+   */
+  public void loadBall(IUpdateStrategyFac<IBallCmd> strategyFac,
+      IPaintStrategyFac paintStrategyFac) {
+    if (strategyFac != null && paintStrategyFac != null) {
+      // random generate parameters except for strategy
+      Rectangle locRec = new Rectangle(0, 0, ballPanel.getWidth(),
+          ballPanel.getHeight());
+      Point loc = Randomizer.Singleton.randomLoc(locRec);
+      int radius = Randomizer.Singleton.randomInt(13, 20);
+      Rectangle velRec = new Rectangle(0, 0, 10, 10);
+      Point vel = Randomizer.Singleton.randomVel(velRec);
+      Color color = Randomizer.Singleton.randomColor();
+      IUpdateStrategy<IBallCmd> strategy = strategyFac.make();
+      IPaintStrategy paintStrategy = paintStrategyFac.make();
+
+      Ball newBall = new Ball(loc, radius, vel, color, ballPanel, strategy,
+          paintStrategy);
+      myDispatcher.addObserver(newBall);
+    }
+  }
+
+  /**
+   * A factory for a beeping error strategy that beeps the speaker every
+   * 25 updates.
+   *
+   * Either use the errorStrategyFac variable directly if you need a factory
+   * that makes an error strategy, or call errorStrategyFac.make() to create
+   * an instance of a beeping error strategy.
+   */
+  private IUpdateStrategyFac<IBallCmd> errorStrategyFac =
+      new IUpdateStrategyFac<IBallCmd>() {
+    public IUpdateStrategy<IBallCmd> make() {
+      return new IUpdateStrategy<IBallCmd>() {
+        @Override
+        public void init(Ball context) {}
+
+        private int count = 0; // update counter
+        @Override
+        public void updateState(Ball context, IDispatcher<IBallCmd> dispatcher) {
+          if (25 < count++) {
+            // Beep the speaker every 25 updates.
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            count = 0;
+          }
+        }
+      };
+    }
+  };
+
+  /**
+   * Returns an IUpdateStrategyFac that can instantiate the strategy specified
+   * by className. The toString() of the returned factory is the className.
+   *
+   * @param className  Shortened name of desired strategy
+   * @return A factory to make that strategy
+   */
+  public IUpdateStrategyFac<IBallCmd> makeStrategyFac(final String className) {
+    return new IUpdateStrategyFac<IBallCmd>() {
+      @Override
+      public IUpdateStrategy<IBallCmd> make() {
+        return loadStrategy(fixStrategyName(className));
+      }
+      @Override
+      public String toString() {
+        return className;
+      }
+    };
+  }
+
+  /**
+   * @param className a input abbreviated class name
+   * @return the full class name
+   */
+  private String fixStrategyName(String className) {
+    return "model.updatestrategy." + className + "UpdateStrategy";
+  }
+
+  /**
+  * The following method returns an instance of an strategy, given a fully
+  * qualified class name (package.className) of a subclass of IUpdateStrategy.
+  *
+  * @param className A string that is the fully qualified class name of the
+  *                  desired object
+  * @return An instance of the supplied class. Returns a factory for a beeping
+  *         error strategy if className is invalid.
+  */
+  @SuppressWarnings("unchecked")
+  private IUpdateStrategy<IBallCmd> loadStrategy(String className) {
+    try {
+      return (IUpdateStrategy<IBallCmd>) Class.forName(className).newInstance();
+    } catch (Exception ex) {
+      System.err.println("Strategy " + " failed to load. \nException = \n" + ex);
+      ex.printStackTrace();
+      // Returns a factory for a beeping error strategy if className is invalid.
+      return errorStrategyFac.make();
+    }
+  }
+
+  /**
+   * Returns an IStrategyFac that can instantiate a MultiStrategy with the two
+   * strategies made by the two given IStrategyFac objects. Returns null if
+   * either supplied factory is null. The toString() of the returned factory
+   * is the toString()'s of the two given factories, concatenated with "-".
+   * If either factory is null, then a factory for a beeping error strategy is
+   * returned.
+   *
+   * @param stratFac1 An IUpdateStrategyFac for a strategy
+   * @param stratFac2 An IUpdateStrategyFac for a strategy
+   * @return An IUpdateStrategyFac for the composition of the two strategies
+   */
+  public IUpdateStrategyFac<IBallCmd> combineStrategyFacs(
+      final IUpdateStrategyFac<IBallCmd> stratFac1,
+      final IUpdateStrategyFac<IBallCmd> stratFac2) {
+    if (null == stratFac1 || null == stratFac2)
+      return errorStrategyFac;
+    return new IUpdateStrategyFac<IBallCmd>() {
+      @Override
+      public IUpdateStrategy<IBallCmd> make() {
+        return new MultiUpdateStrategy<IBallCmd>(stratFac1.make(), stratFac2.make());
+      }
+      @Override
+      public String toString() {
+        return stratFac1.toString() + "-" + stratFac2.toString();
+      }
+    };
+  }
+
+  /**
+   * switcher strategy.
+   */
+  private SwitcherUpdateStrategy<IBallCmd> switcher = new
+      SwitcherUpdateStrategy<IBallCmd>();
+
+  /**
+   * @return switcher strategy.
+   */
+  public SwitcherUpdateStrategy<IBallCmd> getSwitcherStrategy() {
+    return switcher;
+  }
+
+  /**
+   * set new switcher strategy.
+   *
+   * @param strategy the new switcher strategy.
+   */
+  public void switchSwitcherStrategy(IUpdateStrategy<IBallCmd> strategy) {
+    getSwitcherStrategy().setStrategy(strategy);
+  }
+
+  /**
+   * ballPanel is the ball panel to draw balls.
+   */
+  private JPanel ballPanel;
+
+  /**
+   * setPanel method sets the ball panel.
+   *
+   * @param ballPanel The panel to show the animation of balls.
+   */
+  public void setPanel(JPanel ballPanel) {
+    this.ballPanel = ballPanel;
+  }
+
+  /**
+   *  clearBalls method clears all balls on the panel.
+   */
+  public void clearBalls() {
+    myDispatcher.deleteObservers();
+  }
+
+  /**
+   * Returns an IPaintStrategyFac that can instantiate the paint strategy
+   * specified by className. The toString() of the returned factory is the
+   * className.
+   *
+   * @param className  Shortened name of desired paint strategy
+   * @return A factory to make that paint strategy
+   */
+  public IPaintStrategyFac makePaintStrategyFac(final String className) {
+    return new IPaintStrategyFac() {
+      @Override
+      public IPaintStrategy make() {
+        return loadPaintStrategy(fixPaintStrategyName(className));
+      }
+      @Override
+      public String toString() {
+        return className;
+      }
+    };
+  }
+
+  /**
+   * @param className a input abbreviated class name
+   * @return the full class name
+   */
+  private String fixPaintStrategyName(String className) {
+    return "model.paint.paintstrategy.concrete." + className + "PaintStrategy";
+  }
+
+  /**
+   * The following method returns an instance of a paint strategy,
+   * given a fully qualified class name (package.className) of a subclass of
+   * IPaintStrategy.
+   *
+   * @param className A string that is the fully qualified class name of the
+   *                  desired object
+   * @return An instance of the supplied class.
+   */
+  private IPaintStrategy loadPaintStrategy(String className) {
+    try {
+      return (IPaintStrategy) Class.forName(className).newInstance();
+    } catch (Exception ex) {
+      System.err.println("Strategy " + " failed to load. \nException = \n" + ex);
+      ex.printStackTrace();
+      // return a concrete strategy but updateState does nothing.
+      return IPaintStrategy.NULL_OBJECT;
+    }
+  }
+
+}
